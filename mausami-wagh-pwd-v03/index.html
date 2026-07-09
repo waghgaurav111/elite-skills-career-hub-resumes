@@ -7,6 +7,7 @@ PALETTE: #080b10 base / #111720 surface / #39e6b0 accent / #edf5f2 text
 FONTS: Space Grotesk + Inter
 PHOTO ASSET: Auto-detect profile-cutout.png first; profile.jpeg fallback (local, relative paths)
 PHOTO TREATMENT: Pattern C · True Cutout when profile-cutout.png loads successfully; otherwise Pattern A · Editorial Cutout Card on a dedicated emerald-obsidian plinth with one soft glow element behind the card
+PHOTO CORNER-RADIUS: Pattern A plinth and photo card use the page card radius (--radius: 22px) on all contained edges; Pattern C has no visible panel, border or radius
 SECTIONS INCLUDED: Sticky Nav, Hero, Trust Strip, Impact Numbers, Career Journey, Signature Achievements, About, Experience, Skills, Education & Certifications, Contact, Footer
 SECTIONS OMITTED (no source data): Testimonials, Beyond Work
 -->
@@ -22,6 +23,7 @@ SECONDARY: Explore experience → #experience
 TRUST BRANDS (real only): Bank of America, TIAA, Wells Fargo, SWIVEL / Southwest Business Corporation, WellCare / Centene, NEJM / Journal Watch
 PHOTO: yes → auto-detect src="profile-cutout.png" with src="profile.jpeg" fallback
 PHOTO TREATMENT: Pattern C · unframed transparent silhouette layered over one emerald glow when the cutout exists; Pattern A fallback uses a thin frosted-edge card on a dark emerald plinth; no elements cross the face or torso
+PHOTO CORNER-RADIUS: contained Pattern A plinth and card edges → var(--radius) = 22px; Pattern C transparent silhouette → none; no feathered edges used
 Above-the-fold on mobile (no scroll)? YES
 -->
 <!-- SOURCE FIDELITY DECLARATION
@@ -398,6 +400,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       pointer-events: none;
     }
 
+    /* V09 radius rule: every visible contained photo surface participates in the site card-radius system. */
     .portrait-plinth {
       position: relative;
       isolation: isolate;
@@ -407,7 +410,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       place-items: center;
       padding: 14px;
       overflow: hidden;
-      border-radius: 24px;
+      border-radius: var(--radius);
       background:
         linear-gradient(145deg, rgba(28,48,42,.96), rgba(11,18,23,.98) 58%, rgba(7,11,15,.99));
       border: 1px solid rgba(159,255,220,.14);
@@ -441,7 +444,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       position: absolute;
       inset: 0;
       overflow: hidden;
-      border-radius: 15px;
+      border-radius: var(--radius);
       background: linear-gradient(145deg, #17221f, #0d1418);
       border: 3px solid rgba(220,255,244,.72);
       box-shadow: 0 18px 42px rgba(0,0,0,.32);
@@ -489,7 +492,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
         linear-gradient(145deg, #17221f, #0d1418);
     }
 
-    /* V08 Pattern C: a real transparent cutout replaces the card automatically when available. */
+    /* V09 Pattern C: a real transparent cutout replaces the contained card; no visible panel means no radius. */
     .portrait-plinth.cutout-mode {
       width: min(100%, 240px);
       min-height: 210px;
@@ -949,7 +952,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
         row-gap: 22px;
       }
       .hero-portrait { align-self: stretch; }
-      .portrait-plinth { width: min(100%, 344px); min-height: 430px; padding: 24px; border-radius: 31px; }
+      .portrait-plinth { width: min(100%, 344px); min-height: 430px; padding: 24px; border-radius: var(--radius); }
       .portrait-art { width: min(100%, 292px); }
       .portrait-plinth.cutout-mode { width: min(100%, 390px); min-height: 430px; }
       .portrait-plinth.cutout-mode .portrait-art { min-height: 430px; }
@@ -1422,7 +1425,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       const cutoutPhoto = document.getElementById('cutoutPhoto');
       const ogImage = document.getElementById('ogImage');
 
-      // V08 asset detection: prefer a genuine transparent cutout; retain the JPEG card as a safe fallback.
+      // V09 asset detection: prefer a genuine transparent cutout; retain the radius-consistent JPEG card as a safe fallback.
       if (portraitPlinth && cutoutWrap && cutoutPhoto) {
         const cutoutProbe = new Image();
         cutoutProbe.onload = () => {
