@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<!-- BUILD SPEC
+TEMPLATE: 04 · OBSIDIAN GLASS
+DOMAIN: Technical Product Ownership · Banking · Payments · Enterprise Data
+ACCENT: #39e6b0
+PALETTE: #080b10 base / #111720 surface / #39e6b0 accent / #edf5f2 text
+FONTS: Space Grotesk + Inter
+PHOTO ASSET: profile.jpeg (local, relative path)
+FRAME TREATMENT: dark frosted-glass portrait frame with emerald jewel halo
+SECTIONS INCLUDED: Sticky Nav, Hero, Trust Strip, Impact Numbers, Career Journey, Signature Achievements, About, Experience, Skills, Education & Certifications, Contact, Footer
+SECTIONS OMITTED (no source data): Testimonials, Beyond Work
+-->
+<!-- 10-SECOND HERO AUDIT
+NAME: Mausami Wagh
+POSITIONING LINE (≤14 words, source-true): "Technical product leader connecting banking, payments, data and delivery."
+PROOF 1: 10+ years — Product & data delivery (source: Professional Summary)
+PROOF 2: CashPro — Backlog-to-release ownership (source: Bank of America engagement)
+PROOF 3: Real-time — Payments integration (source: SWIVEL engagement)
+PROOF 4: Snowflake — Data modernization (source: TIAA engagement)
+PRIMARY CTA: Email Mausami → mailto:mausami.wagh@gmail.com
+SECONDARY: Explore experience → #experience
+TRUST BRANDS (real only): Bank of America, TIAA, Wells Fargo, SWIVEL / Southwest Business Corporation, WellCare / Centene, NEJM / Journal Watch
+PHOTO: yes → src="profile.jpeg"
+Above-the-fold on mobile (no scroll)? YES
+-->
+<!-- SOURCE FIDELITY DECLARATION
+Source material used: Mausami Wagh PAD V03 resume
+Every fact traces to that source: YES
+Fabricated facts / metrics / skills / testimonials: NONE
+Numbers come ONLY from the source: YES
+Sections omitted for lack of data: Testimonials, Beyond Work
+[ADD: …] placeholders inserted: none
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mausami Wagh | Technical Product Owner</title>
+  <meta name="description" content="Technical Product Owner and Senior Business/Data Analyst with 10+ years across banking, payments, insurance, healthcare, publishing and construction technology.">
+  <meta property="og:title" content="Mausami Wagh | Technical Product Owner">
+  <meta property="og:description" content="Product, platform and data delivery across banking, payments and enterprise modernization.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="profile.jpeg">
+  <meta name="theme-color" content="#080b10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080b10;
+      --bg-2: #0b1017;
+      --surface: rgba(17, 23, 32, 0.74);
+      --surface-strong: rgba(19, 28, 38, 0.92);
+      --surface-soft: rgba(255, 255, 255, 0.035);
+      --text: #edf5f2;
+      --muted: #98aaa5;
+      --muted-2: #6f817c;
+      --accent: #39e6b0;
+      --accent-2: #9fffdc;
+      --accent-soft: rgba(57, 230, 176, 0.12);
+      --line: rgba(255, 255, 255, 0.095);
+      --line-strong: rgba(57, 230, 176, 0.28);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --container: 1180px;
+      --nav-h: 72px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(57, 230, 176, 0.13), transparent 27rem),
+        radial-gradient(circle at 18% 34%, rgba(57, 230, 176, 0.055), transparent 22rem),
+        linear-gradient(180deg, #070a0f 0%, #0a0e14 44%, #070a0e 100%);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.28;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+      z-index: -2;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { max-width: 100%; height: auto; }
+    section { scroll-margin-top: calc(var(--nav-h) + 22px); }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 14px;
+      color: var(--accent-2);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      box-shadow: 0 0 12px rgba(57, 230, 176, 0.7);
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h2 { font-size: clamp(2rem, 5.5vw, 4rem); }
+    h3 { font-size: clamp(1.1rem, 2.3vw, 1.45rem); }
+    p { margin: 0; }
+
+    .section {
+      position: relative;
+      padding: clamp(72px, 10vw, 128px) 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: clamp(30px, 5vw, 54px);
+    }
+
+    .section-heading p:last-child {
+      margin-top: 16px;
+      color: var(--muted);
+      max-width: 650px;
+      font-size: clamp(0.98rem, 1.8vw, 1.08rem);
+    }
+
+    .glass {
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.055), var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-wrap {
+      position: fixed;
+      inset: 14px 0 auto;
+      z-index: 100;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .nav-wrap.is-hidden { transform: translateY(-120%); opacity: 0; }
+
+    .nav {
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px 10px 18px;
+      border-radius: 18px;
+      background: rgba(9, 13, 18, 0.72);
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 16px 50px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      min-height: 48px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, rgba(159,255,220,.28), rgba(57,230,176,.08) 55%, rgba(255,255,255,.02));
+      border: 1px solid rgba(57,230,176,.28);
+      color: var(--accent-2);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 0 28px rgba(57,230,176,.12);
+      font-size: 0.86rem;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 13px;
+      border-radius: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,.05);
+    }
+
+    .nav-cta, .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+    }
+
+    .nav-cta, .btn-primary {
+      color: #05100c;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 10px 30px rgba(57,230,176,.19), inset 0 1px 0 rgba(255,255,255,.45);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+    }
+
+    .nav-cta:hover, .btn:hover { transform: translateY(-2px); }
+    .btn-primary:hover { box-shadow: 0 14px 36px rgba(57,230,176,.28); }
+    .btn-secondary:hover { border-color: var(--line-strong); background: rgba(57,230,176,.06); }
+
+    .menu-button {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 13px;
+      color: var(--text);
+      background: rgba(255,255,255,.045);
+      cursor: pointer;
+    }
+
+    .menu-button svg { width: 22px; height: 22px; }
+
+    .mobile-panel {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(9,13,18,.94);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .mobile-panel.open { display: grid; gap: 4px; }
+    .mobile-panel a {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .mobile-panel a:hover { color: var(--text); background: rgba(255,255,255,.045); }
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-h) + 18px) 0 20px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-areas:
+        "main"
+        "portrait"
+        "proof"
+        "actions";
+      gap: 16px;
+      padding: clamp(20px, 5vw, 66px);
+      border-radius: clamp(24px, 4vw, 36px);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      width: min(82vw, 760px);
+      aspect-ratio: 1;
+      right: -34%;
+      top: -48%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.25) 0%, rgba(57,230,176,.08) 35%, transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .hero-main {
+      grid-area: main;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 13px;
+      color: var(--accent-2);
+      font-size: clamp(.68rem, 2vw, .92rem);
+      font-weight: 700;
+      letter-spacing: .075em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker .dot {
+      flex: 0 0 auto;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(57,230,176,.9);
+    }
+
+    h1 {
+      max-width: 900px;
+      font-size: clamp(2.65rem, 11vw, 7.2rem);
+      letter-spacing: -0.065em;
+      line-height: .94;
+      background: linear-gradient(100deg, #ffffff 15%, #d9f7ec 52%, var(--accent-2) 98%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-wrap: balance;
+    }
+
+    .hero-positioning {
+      max-width: 730px;
+      margin-top: 15px;
+      color: #c8d5d1;
+      font-size: clamp(.98rem, 3.2vw, 1.6rem);
+      line-height: 1.42;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-portrait {
+      grid-area: portrait;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+    }
+
+    .portrait-frame {
+      position: relative;
+      isolation: isolate;
+      width: 118px;
+      aspect-ratio: 4 / 5;
+      padding: 7px;
+      overflow: visible;
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.025)) padding-box,
+        linear-gradient(145deg, rgba(159,255,220,.55), rgba(255,255,255,.06), rgba(57,230,176,.22)) border-box;
+      border: 1px solid transparent;
+      box-shadow:
+        0 24px 70px rgba(0,0,0,.48),
+        0 0 54px rgba(57,230,176,.16),
+        inset 0 1px 0 rgba(255,255,255,.16);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      inset: 12% -22% -10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.34), rgba(57,230,176,.08) 42%, transparent 70%);
+      filter: blur(22px);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    .portrait-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 7px;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.13);
+      pointer-events: none;
+    }
+
+    .portrait-frame:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 30px 82px rgba(0,0,0,.54),
+        0 0 70px rgba(57,230,176,.23),
+        inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
+    .candidate-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 17px;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(159,255,220,.2), transparent 36%),
+        linear-gradient(145deg, #17221f, #0d1418);
+      filter: saturate(.92) contrast(1.03);
+    }
+
+    .portrait-frame.photo-missing {
+      background:
+        radial-gradient(circle at 50% 28%, rgba(159,255,220,.19), transparent 32%),
+        linear-gradient(145deg, rgba(30,48,43,.88), rgba(10,16,20,.96));
+    }
+
+    .hero-actions {
+      grid-area: actions;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 9px;
+      margin-top: 0;
+    }
+
+    .proof-grid {
+      grid-area: proof;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .proof-card {
+      min-height: 76px;
+      padding: 12px;
+      border-radius: 15px;
+      background: rgba(4,9,12,.46);
+      border: 1px solid rgba(255,255,255,.085);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
+    }
+
+    .proof-value {
+      display: block;
+      color: var(--accent-2);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.05rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .proof-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: clamp(.68rem, 2.2vw, .9rem);
+      line-height: 1.3;
+    }
+
+    .trust {
+      padding: 22px 0 0;
+    }
+
+    .trust-wrap {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 2px 0 8px;
+      scrollbar-width: none;
+    }
+    .trust-wrap::-webkit-scrollbar { display: none; }
+    .trust-chip {
+      flex: 0 0 auto;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.028);
+      border: 1px solid var(--line);
+      color: #a9bab5;
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat-card {
+      min-height: 166px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -44px;
+      top: -44px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.16), transparent 68%);
+    }
+    .stat-number {
+      color: var(--accent-2);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.8rem, 9vw, 5.3rem);
+      font-weight: 700;
+      letter-spacing: -0.07em;
+      line-height: .88;
+    }
+    .stat-label {
+      max-width: 14ch;
+      margin-top: 20px;
+      color: #b8c7c3;
+      font-size: .9rem;
+      line-height: 1.4;
+    }
+
+    .journey {
+      position: relative;
+      display: grid;
+      gap: 0;
+    }
+    .journey::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 20px;
+      bottom: 20px;
+      width: 1px;
+      background: linear-gradient(var(--accent), rgba(255,255,255,.08));
+      box-shadow: 0 0 15px rgba(57,230,176,.28);
+    }
+    .milestone {
+      position: relative;
+      padding: 0 0 30px 52px;
+      min-height: 128px;
+    }
+    .milestone:last-child { padding-bottom: 0; }
+    .milestone-node {
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 5px solid rgba(57,230,176,.46);
+      box-shadow: 0 0 0 4px rgba(57,230,176,.07), 0 0 24px rgba(57,230,176,.22);
+    }
+    .milestone.current .milestone-node {
+      background: var(--accent);
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 6px rgba(57,230,176,.10), 0 0 28px rgba(57,230,176,.45);
+    }
+    .milestone-card {
+      padding: 19px 20px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.048), rgba(255,255,255,.017));
+      border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
+    }
+    .milestone.current .milestone-card { border-color: var(--line-strong); }
+    .milestone-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .now-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      color: #06110d;
+      background: var(--accent);
+      font-size: .68rem;
+      letter-spacing: .06em;
+    }
+    .milestone-role { color: var(--text); font-weight: 700; }
+    .milestone-company { margin-top: 4px; color: #b7c6c2; font-size: .9rem; }
+    .milestone-highlight { margin-top: 9px; color: var(--muted); font-size: .88rem; }
+
+    .achievement-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .achievement-card {
+      min-height: 250px;
+      padding: 26px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+    .achievement-card:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+    .achievement-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.12), transparent 70%);
+    }
+    .achievement-lead {
+      color: var(--accent-2);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 7vw, 4.4rem);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+    .achievement-card h3 { margin-top: 20px; max-width: 17ch; }
+    .achievement-card p { margin-top: 12px; color: var(--muted); max-width: 36ch; }
+
+    .about-layout { display: grid; gap: 18px; }
+    .about-copy {
+      padding: clamp(26px, 5vw, 48px);
+      border-radius: var(--radius);
+      color: #c4d1cd;
+      font-size: clamp(1.02rem, 2vw, 1.18rem);
+      line-height: 1.8;
+    }
+    .about-aside {
+      display: grid;
+      gap: 12px;
+    }
+    .about-point {
+      min-height: 108px;
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--line);
+    }
+    .about-point strong {
+      display: block;
+      color: var(--accent-2);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+    }
+    .about-point span { display: block; margin-top: 6px; color: var(--muted); font-size: .9rem; }
+
+    .experience-list { display: grid; gap: 16px; }
+    .role-card {
+      padding: clamp(24px, 5vw, 40px);
+      border-radius: var(--radius);
+    }
+    .role-top {
+      display: grid;
+      gap: 14px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .role-company {
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .role-date {
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 600;
+    }
+    .role-card ul {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .role-card li {
+      position: relative;
+      padding-left: 22px;
+      color: #b8c6c2;
+      font-size: .95rem;
+    }
+    .role-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .7em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(57,230,176,.65);
+    }
+
+    .earlier-roles {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--line);
+    }
+    .earlier-role {
+      display: grid;
+      gap: 5px;
+      padding: 15px 2px;
+      border-bottom: 1px solid rgba(255,255,255,.065);
+    }
+    .earlier-role:last-child { border-bottom: 0; }
+    .earlier-role strong { font-size: .96rem; }
+    .earlier-role span { color: var(--muted); font-size: .84rem; }
+
+    .skills-grid { display: grid; gap: 14px; }
+    .skill-group {
+      padding: 24px;
+      border-radius: 20px;
+    }
+    .skill-group h3 { color: #dce8e4; font-size: 1.04rem; }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .chip {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 999px;
+      color: #afc0bb;
+      background: rgba(255,255,255,.032);
+      border: 1px solid rgba(255,255,255,.075);
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .credentials-grid { display: grid; gap: 16px; }
+    .credential-card { padding: 26px; border-radius: var(--radius); }
+    .credential-card h3 { margin-bottom: 20px; }
+    .credential-list { display: grid; gap: 0; }
+    .credential-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .credential-item:last-child { border-bottom: 0; }
+    .credential-item strong { display: block; font-size: .96rem; }
+    .credential-item span { display: block; margin-top: 4px; color: var(--muted); font-size: .84rem; }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 7vw, 70px);
+      border-radius: clamp(24px, 4vw, 34px);
+      text-align: left;
+    }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -210px;
+      top: -250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.22), transparent 68%);
+    }
+    .contact-card > * { position: relative; z-index: 1; }
+    .contact-card h2 { max-width: 820px; }
+    .contact-card p { margin-top: 18px; color: var(--muted); max-width: 620px; }
+    .contact-actions { display: grid; gap: 10px; margin-top: 26px; }
+    .contact-details { display: grid; gap: 10px; margin-top: 26px; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #bdcbc7;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .contact-detail svg { flex: 0 0 20px; width: 20px; height: 20px; color: var(--accent); }
+
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted-2);
+      font-size: .78rem;
+    }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-actions, .contact-actions { display: flex; flex-wrap: wrap; }
+      .hero-actions .btn, .contact-actions .btn { min-width: 180px; }
+      .stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .achievement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .role-top { grid-template-columns: 1fr auto; align-items: end; }
+      .earlier-role { grid-template-columns: 1fr auto; align-items: center; }
+    }
+
+    @media (min-width: 768px) {
+      .menu-button { display: none; }
+      .nav-links { display: flex; }
+      .hero {
+        padding-top: calc(var(--nav-h) + 34px);
+      }
+      .hero-shell {
+        grid-template-columns: minmax(0, 1.32fr) minmax(250px, .68fr);
+        grid-template-areas:
+          "main portrait"
+          "proof portrait"
+          "actions portrait";
+        align-items: center;
+        column-gap: clamp(28px, 4vw, 58px);
+        row-gap: 22px;
+      }
+      .hero-portrait { align-self: stretch; }
+      .portrait-frame { width: min(100%, 320px); padding: 10px; border-radius: 32px; }
+      .portrait-frame::after { inset: 10px; border-radius: 23px; }
+      .candidate-photo { border-radius: 23px; }
+      .proof-grid { align-content: end; gap: 10px; }
+      .proof-card { min-height: 100px; padding: 16px; }
+      .hero-actions { margin-top: 0; }
+      .about-layout { grid-template-columns: 1.45fr .55fr; align-items: stretch; }
+      .contact-card { text-align: left; }
+      .contact-details { grid-template-columns: repeat(2, minmax(0, max-content)); gap: 28px; }
+    }
+
+    @media (min-width: 1024px) {
+      .nav { padding-left: 20px; }
+      .portrait-frame { width: min(100%, 350px); }
+      .journey {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        align-items: start;
+        gap: 10px;
+        padding-top: 46px;
+      }
+      .journey::before {
+        left: 5%; right: 5%; top: 21px; bottom: auto; width: auto; height: 1px;
+        background: linear-gradient(90deg, rgba(255,255,255,.08), var(--accent), rgba(57,230,176,.18));
+      }
+      .milestone { padding: 0; min-height: auto; }
+      .milestone-node { left: 50%; top: -34px; transform: translateX(-50%); }
+      .milestone-card { min-height: 212px; padding: 18px; }
+      .milestone:nth-child(2) .milestone-card,
+      .milestone:nth-child(4) .milestone-card,
+      .milestone:nth-child(6) .milestone-card { transform: translateY(20px); }
+      .achievement-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .achievement-card { min-height: 310px; }
+      .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .stats-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .stat-card { min-height: 190px; padding: 20px; }
+      .stat-number { font-size: clamp(2.5rem, 4.3vw, 4.7rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      :root { --text: #101418; --muted: #4c5652; }
+      body { background: #fff; color: #101418; }
+      body::before, .nav-wrap, .hero-shell::before, .contact-card::before, .portrait-frame::before { display: none !important; }
+      .section { padding: 28px 0; }
+      .glass, .milestone-card, .about-point, .skill-group, .earlier-roles {
+        background: #fff !important;
+        color: #101418 !important;
+        border: 1px solid #cfd8d5 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+      }
+      h1 { color: #101418; background: none; -webkit-text-fill-color: currentColor; }
+      .hero { min-height: auto; padding-top: 20px; }
+      .portrait-frame { width: 180px; box-shadow: none; border: 1px solid #b8c3bf; background: #fff; }
+      .proof-value, .stat-number, .achievement-lead, .eyebrow, .role-company { color: #087c5d !important; }
+      a { text-decoration: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .btn { border: 1px solid #777; color: #111; background: #fff; box-shadow: none; }
+      .journey { display: block; }
+      .journey::before, .milestone-node { display: none; }
+      .milestone { padding: 0 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap" id="navWrap">
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Mausami Wagh home">
+          <span class="brand-mark" aria-hidden="true">MW</span>
+          <span>Mausami Wagh</span>
+        </a>
+        <div class="nav-links" aria-label="Page sections">
+          <a href="#impact">Impact</a>
+          <a href="#journey">Journey</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+        </div>
+        <a class="nav-cta" href="mailto:mausami.wagh@gmail.com">Contact</a>
+        <button class="menu-button" id="menuButton" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobilePanel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </nav>
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="#impact">Impact</a>
+        <a href="#journey">Journey</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-shell glass reveal">
+          <div class="hero-main">
+            <div class="hero-kicker"><span class="dot" aria-hidden="true"></span> Technical Product Owner · Senior Business/Data Analyst</div>
+            <h1>Mausami Wagh</h1>
+            <p class="hero-positioning">Technical product leader connecting banking, payments, data and delivery.</p>
+          </div>
+
+          <figure class="hero-portrait" aria-label="Profile photograph of Mausami Wagh">
+            <div class="portrait-frame">
+              <img
+                src="profile.jpeg"
+                alt="Mausami Wagh"
+                class="candidate-photo"
+                width="800"
+                height="1000"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                onerror="this.hidden=true;this.parentElement.classList.add('photo-missing')">
+            </div>
+          </figure>
+
+          <div class="proof-grid" aria-label="Career proof points">
+            <div class="proof-card"><span class="proof-value">10+ years</span><span class="proof-label">Product & data delivery</span></div>
+            <div class="proof-card"><span class="proof-value">CashPro</span><span class="proof-label">Backlog-to-release ownership</span></div>
+            <div class="proof-card"><span class="proof-value">Real-time</span><span class="proof-label">Payments integration</span></div>
+            <div class="proof-card"><span class="proof-value">Snowflake</span><span class="proof-label">Data modernization</span></div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:mausami.wagh@gmail.com">
+              Email Mausami
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="#experience">Explore experience</a>
+          </div>
+        </div>
+        <div class="trust reveal" aria-label="Selected client and product environments">
+          <div class="trust-wrap">
+            <span class="trust-chip">Bank of America</span>
+            <span class="trust-chip">TIAA</span>
+            <span class="trust-chip">Wells Fargo</span>
+            <span class="trust-chip">SWIVEL / SWBC</span>
+            <span class="trust-chip">WellCare / Centene</span>
+            <span class="trust-chip">NEJM / Journal Watch</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Impact in numbers</p>
+          <h2>Evidence-led delivery across complex product environments.</h2>
+          <p>Quantified scope drawn directly from Mausami’s product, data, payments and analysis work.</p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="10">10</span>+</div><p class="stat-label">Years across product, platform, data and process delivery</p></article>
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="2">2</span></div><p class="stat-label">Strategic TIAA initiatives delivered across data platforms</p></article>
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="4">4</span></div><p class="stat-label">Requirements methods used to establish target-state clarity</p></article>
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="2">2</span></div><p class="stat-label">Primary payment rails managed: ACH and card</p></article>
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="4">4</span></div><p class="stat-label">Core Agile ceremonies supported for predictable delivery</p></article>
+          <article class="stat-card glass reveal"><div class="stat-number"><span data-counter="3">3</span></div><p class="stat-label">UML diagram types used in construction ERP analysis</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Career journey</p>
+          <h2>From systems analysis to enterprise product ownership.</h2>
+          <p>A progression through requirements, quality, data governance, payments and technical product leadership.</p>
+        </div>
+        <div class="journey reveal" aria-label="Career timeline">
+          <article class="milestone">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2012–2014</div>
+              <h3 class="milestone-role">Business Systems Analyst</h3>
+              <p class="milestone-company">Ravish Systems</p>
+              <p class="milestone-highlight">Mapped workflows and requirements for construction ERP solutions.</p>
+            </div>
+          </article>
+          <article class="milestone">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2016</div>
+              <h3 class="milestone-role">Quality Assurance Analyst</h3>
+              <p class="milestone-company">Massachusetts Medical Society</p>
+              <p class="milestone-highlight">Validated NEJM and Journal Watch eCommerce experiences.</p>
+            </div>
+          </article>
+          <article class="milestone">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2017</div>
+              <h3 class="milestone-role">Business Systems Analyst</h3>
+              <p class="milestone-company">WellCare / Centene</p>
+              <p class="milestone-highlight">Aligned enrollment correspondence with CMS-driven requirements.</p>
+            </div>
+          </article>
+          <article class="milestone">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2018–2021</div>
+              <h3 class="milestone-role">Associate Product Manager</h3>
+              <p class="milestone-company">Southwest Business Corporation</p>
+              <p class="milestone-highlight">Managed ACH and card payment and risk capabilities.</p>
+            </div>
+          </article>
+          <article class="milestone">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2021–2024</div>
+              <h3 class="milestone-role">Data & Product Leadership</h3>
+              <p class="milestone-company">Wells Fargo · SWIVEL · TIAA</p>
+              <p class="milestone-highlight">Advanced enterprise data, payments and modernization initiatives.</p>
+            </div>
+          </article>
+          <article class="milestone current">
+            <span class="milestone-node" aria-hidden="true"></span>
+            <div class="milestone-card">
+              <div class="milestone-meta">2024–Present <span class="now-badge">Now</span></div>
+              <h3 class="milestone-role">Technical Product Owner</h3>
+              <p class="milestone-company">Bank of America · CashPro</p>
+              <p class="milestone-highlight">Owns backlog-to-release delivery and production verification.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Signature achievements</p>
+          <h2>Work that connects strategy, systems and release confidence.</h2>
+        </div>
+        <div class="achievement-grid">
+          <article class="achievement-card glass reveal">
+            <div class="achievement-lead">CashPro</div>
+            <h3>Backlog-to-release ownership</h3>
+            <p>Owns discovery, PI planning, sprint execution, UAT, management demonstrations and post-production verification.</p>
+          </article>
+          <article class="achievement-card glass reveal">
+            <div class="achievement-lead">2</div>
+            <h3>Strategic data initiatives</h3>
+            <p>Delivered analysis for an annuity-data system of record and a Tableau-to-Snowflake dashboard migration.</p>
+          </article>
+          <article class="achievement-card glass reveal">
+            <div class="achievement-lead">Real-time</div>
+            <h3>Payments integration</h3>
+            <p>Managed capabilities posting borrower transactions through financial-institution core banking integrations.</p>
+          </article>
+          <article class="achievement-card glass reveal">
+            <div class="achievement-lead">2 rails</div>
+            <h3>Payments & risk portfolio</h3>
+            <p>Supported B2B and B2C borrower payments across ACH and card with product, analytics and testing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About</p>
+          <h2>Complex requirements, translated into executable product decisions.</h2>
+        </div>
+        <div class="about-layout">
+          <div class="about-copy glass reveal">
+            Mausami Wagh is a Technical Product Owner and Senior Business/Data Analyst with 10+ years of experience delivering product, platform, data and process solutions across banking, payments, insurance, healthcare, publishing and construction technology. She translates complex business needs into actionable epics, user stories, acceptance criteria, process models and technical specifications. Her experience spans product backlog ownership, roadmap execution, PI planning, API integration, SQL analysis, data migration, UAT and post-production verification. Across engagements, she aligns business, engineering, quality assurance, data, compliance, vendor and leadership stakeholders while bringing a disciplined, data-informed approach to risk, dependencies, release readiness and continuous product improvement.
+          </div>
+          <aside class="about-aside reveal" aria-label="Working strengths">
+            <div class="about-point"><strong>Product direction</strong><span>Roadmaps, backlogs, prioritization and sprint goals.</span></div>
+            <div class="about-point"><strong>Delivery confidence</strong><span>UAT, release readiness and post-production verification.</span></div>
+            <div class="about-point"><strong>Cross-functional clarity</strong><span>Business, engineering, QA, data, compliance and vendors.</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Experience</p>
+          <h2>Recent roles at the intersection of product, data and financial platforms.</h2>
+        </div>
+        <div class="experience-list">
+          <article class="role-card glass reveal">
+            <div class="role-top">
+              <div>
+                <p class="role-company">Client Engagement · Bank of America</p>
+                <h3>Technical Product Owner</h3>
+              </div>
+              <p class="role-date">September 2024 – Present</p>
+            </div>
+            <ul>
+              <li>Own and refine the CashPro product backlog across discovery, PI planning, delivery, UAT and production verification.</li>
+              <li>Translate stakeholder requests into epics, user stories, acceptance criteria and prioritized sprint goals.</li>
+              <li>Identify cross-team dependencies and delivery risks before Program Increment planning.</li>
+              <li>Lead UAT coverage, defect resolution, business validation and final sprint sign-off.</li>
+              <li>Perform post-production verification and coordinate investigation of released-capability issues.</li>
+              <li>Present completed functionality through sprint demonstrations and management walkthroughs.</li>
+            </ul>
+          </article>
+
+          <article class="role-card glass reveal">
+            <div class="role-top">
+              <div>
+                <p class="role-company">Client Engagement · TIAA</p>
+                <h3>Senior Business/Data Analyst</h3>
+              </div>
+              <p class="role-date">May 2023 – August 2024</p>
+            </div>
+            <ul>
+              <li>Delivered analysis across an investment-data system of record and a Tableau-to-Snowflake modernization.</li>
+              <li>Used interviews, document analysis, storyboards and use cases to establish current and target states.</li>
+              <li>Produced stories, acceptance criteria, process models, data flows, plans and end-user guidance.</li>
+              <li>Inventoried dashboards, mapped dependencies and surfaced migration risks before source conversion.</li>
+              <li>Executed source-to-target validation to preserve data integrity, calculations and user-facing behavior.</li>
+              <li>Coordinated data, development, QA and business stakeholders across onsite-offshore delivery.</li>
+            </ul>
+          </article>
+
+          <article class="role-card glass reveal">
+            <div class="role-top">
+              <div>
+                <p class="role-company">Client Engagement · SWIVEL / Southwest Business Corporation</p>
+                <h3>Associate Product Manager – Payments & Integrations</h3>
+              </div>
+              <p class="role-date">January 2022 – May 2023</p>
+            </div>
+            <ul>
+              <li>Managed a payment product enabling real-time posting through financial-institution core integrations.</li>
+              <li>Translated roadmap direction into epics and features while prioritizing backlog items.</li>
+              <li>Orchestrated pilot launches across scope, timelines, readiness, risks and success measures.</li>
+              <li>Validated requirements with end users and created interactive Axure RP prototypes.</li>
+              <li>Applied Excel and SQL analysis to investigate issues and support prioritization.</li>
+              <li>Coordinated engineering, QA, support, implementations, compliance and third-party vendors.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="earlier-roles reveal" aria-label="Earlier experience">
+          <div class="earlier-role"><strong>Data Management Consultant · Wells Fargo</strong><span>September 2021 – December 2021</span></div>
+          <div class="earlier-role"><strong>Associate Product Manager – Payments & Risk · Southwest Business Corporation</strong><span>February 2018 – August 2021</span></div>
+          <div class="earlier-role"><strong>Business Systems Analyst · WellCare Health Plans / Centene Corporation</strong><span>March 2017 – November 2017</span></div>
+          <div class="earlier-role"><strong>Quality Assurance Analyst · Massachusetts Medical Society</strong><span>January 2016 – June 2016</span></div>
+          <div class="earlier-role"><strong>Business Systems Analyst · Ravish Systems</strong><span>March 2012 – June 2014</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Skills & tools</p>
+          <h2>A practical toolkit for product delivery and data-driven analysis.</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-group glass reveal"><h3>Product & Delivery</h3><div class="chips"><span class="chip">Technical Product Ownership</span><span class="chip">Product Strategy</span><span class="chip">Roadmap Management</span><span class="chip">Backlog Prioritization</span><span class="chip">PI Planning</span><span class="chip">Sprint Planning</span><span class="chip">Release Management</span><span class="chip">Product Demos</span></div></article>
+          <article class="skill-group glass reveal"><h3>Requirements & Analysis</h3><div class="chips"><span class="chip">Requirements Elicitation</span><span class="chip">User Stories</span><span class="chip">Acceptance Criteria</span><span class="chip">Process Modeling</span><span class="chip">Gap & Impact Analysis</span><span class="chip">Root Cause Analysis</span><span class="chip">RAID Analysis</span><span class="chip">Stakeholder Management</span></div></article>
+          <article class="skill-group glass reveal"><h3>Data & Databases</h3><div class="chips"><span class="chip">SQL</span><span class="chip">PL/SQL</span><span class="chip">SQL Server</span><span class="chip">Oracle</span><span class="chip">Snowflake</span><span class="chip">Teradata</span><span class="chip">DynamoDB</span><span class="chip">Oracle SQL Developer</span></div></article>
+          <article class="skill-group glass reveal"><h3>Analytics & BI</h3><div class="chips"><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">QlikView</span><span class="chip">Qlik Sense</span><span class="chip">Domo</span><span class="chip">R</span><span class="chip">Microsoft Excel</span></div></article>
+          <article class="skill-group glass reveal"><h3>API, Integration & Platforms</h3><div class="chips"><span class="chip">Postman</span><span class="chip">Insomnia</span><span class="chip">SoapUI</span><span class="chip">Talend</span><span class="chip">SSIS</span><span class="chip">JSON</span><span class="chip">AWS</span><span class="chip">Salesforce</span><span class="chip">Symitar Episys</span><span class="chip">Temenos</span></div></article>
+          <article class="skill-group glass reveal"><h3>Delivery Systems & Validation</h3><div class="chips"><span class="chip">JIRA</span><span class="chip">Azure DevOps</span><span class="chip">Aha!</span><span class="chip">Confluence</span><span class="chip">SharePoint</span><span class="chip">Axure RP</span><span class="chip">Lucidchart</span><span class="chip">UML</span><span class="chip">Selenium</span><span class="chip">BDD / Gherkin</span><span class="chip">UAT</span><span class="chip">Regression Testing</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Education & credentials</p>
+          <h2>Technical depth strengthened by product and systems education.</h2>
+        </div>
+        <div class="credentials-grid">
+          <article class="credential-card glass reveal">
+            <h3>Education</h3>
+            <div class="credential-list">
+              <div class="credential-item"><strong>Master of Science, Information Systems</strong><span>Northeastern University · Boston, Massachusetts</span></div>
+              <div class="credential-item"><strong>Master of Business Administration, Systems</strong><span>University of Pune · Pune, India</span></div>
+              <div class="credential-item"><strong>Bachelor of Engineering, Computer Engineering</strong><span>University of Pune · Pune, India</span></div>
+            </div>
+          </article>
+          <article class="credential-card glass reveal">
+            <h3>Certifications & Training</h3>
+            <div class="credential-list">
+              <div class="credential-item"><strong>Product Strategy Certification</strong><span>Northwestern University Kellogg School of Management</span></div>
+              <div class="credential-item"><strong>Tableau 10 Advanced Training</strong><span>Credential: UC-Q3TXJ23K</span></div>
+              <div class="credential-item"><strong>The Complete Guide to UML</strong><span>Credential: UC-Y631KN1L</span></div>
+              <div class="credential-item"><strong>Scrum Certification Preparation Training</strong><span>Credential: UC-YDTRQB25</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card glass reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s connect product direction with confident delivery.</h2>
+          <p>Reach Mausami directly to discuss technical product ownership, business analysis, payments or data-platform opportunities.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:mausami.wagh@gmail.com">mausami.wagh@gmail.com</a>
+            <a class="btn btn-secondary" href="tel:+19802532534">Call (980) 253-2534</a>
+          </div>
+          <div class="contact-details">
+            <a class="contact-detail" href="mailto:mausami.wagh@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              <span>mausami.wagh@gmail.com</span>
+            </a>
+            <a class="contact-detail" href="tel:+19802532534">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 3h3l2 5-2 2c1.3 2.5 2.5 3.7 5 5l2-2 5 2v3c0 1.1-.9 2-2 2C10.6 20 4 13.4 4 5c0-1.1.9-2 2-2h1z"/></svg>
+              <span>(980) 253-2534</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Mausami Wagh</span>
+      <span>Designed as a personal website.</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const menuButton = document.getElementById('menuButton');
+      const mobilePanel = document.getElementById('mobilePanel');
+      const navWrap = document.getElementById('navWrap');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      menuButton?.addEventListener('click', () => {
+        const open = mobilePanel.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      });
+
+      mobilePanel?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobilePanel.classList.remove('open');
+          menuButton?.setAttribute('aria-expanded', 'false');
+          menuButton?.setAttribute('aria-label', 'Open navigation menu');
+        });
+      });
+
+      let lastScroll = window.scrollY;
+      window.addEventListener('scroll', () => {
+        const current = window.scrollY;
+        if (current > lastScroll && current > 160 && !mobilePanel.classList.contains('open')) {
+          navWrap.classList.add('is-hidden');
+        } else {
+          navWrap.classList.remove('is-hidden');
+        }
+        lastScroll = current;
+      }, { passive: true });
+
+      const revealItems = document.querySelectorAll('.reveal');
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealItems.forEach(item => item.classList.add('visible'));
+      } else {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => revealObserver.observe(item));
+      }
+
+      const counters = document.querySelectorAll('[data-counter]');
+      const animateCounter = el => {
+        const target = Number(el.dataset.counter || 0);
+        if (prefersReduced) { el.textContent = String(target); return; }
+        const start = performance.now();
+        const duration = 950;
+        const tick = now => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = String(Math.round(target * eased));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      if ('IntersectionObserver' in window && !prefersReduced) {
+        const counterObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.6 });
+        counters.forEach(counter => {
+          counter.textContent = '0';
+          counterObserver.observe(counter);
+        });
+      }
+
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const navLinks = [...document.querySelectorAll('.nav-links a')];
+      if ('IntersectionObserver' in window && sections.length) {
+        const sectionObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+            }
+          });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        sections.forEach(section => sectionObserver.observe(section));
+      }
+    })();
+  </script>
+</body>
+</html>
