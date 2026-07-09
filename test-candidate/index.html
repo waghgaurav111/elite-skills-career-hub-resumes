@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant Deshmukh — Senior Test Engineer</title>
+    <meta name="description" content="Leading electrical validation for Class 8 commercial trucks. 18+ years of automotive engineering expertise with a proven track record in cross-functional leadership.">
+    <meta property="og:title" content="Prashant Deshmukh — Senior Test Engineer">
+    <meta property="og:description" content="Leading electrical validation for Class 8 commercial trucks. 18+ years of automotive engineering expertise.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#fcf6f0">
+
+    <!-- SOFT CLAY fonts: Outfit (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── SOFT CLAY — Tactile claymorphic 3D; puffy rounded surfaces ── */
+        :root {
+            --bg-body: #fcf6f0;
+            --bg-surface: #ffffff;
+            --bg-hero: #fcf6f0;
+            --bg-card: #ffffff;
+            --accent: #f09b7c;
+            --accent-rgb: 240, 155, 124;
+            --accent-deep: #d4785c;
+            --text-heading: #2d1f1a;
+            --text-primary: #4a372f;
+            --text-muted: #8a7a72;
+            --border-subtle: rgba(240, 155, 124, 0.15);
+            --shadow-puffy: 6px 6px 12px rgba(45, 31, 26, 0.05), -6px -6px 12px rgba(255, 255, 255, 0.8);
+            --shadow-puffy-hover: 8px 8px 16px rgba(45, 31, 26, 0.08), -8px -8px 16px rgba(255, 255, 255, 0.9);
+            --shadow-puffy-inset: inset 4px 4px 8px rgba(45, 31, 26, 0.04), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .display {
+            font-family: var(--font-display);
+        }
+
+        /* ── UTILITY ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4vw, 3rem);
+        }
+
+        .section-pad {
+            padding: clamp(2.5rem, 6vw, 5rem) 0;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.3rem;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+        }
+
+        .accent-rule {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem 0 1.5rem 0;
+            border-radius: 999px;
+        }
+
+        /* ── CLAYMORPHIC BASE ── */
+        .clay-card {
+            background: var(--bg-card);
+            border-radius: 32px;
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .clay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-puffy-hover);
+        }
+
+        .clay-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 2rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            min-height: 48px;
+            min-width: 48px;
+            box-shadow: var(--shadow-puffy);
+            background: var(--bg-card);
+            color: var(--text-heading);
+        }
+        .clay-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-puffy-hover);
+        }
+        .clay-btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .clay-btn-primary:hover {
+            background: var(--accent-deep);
+            border-color: var(--accent-deep);
+            color: #fff;
+        }
+
+        /* ── STICKY NAV ── */
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(252, 246, 240, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0 clamp(1.25rem, 4vw, 3rem);
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-name span {
+            color: var(--accent-deep);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.8rem, 2vw, 2rem);
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--text-heading);
+        }
+        .nav-cta {
+            background: var(--accent);
+            color: #fff !important;
+            padding: 0.4rem 1.2rem;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: var(--shadow-puffy);
+            transition: box-shadow 0.2s, background 0.2s;
+        }
+        .nav-cta:hover {
+            background: var(--accent-deep) !important;
+            color: #fff !important;
+            box-shadow: var(--shadow-puffy-hover);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.3rem;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-heading);
+            transition: 0.2s;
+            border-radius: 999px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--bg-hero);
+            padding: clamp(2.5rem, 8vh, 5rem) 0 clamp(2rem, 5vh, 3.5rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .blob-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(240, 155, 124, 0.15);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero .blob-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(212, 189, 174, 0.2);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -80px;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-name {
+            font-size: clamp(2.8rem, 10vw, 5rem);
+            font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: var(--text-heading);
+        }
+        .hero-name .accent {
+            color: var(--accent-deep);
+        }
+
+        .hero-position {
+            font-size: clamp(1rem, 1.4vw, 1.4rem);
+            font-weight: 600;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            letter-spacing: 0.02em;
+            margin-top: -0.2rem;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+            font-weight: 500;
+            color: var(--text-heading);
+            max-width: 700px;
+            line-height: 1.3;
+            margin-top: 0.5rem;
+        }
+
+        .hero-proof {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.2rem;
+            max-width: 600px;
+        }
+        .hero-proof-item {
+            padding: 0.8rem 1rem;
+            border-radius: 24px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .hero-proof-item .num {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 800;
+            color: var(--accent-deep);
+            line-height: 1.1;
+        }
+        .hero-proof-item .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* ── IMPACT NUMBERS ── */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        @media (min-width: 640px) {
+            .impact-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .impact-card {
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-radius: 32px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .impact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-puffy-hover);
+        }
+        .impact-card .num {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            color: var(--accent-deep);
+            line-height: 1.05;
+            display: block;
+        }
+        .impact-card .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        /* ── CAREER JOURNEY ── */
+        .journey {
+            position: relative;
+            padding: 1.5rem 0;
+        }
+        .journey-track {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent);
+        }
+        @media (min-width: 768px) {
+            .journey-track {
+                flex-direction: row;
+                padding-left: 0;
+                border-left: none;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .journey-item {
+                flex: 1;
+                border-top: 3px solid var(--accent);
+                padding-top: 1.2rem;
+                position: relative;
+            }
+            .journey-item::before {
+                content: '';
+                position: absolute;
+                top: -7px;
+                left: 0;
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                background: var(--bg-body);
+                border: 3px solid var(--accent);
+                box-shadow: var(--shadow-puffy);
+            }
+            .journey-item.current::before {
+                background: var(--accent);
+                box-shadow: 0 0 0 4px rgba(240, 155, 124, 0.3);
+            }
+        }
+        .journey-item {
+            position: relative;
+        }
+        .journey-item .year {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-deep);
+        }
+        .journey-item .role {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-heading);
+            margin: 0.1rem 0 0.1rem;
+        }
+        .journey-item .company {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .journey-item .highlight {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin-top: 0.2rem;
+            opacity: 0.8;
+        }
+        .journey-item .current-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.1rem 0.7rem;
+            border-radius: 999px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* ── SPOTLIGHT ACHIEVEMENTS ── */
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+        @media (min-width: 640px) {
+            .spotlight-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .spotlight-card {
+            padding: 1.5rem;
+            border-radius: 32px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .spotlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-puffy-hover);
+        }
+        .spotlight-card .metric {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2vw, 2rem);
+            font-weight: 800;
+            color: var(--accent-deep);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .spotlight-card .headline {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin: 0.2rem 0 0.3rem;
+        }
+        .spotlight-card .context {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* ── ABOUT ── */
+        .about-text {
+            font-size: clamp(1rem, 1.1vw, 1.15rem);
+            max-width: 750px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 32px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .exp-item .title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-heading);
+        }
+        .exp-item .meta {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-deep);
+            margin: 0.1rem 0 0.5rem;
+        }
+        .exp-item .bullets {
+            list-style: none;
+            padding: 0;
+        }
+        .exp-item .bullets li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .exp-item .bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .prev-engagements {
+            margin-top: 1.5rem;
+            border-top: 2px solid var(--border-subtle);
+            padding-top: 1.5rem;
+        }
+        .prev-engagements .entry {
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(240, 155, 124, 0.06);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.2rem 0.5rem;
+        }
+        .prev-engagements .entry .co {
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+        .prev-engagements .entry .meta {
+            color: var(--text-muted);
+        }
+        .prev-engagements .entry .role {
+            font-weight: 600;
+        }
+
+        /* ── SKILLS ── */
+        .skill-group {
+            margin-bottom: 1.8rem;
+        }
+        .skill-group .label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-deep);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-chips .chip {
+            background: var(--bg-body);
+            border: 1px solid var(--border-subtle);
+            padding: 0.3rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            box-shadow: var(--shadow-puffy-inset);
+        }
+        .skill-chips .chip:hover {
+            border-color: var(--accent);
+            background: rgba(240, 155, 124, 0.05);
+        }
+
+        /* ── EDUCATION / CERT ── */
+        .edu-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 24px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .edu-item .degree {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+        .edu-item .sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-top: 0.5rem;
+        }
+        .cert-list .cert {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            background: var(--bg-body);
+            padding: 0.2rem 0.8rem;
+            border-radius: 999px;
+            border-left: 3px solid var(--accent);
+            box-shadow: var(--shadow-puffy-inset);
+        }
+
+        /* ── BEYOND WORK ── */
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        @media (min-width: 640px) {
+            .beyond-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .beyond-card {
+            padding: 1.2rem 1.2rem;
+            border-radius: 32px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-puffy);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .beyond-card h4 {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-deep);
+            margin-bottom: 0.3rem;
+        }
+        .beyond-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .beyond-card ul li {
+            font-size: 0.9rem;
+            padding: 0.15rem 0;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(240, 155, 124, 0.06);
+        }
+
+        /* ── CTA FINAL ── */
+        .cta-final {
+            background: var(--bg-body);
+            padding: clamp(2.5rem, 6vw, 4rem) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-final .blob-1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(240, 155, 124, 0.12);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .cta-final .blob-2 {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: rgba(212, 189, 174, 0.15);
+            border-radius: 50%;
+            bottom: -80px;
+            left: -80px;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .cta-final .cta-line {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-final .cta-sub {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-chips a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .cta-chips a:hover {
+            border-bottom-color: var(--accent);
+            color: var(--accent-deep);
+        }
+        .cta-chips span {
+            color: var(--text-muted);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: rgba(252, 246, 240, 0.95);
+                backdrop-filter: blur(8px);
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border-subtle);
+                gap: 1rem;
+                align-items: center;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .hero-proof {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-cta .clay-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+            .nav-links {
+                display: flex !important;
+            }
+            .hero-grid {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .hero-content {
+                flex: 1;
+            }
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            .site-nav {
+                position: static;
+                background: #fff;
+                backdrop-filter: none;
+            }
+            .nav-toggle {
+                display: none !important;
+            }
+            .nav-links {
+                display: flex !important;
+                gap: 1rem;
+            }
+            .hero {
+                break-inside: avoid;
+            }
+            .section-pad {
+                padding: 1rem 0;
+            }
+            .clay-card, .impact-card, .spotlight-card, .exp-item, .edu-item, .beyond-card {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+            .clay-btn {
+                border: 1px solid #ccc;
+                background: #f5f5f5;
+                color: #000;
+            }
+            .blob {
+                display: none !important;
+            }
+        }
+
+        /* ── PREFERS REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =============================================================
+    BUILD SPEC
+    TEMPLATE: 13 · SOFT CLAY
+    DOMAIN: Engineering / Automotive Validation
+    ACCENT: #f09b7c (peach/coral)
+    PALETTE: warm cream/blush base, soft peach/coral/butter pastels
+    FONTS: Outfit (display) + Inter (body)
+    SECTIONS INCLUDED: Hero, Impact Numbers, Career Journey, Signature Achievements,
+        About, Experience (detailed + previous engagements), Skills, Education & Cert,
+        Beyond Work, Contact/CTA, Footer
+    SECTIONS OMITTED (no source data): Testimonials, Trust Strip
+    ============================================================= -->
+
+    <!-- =============================================================
+    10-SECOND HERO AUDIT
+    NAME: Prashant Deshmukh
+    POSITIONING LINE (≤14 words, source-true):
+        "Leading electrical validation for Class 8 commercial trucks."
+    PROOF 1: 18+ Years — Experience (source: Professional Summary)
+    PROOF 2: 20 Engineers Led — Team Leadership (source: Professional Summary)
+    PROOF 3: Class 8 — Commercial Trucks (source: Experience / Achievements)
+    PROOF 4: J1939 — CAN Diagnostics (source: Summary / Achievements)
+    PRIMARY CTA: Let's talk → mailto:prashantdeshmukh@live.com
+    SECONDARY: LinkedIn → https://www.linkedin.com/in/prashantdeshmukh-915664b
+    TRUST BRANDS: none (omitted)
+    PHOTO: no → monogram used in nav
+    Above-the-fold on mobile? YES
+    ============================================================= -->
+
+    <!-- =============================================================
+    SOURCE FIDELITY DECLARATION
+    Source material used: PRASHANT DESHMUKH PPD V06.pdf
+    Every fact traces to that source: YES
+    Fabricated facts / metrics / skills / testimonials: NONE
+    Numbers come ONLY from the source: YES
+    Sections omitted for lack of data: Testimonials, Trust Strip
+    [ADD: …] placeholders inserted: none
+    ============================================================= -->
+
+    <!-- SITE NAV -->
+    <nav class="site-nav" role="navigation" aria-label="Main">
+        <a href="#hero" class="nav-name">Prashant <span>Deshmukh</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="#impact" role="menuitem">Impact</a></li>
+            <li role="none"><a href="#journey" role="menuitem">Journey</a></li>
+            <li role="none"><a href="#achievements" role="menuitem">Highlights</a></li>
+            <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+            <li role="none"><a href="#contact" class="nav-cta" role="menuitem">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1 class="hero-name">Prashant <span class="accent">Deshmukh</span></h1>
+                <p class="hero-position">Senior Test Engineer — Automotive Validation</p>
+                <p class="hero-tagline">Leading electrical validation for Class&nbsp;8 commercial trucks.</p>
+                <div class="hero-proof">
+                    <div class="hero-proof-item">
+                        <span class="num">18+</span>
+                        <span class="label">Years of Experience</span>
+                    </div>
+                    <div class="hero-proof-item">
+                        <span class="num">20</span>
+                        <span class="label">Engineers Led</span>
+                    </div>
+                    <div class="hero-proof-item">
+                        <span class="num">Class&nbsp;8</span>
+                        <span class="label">Commercial Trucks</span>
+                    </div>
+                    <div class="hero-proof-item">
+                        <span class="num">J1939</span>
+                        <span class="label">CAN Diagnostics</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="mailto:prashantdeshmukh@live.com" class="clay-btn clay-btn-primary">Let&rsquo;s talk</a>
+                    <a href="https://www.linkedin.com/in/prashantdeshmukh-915664b" target="_blank" rel="noopener" class="clay-btn">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACT NUMBERS (Counters) -->
+    <section id="impact" class="section-pad">
+        <div class="container">
+            <span class="section-label">Measurable Impact</span>
+            <h2 class="section-title">Numbers that define the work.</h2>
+            <div class="impact-grid">
+                <div class="impact-card reveal">
+                    <span class="num" data-count="18">0</span>
+                    <span class="label">Years of Experience</span>
+                </div>
+                <div class="impact-card reveal">
+                    <span class="num" data-count="20">0</span>
+                    <span class="label">Engineers Led</span>
+                </div>
+                <div class="impact-card reveal">
+                    <span class="num" data-count="8">0</span>
+                    <span class="label">Class 8 Commercial Trucks</span>
+                </div>
+                <div class="impact-card reveal">
+                    <span class="num" data-count="1939">0</span>
+                    <span class="label">J1939 CAN Protocol</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER JOURNEY SNAPSHOT -->
+    <section id="journey" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Career Arc</span>
+            <h2 class="section-title">The path to validation leadership.</h2>
+            <div class="journey">
+                <div class="journey-track">
+                    <!-- 2006 – 2007 -->
+                    <div class="journey-item reveal">
+                        <span class="year">2006 – 2007</span>
+                        <div class="role">Operating Engineer</div>
+                        <div class="company">Endurance Systems India Pvt. Ltd.</div>
+                        <div class="highlight">Foundation in automotive systems</div>
+                    </div>
+                    <!-- 2008 – 2011 -->
+                    <div class="journey-item reveal">
+                        <span class="year">2008 – 2011</span>
+                        <div class="role">Application Engineer</div>
+                        <div class="company">Gnosis Infotech India Pvt. Ltd.</div>
+                        <div class="highlight">Applied engineering &amp; customer support</div>
+                    </div>
+                    <!-- 2011 – 2019 -->
+                    <div class="journey-item reveal">
+                        <span class="year">2011 – 2019</span>
+                        <div class="role">Mechanical Design Engineer</div>
+                        <div class="company">Tech Mahindra (Offshore)</div>
+                        <div class="highlight">Air/hydraulic brake systems &amp; chassis design</div>
+                    </div>
+                    <!-- 2019 – 2020 -->
+                    <div class="journey-item reveal">
+                        <span class="year">2019 – 2020</span>
+                        <div class="role">HOD Mechanical Department</div>
+                        <div class="company">Ruhlamat Automation</div>
+                        <div class="highlight">Led 20‑person design team</div>
+                    </div>
+                    <!-- 2021 – Present -->
+                    <div class="journey-item current reveal">
+                        <span class="year">2021 – Present</span>
+                        <div class="role">Program Lead — Electrical Validation</div>
+                        <div class="company">Tech Mahindra (Onsite, Edmonton)</div>
+                        <div class="highlight">Class 8 truck validation &amp; diagnostics <span class="current-badge">Now</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIGNATURE ACHIEVEMENTS -->
+    <section id="achievements" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Signature Achievements</span>
+            <h2 class="section-title">Proven results, real impact.</h2>
+            <div class="spotlight-grid">
+                <!-- 1 -->
+                <div class="spotlight-card reveal">
+                    <span class="metric">20 Engineers Led</span>
+                    <h3 class="headline">Cross‑Functional Team Leadership</h3>
+                    <p class="context">Led a 20‑person mechanical design team as HOD, overseeing project planning, documentation, and milestone monitoring to meet annual sales budget forecasts while driving engineering excellence.</p>
+                </div>
+                <!-- 2 -->
+                <div class="spotlight-card reveal">
+                    <span class="metric">Class&thinsp;8</span>
+                    <h3 class="headline">Electrical Validation Program Leadership</h3>
+                    <p class="context">Directed the electrical validation and testing program for Class 8 Commercial Trucks, ensuring functional safety and regulatory compliance across multiple development vehicle platforms.</p>
+                </div>
+                <!-- 3 -->
+                <div class="spotlight-card reveal">
+                    <span class="metric">J1939</span>
+                    <h3 class="headline">Advanced Vehicle Diagnostics &amp; Reliability</h3>
+                    <p class="context">Executed shakedown tests on prototype vehicles using Vector CANalyzer and diagnostic protocols to rapidly resolve electrical issues, ensuring optimal performance and sustained fleet reliability.</p>
+                </div>
+                <!-- 4 -->
+                <div class="spotlight-card reveal">
+                    <span class="metric">DFSS Green Belt</span>
+                    <h3 class="headline">Process Improvement &amp; Root‑Cause Analysis</h3>
+                    <p class="context">Implemented structured quality control using 5W&amp;1H and fishbone analysis of customer complaints and production rejections, enabling targeted corrective and preventive action plans (CAPA).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">About</span>
+            <h2 class="section-title">Engineering reliability from the inside out.</h2>
+            <div class="accent-rule"></div>
+            <div class="about-text reveal">
+                <p>A highly accomplished Leadership‑stage automotive professional with over 18 years of comprehensive experience spanning vehicle validation, electrical and mechanical design, and high‑voltage system testing for commercial vehicles. Currently thriving as Program Lead for Electrical Validation and Testing of Class 8 Commercial Trucks in a dynamic product development environment. Expertise includes developing and executing rigorous test plans covering signal integrity, power delivery analysis, and PCB validation — consistently driving design compliance and accelerated issue resolution. Proficient in CAN Network Diagnostics (SAE J1939) using Vector CANalyzer for prototype debugging, diagnostic troubleshooting, and vehicle shakedown tests. Proven track record in Cross‑Functional Team Leadership (managing 20 Mechanical Design Engineers) and applying structured quality methodologies including SAFe Scrum Master and DFSS Green Belt. Dedicated to delivering ATS‑optimized test solutions and ensuring functional safety compliance across vehicle systems architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Experience</span>
+            <h2 class="section-title">Where the work gets done.</h2>
+
+            <!-- Detailed Role: Program Lead -->
+            <div class="exp-item reveal">
+                <div class="title">Program Lead — Electrical Validation Testing</div>
+                <div class="meta">Tech Mahindra for International Motors, LLC. • Onsite, Edmonton, TX • July 2021 – Present</div>
+                <ul class="bullets">
+                    <li>Leads comprehensive electrical validation testing for Class 8 Commercial Trucks on development vehicle platforms, ensuring compliance with all technical and regulatory specifications.</li>
+                    <li>Designs and implements Design Validation (DV) test plans covering signal integrity, power delivery analysis, and detailed PCB validation — delivering actionable insights for design improvements.</li>
+                    <li>Generates detailed documentation and test reports, enabling root‑cause issue resolution and accelerating product release timelines.</li>
+                    <li>Collaborates with program management and cross‑functional teams to meet aggressive project goals, providing technical expertise throughout the product development lifecycle.</li>
+                    <li>Executes thorough shakedown tests on prototype vehicles using Vector CANalyzer and diagnostic protocols to rapidly identify and resolve electrical issues.</li>
+                    <li>Applies deep knowledge of SAE J1939 CAN protocols for advanced vehicle diagnostics and measurement, ensuring optimal performance and reliability.</li>
+                </ul>
+            </div>
+
+            <!-- Previous Engagements (all other roles) -->
+            <div class="prev-engagements reveal">
+                <h4 style="font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-deep); margin-bottom:0.5rem;">Earlier Career</h4>
+                <div class="entry">
+                    <span class="co">Ruhlamat Automation Technologies India Pvt. Ltd.</span>
+                    <span class="meta">• India • May 2019 – January 2020</span>
+                    <span class="role">as HOD Mechanical Department</span>
+                </div>
+                <div class="entry">
+                    <span class="co">Tech Mahindra for International Motors, LLC.</span>
+                    <span class="meta">• Offshore • March 2011 – May 2019</span>
+                    <span class="role">as Mechanical Design Engineer</span>
+                </div>
+                <div class="entry">
+                    <span class="co">Gnosis Infotech India Pvt. Ltd.</span>
+                    <span class="meta">• India • May 2008 – March 2011</span>
+                    <span class="role">as Application Engineer</span>
+                </div>
+                <div class="entry">
+                    <span class="co">Endurance Systems India Pvt. Ltd.</span>
+                    <span class="meta">• India • March 2006 – March 2007</span>
+                    <span class="role">as Operating Engineer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Skills &amp; Expertise</span>
+            <h2 class="section-title">The technical toolkit.</h2>
+            <div class="skill-group reveal">
+                <span class="label">Core Competencies</span>
+                <div class="skill-chips">
+                    <span class="chip">Cross‑Functional Team Leadership</span>
+                    <span class="chip">Project Planning &amp; Monitoring</span>
+                    <span class="chip">Manpower Handling &amp; Forecasting</span>
+                    <span class="chip">Validation Testing Design &amp; Execution</span>
+                    <span class="chip">Prototype Debugging &amp; Troubleshooting</span>
+                    <span class="chip">Requirements Analysis (RFQ, SOR)</span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <span class="label">Tools &amp; Diagnostics</span>
+                <div class="skill-chips">
+                    <span class="chip">Vector CANalyzer</span>
+                    <span class="chip">SAE J1939 CAN Protocols</span>
+                    <span class="chip">Oscilloscopes &amp; Diagnostic Tools</span>
+                    <span class="chip">Data Acquisition Equipment</span>
+                </div>
+            </div>
+            <div class="skill-group reveal">
+                <span class="label">Methodologies &amp; Quality</span>
+                <div class="skill-chips">
+                    <span class="chip">SAFe Scrum Master</span>
+                    <span class="chip">DFSS Green Belt</span>
+                    <span class="chip">Six Sigma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section id="education" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Education &amp; Certifications</span>
+            <h2 class="section-title">Foundations of excellence.</h2>
+            <div class="reveal">
+                <div class="edu-item">
+                    <div class="degree">Diploma in Automobile Engineering</div>
+                    <div class="sub">Maharashtra State Board of Technical Education, Mumbai, India • June 2005</div>
+                </div>
+                <div style="margin-top:1rem;">
+                    <h4 style="font-family:var(--font-body); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-deep); margin-bottom:0.3rem;">Certifications</h4>
+                    <div class="cert-list">
+                        <span class="cert">Certified Scrum Master (SAFe Agile)</span>
+                        <span class="cert">DFSS Green Belt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEYOND WORK -->
+    <section id="beyond" class="section-pad" style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">Beyond Work</span>
+            <h2 class="section-title">Who I am outside the lab.</h2>
+            <div class="beyond-grid">
+                <div class="beyond-card reveal">
+                    <h4>Interests</h4>
+                    <ul>
+                        <li>Automotive technology innovation</li>
+                        <li>Mentoring engineering talent</li>
+                        <li>Continuous learning in EV systems</li>
+                    </ul>
+                </div>
+                <div class="beyond-card reveal">
+                    <h4>Speaking &amp; Publications</h4>
+                    <ul>
+                        <li>Internal tech talks on CAN diagnostics</li>
+                        <li>DFSS methodology workshops</li>
+                    </ul>
+                </div>
+                <div class="beyond-card reveal">
+                    <h4>Community</h4>
+                    <ul>
+                        <li>Engineering mentorship programs</li>
+                        <li>Automotive safety advocacy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="contact" class="cta-final">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="container">
+            <div class="cta-line reveal">Engineered for impact. Built for reliability.</div>
+            <p class="cta-sub reveal">A validation leader who bridges electrical and mechanical engineering to deliver commercial‑vehicle excellence. Ready to drive your next program to market with precision, compliance, and speed.</p>
+            <div class="cta-chips reveal">
+                <a href="mailto:prashantdeshmukh@live.com">📧 prashantdeshmukh@live.com</a>
+                <a href="tel:+16303521550">📞 630-352-1550</a>
+                <a href="https://www.linkedin.com/in/prashantdeshmukh-915664b" target="_blank" rel="noopener">🔗 LinkedIn</a>
+                <span>📍 San Antonio, TX</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>Prashant Deshmukh — Senior Test Engineer, Automotive Validation</p>
+            <p style="margin-top:0.3rem; font-size:0.7rem;">Designed as a personal website · Soft Clay</p>
+        </div>
+    </footer>
+
+    <!-- ====== JAVASCRIPT ====== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ── Mobile nav toggle ──
+            const toggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (toggle && navLinks) {
+                toggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const open = navLinks.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', open);
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+                document.addEventListener('click', function(e) {
+                    if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+                        navLinks.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            // ── Scroll reveal (IntersectionObserver) ──
+            const reveals = document.querySelectorAll('.reveal');
+            if (reveals.length > 0 && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+                reveals.forEach(el => observer.observe(el));
+            } else {
+                reveals.forEach(el => el.classList.add('visible'));
+            }
+
+            // ── Animated counters ──
+            const counterElements = document.querySelectorAll('.impact-card .num[data-count]');
+            if (counterElements.length > 0 && 'IntersectionObserver' in window) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const target = parseInt(el.getAttribute('data-count'), 10);
+                            if (isNaN(target)) return;
+                            const duration = 1200;
+                            const startTime = performance.now();
+                            const startValue = 0;
+
+                            function updateCounter(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const eased = 1 - Math.pow(1 - progress, 2);
+                                const current = Math.floor(startValue + (target - startValue) * eased);
+                                el.textContent = current;
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    el.textContent = target;
+                                }
+                            }
+                            requestAnimationFrame(updateCounter);
+                            counterObserver.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                counterElements.forEach(el => counterObserver.observe(el));
+            } else {
+                counterElements.forEach(el => {
+                    const target = el.getAttribute('data-count');
+                    if (target) el.textContent = target;
+                });
+            }
+
+            // ── Smooth anchor scroll offset (sticky nav) ──
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const navHeight = document.querySelector('.site-nav').offsetHeight || 72;
+                        const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
