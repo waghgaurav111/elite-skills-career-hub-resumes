@@ -6,7 +6,7 @@ ACCENT: #39e6b0
 PALETTE: #080b10 base / #111720 surface / #39e6b0 accent / #edf5f2 text
 FONTS: Space Grotesk + Inter
 PHOTO ASSET: profile.jpeg (local, relative path)
-PHOTO TREATMENT: irregular radial edge-fade + cool emerald color-grade + ambient jewel orb + frosted CashPro signal panel overlapping the portrait
+PHOTO TREATMENT: Pattern A · Editorial Cutout Card on a dedicated emerald-obsidian plinth with one soft glow element behind the card
 SECTIONS INCLUDED: Sticky Nav, Hero, Trust Strip, Impact Numbers, Career Journey, Signature Achievements, About, Experience, Skills, Education & Certifications, Contact, Footer
 SECTIONS OMITTED (no source data): Testimonials, Beyond Work
 -->
@@ -21,7 +21,7 @@ PRIMARY CTA: Email Mausami → mailto:mausami.wagh@gmail.com
 SECONDARY: Explore experience → #experience
 TRUST BRANDS (real only): Bank of America, TIAA, Wells Fargo, SWIVEL / Southwest Business Corporation, WellCare / Centene, NEJM / Journal Watch
 PHOTO: yes → src="profile.jpeg"
-PHOTO TREATMENT (Glass family): tight asymmetric crop; radial edge-fade; cool emerald soft-light grade; ambient glow crossing the left edge; frosted CashPro signal panel crossing the lower-right boundary
+PHOTO TREATMENT: Pattern A · thin frosted-glass-edge photo card on a dedicated dark emerald plinth; one soft glow disc behind the card; no elements crossing the face or torso
 Above-the-fold on mobile (no scroll)? YES
 -->
 <!-- SOURCE FIDELITY DECLARATION
@@ -398,58 +398,53 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       pointer-events: none;
     }
 
-    .portrait-art {
+    .portrait-plinth {
       position: relative;
       isolation: isolate;
-      width: 152px;
+      width: 178px;
+      min-height: 208px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, rgba(28,48,42,.96), rgba(11,18,23,.98) 58%, rgba(7,11,15,.99));
+      border: 1px solid rgba(159,255,220,.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 28px 70px rgba(0,0,0,.34);
+    }
+
+    .portrait-plinth::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 74%;
+      aspect-ratio: 1;
+      right: -18%;
+      bottom: -20%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(57,230,176,.42) 0 10%, rgba(57,230,176,.19) 31%, rgba(57,230,176,.04) 60%, transparent 74%);
+      filter: blur(12px);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    .portrait-art {
+      position: relative;
+      width: 100%;
       aspect-ratio: 4 / 5;
-      overflow: visible;
-      transform: translateZ(0);
+      transform: rotate(-1.2deg);
       transition: transform .35s ease;
     }
 
-    .portrait-art::before {
-      content: "";
+    .portrait-photo-card {
       position: absolute;
-      z-index: -3;
-      width: 126%;
-      aspect-ratio: 1;
-      left: -24%;
-      top: 5%;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(57,230,176,.36) 0 12%, rgba(57,230,176,.18) 28%, rgba(57,230,176,.05) 53%, transparent 72%);
-      filter: blur(24px);
-      opacity: .95;
-      pointer-events: none;
-    }
-
-    .portrait-art::after {
-      content: "";
-      position: absolute;
-      z-index: 5;
-      width: 68%;
-      height: 1px;
-      right: -12%;
-      top: 24%;
-      background: linear-gradient(90deg, transparent, rgba(159,255,220,.78), transparent);
-      box-shadow: 0 0 16px rgba(57,230,176,.56);
-      transform: rotate(-13deg);
-      transform-origin: center;
-      pointer-events: none;
-    }
-
-    .portrait-photo-field {
-      position: absolute;
-      z-index: 1;
-      inset: -5% -7% -8% -7%;
+      inset: 0;
       overflow: hidden;
-      clip-path: polygon(11% 4%, 78% 0, 98% 17%, 96% 72%, 81% 97%, 18% 92%, 1% 70%, 4% 23%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 88% at 52% 43%, #000 0 57%, rgba(0,0,0,.96) 68%, rgba(0,0,0,.58) 80%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 88% at 52% 43%, #000 0 57%, rgba(0,0,0,.96) 68%, rgba(0,0,0,.58) 80%, transparent 100%);
-      background:
-        radial-gradient(circle at 48% 28%, rgba(159,255,220,.22), transparent 34%),
-        linear-gradient(145deg, #17221f, #0d1418);
+      border-radius: 15px;
+      background: linear-gradient(145deg, #17221f, #0d1418);
+      border: 3px solid rgba(220,255,244,.72);
+      box-shadow: 0 18px 42px rgba(0,0,0,.32);
     }
 
     .candidate-photo {
@@ -457,109 +452,21 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 16%;
-      transform: scale(1.12);
-      transform-origin: center 34%;
-      filter: grayscale(.18) saturate(.76) contrast(1.08) brightness(.92);
+      object-position: center 14%;
+      transform: scale(1.11);
+      transform-origin: center 30%;
+      filter: saturate(.88) contrast(1.04) brightness(.96);
     }
 
-    .portrait-grade {
-      position: absolute;
-      z-index: 2;
-      inset: -2%;
-      pointer-events: none;
+    .portrait-art:hover { transform: rotate(0deg) translateY(-3px); }
+
+    .portrait-plinth.photo-missing .portrait-photo-card {
       background:
-        radial-gradient(circle at 66% 18%, rgba(159,255,220,.18), transparent 32%),
-        linear-gradient(145deg, rgba(3,14,12,.12) 5%, rgba(57,230,176,.25) 60%, rgba(4,10,14,.72) 100%);
-      mix-blend-mode: soft-light;
-    }
-
-    .portrait-vignette {
-      position: absolute;
-      z-index: 3;
-      inset: -1%;
-      pointer-events: none;
-      background:
-        linear-gradient(to bottom, transparent 0 60%, rgba(8,11,16,.1) 72%, rgba(8,11,16,.88) 100%),
-        radial-gradient(ellipse at 50% 42%, transparent 42%, rgba(8,11,16,.1) 64%, rgba(8,11,16,.72) 100%);
-    }
-
-    .portrait-orb {
-      position: absolute;
-      z-index: 0;
-      width: 52%;
-      aspect-ratio: 1;
-      left: -18%;
-      bottom: 10%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 38% 36%, rgba(217,255,242,.8) 0 3%, rgba(57,230,176,.58) 14%, rgba(57,230,176,.13) 47%, transparent 72%);
-      filter: blur(1px);
-      opacity: .82;
-      pointer-events: none;
-    }
-
-    .portrait-signal {
-      position: absolute;
-      z-index: 6;
-      right: -28%;
-      bottom: 6%;
-      width: 76%;
-      min-height: 58px;
-      display: grid;
-      align-content: center;
-      gap: 2px;
-      padding: 10px 12px;
-      overflow: hidden;
-      clip-path: polygon(7% 0, 100% 0, 100% 82%, 91% 100%, 0 100%, 0 18%);
-      color: var(--text);
-      background: linear-gradient(145deg, rgba(21,31,40,.76), rgba(8,14,19,.5));
-      border: 1px solid rgba(255,255,255,.11);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 18px 50px rgba(0,0,0,.26);
-      backdrop-filter: blur(16px) saturate(1.15);
-      -webkit-backdrop-filter: blur(16px) saturate(1.15);
-      pointer-events: none;
-    }
-
-    .portrait-signal::before {
-      content: "";
-      position: absolute;
-      width: 54px;
-      height: 54px;
-      right: -18px;
-      top: -23px;
-      border-radius: 50%;
-      background: rgba(57,230,176,.22);
-      filter: blur(8px);
-    }
-
-    .portrait-signal span {
-      position: relative;
-      color: var(--accent-2);
-      font-size: .62rem;
-      font-weight: 800;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
-    .portrait-signal strong {
-      position: relative;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: .72rem;
-      line-height: 1.15;
-      letter-spacing: -.01em;
-    }
-
-    .portrait-art:hover { transform: translateY(-4px) scale(1.01); }
-
-    .portrait-art.photo-missing .portrait-photo-field {
-      background:
-        radial-gradient(circle at 50% 27%, rgba(159,255,220,.2), transparent 22%),
-        radial-gradient(ellipse at 50% 48%, rgba(125,151,143,.75) 0 17%, transparent 18%),
-        radial-gradient(ellipse at 50% 78%, rgba(83,111,102,.72) 0 28%, transparent 29%),
+        radial-gradient(circle at 50% 26%, rgba(159,255,220,.16), transparent 22%),
+        radial-gradient(ellipse at 50% 47%, rgba(125,151,143,.74) 0 17%, transparent 18%),
+        radial-gradient(ellipse at 50% 79%, rgba(83,111,102,.72) 0 28%, transparent 29%),
         linear-gradient(145deg, #17221f, #0d1418);
     }
-
-    .portrait-art.photo-missing .portrait-grade { opacity: .72; }
 
     .hero-actions {
       grid-area: actions;
@@ -988,10 +895,8 @@ Sections omitted for lack of data: Testimonials, Beyond Work
         row-gap: 22px;
       }
       .hero-portrait { align-self: stretch; }
-      .portrait-art { width: min(100%, 332px); }
-      .portrait-signal { right: -15%; bottom: 10%; width: 61%; min-height: 74px; padding: 13px 15px; }
-      .portrait-signal span { font-size: .67rem; }
-      .portrait-signal strong { font-size: .88rem; }
+      .portrait-plinth { width: min(100%, 344px); min-height: 430px; padding: 24px; border-radius: 31px; }
+      .portrait-art { width: min(100%, 292px); }
       .proof-grid { align-content: end; gap: 10px; }
       .proof-card { min-height: 100px; padding: 16px; }
       .hero-actions { margin-top: 0; }
@@ -1002,7 +907,8 @@ Sections omitted for lack of data: Testimonials, Beyond Work
 
     @media (min-width: 1024px) {
       .nav { padding-left: 20px; }
-      .portrait-art { width: min(100%, 372px); }
+      .portrait-plinth { width: min(100%, 382px); min-height: 470px; padding: 27px; }
+      .portrait-art { width: min(100%, 324px); }
       .journey {
         grid-template-columns: repeat(6, minmax(0, 1fr));
         align-items: start;
@@ -1036,7 +942,7 @@ Sections omitted for lack of data: Testimonials, Beyond Work
     @media print {
       :root { --text: #101418; --muted: #4c5652; }
       body { background: #fff; color: #101418; }
-      body::before, .nav-wrap, .hero-shell::before, .contact-card::before, .portrait-art::before, .portrait-art::after, .portrait-orb, .portrait-signal { display: none !important; }
+      body::before, .nav-wrap, .hero-shell::before, .contact-card::before, .portrait-plinth::before { display: none !important; }
       .section { padding: 28px 0; }
       .glass, .milestone-card, .about-point, .skill-group, .earlier-roles {
         background: #fff !important;
@@ -1047,10 +953,10 @@ Sections omitted for lack of data: Testimonials, Beyond Work
       }
       h1 { color: #101418; background: none; -webkit-text-fill-color: currentColor; }
       .hero { min-height: auto; padding-top: 20px; }
+      .portrait-plinth { width: 210px; min-height: 260px; padding: 12px; background: #fff; border: 1px solid #cfd8d5; box-shadow: none; }
       .portrait-art { width: 180px; transform: none; }
-      .portrait-photo-field { inset: 0; clip-path: none; -webkit-mask-image: none; mask-image: none; border-radius: 16px; }
+      .portrait-photo-card { border-color: #cfd8d5; box-shadow: none; }
       .candidate-photo { transform: none; filter: none; }
-      .portrait-grade, .portrait-vignette { display: none !important; }
       .proof-value, .stat-number, .achievement-lead, .eyebrow, .role-company { color: #087c5d !important; }
       a { text-decoration: none; }
       .reveal { opacity: 1 !important; transform: none !important; }
@@ -1103,26 +1009,21 @@ Sections omitted for lack of data: Testimonials, Beyond Work
           </div>
 
           <figure class="hero-portrait" aria-label="Profile photograph of Mausami Wagh">
-            <div class="portrait-art">
-              <span class="portrait-orb" aria-hidden="true"></span>
-              <div class="portrait-photo-field">
-                <img
-                  src="profile.jpeg"
-                  alt="Mausami Wagh"
-                  class="candidate-photo"
-                  width="800"
-                  height="1000"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
-                  onerror="this.hidden=true;this.closest('.portrait-art').classList.add('photo-missing')">
-                <span class="portrait-grade" aria-hidden="true"></span>
-                <span class="portrait-vignette" aria-hidden="true"></span>
+            <div class="portrait-plinth">
+              <div class="portrait-art">
+                <div class="portrait-photo-card">
+                  <img
+                    src="profile.jpeg"
+                    alt="Mausami Wagh"
+                    class="candidate-photo"
+                    width="800"
+                    height="1000"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                    onerror="this.hidden=true;this.closest('.portrait-plinth').classList.add('photo-missing')">
+                </div>
               </div>
-              <figcaption class="portrait-signal">
-                <span>CashPro delivery</span>
-                <strong>Backlog → release</strong>
-              </figcaption>
             </div>
           </figure>
 
