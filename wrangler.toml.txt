@@ -1,0 +1,5 @@
+name = "elite-skills-career-hub-resumes"
+compatibility_date = "2026-07-09"
+
+[assets]
+directory = "."
