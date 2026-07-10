@@ -1,0 +1,1904 @@
+<!--
+BUILD SPEC
+TEMPLATE: 03 · LUXE NOIR
+DOMAIN: Executive Operations / Supply Chain / Procurement / Infrastructure
+ACCENT: #d7b977
+PALETTE: #090909 base / rgba(19,18,17,.88) tonal surface / champagne-gold reflection / deep bronze support / pale-gold highlight / #f4efe5 and #bdb6aa text
+FONTS: Playfair Display + Inter
+BACKGROUND MODE: persistent fixed multi-layer atmosphere from hero to footer
+MOTION PROFILE: CHAMPAGNE REFLECTION
+MOTION INTENSITY: CINEMATIC-SUBTLE
+LAYERS — DESKTOP/MOBILE: 3 / 2 moving fields
+AMBIENT CYCLE RANGE: 38–58s
+ANIMATED PROPERTIES: transform + opacity only
+STATIC EFFECTS: vignette + restrained micro-grain texture
+SCROLL SCENES: Hero (strong reflection) / Proof (brighter gold concentration) / Depth (calmer charcoal) / Final CTA (controlled return of champagne)
+SURFACE STRATEGY: direct-on-atmosphere moments + tonal editorial plates
+MOBILE PERFORMANCE REDUCTION: third field removed; reduced geometry; texture static
+REDUCED-MOTION STATIC COMPOSITION: reflection fixed upper-right, bronze wash lower-left, neutral contrast protected
+PHOTO ASSET: profile-cutout.png (runtime-detected via onerror — built as photo-ready by default)
+HERO LAYOUT: copy zone 54% / photo zone 46%, photo bleeds to right edge, generous upper-body/waist-up crop, seam treatment: fine champagne hairline
+BACKGROUND CONTINUITY: global atmosphere passes beneath copy + photo and continues through all sections
+PHOTO-ZONE MOTION SAFETY: brightest reflection remains outside the face zone; motion concentrates near page edge and lower torso
+NO-PHOTO FALLBACK STATE: hero collapses to a centered single-zone executive masthead; photo column and seam disappear
+TYPOGRAPHY-PHOTO INTERPLAY: oversized “30+” sits behind the lower shoulder/torso seam, never crossing the face
+SECTIONS INCLUDED: Sticky Nav, Hero, Trust Strip, Impact Numbers, Career Journey, Signature Achievements, About, Experience, Domain Expertise, Education & Development, Languages, Contact, Footer
+SECTIONS OMITTED (no source data): Testimonials
+-->
+<!--
+10-SECOND HERO AUDIT
+NAME: Abhijeet Ashok Vaidya
+POSITIONING LINE (≤14 words, source-true): “Building cash-positive infrastructure operations through procurement, contracts and disciplined delivery.”
+PROOF 1: 30+ — Years of Leadership (source: Professional Summary)
+PROOF 2: ₹9,000 Cr+ — EPC Procurement Scope (source: L&T experience)
+PROOF 3: ₹1,100 Cr — Direct Order Book (source: Swastik experience)
+PROOF 4: 10 Years — Reliance Chapter (source: Reliance experience)
+PRIMARY CTA: Start a Conversation → mailto
+SECONDARY: Explore Career Journey → #journey
+TRUST BRANDS: Swastik Infralogics, GreenCell Mobility, Welspun Enterprises, Larsen & Toubro, Essel Infra, Reliance Infrastructure
+PHOTO: src="profile-cutout.png", runtime-detected
+HERO LAYOUT: asymmetric split — copy 54% / photo 46%, photo bleeds right, global champagne-charcoal atmosphere continues beneath both zones
+NO-PHOTO FALLBACK: single centered masthead with rebalanced proof row and CTAs
+TYPOGRAPHY-PHOTO INTERPLAY MOMENT: oversized 30+ behind lower seam/torso
+Above-the-fold on mobile (no scroll)? YES
+-->
+<!--
+SOURCE FIDELITY DECLARATION
+Source material used: Abhijeet Vaidya PAD V05 resume
+Every fact traces to that source: YES
+Fabricated facts / metrics / skills / testimonials: NONE
+Numbers come ONLY from the source: YES
+Sections omitted for lack of data: Testimonials
+[ADD: …] placeholders inserted: LinkedIn URL
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abhijeet Ashok Vaidya | Operations, Supply Chain & Procurement Leader</title>
+  <meta name="description" content="Abhijeet Ashok Vaidya is a senior operations, supply chain and procurement leader with 30+ years across infrastructure, EPC, power, logistics and electric mobility.">
+  <meta name="theme-color" content="#090909">
+  <meta property="og:title" content="Abhijeet Ashok Vaidya | Executive Portfolio">
+  <meta property="og:description" content="30+ years of operations, procurement, supply-chain and infrastructure leadership.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="profile-cutout.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --base: #090909;
+      --base-soft: #10100f;
+      --panel: rgba(19, 18, 17, 0.88);
+      --panel-strong: rgba(13, 13, 12, 0.96);
+      --panel-soft: rgba(30, 27, 23, 0.70);
+      --gold: #d7b977;
+      --gold-bright: #f0d9a1;
+      --gold-muted: #a98e58;
+      --bronze: #604726;
+      --ink: #f4efe5;
+      --muted: #bdb6aa;
+      --dim: #888178;
+      --line: rgba(215, 185, 119, 0.28);
+      --line-soft: rgba(244, 239, 229, 0.10);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --container: min(1180px, calc(100% - 2rem));
+      --nav-h: 4.5rem;
+      --radius: 0.2rem;
+      --ease: cubic-bezier(.2,.7,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--base); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--base);
+      font-family: var(--sans);
+      line-height: 1.65;
+      isolation: isolate;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 4px; }
+    ::selection { background: var(--gold); color: #111; }
+
+    .skip-link {
+      position: fixed;
+      top: .75rem;
+      left: .75rem;
+      z-index: 100;
+      transform: translateY(-200%);
+      padding: .7rem 1rem;
+      background: var(--gold-bright);
+      color: #111;
+      font-weight: 700;
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: var(--base);
+    }
+    .atmosphere-base {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(132deg, #080808 0%, #11100e 48%, #080808 100%);
+    }
+    .atmosphere-field {
+      position: absolute;
+      inset: -18%;
+      transition: opacity 1.8s var(--ease), transform 2.2s var(--ease);
+      will-change: transform, opacity;
+    }
+    .atmosphere-field > span {
+      position: absolute;
+      inset: 0;
+      will-change: transform, opacity;
+    }
+    .field-a {
+      opacity: .66;
+      transform: translate3d(4%, -4%, 0) scale(1.02);
+    }
+    .field-a > span {
+      background: radial-gradient(ellipse at 82% 18%, rgba(234, 205, 143, .25) 0%, rgba(145, 105, 50, .10) 28%, transparent 62%);
+      animation: champagneReflection 46s ease-in-out infinite alternate;
+    }
+    .field-b {
+      opacity: .72;
+      transform: translate3d(-4%, 5%, 0) scale(1.03);
+    }
+    .field-b > span {
+      background: radial-gradient(ellipse at 20% 78%, rgba(91, 62, 30, .36) 0%, rgba(50, 35, 20, .16) 35%, transparent 68%);
+      animation: bronzeWash 58s ease-in-out infinite alternate;
+    }
+    .field-c {
+      opacity: .36;
+      transform: translate3d(0, 0, 0) scale(1.04);
+    }
+    .field-c > span {
+      background: linear-gradient(112deg, transparent 28%, rgba(218, 187, 122, .07) 47%, transparent 68%);
+      animation: metallicSweep 38s ease-in-out infinite alternate;
+    }
+    .atmosphere-vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.36) 0%, transparent 38%, transparent 70%, rgba(0,0,0,.18) 100%),
+        radial-gradient(circle at center, transparent 34%, rgba(0,0,0,.36) 100%);
+    }
+    .atmosphere-texture {
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.009) 0 1px, transparent 1px 5px);
+      mix-blend-mode: soft-light;
+    }
+
+    body[data-scene="proof"] .field-a { opacity: .82; transform: translate3d(-2%, 3%, 0) scale(1.06); }
+    body[data-scene="proof"] .field-b { opacity: .56; transform: translate3d(2%, -2%, 0) scale(1.01); }
+    body[data-scene="depth"] .field-a { opacity: .34; transform: translate3d(6%, -5%, 0) scale(1.02); }
+    body[data-scene="depth"] .field-b { opacity: .44; transform: translate3d(-5%, 2%, 0) scale(1.03); }
+    body[data-scene="final"] .field-a { opacity: .78; transform: translate3d(-3%, -1%, 0) scale(1.08); }
+    body[data-scene="final"] .field-b { opacity: .62; transform: translate3d(3%, 0, 0) scale(1.02); }
+
+    @keyframes champagneReflection {
+      0% { transform: translate3d(-3%, -2%, 0) scale(1.00); opacity: .78; }
+      50% { transform: translate3d(4%, 3%, 0) scale(1.08); opacity: .95; }
+      100% { transform: translate3d(-1%, 6%, 0) scale(1.03); opacity: .82; }
+    }
+    @keyframes bronzeWash {
+      0% { transform: translate3d(3%, 2%, 0) scale(1.02); opacity: .78; }
+      50% { transform: translate3d(-5%, -4%, 0) scale(1.10); opacity: .94; }
+      100% { transform: translate3d(2%, -6%, 0) scale(1.04); opacity: .84; }
+    }
+    @keyframes metallicSweep {
+      0% { transform: translate3d(-7%, 0, 0) scale(1.02); opacity: .50; }
+      100% { transform: translate3d(7%, 0, 0) scale(1.08); opacity: .84; }
+    }
+
+    .site-shell { position: relative; z-index: 1; }
+
+    .container { width: var(--container); margin-inline: auto; }
+    section { position: relative; scroll-margin-top: calc(var(--nav-h) + 1rem); }
+    .section {
+      padding: clamp(4.5rem, 9vw, 8rem) 0;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      margin: 0 0 1rem;
+      color: var(--gold-bright);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .section-label::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      max-width: 850px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 7vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+    .section-intro {
+      max-width: 720px;
+      margin: 1.2rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+    .gold { color: var(--gold-bright); }
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold-bright);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .editorial-rule {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      min-height: var(--nav-h);
+      border-bottom: 1px solid rgba(215,185,119,.16);
+      background: rgba(7,7,7,.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-inner {
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .brand-mark {
+      width: 2.35rem;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      font-family: var(--serif);
+      color: var(--gold-bright);
+      font-size: .9rem;
+    }
+    .brand-copy {
+      display: grid;
+      line-height: 1.05;
+    }
+    .brand-copy strong {
+      font-family: var(--serif);
+      font-size: .98rem;
+      letter-spacing: .01em;
+    }
+    .brand-copy span {
+      margin-top: .25rem;
+      color: var(--dim);
+      font-size: .61rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .nav-links a {
+      position: relative;
+      padding: .75rem 0;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: .45rem;
+      height: 1px;
+      background: var(--gold);
+      transition: right .25s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
+    .nav-cta, .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      border: 1px solid var(--gold);
+      padding: .75rem 1.1rem;
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+    }
+    .nav-cta {
+      display: none;
+      background: var(--gold);
+      color: #111;
+    }
+    .nav-cta:hover, .button-primary:hover { transform: translateY(-2px); background: var(--gold-bright); }
+    .menu-button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .menu-button span,
+    .menu-button span::before,
+    .menu-button span::after {
+      width: 1.35rem;
+      height: 1px;
+      background: currentColor;
+      display: block;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .menu-button span { position: relative; }
+    .menu-button span::before,
+    .menu-button span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+    .menu-button span::before { top: -.4rem; }
+    .menu-button span::after { top: .4rem; }
+    .menu-button[aria-expanded="true"] span { background: transparent; }
+    .menu-button[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+    .menu-button[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+    .mobile-menu {
+      position: fixed;
+      inset: var(--nav-h) 0 0;
+      z-index: 45;
+      padding: 1rem;
+      background: rgba(7,7,7,.97);
+      transform: translateX(100%);
+      transition: transform .35s var(--ease);
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu nav {
+      display: grid;
+      gap: .15rem;
+      border-top: 1px solid var(--line);
+    }
+    .mobile-menu a {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line-soft);
+      text-decoration: none;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+    }
+    .mobile-menu a::after { content: "↗"; color: var(--gold); font-family: var(--sans); font-size: 1rem; }
+
+    .hero {
+      min-height: 100svh;
+      padding-top: var(--nav-h);
+      display: grid;
+      align-items: stretch;
+      overflow: clip;
+    }
+    .hero-grid {
+      min-height: calc(100svh - var(--nav-h));
+      display: grid;
+      grid-template-rows: minmax(19rem, 39svh) auto;
+      position: relative;
+    }
+    .hero-photo-zone {
+      position: relative;
+      min-height: 19rem;
+      order: 1;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero-photo-zone::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 24%;
+      background: linear-gradient(to top, rgba(9,9,9,.72), transparent);
+      pointer-events: none;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: 70% 100%;
+      filter: saturate(.82) contrast(1.04);
+      z-index: 3;
+    }
+    .hero-copy {
+      order: 2;
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.35rem, 5vw, 3rem) max(1rem, calc((100vw - 1180px) / 2));
+      background: linear-gradient(90deg, rgba(8,8,8,.90), rgba(8,8,8,.72) 80%, transparent);
+    }
+    .hero-kicker {
+      margin: 0 0 .65rem;
+      color: var(--gold-bright);
+      font-size: clamp(.64rem, 2vw, .76rem);
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .hero-name {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 12vw, 7.5rem);
+      line-height: .85;
+      letter-spacing: -.055em;
+      text-wrap: balance;
+    }
+    .hero-name .first { display: block; color: var(--ink); }
+    .hero-name .last {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--gold-bright);
+      text-shadow: 0 0 40px rgba(215,185,119,.06);
+    }
+    .hero-positioning {
+      max-width: 700px;
+      margin: 1.1rem 0 0;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(1rem, 3.1vw, 1.55rem);
+      line-height: 1.35;
+    }
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .hero-proof-item {
+      min-height: 4.5rem;
+      padding: .72rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(11,11,10,.46);
+    }
+    .hero-proof-item strong {
+      display: block;
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 4vw, 1.7rem);
+      line-height: 1;
+    }
+    .hero-proof-item span {
+      display: block;
+      margin-top: .38rem;
+      color: var(--muted);
+      font-size: .61rem;
+      letter-spacing: .09em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    .hero-actions {
+      display: grid;
+      gap: .7rem;
+      margin-top: 1.2rem;
+    }
+    .button-primary {
+      background: var(--gold);
+      color: #111;
+    }
+    .button-secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .button-secondary:hover { transform: translateY(-2px); border-color: var(--gold); }
+    .hero-watermark {
+      position: absolute;
+      z-index: 2;
+      right: 40%;
+      bottom: 6%;
+      color: rgba(215,185,119,.09);
+      font-family: var(--serif);
+      font-size: clamp(7rem, 19vw, 17rem);
+      font-weight: 700;
+      line-height: .7;
+      letter-spacing: -.08em;
+      pointer-events: none;
+      user-select: none;
+    }
+    body.no-photo .hero-grid {
+      grid-template-rows: auto;
+      width: var(--container);
+      margin-inline: auto;
+    }
+    body.no-photo .hero-photo-zone { display: none; }
+    body.no-photo .hero-copy {
+      order: 1;
+      min-height: calc(100svh - var(--nav-h));
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(90deg, transparent, rgba(8,8,8,.72), transparent);
+      padding-inline: 0;
+    }
+    body.no-photo .hero-positioning { margin-inline: auto; }
+    body.no-photo .hero-proof { width: min(780px, 100%); }
+    body.no-photo .hero-actions { width: min(560px, 100%); }
+    body.no-photo .hero-watermark { right: 50%; transform: translateX(50%); opacity: .55; }
+
+    .trust-strip {
+      padding: 1.3rem 0;
+      border-block: 1px solid var(--line);
+      background: rgba(7,7,7,.54);
+    }
+    .trust-inner {
+      display: grid;
+      gap: 1rem;
+    }
+    .trust-label {
+      margin: 0;
+      color: var(--dim);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .trust-brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.4rem;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(.92rem, 2.3vw, 1.15rem);
+    }
+
+    .impact-grid {
+      display: grid;
+      gap: 1px;
+      margin-top: 2.5rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .impact-card {
+      min-height: 10.5rem;
+      padding: 1.35rem;
+      background: rgba(12,12,11,.84);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .impact-number {
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 10vw, 5.8rem);
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+    .impact-card p {
+      max-width: 16rem;
+      margin: 1.25rem 0 0;
+      color: var(--muted);
+      font-size: .83rem;
+      letter-spacing: .03em;
+      line-height: 1.45;
+    }
+
+    .journey-wrap {
+      margin-top: 3rem;
+      padding: 1rem 0;
+      position: relative;
+    }
+    .journey {
+      position: relative;
+      display: grid;
+      gap: 0;
+      padding-left: 1.5rem;
+    }
+    .journey::before {
+      content: "";
+      position: absolute;
+      left: .3rem;
+      top: 1rem;
+      bottom: 1rem;
+      width: 1px;
+      background: linear-gradient(var(--gold), rgba(215,185,119,.14));
+    }
+    .milestone {
+      position: relative;
+      padding: 0 0 2.2rem 1.4rem;
+    }
+    .milestone:last-child { padding-bottom: 0; }
+    .milestone::before {
+      content: "";
+      position: absolute;
+      left: -1.55rem;
+      top: .35rem;
+      width: .72rem;
+      height: .72rem;
+      border: 1px solid var(--gold);
+      background: var(--base);
+      transform: rotate(45deg);
+    }
+    .milestone.current::before {
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(215,185,119,.08);
+    }
+    .milestone-year {
+      color: var(--gold-bright);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .milestone h3 {
+      margin: .35rem 0 .12rem;
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 5vw, 2rem);
+      line-height: 1.15;
+    }
+    .milestone-role { color: var(--muted); font-size: .86rem; }
+    .milestone p { margin: .65rem 0 0; color: var(--dim); font-size: .88rem; }
+    .now-badge {
+      display: inline-block;
+      margin-left: .4rem;
+      padding: .17rem .42rem;
+      border: 1px solid var(--gold);
+      color: var(--gold-bright);
+      font-family: var(--sans);
+      font-size: .55rem;
+      letter-spacing: .12em;
+      vertical-align: .2rem;
+      text-transform: uppercase;
+    }
+
+    .achievement-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2.8rem;
+    }
+    .achievement-card {
+      min-height: 19rem;
+      padding: clamp(1.4rem, 4vw, 2.1rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(31,28,23,.88), rgba(13,13,12,.94));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s var(--ease), border-color .35s ease;
+    }
+    .achievement-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -36% 34%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(215,185,119,.10), transparent 68%);
+      pointer-events: none;
+    }
+    .achievement-card:hover { transform: translateY(-5px); border-color: rgba(215,185,119,.56); }
+    .achievement-number {
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: clamp(3rem, 12vw, 6.2rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+    .achievement-card h3 {
+      margin: 1.7rem 0 .75rem;
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      line-height: 1.12;
+    }
+    .achievement-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .achievement-meta {
+      position: absolute;
+      left: 1.4rem;
+      bottom: 1.25rem;
+      color: var(--dim);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .reading-plate {
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+      padding: clamp(1.5rem, 5vw, 3.8rem);
+      margin-top: 2.8rem;
+    }
+    .about-copy {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(1.16rem, 3vw, 1.55rem);
+      line-height: 1.65;
+    }
+    .about-aside {
+      display: grid;
+      gap: 1px;
+      align-content: start;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .about-aside div {
+      padding: 1rem;
+      background: #12110f;
+    }
+    .about-aside span {
+      display: block;
+      color: var(--dim);
+      font-size: .62rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .about-aside strong {
+      display: block;
+      margin-top: .3rem;
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: 1.14rem;
+      line-height: 1.2;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2.8rem;
+    }
+    .role-card {
+      display: grid;
+      border: 1px solid var(--line);
+      background: rgba(14,14,13,.91);
+    }
+    .role-head {
+      padding: 1.35rem;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .role-company {
+      color: var(--gold-bright);
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .role-head h3 {
+      margin: .4rem 0 .35rem;
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 5vw, 2.25rem);
+      line-height: 1.15;
+    }
+    .role-dates { color: var(--dim); font-size: .82rem; }
+    .role-body { padding: 1.25rem 1.35rem 1.45rem; }
+    .role-body ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .72rem;
+    }
+    .role-body li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .role-body li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .72em;
+      width: .4rem;
+      height: 1px;
+      background: var(--gold);
+    }
+    .reliance-feature {
+      margin-top: 1rem;
+      padding: clamp(1.4rem, 4vw, 2.6rem);
+      border: 1px solid var(--gold-muted);
+      background:
+        linear-gradient(135deg, rgba(57,43,24,.52), rgba(12,12,11,.96) 58%);
+    }
+    .reliance-feature h3 {
+      margin: .55rem 0 1rem;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 5vw, 3.3rem);
+      line-height: 1.05;
+    }
+    .reliance-feature > p { max-width: 800px; color: var(--muted); }
+    .reliance-grid {
+      display: grid;
+      gap: 1px;
+      margin-top: 1.5rem;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .reliance-grid div { padding: 1rem; background: rgba(12,12,11,.88); }
+    .reliance-grid strong {
+      display: block;
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .reliance-grid span {
+      display: block;
+      margin-top: .4rem;
+      color: var(--muted);
+      font-size: .76rem;
+      line-height: 1.35;
+    }
+
+    .earlier-career {
+      margin-top: 1rem;
+      border-top: 1px solid var(--line);
+    }
+    .earlier-role {
+      display: grid;
+      gap: .35rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .earlier-role strong { font-family: var(--serif); font-size: 1.08rem; }
+    .earlier-role span { color: var(--dim); font-size: .77rem; }
+    .earlier-role p { margin: 0; color: var(--muted); font-size: .84rem; }
+
+    .expertise-grid {
+      display: grid;
+      gap: 1px;
+      margin-top: 2.8rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+    .expertise-card {
+      min-height: 13rem;
+      padding: 1.35rem;
+      background: rgba(14,14,13,.90);
+    }
+    .expertise-card .index {
+      color: var(--gold-muted);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+    .expertise-card h3 {
+      margin: 1rem 0 .65rem;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+    }
+    .expertise-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+    .skills-groups {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .skill-group {
+      padding: 1.25rem;
+      border: 1px solid var(--line-soft);
+      background: rgba(12,12,11,.74);
+    }
+    .skill-group h3 {
+      margin: 0 0 .85rem;
+      color: var(--gold-bright);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .chip {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: .48rem .7rem;
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-size: .73rem;
+      transition: color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .chip:hover { color: var(--ink); border-color: var(--gold-muted); transform: translateY(-1px); }
+
+    .credentials-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2.8rem;
+    }
+    .credential-card {
+      padding: 1.35rem;
+      border: 1px solid var(--line);
+      background: rgba(13,13,12,.90);
+    }
+    .credential-card h3 {
+      margin: .45rem 0 .4rem;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+    .credential-card p { margin: 0; color: var(--muted); font-size: .85rem; }
+    .development-list {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .7rem;
+    }
+    .development-list li {
+      padding: .9rem 0 .9rem 1.1rem;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--muted);
+      position: relative;
+      font-size: .88rem;
+    }
+    .development-list li::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      color: var(--gold-muted);
+      font-size: .48rem;
+      top: 1.22rem;
+    }
+    .language-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-top: 1.2rem;
+    }
+    .language-row span {
+      padding: .65rem .85rem;
+      border: 1px solid var(--line);
+      color: var(--gold-bright);
+      font-family: var(--serif);
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.6rem, 7vw, 4.5rem);
+      border: 1px solid var(--gold-muted);
+      background:
+        linear-gradient(132deg, rgba(66,48,24,.62), rgba(12,12,11,.97) 58%);
+      box-shadow: var(--shadow);
+    }
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      width: 22rem;
+      height: 22rem;
+      border: 1px solid rgba(215,185,119,.13);
+      transform: rotate(45deg);
+      right: -12rem;
+      top: -12rem;
+    }
+    .contact-card h2 {
+      max-width: 900px;
+      margin: .8rem 0 1.2rem;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+      text-wrap: balance;
+    }
+    .contact-card > p { max-width: 650px; color: var(--muted); }
+    .contact-links {
+      display: grid;
+      gap: .7rem;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .8rem 1rem;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--ink);
+      background: rgba(8,8,8,.35);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .contact-link:hover { border-color: var(--gold); transform: translateX(3px); }
+    .contact-link span:first-child { color: var(--dim); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-link strong { text-align: right; font-size: .86rem; word-break: break-word; }
+    .placeholder-link {
+      cursor: default;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      background: rgba(6,6,6,.58);
+    }
+    .footer-inner {
+      display: grid;
+      gap: 1rem;
+      color: var(--dim);
+      font-size: .76rem;
+    }
+    .footer-name { color: var(--ink); font-family: var(--serif); font-size: 1rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--gold-bright); }
+
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    @media (min-width: 640px) {
+      :root { --container: min(1180px, calc(100% - 3rem)); }
+      .hero-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px; }
+      .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .achievement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .reliance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .expertise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-inner { grid-template-columns: 1fr auto; align-items: center; }
+      .footer-inner > :last-child { grid-column: 1 / -1; }
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta { display: inline-flex; }
+      .impact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .achievement-card { min-height: 21rem; }
+      .role-card { grid-template-columns: minmax(15rem, .7fr) 1.3fr; }
+      .role-head { border-bottom: 0; border-right: 1px solid var(--line-soft); }
+      .about-grid { grid-template-columns: 1.45fr .55fr; align-items: start; }
+      .expertise-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .skills-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1024px) {
+      :root { --nav-h: 5rem; }
+      .menu-button, .mobile-menu { display: none; }
+      .nav-links { display: flex; }
+      .hero-grid {
+        min-height: calc(100svh - var(--nav-h));
+        grid-template-columns: 1.08fr .92fr;
+        grid-template-rows: 1fr;
+      }
+      .hero-copy {
+        order: 1;
+        min-width: 0;
+        padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 4vw, 4.5rem) clamp(3rem, 6vw, 5rem) max(2rem, calc((100vw - 1180px) / 2));
+        background: linear-gradient(90deg, rgba(7,7,7,.89), rgba(7,7,7,.66) 78%, transparent);
+      }
+      .hero-photo-zone {
+        order: 2;
+        min-height: auto;
+        border-bottom: 0;
+        border-left: 1px solid var(--line);
+      }
+      .hero-photo { width: 115%; max-width: none; object-position: 50% 100%; }
+      .hero-name { font-size: clamp(5rem, 8.2vw, 8.7rem); }
+      .hero-positioning { font-size: clamp(1.2rem, 1.7vw, 1.65rem); }
+      .hero-proof { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .hero-proof-item { min-height: 5.5rem; }
+      .hero-actions { margin-top: 1.55rem; }
+      .trust-inner { grid-template-columns: auto 1fr; align-items: center; }
+      .trust-brands { justify-content: flex-end; }
+      .journey {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        padding: 3.4rem 0 0;
+      }
+      .journey::before {
+        left: 0;
+        right: 0;
+        top: 2rem;
+        bottom: auto;
+        width: auto;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(215,185,119,.20), var(--gold), rgba(215,185,119,.45));
+      }
+      .milestone {
+        min-height: 15rem;
+        padding: 0 .8rem 0 0;
+      }
+      .milestone::before {
+        left: 0;
+        top: -1.75rem;
+      }
+      .milestone:nth-child(even) { padding-top: 3.2rem; }
+      .milestone:nth-child(even)::before { top: -1.75rem; }
+      .achievement-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .achievement-card { min-height: 25rem; }
+      .earlier-role { grid-template-columns: 1.2fr .8fr 2fr; align-items: baseline; }
+      .credentials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contact-links { max-width: 900px; }
+    }
+
+    @media (max-width: 767px) {
+      .field-c { display: none; }
+      .atmosphere-texture { opacity: .08; }
+      .site-nav { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+      .hero-name { max-width: 9ch; }
+      .hero-kicker { margin-top: .2rem; }
+      .hero-copy { justify-content: flex-start; }
+      .hero-positioning { margin-top: .8rem; }
+      .hero-proof { margin-top: 1rem; }
+      .hero-actions { margin-top: 1rem; }
+    }
+
+    @media (max-height: 760px) and (max-width: 767px) {
+      .hero-grid { grid-template-rows: minmax(15.5rem, 34svh) auto; }
+      .hero-photo-zone { min-height: 15.5rem; }
+      .hero-copy { padding-top: 1rem; padding-bottom: 1rem; }
+      .hero-positioning { font-size: .96rem; }
+      .hero-proof-item { min-height: 3.95rem; padding: .55rem .65rem; }
+      .hero-actions .button { min-height: 44px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .field-a { opacity: .62 !important; transform: translate3d(3%, -3%, 0) scale(1.03) !important; }
+      .field-b { opacity: .58 !important; transform: translate3d(-3%, 4%, 0) scale(1.02) !important; }
+      .field-c { opacity: .25 !important; transform: none !important; }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    @media print {
+      :root {
+        --base: #fff;
+        --ink: #111;
+        --muted: #333;
+        --dim: #555;
+        --gold: #8b6c2c;
+        --gold-bright: #6f541f;
+        --line: rgba(0,0,0,.22);
+        --line-soft: rgba(0,0,0,.12);
+      }
+      body { background: #fff; color: #111; }
+      .atmosphere, .site-nav, .mobile-menu, .hero-photo-zone, .hero-watermark, .hero-actions { display: none !important; }
+      .site-shell { z-index: auto; }
+      .hero { min-height: auto; padding-top: 0; }
+      .hero-grid, body.no-photo .hero-grid { display: block; width: 100%; min-height: auto; }
+      .hero-copy, body.no-photo .hero-copy { min-height: auto; padding: 2rem 0; background: none; color: #111; text-align: left; align-items: flex-start; }
+      .hero-name .last { color: #111; -webkit-text-stroke: 0; }
+      .hero-proof-item, .impact-card, .achievement-card, .reading-plate, .role-card, .expertise-card, .credential-card, .reliance-feature, .skill-group {
+        background: #fff !important;
+        box-shadow: none;
+        color: #111;
+        break-inside: avoid;
+      }
+      .section { padding: 2.25rem 0; }
+      .reveal, .js .reveal { opacity: 1 !important; transform: none !important; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body data-scene="hero">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere-base"></div>
+    <div class="atmosphere-field field-a"><span></span></div>
+    <div class="atmosphere-field field-b"><span></span></div>
+    <div class="atmosphere-field field-c"><span></span></div>
+    <div class="atmosphere-vignette"></div>
+    <div class="atmosphere-texture"></div>
+  </div>
+
+  <div class="site-shell">
+    <header class="site-nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="Abhijeet Vaidya — Back to top">
+          <span class="brand-mark" aria-hidden="true">AV</span>
+          <span class="brand-copy">
+            <strong>Abhijeet Vaidya</strong>
+            <span>Operations Leadership</span>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#impact">Impact</a>
+          <a href="#journey">Journey</a>
+          <a href="#experience">Experience</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#credentials">Credentials</a>
+        </nav>
+
+        <a class="nav-cta" href="mailto:abhijeet1572@gmail.com">Contact</a>
+
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <a href="#impact">Impact</a>
+        <a href="#journey">Journey</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#experience">Experience</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <main id="main">
+      <section class="hero" id="top" data-atmosphere="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker">Operations · Supply Chain · Procurement · Logistics</p>
+            <h1 class="hero-name">
+              <span class="first">Abhijeet</span>
+              <span class="last">Vaidya</span>
+            </h1>
+            <p class="hero-positioning">Building cash-positive infrastructure operations through procurement, contracts and disciplined delivery.</p>
+
+            <div class="hero-proof" aria-label="Career highlights">
+              <div class="hero-proof-item"><strong>30+</strong><span>Years of Leadership</span></div>
+              <div class="hero-proof-item"><strong>₹9,000 Cr+</strong><span>EPC Procurement Scope</span></div>
+              <div class="hero-proof-item"><strong>₹1,100 Cr</strong><span>Direct Order Book</span></div>
+              <div class="hero-proof-item"><strong>10 Years</strong><span>Reliance Chapter</span></div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="mailto:abhijeet1572@gmail.com">
+                Start a Conversation <span aria-hidden="true">↗</span>
+              </a>
+              <a class="button button-secondary" href="#journey">
+                Explore Career Journey <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-photo-zone">
+            <img
+              src="profile-cutout.png"
+              alt="Abhijeet Ashok Vaidya"
+              class="hero-photo"
+              fetchpriority="high"
+              onerror="document.body.classList.add('no-photo'); this.closest('.hero-photo-zone').setAttribute('aria-hidden','true'); this.remove();">
+          </div>
+
+          <div class="hero-watermark" aria-hidden="true">30+</div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Selected organisations">
+        <div class="container trust-inner">
+          <p class="trust-label">Leadership across</p>
+          <div class="trust-brands">
+            <span>Swastik Infralogics</span>
+            <span>GreenCell Mobility</span>
+            <span>Welspun Enterprises</span>
+            <span>Larsen &amp; Toubro</span>
+            <span>Essel Infra</span>
+            <span>Reliance Infrastructure</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="impact" data-atmosphere="proof">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Impact at scale</p>
+            <h2 class="section-title">Numbers that define an <span class="gold">operating career.</span></h2>
+            <p class="section-intro">Enterprise-scale procurement, infrastructure delivery and cost transformation across complex, multi-site environments.</p>
+          </div>
+
+          <div class="impact-grid reveal">
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="30" data-suffix="+">30+</strong>
+              <p>Years across operations, supply chain, procurement, logistics and project delivery.</p>
+            </article>
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="9000" data-prefix="₹" data-suffix=" Cr+">₹9,000 Cr+</strong>
+              <p>Construction and supply contracts finalised across major EPC and infrastructure portfolios.</p>
+            </article>
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="1100" data-prefix="₹" data-suffix=" Cr">₹1,100 Cr</strong>
+              <p>Direct NHAI and government order book built at Swastik Infralogics.</p>
+            </article>
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="20" data-suffix="+">20+</strong>
+              <p>EV depots rolled out across India in six months with savings above 30%.</p>
+            </article>
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="2000" data-prefix="₹" data-suffix=" Cr">₹2,000 Cr</strong>
+              <p>Annual spend independently managed at Reliance Infrastructure.</p>
+            </article>
+            <article class="impact-card">
+              <strong class="impact-number counter" data-target="35" data-suffix="%">35%</strong>
+              <p>Cost reduction delivered for Essel’s water and power business.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section editorial-rule" id="journey" data-atmosphere="proof">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Career journey</p>
+            <h2 class="section-title">From material engineering to <span class="gold">enterprise operations.</span></h2>
+            <p class="section-intro">A progression from hands-on sourcing and logistics into business-wide procurement, infrastructure operations and project-delivery leadership.</p>
+          </div>
+
+          <div class="journey-wrap reveal">
+            <div class="journey">
+              <article class="milestone">
+                <span class="milestone-year">1994</span>
+                <h3>Voltas</h3>
+                <div class="milestone-role">Material Engineer</div>
+                <p>Built the technical foundation in material engineering and purchase support.</p>
+              </article>
+              <article class="milestone">
+                <span class="milestone-year">2004–2014</span>
+                <h3>Reliance Infrastructure</h3>
+                <div class="milestone-role">General Manager — Procurement &amp; Supply Chain</div>
+                <p>Led enterprise procurement across roads, power automation, SCADA and IT.</p>
+              </article>
+              <article class="milestone">
+                <span class="milestone-year">2014–2017</span>
+                <h3>Essel Infra</h3>
+                <div class="milestone-role">Head — SCM, Road &amp; Water</div>
+                <p>Delivered major savings, water EPC procurement and cash-positive structures.</p>
+              </article>
+              <article class="milestone">
+                <span class="milestone-year">2017–2021</span>
+                <h3>Larsen &amp; Toubro</h3>
+                <div class="milestone-role">Head — Procurement, South BU</div>
+                <p>Led procurement for seven EPC projects worth ₹9,000 Cr.</p>
+              </article>
+              <article class="milestone">
+                <span class="milestone-year">2022–2024</span>
+                <h3>GreenCell Mobility</h3>
+                <div class="milestone-role">AVP — Procurement &amp; Contracts</div>
+                <p>Rolled out 20+ depots in six months with 30%+ savings.</p>
+              </article>
+              <article class="milestone current">
+                <span class="milestone-year">2024–Present</span>
+                <h3>Swastik Infralogics <span class="now-badge">Now</span></h3>
+                <div class="milestone-role">President — Operations</div>
+                <p>Owns the complete bidding-to-delivery infrastructure operations cycle.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="achievements" data-atmosphere="proof">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Signature achievements</p>
+            <h2 class="section-title">Career-defining work, <span class="gold">made measurable.</span></h2>
+          </div>
+
+          <div class="achievement-grid">
+            <article class="achievement-card reveal">
+              <div class="achievement-number">₹1,100 Cr</div>
+              <h3>Built a direct infrastructure order book</h3>
+              <p>Secured NHAI and government business through competitive bidding and strategic positioning.</p>
+              <span class="achievement-meta">Swastik Infralogics</span>
+            </article>
+            <article class="achievement-card reveal">
+              <div class="achievement-number">20+</div>
+              <h3>Rolled out pan-India EV depots</h3>
+              <p>Completed civil, mechanical and electrical installation in six months with more than 30% savings.</p>
+              <span class="achievement-meta">GreenCell Mobility</span>
+            </article>
+            <article class="achievement-card reveal">
+              <div class="achievement-number">₹9,000 Cr</div>
+              <h3>Led seven EPC procurement programmes</h3>
+              <p>Managed the South BU portfolio, including airport projects, while achieving the committed 12% margin.</p>
+              <span class="achievement-meta">Larsen &amp; Toubro</span>
+            </article>
+            <article class="achievement-card reveal">
+              <div class="achievement-number">10 Years</div>
+              <h3>Built a career-defining Reliance chapter</h3>
+              <p>Led roads, power-plant automation, SCADA, IT procurement and enterprise procurement transformation.</p>
+              <span class="achievement-meta">Reliance Infrastructure</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section editorial-rule" id="about" data-atmosphere="depth">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Executive profile</p>
+            <h2 class="section-title">An operator who connects <span class="gold">strategy to execution.</span></h2>
+          </div>
+
+          <div class="reading-plate about-grid reveal">
+            <p class="about-copy">Abhijeet Vaidya is a senior operations and supply-chain leader with 30+ years across infrastructure, EPC, power, transmission, water and electric mobility. His work spans the complete value chain—from competitive bidding and contract strategy to procurement, logistics, inventory, cash-flow design and project delivery. He has led multi-site teams, built procurement centres of excellence, deployed SAP SRM and e-auction platforms, and structured projects for stronger margins and positive cash flow. His approach combines mechanical and electrical engineering grounding with commercial discipline, vendor development, value engineering and hands-on execution.</p>
+
+            <aside class="about-aside" aria-label="Executive profile at a glance">
+              <div><span>Current role</span><strong>President — Operations</strong></div>
+              <div><span>Base</span><strong>Mumbai, India</strong></div>
+              <div><span>Core arena</span><strong>Infrastructure &amp; EPC</strong></div>
+              <div><span>Operating style</span><strong>Cash-positive delivery</strong></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" data-atmosphere="depth">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Experience</p>
+            <h2 class="section-title">Leadership across the <span class="gold">infrastructure value chain.</span></h2>
+          </div>
+
+          <div class="experience-list">
+            <article class="role-card reveal">
+              <header class="role-head">
+                <span class="role-company">Swastik Infralogics Limited</span>
+                <h3>President — Operations</h3>
+                <span class="role-dates">April 2024 — Present</span>
+              </header>
+              <div class="role-body">
+                <ul>
+                  <li>Owns the complete operations cycle from bidding through project delivery.</li>
+                  <li>Built a ₹1,100 Cr direct NHAI and government order book.</li>
+                  <li>Re-engineered infrastructure processes for speed, governance and accountability.</li>
+                  <li>Implemented strict planning-led budget controls to improve project margins.</li>
+                  <li>Designed project strategies to maintain positive cash flow.</li>
+                  <li>Built the organisation structure for large, multi-site infrastructure delivery.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="role-card reveal">
+              <header class="role-head">
+                <span class="role-company">GreenCell Mobility</span>
+                <h3>AVP — Procurement &amp; Contracts</h3>
+                <span class="role-dates">May 2022 — April 2024</span>
+              </header>
+              <div class="role-body">
+                <ul>
+                  <li>Owned AOP cost targets across EV, non-EV, charging and depot scope.</li>
+                  <li>Rolled out 20+ depots in six months with savings above 30%.</li>
+                  <li>Implemented procurement processes compliant with fund and lender requirements.</li>
+                  <li>Converted selected capital costs into variable operating costs through pay-per-use contracts.</li>
+                  <li>Developed vendors to mitigate cost and availability risk.</li>
+                  <li>Optimised spare inventory to minimise vehicle downtime.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="role-card reveal">
+              <header class="role-head">
+                <span class="role-company">Welspun Enterprises Limited</span>
+                <h3>AVP — Supply Chain Management</h3>
+                <span class="role-dates">February 2021 — May 2022</span>
+              </header>
+              <div class="role-body">
+                <ul>
+                  <li>Owned cost targets for project and operational spend across the road vertical.</li>
+                  <li>Finalised ₹1,090 Cr and ₹1,400 Cr construction contracts within targets.</li>
+                  <li>Introduced a hybrid delivery model combining contracts and free-issue materials.</li>
+                  <li>Initiated bulk procurement for diesel, cement, steel, bitumen and aggregate.</li>
+                  <li>Launched production-monitoring digitisation for concrete and aggregate.</li>
+                  <li>Built processes toward an SCM centre of excellence.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <article class="reliance-feature reveal">
+            <span class="eyebrow">Career-defining chapter · April 2004 — February 2014</span>
+            <h3>Reliance Infrastructure</h3>
+            <p>As General Manager — Procurement &amp; Supply Chain, Abhijeet combined enterprise-scale procurement leadership across roads, power-plant automation, electricity-distribution SCADA, IT, instrumentation and transformation programmes.</p>
+            <div class="reliance-grid">
+              <div><strong>≈₹6,000 Cr</strong><span>Subcontractor finalisation for 14 road projects.</span></div>
+              <div><strong>5 Plants</strong><span>Automation packages covering DCS, PLC and instrumentation.</span></div>
+              <div><strong>≈₹150 Cr</strong><span>SCADA packages for Mumbai and Delhi distribution businesses.</span></div>
+              <div><strong>≈₹200 Cr/year</strong><span>Reliance Infrastructure IT procurement responsibility.</span></div>
+              <div><strong>₹2,000 Cr/year</strong><span>Overall annual spend independently handled.</span></div>
+              <div><strong>500 orders/year</strong><span>Sustained order volume over a three-year period.</span></div>
+            </div>
+          </article>
+
+          <div class="earlier-career reveal" aria-label="Earlier career">
+            <div class="earlier-role">
+              <strong>Larsen &amp; Toubro Limited</strong>
+              <span>Sep 2017 — Jan 2021</span>
+              <p>Head — Procurement, South BU; led 19 people and seven EPC projects worth ₹9,000 Cr.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>Essel Infra &amp; Utilities</strong>
+              <span>Feb 2014 — Aug 2017</span>
+              <p>Head — SCM, Road &amp; Water; delivered major cost savings and multi-sector project procurement.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>GTL Limited</strong>
+              <span>Feb 2003 — Apr 2004</span>
+              <p>Manager — Materials; achieved 12% cost reduction and served 60 multi-location sites.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>Supreme Telecommunications Limited</strong>
+              <span>Jun 2000 — Feb 2003</span>
+              <p>Manager — Materials; increased gross margin by 25% and managed 52 projects in six months.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>GEIL Projects &amp; Services (I) Ltd</strong>
+              <span>Nov 1998 — Jun 2000</span>
+              <p>Manager — Logistics &amp; Commercial; established an export-focused SSI unit at Daman.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>Hiross Batliboi India Pvt. Ltd.</strong>
+              <span>Nov 1997 — Nov 1998</span>
+              <p>Assistant Manager — Logistics; reduced cost by 22% through indigenisation and value engineering.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>Tata Liebert Ltd</strong>
+              <span>Sep 1995 — Nov 1997</span>
+              <p>Executive — Purchase; promoted within eight months and reduced cost by 15%.</p>
+            </div>
+            <div class="earlier-role">
+              <strong>Voltas Ltd</strong>
+              <span>Jul 1994 — Sep 1995</span>
+              <p>Material Engineer supporting project material engineering and purchasing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section editorial-rule" id="expertise" data-atmosphere="depth">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Domain expertise</p>
+            <h2 class="section-title">Cross-sector depth. <span class="gold">One operating discipline.</span></h2>
+            <p class="section-intro">Procurement and contracting experience across infrastructure, utilities, automation, IT and industrial systems.</p>
+          </div>
+
+          <div class="expertise-grid">
+            <article class="expertise-card reveal">
+              <span class="index">01</span>
+              <h3>Roads &amp; Airports</h3>
+              <p>Construction contracts for two airport projects and 20 road projects, plus EPC, O&amp;M and dispute resolution.</p>
+            </article>
+            <article class="expertise-card reveal">
+              <span class="index">02</span>
+              <h3>Power &amp; Transmission</h3>
+              <p>GIS substations, transformers, switchgear, towers, conductors, distribution assets and O&amp;M contracts.</p>
+            </article>
+            <article class="expertise-card reveal">
+              <span class="index">03</span>
+              <h3>Water EPC</h3>
+              <p>Treatment plants, tanks, pipe-laying, pumps, meters, valves and design-consultancy procurement.</p>
+            </article>
+            <article class="expertise-card reveal">
+              <span class="index">04</span>
+              <h3>Automation &amp; Security</h3>
+              <p>SCADA, DMS, highway systems, mine management and IP security across 70 locations.</p>
+            </article>
+            <article class="expertise-card reveal">
+              <span class="index">05</span>
+              <h3>Control &amp; Instrumentation</h3>
+              <p>DCS, PLC standardisation, 50+ instrumentation packages and turnkey ordering and erection.</p>
+            </article>
+            <article class="expertise-card reveal">
+              <span class="index">06</span>
+              <h3>IT &amp; Enterprise Systems</h3>
+              <p>Data centres, DR, AMR, GIS, ERP and software procurement across leading enterprise platforms.</p>
+            </article>
+          </div>
+
+          <div class="skills-groups reveal">
+            <article class="skill-group">
+              <h3>Procurement &amp; Commercial</h3>
+              <div class="chips">
+                <span class="chip">Strategic Procurement</span>
+                <span class="chip">Operational Procurement</span>
+                <span class="chip">Strategic Sourcing</span>
+                <span class="chip">Contract Management</span>
+                <span class="chip">Value Engineering</span>
+                <span class="chip">E-Sourcing &amp; E-Auctions</span>
+                <span class="chip">Global &amp; Local Sourcing</span>
+                <span class="chip">Dispute Resolution</span>
+              </div>
+            </article>
+            <article class="skill-group">
+              <h3>Operations &amp; Supply Chain</h3>
+              <div class="chips">
+                <span class="chip">Infrastructure Operations</span>
+                <span class="chip">EPC Project Procurement</span>
+                <span class="chip">Project Delivery</span>
+                <span class="chip">Logistics &amp; Distribution</span>
+                <span class="chip">Warehouse Management</span>
+                <span class="chip">Inventory Control</span>
+                <span class="chip">Material Planning</span>
+                <span class="chip">EXIM</span>
+              </div>
+            </article>
+            <article class="skill-group">
+              <h3>Performance &amp; Governance</h3>
+              <div class="chips">
+                <span class="chip">Budgeting &amp; Cost Control</span>
+                <span class="chip">P&amp;L Management</span>
+                <span class="chip">Cash-Flow Optimisation</span>
+                <span class="chip">Risk Mitigation</span>
+                <span class="chip">Process Re-engineering</span>
+                <span class="chip">Quality Assurance</span>
+                <span class="chip">Lean Six Sigma</span>
+              </div>
+            </article>
+            <article class="skill-group">
+              <h3>Leadership &amp; Systems</h3>
+              <div class="chips">
+                <span class="chip">Team Leadership</span>
+                <span class="chip">Vendor Development</span>
+                <span class="chip">Stakeholder Management</span>
+                <span class="chip">Government &amp; NHAI Liaison</span>
+                <span class="chip">SAP SRM / ERP</span>
+                <span class="chip">Supplier Negotiation</span>
+                <span class="chip">Centre of Excellence</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="credentials" data-atmosphere="depth">
+        <div class="container">
+          <div class="reveal">
+            <p class="section-label">Education &amp; development</p>
+            <h2 class="section-title">Technical grounding, <span class="gold">commercial range.</span></h2>
+          </div>
+
+          <div class="credentials-grid">
+            <article class="credential-card reveal">
+              <span class="eyebrow">Management</span>
+              <h3>Post Graduate Diploma in Materials Management</h3>
+              <p>Welingkar Institute of Management, Mumbai · Project pending</p>
+            </article>
+            <article class="credential-card reveal">
+              <span class="eyebrow">Engineering</span>
+              <h3>Diploma in Mechanical Engineering</h3>
+              <p>Shri Bhagubhai Mafatlal Polytechnic, Mumbai · 1994</p>
+            </article>
+            <article class="credential-card reveal">
+              <span class="eyebrow">Engineering</span>
+              <h3>Diploma in Electrical Engineering</h3>
+              <p>K. J. Somaiya Polytechnic, Mumbai · 1991</p>
+            </article>
+          </div>
+
+          <ul class="development-list reveal">
+            <li>Lean Six Sigma applied to procurement-process improvement and project execution.</li>
+            <li>Procurement Transformation Program delivered with KPMG-UK at Reliance Infrastructure.</li>
+            <li>Active participation in ISO 27000 and ISO 9001 programmes.</li>
+            <li>SAP SRM, e-auction and e-sourcing platform implementation and rollout.</li>
+            <li>Industrial training at Larsen &amp; Toubro Switchgear Division, including an SMED project.</li>
+          </ul>
+
+          <div class="reveal">
+            <p class="section-label" style="margin-top:2.5rem">Languages</p>
+            <div class="language-row">
+              <span>English</span>
+              <span>Hindi</span>
+              <span>Marathi</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" data-atmosphere="final">
+        <div class="container">
+          <div class="contact-card reveal">
+            <span class="eyebrow">Connect</span>
+            <h2>Build the next chapter with disciplined execution.</h2>
+            <p>Open to conversations around senior operations, procurement, supply-chain and infrastructure leadership.</p>
+
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:abhijeet1572@gmail.com">
+                <span>Email</span>
+                <strong>abhijeet1572@gmail.com</strong>
+              </a>
+              <a class="contact-link" href="tel:+919323728552">
+                <span>Phone</span>
+                <strong>+91 93237 28552</strong>
+              </a>
+              <div class="contact-link placeholder-link" aria-label="LinkedIn URL to be added">
+                <span>LinkedIn</span>
+                <strong>[ADD: LinkedIn URL]</strong>
+              </div>
+              <div class="contact-link placeholder-link">
+                <span>Location</span>
+                <strong>Mumbai, Maharashtra, India</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-name">Abhijeet Ashok Vaidya</div>
+          <div>Operations · Supply Chain · Procurement · Logistics Leadership</div>
+        </div>
+        <div class="footer-links">
+          <a href="#top">Top</a>
+          <a href="#impact">Impact</a>
+          <a href="#experience">Experience</a>
+          <a href="mailto:abhijeet1572@gmail.com">Email</a>
+        </div>
+        <div>Designed as a personal website · Source-true career portfolio</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    const menuButton = document.querySelector('.menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    function setMenu(open) {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      document.body.classList.toggle('menu-open', open);
+    }
+
+    menuButton?.addEventListener('click', () => {
+      setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setMenu(false);
+    });
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+
+    function formatNumber(value, element) {
+      const prefix = element.dataset.prefix || '';
+      const suffix = element.dataset.suffix || '';
+      return prefix + Math.round(value).toLocaleString('en-IN') + suffix;
+    }
+
+    const counters = document.querySelectorAll('.counter');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const element = entry.target;
+          const target = Number(element.dataset.target || 0);
+          const duration = 1300;
+          const start = performance.now();
+
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            element.textContent = formatNumber(target * eased, element);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+
+          requestAnimationFrame(tick);
+          observer.unobserve(element);
+        });
+      }, { threshold: 0.45 });
+      counters.forEach(counter => counterObserver.observe(counter));
+    } else {
+      counters.forEach(counter => {
+        counter.textContent = formatNumber(Number(counter.dataset.target || 0), counter);
+      });
+    }
+
+    const sceneSections = document.querySelectorAll('[data-atmosphere]');
+    if ('IntersectionObserver' in window) {
+      const sceneObserver = new IntersectionObserver(entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) {
+          document.body.dataset.scene = visible.target.dataset.atmosphere || 'hero';
+        }
+      }, { threshold: [0.18, 0.35, 0.55], rootMargin: '-15% 0px -35% 0px' });
+
+      sceneSections.forEach(section => sceneObserver.observe(section));
+    }
+
+    const desktopLinks = document.querySelectorAll('.nav-links a');
+    const trackedSections = [...desktopLinks]
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      const activeObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          desktopLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+          });
+        });
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+      trackedSections.forEach(section => activeObserver.observe(section));
+    }
+  </script>
+</body>
+</html>
