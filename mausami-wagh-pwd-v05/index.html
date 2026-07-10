@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mausami Wagh · Technical Product Owner</title>
+  <meta name="description" content="Mausami Wagh — Technical Product Owner and Senior Business/Data Analyst with 10+ years in fintech, payments, and enterprise platforms. Bank of America, TIAA, SWIVEL." />
+  <meta property="og:title" content="Mausami Wagh · Technical Product Owner" />
+  <meta property="og:description" content="Product owner and data analyst delivering platform and payment solutions for global financial institutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile-cutout.png" />
+  <meta name="theme-color" content="#0b0d12" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- RESET & BASE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0d12;
+      color: #e8edf5;
+      line-height: 1.6;
+      isolation: isolate;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- ATMOSPHERIC LAYER (fixed, page-wide) ---------- */
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: #0b0d12;
+    }
+
+    .atmosphere-base {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, #0a1a2e 0%, #07090f 100%);
+      opacity: 1;
+    }
+
+    .atmosphere-field {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      will-change: transform, opacity;
+      opacity: 0.4;
+    }
+
+    .field-sapphire {
+      width: 80vmax;
+      height: 80vmax;
+      background: radial-gradient(circle, #004b8f 0%, #002a5c 70%, transparent 100%);
+      top: -10%;
+      left: -10%;
+      animation: plumeSapphire 36s ease-in-out infinite alternate;
+    }
+
+    .field-violet {
+      width: 70vmax;
+      height: 70vmax;
+      background: radial-gradient(circle, #2a0f4a 0%, #14082a 70%, transparent 100%);
+      bottom: -15%;
+      right: -5%;
+      animation: plumeViolet 44s ease-in-out infinite alternate;
+    }
+
+    .field-cyan {
+      width: 50vmax;
+      height: 50vmax;
+      background: radial-gradient(circle, #006c9e 0%, #003b66 70%, transparent 100%);
+      top: 50%;
+      left: 60%;
+      animation: plumeCyan 38s ease-in-out infinite alternate;
+      opacity: 0.25;
+    }
+
+    .atmosphere-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(11, 13, 18, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .atmosphere-texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* Keyframes — jewel plumes */
+    @keyframes plumeSapphire {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.35; }
+      100% { transform: translate(8%, 6%) scale(1.08); opacity: 0.5; }
+    }
+    @keyframes plumeViolet {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+      100% { transform: translate(-6%, -8%) scale(1.12); opacity: 0.45; }
+    }
+    @keyframes plumeCyan {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+      100% { transform: translate(-5%, 5%) scale(1.1); opacity: 0.35; }
+    }
+
+    /* Scene-aware states (evolve same fields) */
+    body[data-atmosphere-scene="hero"] .field-sapphire { opacity: 0.5; }
+    body[data-atmosphere-scene="hero"] .field-violet { opacity: 0.35; }
+    body[data-atmosphere-scene="hero"] .field-cyan { opacity: 0.25; }
+
+    body[data-atmosphere-scene="proof"] .field-sapphire { opacity: 0.6; }
+    body[data-atmosphere-scene="proof"] .field-violet { opacity: 0.3; }
+    body[data-atmosphere-scene="proof"] .field-cyan { opacity: 0.35; }
+
+    body[data-atmosphere-scene="depth"] .field-sapphire { opacity: 0.3; }
+    body[data-atmosphere-scene="depth"] .field-violet { opacity: 0.4; }
+    body[data-atmosphere-scene="depth"] .field-cyan { opacity: 0.2; }
+
+    body[data-atmosphere-scene="final"] .field-sapphire { opacity: 0.5; }
+    body[data-atmosphere-scene="final"] .field-violet { opacity: 0.3; }
+    body[data-atmosphere-scene="final"] .field-cyan { opacity: 0.2; }
+
+    /* ---------- SITE CHROME (above atmosphere) ---------- */
+    .site-chrome {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- STICKY NAV ---------- */
+    .sticky-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11, 13, 18, 0.65);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .sticky-nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+
+    .nav-monogram {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 75, 143, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #b8d0e8;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #e8edf5;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #a8b8d0;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #e8edf5;
+    }
+
+    .nav-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      background: rgba(0, 75, 143, 0.3);
+      border: 1px solid rgba(0, 180, 216, 0.25);
+      color: #b8d0e8;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: rgba(0, 75, 143, 0.5);
+      border-color: rgba(0, 180, 216, 0.5);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #e8edf5;
+      border-radius: 2px;
+      transition: 0.25s;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      padding: 0 0 0 4rem;
+      align-items: stretch;
+      margin-top: 0;
+      padding-top: 5rem;
+      position: relative;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 2.5rem 3rem 0;
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 8vw, 5.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #e8edf5;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, #00b4d8, #4a9eff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-positioning {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 400;
+      color: #b0c4e0;
+      max-width: 90%;
+      margin-bottom: 1.8rem;
+      line-height: 1.4;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .proof-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proof-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      color: #e8edf5;
+      line-height: 1.1;
+    }
+
+    .proof-label {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #8aa0bc;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.75rem 2rem;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #004b8f, #0072b0);
+      border: none;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0, 75, 143, 0.3);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 75, 143, 0.45);
+    }
+
+    .btn-secondary {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #b8d0e8;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Photo Zone */
+    .hero-photo-zone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      /* seam treatment: hairline rule */
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      max-height: 100vh;
+    }
+
+    /* Typography-photo interplay: "10+" layered behind */
+    .hero-interplay {
+      position: absolute;
+      left: -8%;
+      bottom: 12%;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(6rem, 18vw, 14rem);
+      color: rgba(0, 75, 143, 0.08);
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
+      letter-spacing: -0.06em;
+      user-select: none;
+    }
+
+    /* No-photo state: collapse grid to single column */
+    body.no-photo .hero {
+      grid-template-columns: 1fr;
+      padding: 0 2rem;
+    }
+    body.no-photo .hero-photo-zone {
+      display: none;
+    }
+    body.no-photo .hero-copy {
+      padding: 4rem 0;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    body.no-photo .hero-proof {
+      justify-items: center;
+    }
+    body.no-photo .hero-ctas {
+      justify-content: center;
+    }
+    body.no-photo .hero-positioning {
+      max-width: 100%;
+    }
+    body.no-photo .hero-interplay {
+      display: none;
+    }
+
+    /* ---------- TRUST STRIP ---------- */
+    .trust-strip {
+      padding: 1.6rem 2rem 2.4rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      background: rgba(11, 13, 18, 0.3);
+      backdrop-filter: blur(4px);
+    }
+
+    .trust-strip span {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6a809e;
+      display: inline-block;
+      margin: 0 1.2rem;
+    }
+
+    /* ---------- COMMON SECTION STYLES ---------- */
+    section {
+      position: relative;
+      padding: 5rem 2.5rem;
+      scroll-margin-top: 5rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4a6a8a;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+      color: #e8edf5;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-sub {
+      color: #b0c4e0;
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px) saturate(1.1);
+      -webkit-backdrop-filter: blur(12px) saturate(1.1);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s ease, border-color 0.25s;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .tonal-plate {
+      background: rgba(11, 13, 18, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* ---------- IMPACT NUMBERS ---------- */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 2rem 2.5rem;
+      margin-top: 1rem;
+    }
+
+    .impact-item {
+      text-align: center;
+    }
+
+    .impact-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      background: linear-gradient(135deg, #e8edf5, #8aa0bc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .impact-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #8aa0bc;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    /* ---------- CAREER JOURNEY ---------- */
+    .journey-timeline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-top: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .journey-node {
+      flex: 1 1 160px;
+      position: relative;
+      padding: 1rem 0.2rem 0.8rem;
+      border-top: 2px solid rgba(0, 75, 143, 0.25);
+      transition: border-color 0.3s;
+    }
+
+    .journey-node.current {
+      border-top-color: #00b4d8;
+    }
+
+    .journey-node .year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #4a6a8a;
+      letter-spacing: 0.04em;
+    }
+
+    .journey-node .company {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #e8edf5;
+      margin: 0.2rem 0 0.1rem;
+    }
+
+    .journey-node .role {
+      font-size: 0.85rem;
+      color: #b0c4e0;
+    }
+
+    .journey-node .highlight {
+      font-size: 0.75rem;
+      color: #8aa0bc;
+      margin-top: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .journey-node .current-badge {
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #00b4d8;
+      border: 1px solid rgba(0, 180, 216, 0.25);
+      border-radius: 20px;
+      padding: 0.1rem 0.6rem;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    /* ---------- SIGNATURE ACHIEVEMENTS ---------- */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .achievement-card .ach-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #00b4d8;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .achievement-card .ach-headline {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #e8edf5;
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-card .ach-context {
+      font-size: 0.9rem;
+      color: #b0c4e0;
+      line-height: 1.5;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #c8d8ec;
+      max-width: 720px;
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+    .experience-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #e8edf5;
+    }
+
+    .exp-company {
+      font-weight: 500;
+      color: #b0c4e0;
+    }
+
+    .exp-date {
+      font-size: 0.8rem;
+      color: #6a809e;
+      font-weight: 400;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.92rem;
+      color: #c8d8ec;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .exp-bullets li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #4a6a8a;
+    }
+
+    .exp-condensed {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.8rem;
+      font-size: 0.9rem;
+      color: #8aa0bc;
+    }
+
+    .exp-condensed span {
+      display: inline-block;
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 40px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #b0c4e0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .skill-chip:hover {
+      background: rgba(0, 75, 143, 0.15);
+      border-color: rgba(0, 75, 143, 0.3);
+    }
+
+    .skill-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .skill-group-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #4a6a8a;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ---------- EDUCATION ---------- */
+    .edu-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .edu-item:last-child {
+      border-bottom: none;
+    }
+
+    .edu-degree {
+      font-weight: 500;
+      color: #e8edf5;
+    }
+    .edu-school {
+      color: #b0c4e0;
+      font-size: 0.9rem;
+    }
+    .edu-location {
+      font-size: 0.8rem;
+      color: #6a809e;
+    }
+
+    .cert-item {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 40px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.8rem;
+      color: #b0c4e0;
+      margin: 0.2rem 0.3rem 0.2rem 0;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-links a {
+      font-size: 1rem;
+      color: #b0c4e0;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0.15rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-links a:hover {
+      color: #e8edf5;
+      border-color: rgba(0, 180, 216, 0.3);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.8rem;
+      color: #4a6a8a;
+    }
+
+    .site-footer a {
+      color: #6a809e;
+      text-decoration: none;
+      margin: 0 0.6rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      .hero {
+        padding: 0 0 0 2rem;
+      }
+      .hero-copy {
+        padding-right: 1.5rem;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        padding: 0 1.2rem;
+        min-height: auto;
+        gap: 0;
+      }
+      .hero-copy {
+        padding: 5rem 0 2rem 0;
+        order: 2;
+      }
+      .hero-photo-zone {
+        order: 1;
+        height: clamp(38vh, 45vh, 52vh);
+        border-left: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 0.5rem;
+      }
+      .hero-photo {
+        object-fit: contain;
+        max-height: 100%;
+        width: auto;
+        max-width: 90%;
+      }
+      .hero-interplay {
+        left: 2%;
+        bottom: 5%;
+        font-size: clamp(4rem, 20vw, 10rem);
+        opacity: 0.06;
+      }
+      .hero-positioning {
+        max-width: 100%;
+      }
+      .hero-proof {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem 1rem;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-ctas a {
+        text-align: center;
+      }
+
+      body.no-photo .hero {
+        padding: 0 1.2rem;
+      }
+      body.no-photo .hero-copy {
+        padding: 5rem 0 3rem;
+        text-align: center;
+      }
+      body.no-photo .hero-proof {
+        justify-items: center;
+      }
+
+      .sticky-nav {
+        padding: 0.6rem 1.2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-hamburger {
+        display: flex;
+      }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(11, 13, 18, 0.92);
+        backdrop-filter: blur(20px);
+        padding: 1.2rem 1.8rem;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .nav-links.open a {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 3rem 1.2rem;
+      }
+      .glass-card {
+        padding: 1.2rem 1.2rem;
+      }
+      .tonal-plate {
+        padding: 1.5rem;
+      }
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+      .journey-timeline {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .journey-node {
+        border-top: none;
+        border-left: 2px solid rgba(0, 75, 143, 0.2);
+        padding: 0 0 0 1rem;
+      }
+      .journey-node.current {
+        border-left-color: #00b4d8;
+      }
+      .trust-strip span {
+        margin: 0 0.6rem;
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: clamp(2.2rem, 12vw, 3rem);
+      }
+      .hero-proof {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .proof-number {
+        font-size: 1.2rem;
+      }
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+      .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ---------- REDUCED MOTION ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      .atmosphere-field {
+        animation: none !important;
+        opacity: 0.35 !important;
+        transform: none !important;
+      }
+      .field-sapphire { opacity: 0.4 !important; transform: translate(2%, 2%) scale(1) !important; }
+      .field-violet { opacity: 0.3 !important; transform: translate(-2%, -2%) scale(1) !important; }
+      .field-cyan { opacity: 0.25 !important; transform: translate(0, 0) scale(1) !important; }
+
+      body[data-atmosphere-scene] .atmosphere-field {
+        opacity: 0.35 !important;
+        transform: none !important;
+      }
+      body[data-atmosphere-scene="hero"] .field-sapphire { opacity: 0.45 !important; }
+      body[data-atmosphere-scene="proof"] .field-sapphire { opacity: 0.5 !important; }
+      body[data-atmosphere-scene="depth"] .field-sapphire { opacity: 0.3 !important; }
+      body[data-atmosphere-scene="final"] .field-sapphire { opacity: 0.45 !important; }
+
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .glass-card {
+        transform: none !important;
+      }
+    }
+
+    /* ---------- PRINT ---------- */
+    @media print {
+      .atmosphere { display: none; }
+      .sticky-nav { position: static; background: #fff; color: #000; backdrop-filter: none; border-bottom: 1px solid #ccc; }
+      body { background: #fff; color: #111; }
+      .site-chrome { background: #fff; }
+      .hero { min-height: auto; padding: 2rem; }
+      .hero-name span { -webkit-text-fill-color: #004b8f; background: none; }
+      .glass-card { background: #f5f7fa; backdrop-filter: none; border: 1px solid #ddd; box-shadow: none; }
+      .tonal-plate { background: #f5f7fa; backdrop-filter: none; border: 1px solid #ddd; }
+      .impact-number { -webkit-text-fill-color: #004b8f; background: none; }
+      .btn-primary, .btn-secondary { background: #eee; color: #111; border: 1px solid #aaa; box-shadow: none; }
+      .nav-hamburger { display: none; }
+      .nav-links { display: flex !important; }
+      section { padding: 2rem 1rem; }
+    }
+
+    /* ---------- REVEAL ANIMATIONS ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ATMOSPHERE (fixed, page-wide) ===== -->
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere-base"></div>
+    <div class="atmosphere-field field-sapphire"></div>
+    <div class="atmosphere-field field-violet"></div>
+    <div class="atmosphere-field field-cyan"></div>
+    <div class="atmosphere-vignette"></div>
+    <div class="atmosphere-texture"></div>
+  </div>
+
+  <!-- ===== SITE CHROME ===== -->
+  <div class="site-chrome">
+
+    <!-- ===== STICKY NAV ===== -->
+    <nav class="sticky-nav" id="top-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-left">
+        <img src="profile-cutout.png" alt="Mausami Wagh" class="nav-avatar" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="nav-monogram" style="display:none;">MW</span>
+        <a href="#hero" class="nav-name">Mausami Wagh</a>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <h1 class="hero-name">Mausami <span>Wagh</span></h1>
+        <p class="hero-positioning">Technical Product Owner delivering platform and payment solutions for global financial institutions.</p>
+
+        <div class="hero-proof">
+          <div class="proof-item">
+            <span class="proof-number">10+ Years</span>
+            <span class="proof-label">Fintech &amp; Product</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">BofA · WF · TIAA</span>
+            <span class="proof-label">Enterprise Brands</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">Payments · Cash · API</span>
+            <span class="proof-label">Domain Expertise</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-number">MS Information Systems</span>
+            <span class="proof-label">Top Credential</span>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="mailto:mausami.wagh@gmail.com" class="btn-primary">Contact</a>
+          <a href="#" class="btn-secondary">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero-photo-zone">
+        <div class="hero-interplay">10+</div>
+        <img src="profile-cutout.png" alt="Mausami Wagh" class="hero-photo" onerror="document.body.classList.add('no-photo'); this.remove();" />
+      </div>
+    </section>
+
+    <!-- ===== TRUST STRIP ===== -->
+    <div class="trust-strip">
+      <span>Bank of America</span>
+      <span>Wells Fargo</span>
+      <span>TIAA</span>
+      <span>SWIVEL</span>
+    </div>
+
+    <!-- ===== IMPACT NUMBERS ===== -->
+    <section id="impact">
+      <div class="section-label">Proof</div>
+      <h2 class="section-title">Impact at a glance</h2>
+      <div class="impact-grid">
+        <div class="impact-item reveal">
+          <div class="impact-number" data-count="10">0</div>
+          <div class="impact-label">Years Experience</div>
+        </div>
+        <div class="impact-item reveal">
+          <div class="impact-number" data-count="4">0</div>
+          <div class="impact-label">Global Institutions</div>
+        </div>
+        <div class="impact-item reveal">
+          <div class="impact-number" data-count="6">0</div>
+          <div class="impact-label">Domains Served</div>
+        </div>
+        <div class="impact-item reveal">
+          <div class="impact-number" data-count="3">0</div>
+          <div class="impact-label">Payment Rails</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CAREER JOURNEY ===== -->
+    <section id="journey" class="tonal-plate" style="margin: 0 1.2rem 2rem 1.2rem; border-radius: 24px;">
+      <div class="section-label">Trajectory</div>
+      <h2 class="section-title">Career journey</h2>
+      <div class="journey-timeline">
+        <div class="journey-node">
+          <div class="year">2012–2014</div>
+          <div class="company">Ravish Systems</div>
+          <div class="role">Business Systems Analyst</div>
+          <div class="highlight">ERP solutions · Construction</div>
+        </div>
+        <div class="journey-node">
+          <div class="year">2016</div>
+          <div class="company">Mass. Medical Society</div>
+          <div class="role">QA Analyst</div>
+          <div class="highlight">NEJM · Journal Watch</div>
+        </div>
+        <div class="journey-node">
+          <div class="year">2017</div>
+          <div class="company">WellCare / Centene</div>
+          <div class="role">Business Systems Analyst</div>
+          <div class="highlight">Medicaid · Medicare</div>
+        </div>
+        <div class="journey-node">
+          <div class="year">2018–2021</div>
+          <div class="company">SWBC</div>
+          <div class="role">Associate Product Manager</div>
+          <div class="highlight">Payments · Risk · ACH</div>
+        </div>
+        <div class="journey-node">
+          <div class="year">2022–2023</div>
+          <div class="company">SWIVEL</div>
+          <div class="role">Associate Product Manager</div>
+          <div class="highlight">Real-time payments · API</div>
+        </div>
+        <div class="journey-node">
+          <div class="year">2023–2024</div>
+          <div class="company">TIAA</div>
+          <div class="role">Sr. Business/Data Analyst</div>
+          <div class="highlight">Investment data · Snowflake</div>
+        </div>
+        <div class="journey-node current">
+          <div class="year">2024–Present</div>
+          <div class="company">Bank of America</div>
+          <div class="role">Technical Product Owner</div>
+          <div class="highlight">CashPro · PI planning</div>
+          <span class="current-badge">Now</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SIGNATURE ACHIEVEMENTS ===== -->
+    <section id="achievements">
+      <div class="section-label">Highlights</div>
+      <h2 class="section-title">Signature achievements</h2>
+      <div class="achievements-grid">
+        <div class="glass-card achievement-card reveal">
+          <div class="ach-number">01</div>
+          <div class="ach-headline">CashPro Product Delivery</div>
+          <div class="ach-context">Own backlog-to-release for new functionality, PI planning, dependency management, and production verification at Bank of America.</div>
+        </div>
+        <div class="glass-card achievement-card reveal">
+          <div class="ach-number">02</div>
+          <div class="ach-headline">Real-Time Payments Integration</div>
+          <div class="ach-context">Managed payment capabilities posting borrower transactions in real time through integrations with financial-institution core systems.</div>
+        </div>
+        <div class="glass-card achievement-card reveal">
+          <div class="ach-number">03</div>
+          <div class="ach-headline">Tableau-to-Snowflake Modernization</div>
+          <div class="ach-context">Inventoried dashboards, converted SQL Server data sources, and validated migrated outputs on Snowflake for TIAA.</div>
+        </div>
+        <div class="glass-card achievement-card reveal">
+          <div class="ach-number">04</div>
+          <div class="ach-headline">Enterprise Customer Master Data</div>
+          <div class="ach-context">Defined requirements, RAID, data mappings, and transformation logic for a governed enterprise customer record at Wells Fargo.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="tonal-plate" style="margin: 0 1.2rem 2rem 1.2rem; border-radius: 24px;">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Who I am</h2>
+      <p class="about-text">
+        Technical Product Owner and Senior Business/Data Analyst with 10+ years of experience delivering product, platform, data, and process solutions across banking, payments, insurance, healthcare, publishing, and construction technology. Known for translating complex business needs into actionable epics, user stories, acceptance criteria, and technical specifications while aligning business, engineering, data, compliance, and leadership stakeholders. Brings a disciplined, data-informed approach to risk management, dependency resolution, release readiness, and continuous product improvement.
+      </p>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Experience</h2>
+
+      <!-- BofA -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Technical Product Owner</span>
+          <span class="exp-company">Bank of America</span>
+          <span class="exp-date">Sep 2024 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Own and refine the product backlog for CashPro, supporting discovery, PI planning, sprint execution, UAT, and production verification.</li>
+          <li>Translate stakeholder requests into epics, user stories, acceptance criteria, and sprint goals while partnering with development and QA.</li>
+          <li>Identify cross-team dependencies and delivery risks before PI planning, coordinate resolution, and classify objectives as committed or uncommitted.</li>
+          <li>Facilitate backlog grooming, sprint planning, stand-ups, reviews, and retrospectives, clarifying requirements and removing blockers.</li>
+          <li>Lead UAT, coordinate defect resolution, validate business requirements, and provide sprint sign-off before production release.</li>
+          <li>Perform post-production verification, confirm live behavior against criteria, and coordinate rapid investigation of post-release issues.</li>
+        </ul>
+      </div>
+
+      <!-- TIAA -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Senior Business/Data Analyst</span>
+          <span class="exp-company">TIAA</span>
+          <span class="exp-date">May 2023 – Aug 2024</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Delivered business and data analysis across 2 strategic initiatives: an investment-vehicle system of record and a cybersecurity dashboard migration.</li>
+          <li>Elicited requirements via stakeholder interviews, document analysis, storyboards, and use cases to establish current-state, target-state, gap, and impact.</li>
+          <li>Produced user stories, acceptance criteria, process models, data flows, implementation plans, and benefit analyses.</li>
+          <li>Created a dashboard inventory, mapped dependencies, and surfaced risks before converting SQL Server queries and Tableau connections to Snowflake.</li>
+          <li>Executed source-to-target data validation and functional test plans to verify migrated dashboards preserved data integrity and outputs.</li>
+          <li>Applied SQL to extract, organize, and analyze data; established data-quality expectations and supported audits for accuracy and consistency.</li>
+        </ul>
+      </div>
+
+      <!-- SWIVEL -->
+      <div class="experience-item">
+        <div class="exp-header">
+          <span class="exp-title">Associate Product Manager – Payments &amp; Integrations</span>
+          <span class="exp-company">SWIVEL / SWBC</span>
+          <span class="exp-date">Jan 2022 – May 2023</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Managed a payment-processing product enabling real-time posting to borrower accounts through integrations with core banking systems.</li>
+          <li>Translated the product roadmap into epics and features, prioritized backlog items, and partnered with the Senior Product Manager to expand the portfolio.</li>
+          <li>Orchestrated pilot launches by defining goals, scope, timelines, risks, and success measures; communicated progress to stakeholders.</li>
+          <li>Validated product requirements directly with end users and created interactive Axure RP prototypes to clarify workflows.</li>
+          <li>Used advanced Excel and SQL to evaluate product indicators, investigate issues, and support evidence-based prioritization.</li>
+          <li>Coordinated engineering, QA, support, database, compliance, and third-party vendors to deploy features, integrations, and patches.</li>
+        </ul>
+      </div>
+
+      <!-- Condensed earlier roles -->
+      <div class="exp-condensed">
+        <span><strong>Wells Fargo</strong> · Data Management Consultant (Sep–Dec 2021)</span>
+        <span><strong>SWBC</strong> · Associate Product Manager – Payments &amp; Risk (Feb 2018–Aug 2021)</span>
+        <span><strong>WellCare / Centene</strong> · Business Systems Analyst (Mar–Nov 2017)</span>
+        <span><strong>Mass. Medical Society</strong> · QA Analyst (Jan–Jun 2016)</span>
+        <span><strong>Ravish Systems</strong> · Business Systems Analyst (Mar 2012–Jun 2014)</span>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="tonal-plate" style="margin: 0 1.2rem 2rem 1.2rem; border-radius: 24px;">
+      <div class="section-label">Expertise</div>
+      <h2 class="section-title">Skills &amp; proficiencies</h2>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Product &amp; Delivery</div>
+        <div class="skills-grid">
+          <span class="skill-chip">JIRA</span>
+          <span class="skill-chip">Azure DevOps</span>
+          <span class="skill-chip">Aha!</span>
+          <span class="skill-chip">Confluence</span>
+          <span class="skill-chip">SharePoint</span>
+          <span class="skill-chip">Microsoft Teams</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Data &amp; Databases</div>
+        <div class="skills-grid">
+          <span class="skill-chip">SQL / PL/SQL</span>
+          <span class="skill-chip">SQL Server</span>
+          <span class="skill-chip">Oracle</span>
+          <span class="skill-chip">Snowflake</span>
+          <span class="skill-chip">Teradata</span>
+          <span class="skill-chip">DynamoDB</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">BI &amp; Analytics</div>
+        <div class="skills-grid">
+          <span class="skill-chip">Tableau</span>
+          <span class="skill-chip">Power BI</span>
+          <span class="skill-chip">QlikView</span>
+          <span class="skill-chip">Domo</span>
+          <span class="skill-chip">R</span>
+          <span class="skill-chip">Excel</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">API &amp; Integration</div>
+        <div class="skills-grid">
+          <span class="skill-chip">Postman</span>
+          <span class="skill-chip">Insomnia</span>
+          <span class="skill-chip">SoapUI</span>
+          <span class="skill-chip">Talend</span>
+          <span class="skill-chip">SSIS</span>
+          <span class="skill-chip">JSON</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Modeling &amp; Prototyping</div>
+        <div class="skills-grid">
+          <span class="skill-chip">Lucidchart</span>
+          <span class="skill-chip">Visio</span>
+          <span class="skill-chip">Axure RP</span>
+          <span class="skill-chip">Balsamiq</span>
+          <span class="skill-chip">UML</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Quality &amp; Validation</div>
+        <div class="skills-grid">
+          <span class="skill-chip">Selenium</span>
+          <span class="skill-chip">Beyond Compare</span>
+          <span class="skill-chip">BDD / Gherkin</span>
+          <span class="skill-chip">UAT</span>
+          <span class="skill-chip">Smoke / Regression</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
+    <section id="education">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">Education &amp; certifications</h2>
+
+      <div style="margin-top: 0.5rem;">
+        <div class="edu-item">
+          <span><span class="edu-degree">M.S. Information Systems</span> · <span class="edu-school">Northeastern University</span></span>
+          <span class="edu-location">Boston, MA</span>
+        </div>
+        <div class="edu-item">
+          <span><span class="edu-degree">MBA, Systems</span> · <span class="edu-school">University of Pune</span></span>
+          <span class="edu-location">Pune, India</span>
+        </div>
+        <div class="edu-item">
+          <span><span class="edu-degree">B.E. Computer Engineering</span> · <span class="edu-school">University of Pune</span></span>
+          <span class="edu-location">Pune, India</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <span class="cert-item">Product Strategy · Kellogg</span>
+        <span class="cert-item">Tableau 10 Advanced</span>
+        <span class="cert-item">UML Certified</span>
+        <span class="cert-item">Scrum Certified</span>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="tonal-plate" style="margin: 0 1.2rem 2rem 1.2rem; border-radius: 24px;">
+      <div class="section-label">Connect</div>
+      <h2 class="section-title">Let’s talk</h2>
+      <p style="color: #b0c4e0; max-width: 520px; font-size: 1.05rem;">
+        I’m open to product leadership, platform, and data strategy roles.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:mausami.wagh@gmail.com">✉ mausami.wagh@gmail.com</a>
+        <a href="tel:+19802532534">📞 (980) 253-2534</a>
+        <a href="#">🔗 LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <span>Mausami Wagh</span>
+      <a href="mailto:mausami.wagh@gmail.com">email</a>
+      <a href="#">LinkedIn</a>
+      <br />
+      <span style="font-size: 0.7rem; color: #3a506a;">Designed as a personal website · Obsidian Glass</span>
+    </footer>
+
+  </div><!-- /site-chrome -->
+
+  <script>
+    (function() {
+      // ---------- NAV HAMBURGER ----------
+      const toggle = document.getElementById('nav-toggle');
+      const links = document.getElementById('nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          const open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open);
+        });
+        // close on link click
+        links.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', function() {
+            links.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // ---------- STICKY NAV HIDE ON SCROLL DOWN ----------
+      let lastScroll = 0;
+      const nav = document.getElementById('top-nav');
+      if (nav) {
+        window.addEventListener('scroll', function() {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if (currentScroll > 120) {
+            if (currentScroll > lastScroll) {
+              nav.classList.add('hidden');
+            } else {
+              nav.classList.remove('hidden');
+            }
+          } else {
+            nav.classList.remove('hidden');
+          }
+          lastScroll = currentScroll;
+        }, { passive: true });
+      }
+
+      // ---------- INTERSECTION OBSERVER: REVEAL + COUNTERS + ATMOSPHERE SCENES ----------
+      const revealEls = document.querySelectorAll('.reveal');
+      const counterEls = document.querySelectorAll('[data-count]');
+      const sections = document.querySelectorAll('section[id], .tonal-plate, .trust-strip');
+
+      // atmosphere scenes
+      const sceneMap = {
+        'hero': 'hero',
+        'impact': 'proof',
+        'journey': 'proof',
+        'achievements': 'proof',
+        'about': 'depth',
+        'experience': 'depth',
+        'skills': 'depth',
+        'education': 'depth',
+        'contact': 'final'
+      };
+
+      let countersStarted = false;
+
+      function animateCounter(el) {
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        if (isNaN(target)) return;
+        let current = 0;
+        const increment = Math.max(1, Math.floor(target / 40));
+        const interval = setInterval(function() {
+          current += increment;
+          if (current >= target) {
+            el.textContent = target;
+            clearInterval(interval);
+          } else {
+            el.textContent = current;
+          }
+        }, 30);
+      }
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            // reveal
+            if (entry.target.classList.contains('reveal')) {
+              entry.target.classList.add('visible');
+            }
+
+            // counters (start once)
+            if (!countersStarted && entry.target.closest('#impact')) {
+              countersStarted = true;
+              counterEls.forEach(function(el) {
+                animateCounter(el);
+              });
+            }
+
+            // atmosphere scene
+            const id = entry.target.id;
+            if (id && sceneMap[id]) {
+              document.body.setAttribute('data-atmosphere-scene', sceneMap[id]);
+            } else {
+              // if the target is a section without an id, check parent
+              const parentSection = entry.target.closest('section');
+              if (parentSection && parentSection.id && sceneMap[parentSection.id]) {
+                document.body.setAttribute('data-atmosphere-scene', sceneMap[parentSection.id]);
+              }
+            }
+          }
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+
+      // observe reveals
+      revealEls.forEach(function(el) { observer.observe(el); });
+
+      // observe sections for scene switching
+      sections.forEach(function(el) {
+        if (el.id && sceneMap[el.id]) {
+          observer.observe(el);
+        }
+      });
+
+      // fallback: if no scene set, default to hero
+      if (!document.body.hasAttribute('data-atmosphere-scene')) {
+        document.body.setAttribute('data-atmosphere-scene', 'hero');
+      }
+
+      // ---------- PHOTO RUNTIME: if image loads, remove no-photo class (in case onerror fired earlier) ----------
+      // The onerror on the hero image adds the class. If it loads successfully (e.g., after a retry), we remove it.
+      const heroImg = document.querySelector('.hero-photo');
+      if (heroImg) {
+        heroImg.addEventListener('load', function() {
+          document.body.classList.remove('no-photo');
+        });
+        // if it already loaded and we're here, remove just in case
+        if (heroImg.complete && heroImg.naturalWidth > 0) {
+          document.body.classList.remove('no-photo');
+        }
+      }
+
+      // ---------- REDUCED MOTION: ensure scene transitions don't animate ----------
+      // (handled via CSS prefers-reduced-motion)
+
+      console.log('Obsidian Glass · Mausami Wagh');
+    })();
+  </script>
+
+</body>
+</html>
