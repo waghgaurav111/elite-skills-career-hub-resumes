@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amit Kumar · EV Business Leader · Aurora Portfolio</title>
+    <meta name="description" content="Amit Kumar — Senior Vice President at Revolt Motors. 30+ years in automotive & EV leadership. P&L ownership, business turnarounds, GTM launches." />
+    <meta property="og:title" content="Amit Kumar — EV Business Leader" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0B0A18" />
+
+    <!-- Google Fonts: Sora + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- GSAP + ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <style>
+        /* ============================================================
+               ROOT — AURORA FIELD PALETTE
+               ============================================================ */
+        :root {
+            --color-base: #0B0A18;
+            --color-surface: rgba(18, 16, 40, 0.65);
+            --color-surface-elevated: rgba(30, 28, 60, 0.75);
+            --color-ink: #F2F1FA;
+            --color-ink-muted: rgba(242, 241, 250, 0.55);
+            --color-accent-1: #7C5CFF;
+            --color-accent-2: #33E6E0;
+            --color-accent-3: #FF5CA8;
+            --color-glass-border: rgba(124, 92, 255, 0.12);
+            --color-glow-1: rgba(124, 92, 255, 0.25);
+            --color-glow-2: rgba(51, 230, 224, 0.15);
+
+            /* Type */
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Scale */
+            --text-xs: clamp(0.65rem, 0.6vw + 0.45rem, 0.8rem);
+            --text-sm: clamp(0.75rem, 0.7vw + 0.5rem, 0.9rem);
+            --text-base: clamp(0.95rem, 0.85vw + 0.6rem, 1.1rem);
+            --text-md: clamp(1.1rem, 1vw + 0.7rem, 1.3rem);
+            --text-lg: clamp(1.3rem, 1.2vw + 0.9rem, 1.6rem);
+            --text-xl: clamp(1.8rem, 2vw + 1.2rem, 2.8rem);
+            --text-2xl: clamp(2.8rem, 4vw + 1.5rem, 4.5rem);
+            --text-3xl: clamp(4rem, 7vw + 2rem, 7.5rem);
+            --text-hero: clamp(5rem, 11vw + 2rem, 11rem);
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-xxl: 10rem;
+
+            /* Easing */
+            --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-power3: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ============================================================
+               RESET & BASE
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--color-base);
+            color: var(--color-ink);
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+               AURORA MESH — BACKGROUND
+               ============================================================ */
+        .aurora-mesh {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .aurora-mesh .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            will-change: transform, opacity;
+        }
+
+        .aurora-mesh .blob--1 {
+            width: 60vmax;
+            height: 60vmax;
+            top: -20%;
+            right: -10%;
+            background: var(--color-accent-1);
+            opacity: 0.25;
+        }
+
+        .aurora-mesh .blob--2 {
+            width: 50vmax;
+            height: 50vmax;
+            bottom: -10%;
+            left: -15%;
+            background: var(--color-accent-2);
+            opacity: 0.2;
+        }
+
+        .aurora-mesh .blob--3 {
+            width: 40vmax;
+            height: 40vmax;
+            top: 40%;
+            left: 30%;
+            background: var(--color-accent-3);
+            opacity: 0.12;
+        }
+
+        /* Grain overlay */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ============================================================
+               TYPOGRAPHY
+               ============================================================ */
+        h1,
+        h2,
+        h3,
+        h4,
+        .display {
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        .display-hero {
+            font-size: var(--text-hero);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 0.92;
+            background: linear-gradient(135deg, #F2F1FA 0%, rgba(242, 241, 250, 0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .display-hero .accent-grad {
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .display-xl {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .display-lg {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .display-md {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: var(--font-body);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: var(--text-xs);
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-xs);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent-2);
+            opacity: 0.7;
+        }
+
+        .body-text {
+            font-size: var(--text-base);
+            line-height: 1.7;
+            max-width: 62ch;
+            color: var(--color-ink-muted);
+            font-weight: 300;
+        }
+
+        .body-text strong {
+            color: var(--color-ink);
+            font-weight: 500;
+        }
+
+        .accent-text {
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .accent-text-pink {
+            background: linear-gradient(135deg, var(--color-accent-3), var(--color-accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 60px var(--color-glow-1);
+        }
+
+        /* ============================================================
+               LAYOUT UTILITIES
+               ============================================================ */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            position: relative;
+            z-index: 5;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-xl) 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .section--short {
+            min-height: 70vh;
+            padding: var(--space-lg) 0;
+        }
+
+        .section--tall {
+            min-height: 120vh;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .flex-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .gap-sm {
+            gap: var(--space-sm);
+        }
+        .gap-md {
+            gap: var(--space-md);
+        }
+        .gap-lg {
+            gap: var(--space-lg);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-sm {
+            margin-top: var(--space-sm);
+        }
+        .mt-md {
+            margin-top: var(--space-md);
+        }
+        .mt-lg {
+            margin-top: var(--space-lg);
+        }
+        .mb-md {
+            margin-bottom: var(--space-md);
+        }
+        .mb-lg {
+            margin-bottom: var(--space-lg);
+        }
+
+        .relative {
+            position: relative;
+        }
+        .z-1 {
+            z-index: 1;
+        }
+        .z-2 {
+            z-index: 2;
+        }
+        .z-3 {
+            z-index: 3;
+        }
+
+        /* ============================================================
+               GLASS CARD
+               ============================================================ */
+        .glass {
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 16px;
+            padding: var(--space-md);
+            transition: border-color 0.4s, transform 0.4s var(--ease-expo);
+        }
+
+        .glass:hover {
+            border-color: rgba(124, 92, 255, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .glass-elevated {
+            background: var(--color-surface-elevated);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(124, 92, 255, 0.15);
+            border-radius: 16px;
+            padding: var(--space-md);
+        }
+
+        /* ============================================================
+               PROGRESS INDICATOR
+               ============================================================ */
+        .progress-rail {
+            position: fixed;
+            right: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(124, 92, 255, 0.3);
+            background: transparent;
+            transition: all 0.5s var(--ease-expo);
+            pointer-events: auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-dot.active {
+            background: var(--color-accent-1);
+            border-color: var(--color-accent-1);
+            transform: scale(1.4);
+            box-shadow: 0 0 30px var(--color-glow-1);
+        }
+
+        .progress-dot .label {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-body);
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--color-ink-muted);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .progress-dot:hover .label {
+            opacity: 1;
+        }
+
+        .progress-line {
+            width: 1.5px;
+            flex: 1;
+            min-height: 20px;
+            background: rgba(124, 92, 255, 0.1);
+            position: relative;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, var(--color-accent-1), var(--color-accent-2));
+            transition: height 0.15s linear;
+            border-radius: 2px;
+        }
+
+        /* ============================================================
+               HERO
+               ============================================================ */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: var(--space-xl) 0;
+        }
+
+        #hero .hero-content {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .hero-text .eyebrow {
+            margin-bottom: var(--space-xs);
+        }
+
+        .hero-text .display-hero {
+            font-size: clamp(3.2rem, 9vw + 1rem, 7.5rem);
+        }
+
+        .hero-text .hero-sub {
+            font-size: var(--text-lg);
+            color: var(--color-ink-muted);
+            max-width: 50ch;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-text .hero-tagline {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--color-accent-2);
+            margin-top: var(--space-xs);
+            padding-left: var(--space-md);
+            border-left: 2px solid var(--color-accent-2);
+        }
+
+        .hero-figure {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .hero-figure .figure-cutout {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 80px rgba(124, 92, 255, 0.2));
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-figure .figure-glow-ring {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 70%;
+            height: 50%;
+            background: radial-gradient(ellipse at center, rgba(124, 92, 255, 0.2), transparent 70%);
+            filter: blur(60px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-figure .figure-badge {
+            position: absolute;
+            bottom: 8%;
+            right: -5%;
+            background: var(--color-surface-elevated);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 92, 255, 0.15);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            z-index: 3;
+            letter-spacing: 0.02em;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-figure .figure-badge strong {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-xl);
+            background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: var(--space-md);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.4;
+            animation: cueFloat 2.8s ease-in-out infinite;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-ink-muted);
+        }
+
+        .scroll-cue .arrow {
+            width: 22px;
+            height: 22px;
+            border-right: 1.5px solid var(--color-ink-muted);
+            border-bottom: 1.5px solid var(--color-ink-muted);
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+
+        @keyframes cueFloat {
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* ============================================================
+               CHAPTERS
+               ============================================================ */
+        .chapter-label {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-xs);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent-2);
+            opacity: 0.6;
+            margin-bottom: var(--space-xs);
+        }
+
+        .chapter-title {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: var(--space-md);
+        }
+
+        .divider-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+            margin: var(--space-sm) 0 var(--space-md);
+            border-radius: 4px;
+        }
+
+        /* ============================================================
+               SKILL TAGS — GLASS
+               ============================================================ */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            margin-top: var(--space-sm);
+        }
+
+        .skill-tag {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: var(--text-sm);
+            padding: 6px 18px;
+            border: 1px solid rgba(124, 92, 255, 0.1);
+            border-radius: 100px;
+            background: rgba(124, 92, 255, 0.04);
+            color: var(--color-ink-muted);
+            letter-spacing: 0.01em;
+            transition: all 0.35s var(--ease-expo);
+            backdrop-filter: blur(8px);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--color-accent-1);
+            color: var(--color-ink);
+            background: rgba(124, 92, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(124, 92, 255, 0.08);
+        }
+
+        .skill-tag--highlight {
+            border-color: var(--color-accent-1);
+            color: var(--color-accent-1);
+            background: rgba(124, 92, 255, 0.08);
+        }
+
+        .skill-tag--highlight:hover {
+            background: rgba(124, 92, 255, 0.15);
+            box-shadow: 0 4px 30px rgba(124, 92, 255, 0.15);
+        }
+
+        /* ============================================================
+               METRIC CARDS — SET PIECE
+               ============================================================ */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: var(--space-md);
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 16px;
+            transition: all 0.5s var(--ease-expo);
+        }
+
+        .metric-card:hover {
+            border-color: rgba(124, 92, 255, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 60px rgba(124, 92, 255, 0.06);
+        }
+
+        .metric-number {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-3xl);
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .metric-number .suffix {
+            font-size: var(--text-xl);
+            -webkit-text-fill-color: var(--color-ink-muted);
+            color: var(--color-ink-muted);
+            opacity: 0.5;
+        }
+
+        .metric-label {
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            margin-top: var(--space-xs);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .metric-sub {
+            font-size: var(--text-xs);
+            color: var(--color-ink-muted);
+            opacity: 0.35;
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+               TIMELINE — HORIZONTAL SCROLL
+               ============================================================ */
+        .timeline-wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: var(--space-md) 0;
+        }
+
+        .timeline-track {
+            display: flex;
+            gap: var(--space-md);
+            padding: var(--space-xs) 0;
+            width: max-content;
+        }
+
+        .timeline-item {
+            min-width: 260px;
+            max-width: 320px;
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 16px;
+            padding: var(--space-md);
+            flex-shrink: 0;
+            transition: all 0.4s var(--ease-expo);
+        }
+
+        .timeline-item:hover {
+            border-color: rgba(124, 92, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(124, 92, 255, 0.04);
+        }
+
+        .timeline-item .year {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: var(--text-md);
+            background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .timeline-item .role {
+            font-weight: 600;
+            font-size: var(--text-md);
+            margin: var(--space-xs) 0 2px;
+            color: var(--color-ink);
+        }
+
+        .timeline-item .company {
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            font-weight: 400;
+        }
+
+        .timeline-item .location {
+            font-size: var(--text-xs);
+            color: var(--color-ink-muted);
+            opacity: 0.4;
+            margin-top: 2px;
+            font-weight: 300;
+        }
+
+        .timeline-item .bullet {
+            font-size: var(--text-xs);
+            color: var(--color-ink-muted);
+            opacity: 0.6;
+            padding-left: var(--space-sm);
+            border-left: 2px solid var(--color-accent-1);
+            margin-top: var(--space-xs);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+               ACHIEVEMENT DETAIL
+               ============================================================ */
+        .achievement-detail {
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 16px;
+            padding: var(--space-md);
+            margin: var(--space-sm) 0;
+            transition: all 0.4s var(--ease-expo);
+        }
+
+        .achievement-detail:hover {
+            border-color: rgba(124, 92, 255, 0.15);
+        }
+
+        .achievement-detail .label {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-ink-muted);
+            opacity: 0.5;
+        }
+
+        .achievement-detail .value {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: var(--text-xl);
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-detail .desc {
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            margin-top: 4px;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+               EDUCATION
+               ============================================================ */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        .edu-card {
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--color-glass-border);
+            border-radius: 16px;
+            padding: var(--space-md);
+            transition: all 0.4s var(--ease-expo);
+        }
+
+        .edu-card:hover {
+            border-color: rgba(124, 92, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .edu-card .title {
+            font-weight: 600;
+            font-size: var(--text-md);
+            color: var(--color-ink);
+        }
+
+        .edu-card .sub {
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            font-weight: 300;
+        }
+
+        .edu-card .year {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-xs);
+            color: var(--color-accent-2);
+            letter-spacing: 0.04em;
+            margin-top: 4px;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin-top: var(--space-sm);
+        }
+
+        .cert-item {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            color: var(--color-ink-muted);
+            font-weight: 300;
+            padding-left: var(--space-sm);
+            border-left: 2px solid var(--color-accent-2);
+        }
+
+        /* ============================================================
+               CTA
+               ============================================================ */
+        #cta {
+            text-align: center;
+            padding: var(--space-xxl) var(--space-md);
+            position: relative;
+            z-index: 5;
+        }
+
+        #cta .cta-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(124, 92, 255, 0.08), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-btn {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: var(--text-sm);
+            letter-spacing: 0.04em;
+            padding: 14px 32px;
+            border-radius: 100px;
+            border: 1px solid rgba(124, 92, 255, 0.15);
+            background: var(--color-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: var(--color-ink);
+            text-decoration: none;
+            transition: all 0.4s var(--ease-expo);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            background: var(--color-accent-1);
+            color: var(--color-base);
+            border-color: var(--color-accent-1);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 50px rgba(124, 92, 255, 0.2);
+        }
+
+        .cta-btn--primary {
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            border-color: transparent;
+            color: var(--color-base);
+        }
+
+        .cta-btn--primary:hover {
+            background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent-1));
+            border-color: transparent;
+            color: var(--color-base);
+            box-shadow: 0 12px 60px rgba(124, 92, 255, 0.3);
+        }
+
+        .cta-closing {
+            font-size: var(--text-lg);
+            color: var(--color-ink-muted);
+            max-width: 60ch;
+            margin: 0 auto var(--space-md);
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================
+               RESPONSIVE
+               ============================================================ */
+        @media (max-width: 1024px) {
+            #hero .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-figure {
+                justify-content: center;
+                min-height: 300px;
+            }
+            .hero-figure .figure-cutout {
+                max-width: 320px;
+            }
+            .hero-figure .figure-badge {
+                right: 5%;
+                bottom: 5%;
+            }
+            .hero-text .hero-sub {
+                margin: 0 auto;
+            }
+            .hero-text .hero-tagline {
+                border-left: none;
+                padding-left: 0;
+                border-top: 2px solid var(--color-accent-2);
+                padding-top: var(--space-xs);
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+            .progress-rail {
+                right: 12px;
+                gap: 6px;
+            }
+            .progress-dot .label {
+                display: none;
+            }
+            .timeline-item {
+                min-width: 220px;
+                max-width: 260px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            :root {
+                --space-xl: 3rem;
+                --space-xxl: 5rem;
+                --space-lg: 2rem;
+            }
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            #hero .hero-content {
+                gap: var(--space-md);
+            }
+            .hero-figure {
+                min-height: 200px;
+            }
+            .hero-figure .figure-cutout {
+                max-width: 200px;
+            }
+            .hero-figure .figure-badge {
+                font-size: 10px;
+                padding: 6px 14px;
+                right: 0;
+                bottom: 0;
+            }
+            .hero-figure .figure-badge strong {
+                font-size: var(--text-md);
+            }
+            .hero-text .display-hero {
+                font-size: clamp(2.2rem, 14vw, 3.6rem);
+            }
+            .metric-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-sm);
+            }
+            .metric-number {
+                font-size: var(--text-2xl);
+            }
+            .chapter-title {
+                font-size: var(--text-xl);
+            }
+            .timeline-item {
+                min-width: 180px;
+                max-width: 220px;
+                padding: var(--space-sm);
+            }
+            .skill-tags {
+                gap: 6px 10px;
+            }
+            .skill-tag {
+                font-size: var(--text-xs);
+                padding: 4px 14px;
+            }
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            .scroll-cue {
+                display: none;
+            }
+            .progress-rail {
+                right: 8px;
+                gap: 5px;
+            }
+            .progress-dot {
+                width: 8px;
+                height: 8px;
+            }
+            .cert-list {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .cert-item {
+                border-left: none;
+                padding-left: 0;
+            }
+            .section {
+                min-height: 80vh;
+                padding: var(--space-lg) 0;
+            }
+            .section--tall {
+                min-height: 100vh;
+            }
+        }
+
+        /* ============================================================
+               REDUCED MOTION
+               ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .scroll-cue {
+                animation: none;
+                opacity: 0.2;
+            }
+            .metric-card:hover {
+                transform: none;
+            }
+            .cta-btn:hover {
+                transform: none;
+            }
+            [data-scroll],
+            [data-split] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .skill-tag {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .timeline-item {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .aurora-mesh .blob {
+                animation: none !important;
+            }
+        }
+
+        /* ============================================================
+               PRINT
+               ============================================================ */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+            }
+            .progress-rail {
+                display: none !important;
+            }
+            .aurora-mesh,
+            .grain-overlay {
+                display: none !important;
+            }
+            .section {
+                min-height: auto;
+                padding: 2rem 0;
+                page-break-inside: avoid;
+            }
+            .metric-card {
+                border: 1px solid #ddd;
+                background: #f5f5f5;
+            }
+            .metric-number {
+                -webkit-text-fill-color: #7C5CFF;
+                color: #7C5CFF;
+            }
+            .accent-text {
+                -webkit-text-fill-color: #7C5CFF;
+                color: #7C5CFF;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .cta-btn {
+                border: 1px solid #333;
+                color: #111;
+                background: #eee;
+            }
+            .cta-btn--primary {
+                background: #7C5CFF;
+                color: #fff;
+            }
+            .glass,
+            .glass-elevated,
+            .metric-card,
+            .timeline-item,
+            .edu-card,
+            .achievement-detail {
+                background: #f8f8f8 !important;
+                backdrop-filter: none !important;
+                border-color: #ddd !important;
+            }
+            .skill-tag {
+                border: 1px solid #ccc;
+                background: #f0f0f0;
+                color: #111;
+            }
+            .divider-line {
+                background: #7C5CFF;
+            }
+            .chapter-label {
+                color: #666;
+            }
+            .text-glow {
+                text-shadow: none;
+            }
+            .display-hero {
+                -webkit-text-fill-color: #111;
+                color: #111;
+                background: none;
+            }
+            .display-hero .accent-grad {
+                -webkit-text-fill-color: #7C5CFF;
+                color: #7C5CFF;
+                background: none;
+            }
+            .hero-figure .figure-badge {
+                background: #f0f0f0;
+                border-color: #ccc;
+                backdrop-filter: none;
+            }
+            .hero-figure .figure-badge strong {
+                -webkit-text-fill-color: #7C5CFF;
+                color: #7C5CFF;
+                background: none;
+            }
+            .accent-text-pink {
+                -webkit-text-fill-color: #7C5CFF;
+                color: #7C5CFF;
+                background: none;
+            }
+            .hero-text .hero-tagline {
+                border-color: #7C5CFF;
+            }
+        }
+
+        /* ============================================================
+               FALLBACK — no image
+               ============================================================ */
+        .no-image .hero-figure .figure-cutout {
+            display: none;
+        }
+        .no-image .hero-figure .figure-glow-ring {
+            display: none;
+        }
+        .no-image .hero-figure .figure-badge {
+            position: static;
+            background: var(--color-surface-elevated);
+            border: 1px solid rgba(124, 92, 255, 0.15);
+            backdrop-filter: blur(20px);
+        }
+        .no-image .hero-figure {
+            justify-content: center;
+            min-height: auto;
+            padding: var(--space-md) 0;
+        }
+
+        .monogram-fallback {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(4rem, 12vw, 9rem);
+            background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.2;
+            line-height: 1;
+        }
+        .has-image .monogram-fallback {
+            display: none;
+        }
+        .no-image .monogram-fallback {
+            opacity: 0.4;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    ART DIRECTION DECLARATION
+    ============================================================ -->
+    <!--
+    ART DIRECTION DECLARATION
+    DIRECTION: 03 · AURORA FIELD
+    DOMAIN: Automotive & Electric Vehicle Business Leader — Senior Management, 30+ years, P&L ownership, business turnarounds, GTM launches.
+    PALETTE: base #0B0A18 / surface rgba(18,16,40,0.65) / surface-elevated rgba(30,28,60,0.75) / ink #F2F1FA / ink-muted rgba(242,241,250,0.55) / accent-1 #7C5CFF / accent-2 #33E6E0 / accent-3 #FF5CA8
+    TYPE: Sora (display) + Inter (body). Sora brings a geometric, futuristic, confident feel — perfect for an EV leader. Inter provides clean, readable body copy with a technical edge.
+    MOTION PERSONALITY: fluid, luminous, continuous — the aurora mesh drifts with scroll velocity, glass cards float in on scrubbed parallax, gradient text shifts hue through the page.
+    SIGNATURE SET PIECE: The "Impact" chapter where the three biggest real numbers (11% EBIT, ₹3000Cr revenue, 11% market gain) are presented as glowing metric cards that animate into place, while the aurora background shifts colour stops as the user scrolls through the section — the atmosphere "ages" from deep violet to cyan-teal.
+    RATIONALE: EV and tech-forward leadership demands a futuristic, clean, and visually immersive aesthetic. Aurora Field's living gradients, glass-morphism, and fluid motion perfectly capture innovation, energy, and forward momentum.
+    -->
+
+    <!-- ============================================================
+    DATA INVENTORY
+    ============================================================ -->
+    <!--
+    DATA INVENTORY — every fact on the page traces to this list.
+
+    1. NAME: Amit Kumar
+    2. TITLE: Sr. Vice President at Revolt Motors (May 2026 – Present)
+    3. PREVIOUS: VP – EV Head at Piaggio Vehicles (Aug 2022 – July 2025)
+    4. LOCATION: Pune, India
+    5. EMAIL: amitkrpvpl@gmail.com
+    6. PHONE: +91-9831091956
+    7. LINKEDIN: linkedin.com/in/amitkumar-ev
+    8. SUMMARY: 30+ years leadership across Mahindra & Mahindra, Eicher Motors, Piaggio Vehicles. Expert in P&L ownership, business turnarounds, scaling new verticals, sustainable revenue growth in 2W, 3W, 4W, Construction Equipment (ICE & EV). Achieved 11% EBIT since vertical inception. Spearheaded GTM launches.
+    9. CORE COMPETENCIES: P&L Ownership, EV Business Strategy, Channel Scaling, National Sales, Revenue Growth, Business Turnaround.
+    10. FUNCTIONAL SKILLS: GTM Execution, After-Sales Operations, Retail Finance, Zero-Based Costing, Contract Negotiation, Stakeholder Relations.
+    11. INDUSTRIES: Electric Vehicles (EV), Commercial & ICE 2W/3W, Construction Equipment.
+    12. LANGUAGES: English (Professional), Hindi (Native/Bilingual).
+    13. REVOLT MOTORS (Sr. VP, May 2026–Present): Business Strategy, P&L Ownership, GTM Launches, Connected Vehicle Apps & Telematics. Lead integrated national Sales & Service. Build and scale dealer networks. Oversee GTM execution. Steer connected-vehicle apps and telematics.
+    14. PIAGGIO (VP – EV Head, Aug 2022–July 2025): Directed all sales, marketing, customer care, planning for EV division. Achieved 11% EBIT since inception. Spearheaded GTM launch of two new EV models in 6 months. Re-aligned customer service via ICE dealer network. Managed retail finance, credit risk, inventory.
+    15. PREVIOUS ROLES:
+        - Continental Engines (Baxy Mobility) — Business Head (President) — CV Division, Aug 2021–Aug 2022, Gurugram.
+        - Piaggio Vehicles — National Sales Head — GM - Sales, Dec 2017–July 2021, Pune.
+        - Piaggio Vehicles — DGM (Zonal Head) — East Zone, UP & MP (CV), Dec 2015–Dec 2017, Kolkata.
+        - Piaggio Vehicles — AGM Sales — East Zone & UP (CV), Feb 2014–Dec 2015, Kolkata.
+        - Piaggio Vehicles — Senior Manager (ZM) — East & North East, March 2012–Feb 2014, Kolkata.
+        - Mahindra & Mahindra — Zonal Manager — East (Construction Equipment), Nov 2010–March 2012, Kolkata.
+        - Piaggio Vehicles — Regional Manager — Bihar, Jharkhand & UP, Sept 2000–Oct 2010, Patna.
+        - Eicher Ltd (Royal Enfield) — Senior Executive — Sales & Service, Aug 1998–Sept 2000, Patna.
+        - Lucas India Pvt. Ltd — Sales Engineer (Jalandhar, Delhi & Ambala), March 1993–July 1998, North India.
+    16. EDUCATION: MBA, Indian Institute of Business Management, Mumbai, 2010. Diploma in Automobile Engineering, H.I.E.T., Madras, 1992.
+    17. CERTIFICATIONS: Financial Management (Dec 2019, Raman Lamba), Relationship Management (Dec 2011, Homi Mulla).
+    18. CAREER HIGHLIGHTS: 11% market gain, ₹3000Cr max revenue, 11% record EBIT, 30+ yrs sector depth.
+    19. SIGNATURE ACHIEVEMENTS:
+        - National Market Share Acceleration: 22% (Dec'18) → 33% (CY'20) — 11% gain.
+        - Max Revenue: ₹3000Cr, 10% YoY growth, CY'20.
+        - EV Profitability: 11% sustained EBIT since inception.
+        - Warranty Risk Mitigation: ₹2,515 → ₹490 per vehicle (80% cut).
+        - Strategic Labor Cost Optimization: ₹6,200 → ₹3,900 per vehicle (37% savings).
+    20. THOUGHT LEADERSHIP: Scaling clean mobility verticals while sustaining 11% EBIT. Leveraging ICE dealership infrastructure for EV deployment. Zero-Based Budgeting execution.
+    21. BEYOND WORK: Clean Energy Advocacy, Engineering Mentorship, Industrial Tech Forums, Sustainable Design.
+    22. KEY INITIATIVES: EV Fleet Alignments, DMS Platform Rollouts, ZBC Sourcing Audits, Dealer Profitability.
+    23. TECH STACK: Connected-Vehicle Apps, Telematics Integration, Dealer Management (DMS), Salesforce CRM, Zero-Based Costing (ZBC), Logistics Management, Retail Finance Platforms, Inventory Control Systems.
+    24. CLOSING LINE: "Ready to scale your commercial reach, maximize dealer networks, and lead P&L turnarounds across global and pan-India automotive sectors."
+    -->
+
+    <!-- ============================================================
+    SCENE STORYBOARD PRE-FLIGHT
+    ============================================================ -->
+    <!--
+    SCENE STORYBOARD
+    CH | CHAPTER          | MECHANIC                                                           | PIN? (length)       | SCRUB/TOGGLE    | KEY FACT SHOWN                         | SEAM OUT
+    01 | Hero Hook        | Aurora mesh drifts. Name splits with staggered chars. Figure glides in. Badge fades up. | no                 | toggle once     | Name + title + "11% EBIT" badge        | Glass divider sweeps in
+    02 | Origin & Summary | Glass cards float up. Text staggers. "30+ Years" glows.           | no                 | toggle once     | "30+ Yrs Sector Depth" + summary       | Shared-element: aurora shift
+    03 | Competencies     | Glass tag field with staggered entrance. Gradient pills.           | no                 | toggle once     | Core competencies + functional skills  | Divider line draws in
+    04 | Impact ★ SET PIECE | Glowing metric cards count up. Aurora shifts colour as you scroll through. Dimension-like accent line draws. | yes (200vh)         | scrub           | 11% EBIT · ₹3000Cr · 11% market gain   | Aurora transitions to teal
+    05 | Career Timeline   | Horizontal panel of glass cards. Each card glides in from right. | yes (160vh)         | scrub           | Full chronological role list           | Last card morphs into education
+    06 | Education & Cert  | Glass cards with staggered entrance. Quiet, refined.              | no                 | toggle once     | MBA, Diploma, 2 certifications         | Fade to CTA glow
+    07 | Vision / CTA      | Glowing CTA buttons. Closing line with gradient. Aurora fades.   | no                 | toggle once     | Closing line + mail/tel/LinkedIn       | end
+
+    MOBILE ADAPTATIONS:
+    - Hero: figure scales down, badge moves, text centered.
+    - Set Piece: metric grid becomes 2×2, pins shorten to 120vh.
+    - Timeline: horizontal panel stacks vertically on mobile.
+    - All pins shortened or unpinned on mobile.
+    - Progress rail: dots smaller, labels hidden.
+
+    REDUCED-MOTION:
+    - All animations disabled; content fully readable.
+    - Pins become static sections.
+    - Horizontal panel becomes vertical stack.
+    -->
+
+    <!-- ============================================================
+    AURORA MESH — BACKGROUND
+    ============================================================ -->
+    <div class="aurora-mesh" aria-hidden="true">
+        <div class="blob blob--1" id="blob1"></div>
+        <div class="blob blob--2" id="blob2"></div>
+        <div class="blob blob--3" id="blob3"></div>
+    </div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- ============================================================
+    PROGRESS RAIL
+    ============================================================ -->
+    <nav class="progress-rail" aria-label="Chapter navigation">
+        <div class="progress-dot active" data-chapter="0">
+            <span class="label">Home</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="1">
+            <span class="label">Origin</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="2">
+            <span class="label">Skills</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="3">
+            <span class="label">Impact</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="4">
+            <span class="label">Timeline</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="5">
+            <span class="label">Education</span>
+        </div>
+        <div class="progress-line">
+            <div class="progress-line-fill"></div>
+        </div>
+        <div class="progress-dot" data-chapter="6">
+            <span class="label">Connect</span>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO — CHAPTER 01
+    ============================================================ -->
+    <section id="hero" data-chapter="0">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="eyebrow">Senior Executive · Automotive &amp; EV</span>
+                    <h1 class="display-hero" data-split>
+                        <span class="word">Amit</span>
+                        <span class="word" style="display:inline-block;">&nbsp;</span>
+                        <span class="word accent-grad">Kumar</span>
+                    </h1>
+                    <p class="hero-sub">Sr. Vice President — Revolt Motors · 30+ years driving P&amp;L, turnarounds, and EV vertical scaling across India's leading automotive majors.</p>
+                    <div class="hero-tagline">
+                        <span class="mono">11% EBIT · ₹3000Cr revenue · 11% market gain</span>
+                    </div>
+                </div>
+                <div class="hero-figure" id="heroFigure">
+                    <div class="figure-glow-ring"></div>
+                    <img class="figure-cutout" id="profileImg" src="profile-cutout.png" alt="Amit Kumar — portrait cutout" />
+                    <div class="monogram-fallback" aria-hidden="true">AK</div>
+                    <div class="figure-badge">
+                        <strong>11%</strong> &nbsp;EBIT · EV vertical
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ORIGIN & SUMMARY — CHAPTER 02
+    ============================================================ -->
+    <section class="section" data-chapter="1">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="chapter-label">02 · Origin</span>
+                    <h2 class="chapter-title">Three Decades of <span class="accent-text">Automotive Leadership</span></h2>
+                    <div class="divider-line"></div>
+                    <p class="body-text" data-scroll>
+                        Seasoned Senior Management professional with over <strong>30 years</strong> of comprehensive leadership experience across India's leading MNC automobile majors, including <strong>Mahindra &amp; Mahindra</strong>, <strong>Eicher Motors</strong>, and <strong>Piaggio Vehicles</strong>.
+                    </p>
+                    <p class="body-text" data-scroll style="margin-top:var(--space-sm);">
+                        Expert in driving <strong>P&amp;L ownership</strong>, business turnarounds, scaling new verticals, and delivering sustainable revenue growth in competitive 2W, 3W, 4W, and Construction Equipment sectors — both <strong>ICE &amp; EV</strong>.
+                    </p>
+                    <p class="body-text" data-scroll style="margin-top:var(--space-sm); color:var(--color-accent-2);">
+                        Visionary EV Business Strategy leader who achieved an <strong style="color:var(--color-ink);">11% EBIT</strong> since vertical inception and spearheaded GTM launches to capture market share.
+                    </p>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:var(--space-md);">
+                    <div class="glass" data-scroll>
+                        <div class="label" style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-muted);opacity:0.5;">Sector Depth</div>
+                        <div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-3xl);background:linear-gradient(135deg,var(--color-accent-1),var(--color-accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">30+</div>
+                        <div style="font-size:var(--text-sm);color:var(--color-ink-muted);font-weight:300;">Years of leadership across automotive &amp; EV</div>
+                    </div>
+                    <div class="glass" data-scroll>
+                        <div class="label" style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-muted);opacity:0.5;">Verticals</div>
+                        <div style="font-size:var(--text-base);color:var(--color-ink);font-weight:400;">2W · 3W · 4W · Construction Equipment · EV</div>
+                    </div>
+                    <div class="glass" data-scroll>
+                        <div class="label" style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-muted);opacity:0.5;">Leadership Tenure</div>
+                        <div style="font-size:var(--text-base);color:var(--color-ink);font-weight:400;">Piaggio Vehicles · Mahindra &amp; Mahindra · Eicher Motors · Revolt Motors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    COMPETENCIES — CHAPTER 03
+    ============================================================ -->
+    <section class="section section--short" data-chapter="2">
+        <div class="container">
+            <span class="chapter-label">03 · Capabilities</span>
+            <h2 class="chapter-title">Core <span class="accent-text">Competencies</span></h2>
+            <div class="divider-line"></div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);margin-top:var(--space-md);">
+                <div>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin-bottom:var(--space-sm);">Strategic</p>
+                    <div class="skill-tags" data-scroll>
+                        <span class="skill-tag skill-tag--highlight">P&amp;L Ownership</span>
+                        <span class="skill-tag">EV Business Strategy</span>
+                        <span class="skill-tag">Channel Scaling</span>
+                        <span class="skill-tag">National Sales</span>
+                        <span class="skill-tag">Revenue Growth</span>
+                        <span class="skill-tag">Business Turnaround</span>
+                    </div>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin:var(--space-md) 0 var(--space-sm);">Functional</p>
+                    <div class="skill-tags" data-scroll>
+                        <span class="skill-tag">GTM Execution</span>
+                        <span class="skill-tag">After-Sales Operations</span>
+                        <span class="skill-tag">Retail Finance</span>
+                        <span class="skill-tag">Zero-Based Costing</span>
+                        <span class="skill-tag">Contract Negotiation</span>
+                        <span class="skill-tag">Stakeholder Relations</span>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin-bottom:var(--space-sm);">Industries</p>
+                    <div class="skill-tags" data-scroll>
+                        <span class="skill-tag skill-tag--highlight">Electric Vehicles (EV)</span>
+                        <span class="skill-tag">Commercial &amp; ICE 2W/3W</span>
+                        <span class="skill-tag">Construction Equipment</span>
+                    </div>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin:var(--space-md) 0 var(--space-sm);">Tech Stack</p>
+                    <div class="skill-tags" data-scroll>
+                        <span class="skill-tag">Connected-Vehicle Apps</span>
+                        <span class="skill-tag">Telematics</span>
+                        <span class="skill-tag">Dealer Management (DMS)</span>
+                        <span class="skill-tag">Salesforce CRM</span>
+                        <span class="skill-tag">Zero-Based Costing</span>
+                        <span class="skill-tag">Retail Finance Platforms</span>
+                    </div>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin:var(--space-md) 0 var(--space-sm);">Languages</p>
+                    <div class="skill-tags" data-scroll>
+                        <span class="skill-tag">English (Professional)</span>
+                        <span class="skill-tag">Hindi (Native/Bilingual)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    IMPACT — CHAPTER 04 ★ SET PIECE
+    ============================================================ -->
+    <section class="section section--tall" data-chapter="3" id="impactSection" style="padding-bottom:0;">
+        <div class="container" style="width:100%;">
+            <span class="chapter-label">04 · Impact</span>
+            <h2 class="chapter-title">Measured <span class="accent-text">Results</span></h2>
+            <div class="divider-line"></div>
+
+            <!-- Accent dimension line -->
+            <div style="width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--color-accent-1),var(--color-accent-2),transparent);margin:var(--space-sm) 0 var(--space-md);opacity:0.3;" id="dimLine"></div>
+
+            <div class="metric-grid" id="metricGrid">
+                <div class="metric-card" data-count="11">
+                    <div class="metric-number"><span class="num">0</span><span class="suffix">%</span></div>
+                    <div class="metric-label">Record EBIT · EV Division</div>
+                    <div class="metric-sub">since inception</div>
+                </div>
+                <div class="metric-card" data-count="3000">
+                    <div class="metric-number">₹<span class="num">0</span><span class="suffix">Cr</span></div>
+                    <div class="metric-label">Max Revenue · CY'20</div>
+                    <div class="metric-sub">10% YoY growth</div>
+                </div>
+                <div class="metric-card" data-count="11">
+                    <div class="metric-number"><span class="num">0</span><span class="suffix">%</span></div>
+                    <div class="metric-label">Market Gain · CV Segment</div>
+                    <div class="metric-sub">22% → 33% (Dec'18–CY'20)</div>
+                </div>
+                <div class="metric-card" data-count="80">
+                    <div class="metric-number"><span class="num">0</span><span class="suffix">%</span></div>
+                    <div class="metric-label">Warranty Cost Reduction</div>
+                    <div class="metric-sub">₹2,515 → ₹490 per vehicle</div>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);margin-top:var(--space-md);">
+                <div class="glass" data-scroll>
+                    <div class="label" style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-muted);opacity:0.5;">Labor Cost Optimization</div>
+                    <div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);background:linear-gradient(135deg,var(--color-accent-1),var(--color-accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">37%</div>
+                    <div style="font-size:var(--text-sm);color:var(--color-ink-muted);font-weight:300;">₹6,200 → ₹3,900 per vehicle · plant floor efficiency</div>
+                </div>
+                <div class="glass" data-scroll>
+                    <div class="label" style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.08em;color:var(--color-ink-muted);opacity:0.5;">EV GTM Launch</div>
+                    <div style="font-size:var(--text-base);color:var(--color-ink);font-weight:400;">Two new EV models · 6-month timeline · Piaggio EV division</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CAREER TIMELINE — CHAPTER 05 (Horizontal Panel)
+    ============================================================ -->
+    <section class="section" data-chapter="4" id="timelineSection" style="padding-top:var(--space-lg);padding-bottom:var(--space-lg);">
+        <div class="container" style="width:100%;">
+            <span class="chapter-label">05 · Career Arc</span>
+            <h2 class="chapter-title">The <span class="accent-text">Journey</span></h2>
+            <div class="divider-line"></div>
+
+            <div class="timeline-wrapper" id="timelineWrapper">
+                <div class="timeline-track" id="timelineTrack">
+                    <!-- Revolt Motors -->
+                    <div class="timeline-item">
+                        <div class="year">2026 – Present</div>
+                        <div class="role">Sr. Vice President</div>
+                        <div class="company">Revolt Motors</div>
+                        <div class="location">Gurugram, India</div>
+                        <div class="bullet">Business Strategy · P&L · GTM · Connected Apps</div>
+                    </div>
+                    <!-- Piaggio EV Head -->
+                    <div class="timeline-item">
+                        <div class="year">2022 – 2025</div>
+                        <div class="role">VP — EV Head</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Pune, India</div>
+                        <div class="bullet">11% EBIT · 2 EV launches · Sales &amp; Marketing</div>
+                    </div>
+                    <!-- Continental Engines -->
+                    <div class="timeline-item">
+                        <div class="year">2021 – 2022</div>
+                        <div class="role">Business Head (President) — CV</div>
+                        <div class="company">Continental Engines (Baxy Mobility)</div>
+                        <div class="location">Gurugram, India</div>
+                        <div class="bullet">Commercial Vehicle Division</div>
+                    </div>
+                    <!-- Piaggio National Sales -->
+                    <div class="timeline-item">
+                        <div class="year">2017 – 2021</div>
+                        <div class="role">National Sales Head — GM - Sales</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Pune, India</div>
+                        <div class="bullet">₹3000Cr revenue · 11% market gain</div>
+                    </div>
+                    <!-- Piaggio Zonal -->
+                    <div class="timeline-item">
+                        <div class="year">2015 – 2017</div>
+                        <div class="role">DGM (Zonal Head) — East, UP &amp; MP</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Kolkata, India</div>
+                        <div class="bullet">Commercial Vehicle · Zonal leadership</div>
+                    </div>
+                    <!-- Piaggio AGM -->
+                    <div class="timeline-item">
+                        <div class="year">2014 – 2015</div>
+                        <div class="role">AGM Sales — East Zone &amp; UP</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Kolkata, India</div>
+                        <div class="bullet">CV Division</div>
+                    </div>
+                    <!-- Piaggio Senior Manager -->
+                    <div class="timeline-item">
+                        <div class="year">2012 – 2014</div>
+                        <div class="role">Senior Manager (ZM) — East &amp; North East</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Kolkata, India</div>
+                    </div>
+                    <!-- Mahindra -->
+                    <div class="timeline-item">
+                        <div class="year">2010 – 2012</div>
+                        <div class="role">Zonal Manager — East</div>
+                        <div class="company">Mahindra &amp; Mahindra</div>
+                        <div class="location">Kolkata, India</div>
+                        <div class="bullet">Construction Equipment</div>
+                    </div>
+                    <!-- Piaggio Regional -->
+                    <div class="timeline-item">
+                        <div class="year">2000 – 2010</div>
+                        <div class="role">Regional Manager</div>
+                        <div class="company">Piaggio Vehicles</div>
+                        <div class="location">Patna, India</div>
+                        <div class="bullet">Bihar, Jharkhand &amp; UP</div>
+                    </div>
+                    <!-- Eicher -->
+                    <div class="timeline-item">
+                        <div class="year">1998 – 2000</div>
+                        <div class="role">Senior Executive — Sales &amp; Service</div>
+                        <div class="company">Eicher Ltd (Royal Enfield)</div>
+                        <div class="location">Patna, India</div>
+                    </div>
+                    <!-- Lucas India -->
+                    <div class="timeline-item">
+                        <div class="year">1993 – 1998</div>
+                        <div class="role">Sales Engineer</div>
+                        <div class="company">Lucas India Pvt. Ltd</div>
+                        <div class="location">Jalandhar · Delhi · Ambala</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EDUCATION & CERTIFICATIONS — CHAPTER 06
+    ============================================================ -->
+    <section class="section section--short" data-chapter="5">
+        <div class="container">
+            <span class="chapter-label">06 · Foundation</span>
+            <h2 class="chapter-title">Education &amp; <span class="accent-text">Certifications</span></h2>
+            <div class="divider-line"></div>
+
+            <div class="edu-grid" style="margin-top:var(--space-md);">
+                <div class="edu-card" data-scroll>
+                    <div class="title">Master of Business Administration (M.B.A.)</div>
+                    <div class="sub">Indian Institute of Business Management, Mumbai</div>
+                    <div class="year">2010</div>
+                </div>
+                <div class="edu-card" data-scroll>
+                    <div class="title">Diploma in Automobile Engineering</div>
+                    <div class="sub">H.I.E.T., Madras</div>
+                    <div class="year">1992</div>
+                </div>
+            </div>
+
+            <div style="margin-top:var(--space-lg);">
+                <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin-bottom:var(--space-sm);">Certifications</p>
+                <div class="cert-list" data-scroll>
+                    <span class="cert-item">Financial Management — Raman Lamba (2019)</span>
+                    <span class="cert-item">Relationship Management — Homi Mulla (2011)</span>
+                </div>
+            </div>
+
+            <div style="margin-top:var(--space-lg);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md);">
+                <div data-scroll>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin-bottom:var(--space-xs);">Beyond Work</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Clean Energy Advocacy</span>
+                        <span class="skill-tag">Engineering Mentorship</span>
+                        <span class="skill-tag">Industrial Tech Forums</span>
+                        <span class="skill-tag">Sustainable Design</span>
+                    </div>
+                </div>
+                <div data-scroll>
+                    <p style="font-family:var(--font-body);font-weight:500;font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-ink-muted);opacity:0.5;margin-bottom:var(--space-xs);">Key Initiatives</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">EV Fleet Alignments</span>
+                        <span class="skill-tag">DMS Platform Rollouts</span>
+                        <span class="skill-tag">ZBC Sourcing Audits</span>
+                        <span class="skill-tag">Dealer Profitability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CTA — CHAPTER 07
+    ============================================================ -->
+    <section id="cta" data-chapter="6">
+        <div class="cta-glow"></div>
+        <div class="container" style="position:relative;z-index:2;">
+            <span class="chapter-label">07 · Connect</span>
+            <h2 class="chapter-title" style="font-size:var(--text-2xl);">
+                Let's <span class="accent-text">Drive</span> the Future
+            </h2>
+            <p class="cta-closing">
+                Ready to scale your commercial reach, maximize dealer networks, and lead P&amp;L turnarounds across global and pan-India automotive sectors.
+            </p>
+            <div class="cta-actions">
+                <a href="mailto:amitkrpvpl@gmail.com" class="cta-btn cta-btn--primary">
+                    <span>✉</span> amitkrpvpl@gmail.com
+                </a>
+                <a href="tel:+919831091956" class="cta-btn">
+                    <span>📞</span> +91-9831091956
+                </a>
+                <a href="https://linkedin.com/in/amitkumar-ev" target="_blank" rel="noopener noreferrer" class="cta-btn">
+                    <span>in</span> linkedin.com/in/amitkumar-ev
+                </a>
+            </div>
+            <p style="margin-top:var(--space-lg);font-family:var(--font-body);font-weight:400;font-size:var(--text-xs);color:var(--color-ink-muted);opacity:0.3;letter-spacing:0.1em;">
+                Pune, India
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ----------------------------------------------------------------
+        // PROFILE IMAGE — Runtime detection (transparent cutout)
+        // ----------------------------------------------------------------
+        function loadProfileImage(onSuccess, onFail) {
+            const candidates = ['profile-cutout.png', 'profile.png'];
+            let i = 0;
+
+            function tryNext() {
+                if (i >= candidates.length) return onFail();
+                const img = new Image();
+                img.onload = function() { onSuccess(candidates[i], img); };
+                img.onerror = function() { i++;
+                    tryNext(); };
+                img.src = candidates[i];
+            }
+            tryNext();
+        }
+
+        (function initProfile() {
+            const img = document.getElementById('profileImg');
+            const figure = document.getElementById('heroFigure');
+            loadProfileImage(
+                function(src, loadedImg) {
+                    img.src = src;
+                    img.style.display = 'block';
+                    figure.classList.add('has-image');
+                    figure.classList.remove('no-image');
+                    const mono = figure.querySelector('.monogram-fallback');
+                    if (mono) mono.style.display = 'none';
+                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+                },
+                function() {
+                    img.style.display = 'none';
+                    figure.classList.add('no-image');
+                    figure.classList.remove('has-image');
+                    const mono = figure.querySelector('.monogram-fallback');
+                    if (mono) mono.style.display = 'block';
+                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+                }
+            );
+        })();
+
+        // ----------------------------------------------------------------
+        // GSAP + ScrollTrigger
+        // ----------------------------------------------------------------
+        document.addEventListener('DOMContentLoaded', function() {
+            function initGSAP() {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                    setTimeout(initGSAP, 200);
+                    return;
+                }
+                gsap.registerPlugin(ScrollTrigger);
+
+                // --- Aurora mesh drift ---
+                const blob1 = document.getElementById('blob1');
+                const blob2 = document.getElementById('blob2');
+                const blob3 = document.getElementById('blob3');
+                if (blob1 && blob2 && blob3) {
+                    gsap.to(blob1, {
+                        x: 80,
+                        y: -60,
+                        duration: 20,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut'
+                    });
+                    gsap.to(blob2, {
+                        x: -70,
+                        y: 50,
+                        duration: 25,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut'
+                    });
+                    gsap.to(blob3, {
+                        x: 40,
+                        y: -30,
+                        duration: 18,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut'
+                    });
+
+                    // Aurora shift with scroll (set piece)
+                    ScrollTrigger.create({
+                        trigger: '#impactSection',
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        onUpdate: function(self) {
+                            const p = self.progress;
+                            // shift blob colours subtly
+                            const r = 124 + p * 20;
+                            const g = 92 + p * 80;
+                            const b = 255 - p * 40;
+                            blob1.style.background = `rgba(${r}, ${g}, ${b}, 0.25)`;
+                            const r2 = 51 + p * 40;
+                            const g2 = 230 - p * 60;
+                            const b2 = 224 - p * 60;
+                            blob2.style.background = `rgba(${r2}, ${g2}, ${b2}, 0.2)`;
+                        }
+                    });
+                }
+
+                // --- HERO: split-word reveal ---
+                const heroWords = document.querySelectorAll('#hero .display-hero .word');
+                heroWords.forEach((el) => {
+                    const chars = el.textContent.split('');
+                    el.innerHTML = chars.map(ch => `<span class="char" style="display:inline-block;">${ch}</span>`)
+                        .join('');
+                });
+                const heroChars = document.querySelectorAll('#hero .display-hero .char');
+                if (heroChars.length) {
+                    gsap.fromTo(heroChars, {
+                        opacity: 0,
+                        y: 80,
+                        rotateX: 20,
+                        scale: 0.9
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        rotateX: 0,
+                        scale: 1,
+                        duration: 1.4,
+                        stagger: 0.04,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: '#hero',
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                            once: true
+                        }
+                    });
+                }
+
+                // --- HERO: subtitle, tagline, figure ---
+                gsap.from('#hero .hero-sub', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    delay: 0.6,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#hero', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#hero .hero-tagline', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    delay: 0.9,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#hero', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#hero .figure-cutout', {
+                    opacity: 0,
+                    scale: 0.85,
+                    duration: 1.6,
+                    delay: 0.2,
+                    ease: 'power3.out',
+                    scrollTrigger: { trigger: '#hero', start: 'top 85%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#hero .figure-badge', {
+                    opacity: 0,
+                    x: 40,
+                    duration: 0.9,
+                    delay: 1.1,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#hero', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#hero .figure-glow-ring', {
+                    opacity: 0,
+                    scale: 0.5,
+                    duration: 1.8,
+                    delay: 0.4,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#hero', start: 'top 85%', toggleActions: 'play none none none',
+                        once: true }
+                });
+
+                // --- CHAPTER 02: Glass cards + text ---
+                const originTexts = document.querySelectorAll('[data-chapter="1"] .body-text');
+                originTexts.forEach((el, i) => {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 25,
+                        duration: 0.8,
+                        delay: i * 0.15,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none',
+                            once: true }
+                    });
+                });
+                const originCards = document.querySelectorAll('[data-chapter="1"] .glass');
+                originCards.forEach((el, i) => {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 30,
+                        duration: 0.8,
+                        delay: 0.2 + i * 0.12,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none',
+                            once: true }
+                    });
+                });
+
+                // --- CHAPTER 03: Skill tags stagger ---
+                const tagGroups = document.querySelectorAll('[data-chapter="2"] .skill-tags');
+                tagGroups.forEach(group => {
+                    const tags = group.querySelectorAll('.skill-tag');
+                    tags.forEach((tag, i) => {
+                        gsap.from(tag, {
+                            opacity: 0,
+                            scale: 0.9,
+                            duration: 0.5,
+                            delay: i * 0.035,
+                            ease: 'power2.out',
+                            scrollTrigger: { trigger: group, start: 'top 88%',
+                                toggleActions: 'play none none none', once: true }
+                        });
+                    });
+                });
+
+                // --- CHAPTER 04 ★ SET PIECE: Metric counters ---
+                const metricCards = document.querySelectorAll('.metric-card[data-count]');
+                metricCards.forEach(card => {
+                    const target = parseFloat(card.dataset.count);
+                    const numEl = card.querySelector('.num');
+                    if (!numEl) return;
+                    const suffix = card.querySelector('.suffix');
+                    const isPercent = suffix && suffix.textContent === '%';
+                    const isCr = suffix && suffix.textContent === 'Cr';
+
+                    gsap.fromTo(numEl, { textContent: '0' }, {
+                        textContent: target,
+                        duration: 2.2,
+                        ease: 'power2.out',
+                        snap: { textContent: 1 },
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                            once: true,
+                        },
+                        onUpdate: function() {
+                            const val = Math.round(parseFloat(numEl.textContent) || 0);
+                            if (isPercent || isCr) numEl.textContent = val;
+                            else numEl.textContent = val;
+                        }
+                    });
+                });
+
+                // --- CHAPTER 04: Achievement details ---
+                const achDetails = document.querySelectorAll('[data-chapter="3"] .glass');
+                achDetails.forEach((el, i) => {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 25,
+                        duration: 0.7,
+                        delay: i * 0.12,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none',
+                            once: true }
+                    });
+                });
+
+                // --- CHAPTER 05: Timeline horizontal scroll ---
+                const track = document.getElementById('timelineTrack');
+                const wrapper = document.getElementById('timelineWrapper');
+                if (track && wrapper) {
+                    const isMobile = window.innerWidth < 768;
+                    if (!isMobile) {
+                        const totalWidth = track.scrollWidth - wrapper.clientWidth;
+                        gsap.to(track, {
+                            x: -totalWidth,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: '#timelineSection',
+                                pin: true,
+                                pinSpacing: true,
+                                start: 'top top',
+                                end: '+=160%',
+                                scrub: 1.2,
+                                invalidateOnRefresh: true,
+                            }
+                        });
+                    } else {
+                        const items = track.querySelectorAll('.timeline-item');
+                        items.forEach((item, i) => {
+                            gsap.from(item, {
+                                opacity: 0,
+                                y: 30,
+                                duration: 0.6,
+                                delay: i * 0.05,
+                                ease: 'power2.out',
+                                scrollTrigger: { trigger: item, start: 'top 90%',
+                                    toggleActions: 'play none none none', once: true }
+                            });
+                        });
+                    }
+                }
+
+                // --- CHAPTER 06: Education cards ---
+                const eduCards = document.querySelectorAll('.edu-card');
+                eduCards.forEach((card, i) => {
+                    gsap.from(card, {
+                        opacity: 0,
+                        y: 25,
+                        duration: 0.7,
+                        delay: i * 0.15,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none none',
+                            once: true }
+                    });
+                });
+                const certItems = document.querySelectorAll('.cert-item');
+                certItems.forEach((item, i) => {
+                    gsap.from(item, {
+                        opacity: 0,
+                        x: -10,
+                        duration: 0.5,
+                        delay: i * 0.08,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: '.cert-list', start: 'top 88%',
+                            toggleActions: 'play none none none', once: true }
+                    });
+                });
+
+                // --- CHAPTER 07: CTA ---
+                gsap.from('#cta .chapter-label', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#cta', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#cta .chapter-title', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#cta', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                gsap.from('#cta .cta-closing', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.7,
+                    delay: 0.25,
+                    ease: 'power2.out',
+                    scrollTrigger: { trigger: '#cta', start: 'top 80%', toggleActions: 'play none none none',
+                        once: true }
+                });
+                const ctaBtns = document.querySelectorAll('.cta-btn');
+                ctaBtns.forEach((btn, i) => {
+                    gsap.from(btn, {
+                        opacity: 0,
+                        y: 15,
+                        duration: 0.5,
+                        delay: 0.4 + i * 0.1,
+                        ease: 'power2.out',
+                        scrollTrigger: { trigger: '#cta', start: 'top 80%', toggleActions: 'play none none none',
+                            once: true }
+                    });
+                });
+
+                // --- Progress indicator ---
+                const chapters = document.querySelectorAll('[data-chapter]');
+                const dots = document.querySelectorAll('.progress-dot');
+                const fill = document.getElementById('progressFill');
+                const chapterMap = [];
+                chapters.forEach(el => { const idx = parseInt(el.dataset.chapter);
+                    chapterMap[idx] = el; });
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const idx = parseInt(entry.target.dataset.chapter);
+                            dots.forEach((dot, i) => { dot.classList.toggle('active', i === idx); });
+                            if (fill) { const pct = (idx / (dots.length - 1)) * 100;
+                                fill.style.height = pct + '%'; }
+                        }
+                    });
+                }, { threshold: 0.4 });
+                chapters.forEach(el => observer.observe(el));
+
+                // --- Refresh ---
+                window.addEventListener('resize', () => ScrollTrigger.refresh());
+                document.fonts.ready.then(() => ScrollTrigger.refresh());
+                setTimeout(() => ScrollTrigger.refresh(), 800);
+                window.addEventListener('load', () => ScrollTrigger.refresh());
+
+                // --- Reduced motion ---
+                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (prefersReduced.matches) {
+                    ScrollTrigger.getAll().forEach(st => st.disable());
+                }
+
+                console.log('🚗 Amit Kumar — Aurora Portfolio ready.');
+            }
+            initGSAP();
+        });
+    </script>
+</body>
+</html>
