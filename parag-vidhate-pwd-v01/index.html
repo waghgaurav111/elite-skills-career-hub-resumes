@@ -1,764 +1,884 @@
 <!DOCTYPE html>
+<!-- ART DIRECTION DECLARATION
+DIRECTION: 06 · BLUEPRINT PRECISION
+DOMAIN: Senior Program & Project Management — IT Infrastructure / Trading platforms / Agile delivery (18 yrs, senior scope)
+PALETTE: base blueprint-navy #0A2440 / surface panel-navy #0D2C4E / ink cyan-white #DCEBFF / ink-dim #8FB0CF / accent cyan #5AB6E8 / grid rgba(220,235,255,0.05)
+TYPE: Saira (display, 600/800 — engineered, condensed authority at scale) + IBM Plex Sans (body — technical neutrality) + IBM Plex Mono (annotations, dimension labels, title blocks — the drafting voice). Fits a career measured in assets, exchanges and budgets: everything on this page is annotated like a drawing.
+MOTION PERSONALITY: mechanical, exact, weighted — expo.out arrivals, scrubbed line draws, snap-to-grid landings; no bounce anywhere.
+SIGNATURE SET PIECE: CH04 "MEASURED IMPACT" — the USD 800K (2025 infrastructure cost saving) is rendered as an animated engineering drawing: extension lines rise, a dimension line draws across, arrowheads land, and the numeral is measured onto the page under a 250vh pin.
+RATIONALE: An infrastructure PM who deployed agents across 15K+ assets and wired 120 exchange integrations reads natively as a drafted, dimensioned schematic — precision is the brand.
+-->
+<!-- DATA INVENTORY (every fact below traces to the CANDIDATE DETAILS source; nothing else appears on this page)
+IDENTITY: Parag Vidhate · Senior Program & Project Manager | Agile Coach | Business Analyst · parag.vidhate@gmail.com · +91-9860026470 · linkedin.com/in/parag-vidhate-26479390  → CH01 hero, CH07 contact
+SUMMARY: 18 years IT experience; program management, agile coaching, business analysis; domains: eCommerce, Investment Banking, Financial Trading, AI, Infrastructure, IoT; 15+ concurrent projects globally; multi-million dollar budgets; cross-functional teams of 20+; Certified Scrum Master, AWS Practitioner, Agile Coach; Fortune 500 clients across APAC, Europe, India  → CH01/CH02
+ROLE 1: Sr. Project Manager — IT Infrastructure · Exela Technologies (XBP Global) · Apr 2025–Present · Cybersecurity, Cloud, SD WAN, Compliance (PCI-DSS, HIPAA) · Saved USD 800K in 2025 via infrastructure cost optimisation and transitions · Deployed agents (Crowdstrike, Secpod, Bigfix, F5) across 15K+ IT assets with compliance audits · Pioneered agile delivery in infrastructure teams, driving 15+ successful project completions · Led SD WAN implementation and decommissioning of legacy network infrastructure  → CH04 set piece + CH05 sheet 06
+ROLE 2: Project Manager & Business Analyst · Birlasoft · May 2024–Apr 2025 · Digital Marketing, IoT, Analytics · Continental Traceability Matrix Dashboard POC on AWS, Angular, Node.js, MongoDB · Digital Marketing Analytics Dashboard for French client (Azure, Power BI, Databricks; adopted across 6 social media channels) · Stabilised multiple Magento eCommerce clients (furniture, vehicles, signs) for Hummingbird Pvt. Ltd. · Managed API integration via Azure API Management and Terraform  → CH05 sheet 05
+ROLE 3: Product Delivery Manager & Business Analyst · Mobikode (JP Morgan Chase) · Nov 2021–Mar 2024 · Managed IoT, eGaming, eCommerce, OTT, Banking and eDating portfolios concurrently · Transformed client requirements into business stories, QA test cases and documented deliverables · Nurtured teams in Scrum, Kanban and SAFe; led 3 Java API project teams for banking client  → CH05 sheet 04
+ROLE 4: Program & Project Manager | Business Analyst · Exaltare · Fulcrum Digital · Spadeworx · Jan 2019–Nov 2021 · React, Angular, AWS, Azure, Magento, SAP, .NET, DevOps · Magento B2B platform with PDF reports, SAP integration, Arabic localisation for Gulf client · One-time delivery recognition award for Magento enterprise upgrade with Fulcrum Digital · eGaming & OTT platform delivery  → CH05 sheet 03
+ROLE 5: Project Manager APAC — Trading & AI UI · Bloomberg LP (via First Futures / RTS Realtime) · Jul 2008–Sep 2018 · C++, .NET, DirectX, Linux, Data Center, Algo Trading, MiFID II · Pioneered Agile in India team; led 3 scrum teams across India and Hong Kong · Managed 120+ exchange API integrations worldwide, procurement to production, without a single production outage · Delivered MiFID II, Brexit, data centre migration and algorithmic trading platform programmes · JIRA & Confluence Administrator · Led disaster recovery, trading UI frontends and quantitative AI/ML trading application rollouts  → CH05 sheet 02
+ROLE 6 (early): Technical Writer · Emerson & Zensar · 2005–2007 · Product docs & manuals, IT documentation delivery  → CH05 sheet 01
+KEY STATS: 18 years IT experience · 15 years PM leadership · 120 exchanges managed · 15,000+ assets deployed · USD 800K saved (2025) · 15+ concurrent projects  → CH04 counters
+COMPETENCIES: Program & Project Management · Agile Coaching & Scrum · Business Analysis · Stakeholder Management · Change Management · IT Infrastructure Delivery · Budget & Capacity Planning · Risk & Compliance · Product Delivery  → CH03
+TECH STACK: Cloud & Infrastructure — AWS, Azure, GCP, Kubernetes, Docker, Terraform, SD WAN, Crowdstrike · Agile & Project Tools — JIRA, Confluence, Azure DevOps, Trello, MS Project, ServiceNow, SAFe, Scrum · Data & AI — Power BI, Databricks, Tableau, ChatGPT, MongoDB, PostgreSQL, Angular, React  → CH03
+INDUSTRIES: Investment Banking · eCommerce & eGaming · IT Infrastructure · Travel & Loyalty · AI & Data Analytics  → CH03
+EDUCATION: MBA Human Resources, University of Pune, 2005 · MTech Information Technology, AAIDU (Distance), 2005 · BE Computer Engineering, University of Pune, 2003  → CH06
+CERTIFICATIONS: CSM® (Scrum Alliance) · ICP-ACC (ICAgile) · AWS Cloud Practitioner · Azure Fundamentals · Google Cloud Fundamentals · Google Project Management  → CH06
+PATENTS & PUBLICATIONS: Provisional patent, 2015 (post independent R&D) · White paper: Bluetooth gateway prototype, Wipro, 2001 · Technical reviewer, seed-funding book, 2014 · Incubator researcher, 1M/1M global programme, 2011  → CH06
+AWARDS / ASSOC.: APGI 5.0 panelist, Pune chapter, 2019 · Bloomberg Philanthropy Lead · One-time delivery recognition (Fulcrum Digital)  → CH06
+VOLUNTEERING: Teach for India Lead · EV & Energy Research · Waste Management Advocacy · Sports Team Manager  → CH06
+LANGUAGES: English (Fluent) · Marathi (Native) · Hindi (Fluent) · German (Basic)  → CH06
+CLOSING: "Open to immediate engagement as Program Manager, Agile Coach, or Senior Business Analyst"  → CH07
+PROFILE IMAGE: transparent cutout (profile-cutout.png), conditional — runtime Image() probe, PNG only; both photo and no-photo states verified as complete designs before delivery; ScrollTrigger.refresh() fires after resolution either way.
+-->
+<!-- SCENE STORYBOARD
+CH | CHAPTER            | MECHANIC                                                                | PIN? (length) | SCRUB/TOGGLE | KEY FACT SHOWN                                   | SEAM OUT
+01 | Hero hook           | 3-plane parallax (grid 0.85x / giant "18" 0.92x / figure 1.08x) + char-stagger name reveal + drafted title block | no | toggle once | name, positioning line, 18 yrs, APAC/EU/India     | cyan hairline draws across boundary (scrubbed) into CH02
+02 | Origin / The brief  | clip-path inset wipe on the text plate; heading word reveal              | no            | toggle       | 18 yrs, six domains, 15+ concurrent, teams of 20+, certifications | hairline node hands off; hard tonal cut
+03 | Capability schematic| SVG leader lines + dimension ticks draw in to annotate competency modules; stack chips snap to grid | no | toggle (draw on entry) | 9 competencies, 3 tool groups, 5 industries       | grid darkens — cut into the drawing chamber
+04 | Impact ★SET PIECE   | pinned engineering drawing: extension lines rise → dimension line draws → arrowheads land → USD 800K measured in via inset clip → mono annotation stamps | YES (250vh) | scrub | USD 800K saved, 2025, Exela infrastructure optimisation | dimension motif carries into stats band (counters)
+4b | Stats band          | counters tick once, tabular numerals (18 / 120 / 15,000+ / 15+)          | no            | toggle       | 18 yrs · 120 exchanges · 15K+ assets · 15+ concurrent projects | vertical rule extends into CH05 header
+05 | Journey corridor    | horizontal drafted-sheet corridor, 6 sheets chronological 2005→present; current sheet lit in accent cyan | YES (scrub across ≈ 5 panels) | scrub | six real tenures with dates + verified impacts    | final sheet edge wipes to credentials
+06 | Credentials ledger  | cards snap-to-grid stagger (y+opacity, expo.out)                         | no            | toggle       | 3 degrees, 6 certs, patents/publications, awards, volunteering, languages | quiet cut
+07 | Sign-off / CTA      | accent moment: closing line + tappable actions, focus-visible drafted frames | no        | toggle once  | email / phone / LinkedIn + "open to immediate engagement" | end
+MOBILE ADAPTATIONS: CH01 figure becomes a lower band (~44vh), "18" numeral at 34vw, parallax ratios halved; CH04 pin shortened to +=150%, drawing SVG re-scales, caption stacks; CH05 unpins and stacks sheets vertically (default CSS state — horizontal is opt-in via JS class); counters unchanged; all taps ≥44px; no horizontal overflow at 360px.
+REDUCED-MOTION: no pins, no scrubs, no parallax; every chapter renders static and fully readable (final counter values are in the markup); CH05 stays in its stacked state; hairlines and SVG lines render fully drawn.
+-->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parag Vidhate | Senior Program Manager & Agile Coach</title>
-    <meta name="description" content="Portfolio of Parag Vidhate, Senior Program & Project Manager, Agile Coach, and Business Analyst with 18 years of IT experience.">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parag Vidhate — Senior Program &amp; Project Manager · Agile Coach</title>
+<meta name="description" content="Parag Vidhate — 18 years across program management, agile coaching and business analysis. USD 800K saved in 2025, 120 exchange integrations, 15K+ assets deployed. Open to immediate engagement." />
+<meta name="theme-color" content="#0A2440" />
+<meta property="og:title" content="Parag Vidhate — Program Manager &amp; Agile Coach" />
+<meta property="og:description" content="18 years of measured delivery across infrastructure, trading and agile transformation. Drafted from the verified career record." />
+<meta property="og:type" content="profile" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ================= BLUEPRINT PRECISION — TOKENS ================= */
+:root{
+  --navy:#0A2440;          /* base canvas */
+  --panel:#0D2C4E;         /* tonal surface */
+  --panel-deep:#081C33;    /* drawing chamber */
+  --ink:#DCEBFF;           /* primary ink */
+  --ink-dim:#8FB0CF;       /* secondary ink */
+  --cyan:#5AB6E8;          /* THE accent — reserved */
+  --grid-line:rgba(220,235,255,0.05);
+  --grid-line-minor:rgba(220,235,255,0.025);
+  --hairline:rgba(220,235,255,0.16);
+  --font-display:'Saira',sans-serif;
+  --font-body:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --step-hero:clamp(3.2rem,12vw,10.5rem);
+  --step-h2:clamp(2rem,5.5vw,4.2rem);
+  --step-h3:clamp(1.25rem,2.4vw,1.8rem);
+  --measure:68ch;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:1.0625rem;
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--cyan);color:var(--navy)}
+img{max-width:100%;display:block}
+a{color:var(--ink)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+section{position:relative}
+[id]{scroll-margin-top:5rem}
 
-    <style>
-        /* ART DIRECTION 06: BLUEPRINT PRECISION */
-        :root {
-            --bg-color: #0A2440;
-            --surface-color: #0D2F54;
-            --surface-accent: #123C6B;
-            --ink-color: #DCEBFF;
-            --ink-dim: #8BACC8;
-            --accent-color: #5AB6E8;
-            --accent-glow: rgba(90, 182, 232, 0.15);
-            --grid-color: rgba(90, 182, 232, 0.05);
-            
-            --font-display: 'IBM+Plex+Sans', sans-serif;
-            --font-mono: 'IBM+Plex+Mono', monospace;
-            
-            scroll-behavior: smooth;
-        }
+/* ONE atmospheric device: the drafting grid (major 64px + minor 16px, one system) */
+.grid-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px),
+    linear-gradient(var(--grid-line-minor) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line-minor) 1px,transparent 1px);
+  background-size:64px 64px,64px 64px,16px 16px,16px 16px;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* ---------- type utilities ---------- */
+.mono{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim)}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:.75rem}
+.eyebrow::before{content:"";width:2.5rem;height:1px;background:var(--hairline);flex:none}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem);position:relative;z-index:2}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--ink-color);
-            font-family: 'IBM Plex Sans', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            background-image: 
-                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
+/* ---------- progress device: drawing-sheet rail ---------- */
+.sheet-rail{
+  position:fixed;left:1.1rem;top:50%;transform:translateY(-50%);
+  z-index:60;display:flex;flex-direction:column;align-items:center;gap:.9rem;
+}
+.sheet-rail .label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;color:var(--ink-dim);writing-mode:vertical-rl;text-orientation:mixed}
+.sheet-rail .track{width:1px;height:34vh;background:var(--hairline);position:relative;overflow:hidden}
+.sheet-rail .fill{position:absolute;top:0;left:0;width:100%;height:100%;background:var(--cyan);transform-origin:top;transform:scaleY(0)}
+.sheet-rail .sheet-no{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;color:var(--ink)}
+@media(max-width:900px){
+  .sheet-rail{left:auto;top:0;right:0;width:100%;transform:none;flex-direction:row;background:transparent}
+  .sheet-rail .label,.sheet-rail .sheet-no{display:none}
+  .sheet-rail .track{width:100%;height:2px}
+  .sheet-rail .fill{transform-origin:left;transform:scaleX(0);height:100%}
+}
 
-        /* Technical Overlay: Film Grain & Blueprint Lines */
-        .blueprint-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 999;
-            opacity: 0.03;
-        }
+/* ---------- top identity strip ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem clamp(1.25rem,4vw,2.5rem);
+  pointer-events:none;
+}
+.topbar>*{pointer-events:auto}
+.brandmark{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.avatar{
+  width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;
+  border:1px solid var(--hairline);
+  display:grid;place-items:center;
+  font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;color:var(--cyan);
+  background:var(--panel-deep);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.brandmark .who{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim)}
+.top-cta{
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;border:1px solid var(--hairline);
+  padding:.6rem 1rem;background:rgba(8,28,51,.72);backdrop-filter:blur(6px);
+  transition:border-color .25s,color .25s;
+}
+.top-cta:hover{border-color:var(--cyan);color:var(--cyan)}
+@media(max-width:600px){.brandmark .who{display:none}}
 
-        /* Chapter/Progress Navigation */
-        .nav-rail {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            border: 1px solid var(--accent-color);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .nav-dot.active {
-            background: var(--accent-color);
-            box-shadow: 0 0 8px var(--accent-color);
-            transform: scale(1.2);
-        }
+/* ================= CH01 — HERO ================= */
+.ch-hero{min-height:100svh;display:grid;align-items:center;overflow:hidden;padding:6rem 0 3rem}
+.hero-inner{
+  max-width:1280px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem);
+  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:2rem;align-items:end;position:relative;z-index:2;width:100%;
+}
+/* giant real numeral — parallax plane BEHIND the figure (layering trick #1, the only one) */
+.hero-num{
+  position:absolute;right:2%;bottom:6%;z-index:1;pointer-events:none;user-select:none;
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(11rem,30vw,26rem);line-height:.8;letter-spacing:-.04em;
+  color:transparent;-webkit-text-stroke:1px rgba(220,235,255,.14);
+}
+.hero-num small{display:block;font-size:.12em;letter-spacing:.5em;color:var(--ink-dim);-webkit-text-stroke:0;font-family:var(--font-mono);font-weight:400;margin-top:.6em}
+.hero-copy{position:relative;z-index:3;padding-bottom:clamp(1rem,4vh,3rem)}
+.hero-kicker{margin-bottom:1.4rem}
+.hero-name{font-size:var(--step-hero);text-transform:uppercase;line-height:.92;margin:.4rem 0 1.2rem}
+.hero-name .line{display:block;overflow:hidden}
+.hero-role{font-size:clamp(1rem,1.8vw,1.3rem);color:var(--ink);max-width:34ch;font-weight:500}
+.hero-role .sep{color:var(--cyan)}
+.hero-meta{margin-top:1.4rem}
+.scroll-cue{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:2.6rem;text-decoration:none;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);
+}
+.scroll-cue .tick{width:1px;height:2.2rem;background:var(--cyan);display:inline-block}
+.scroll-cue:hover{color:var(--cyan)}
+/* figure zone — transparent cutout; page grid continues behind the silhouette */
+.hero-figure{
+  position:relative;z-index:2;align-self:end;justify-self:center;
+  width:min(100%,460px);aspect-ratio:4/5;   /* space reserved: no reflow either state */
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.hero-figure img{
+  width:100%;height:100%;object-fit:contain;object-position:bottom center;
+  filter:drop-shadow(0 22px 34px rgba(0,0,0,.45)); /* alpha-edge grounding — never box-shadow */
+}
+/* drafted corner title block (hero) */
+.title-block{
+  position:absolute;bottom:1.2rem;right:clamp(1.25rem,4vw,2.5rem);z-index:4;
+  border:1px solid var(--hairline);font-family:var(--font-mono);
+  font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim);
+  display:grid;grid-template-columns:auto auto;background:rgba(8,28,51,.7);backdrop-filter:blur(4px);
+}
+.title-block span{padding:.45rem .7rem;border-top:1px solid var(--hairline)}
+.title-block span:nth-child(-n+2){border-top:none}
+.title-block span:nth-child(odd){border-right:1px solid var(--hairline);color:var(--ink)}
+/* NO-PHOTO fallback: genuine re-layout — typographic drafted hero */
+body.no-photo .hero-inner{grid-template-columns:1fr}
+body.no-photo .hero-figure{display:none}
+body.no-photo .hero-num{right:auto;left:50%;transform:translateX(-50%);bottom:2%;opacity:.9}
+body.no-photo .hero-copy{text-align:left;max-width:900px}
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;align-items:start}
+  .hero-figure{width:min(78vw,360px);aspect-ratio:4/5;justify-self:center;margin-top:-1rem}
+  .hero-num{font-size:34vw;right:0;bottom:0}
+  .title-block{display:none}
+}
 
-        /* Structural Layouts */
-        section {
-            position: relative;
-            min-height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 10%;
-            border-bottom: 1px solid rgba(90, 182, 232, 0.1);
-        }
+/* seam: shared hairline that draws across the CH01→CH02 boundary */
+.seam-line{height:1px;background:var(--cyan);transform-origin:left;transform:scaleX(1);position:relative;z-index:2;max-width:1200px;margin:0 auto}
+.seam-node{position:absolute;right:-3px;top:-3px;width:7px;height:7px;background:var(--cyan)}
 
-        .mono-label {
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .mono-label::before {
-            content: '//';
-        }
+/* ================= CH02 — ORIGIN ================= */
+.ch-origin{padding:clamp(6rem,14vh,10rem) 0}
+.origin-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,6vw,5rem)}
+.ch-origin h2{font-size:var(--step-h2);text-transform:uppercase;margin-top:1rem}
+.origin-plate{border-left:1px solid var(--hairline);padding-left:clamp(1.25rem,3vw,2.5rem)}
+.origin-plate p{max-width:var(--measure);color:var(--ink)}
+.origin-plate p+p{margin-top:1.2rem}
+.origin-plate .mono{display:block;margin-top:2rem;line-height:2}
+@media(max-width:860px){.origin-grid{grid-template-columns:1fr}}
 
-        h2.chapter-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 40px;
-            color: var(--ink-color);
-        }
+/* ================= CH03 — CAPABILITY SCHEMATIC ================= */
+.ch-schematic{padding:clamp(5rem,12vh,9rem) 0;background:linear-gradient(180deg,transparent,rgba(13,44,78,.55) 18%,rgba(13,44,78,.55) 82%,transparent)}
+.ch-schematic h2{font-size:var(--step-h2);text-transform:uppercase;margin:1rem 0 3rem}
+.schema{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+.mod{background:var(--navy);padding:1.4rem 1.3rem;position:relative}
+.mod .idx{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;color:var(--ink-dim)}
+.mod h3{font-size:1.05rem;font-weight:600;margin-top:.5rem;letter-spacing:0}
+.leader-svg{width:100%;height:auto;display:block;margin:0 0 -1px}
+.stacks{margin-top:3.5rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,3vw,2.5rem)}
+.stack h3{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:1rem;display:flex;gap:.6rem;align-items:center}
+.stack h3::before{content:"";width:1.4rem;height:1px;background:var(--cyan)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.chips li{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;border:1px solid var(--hairline);padding:.4rem .65rem;color:var(--ink)}
+.industries{margin-top:3rem;display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline}
+.industries .mono{flex:none}
+.industries ul{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;list-style:none;font-size:.92rem;color:var(--ink)}
+.industries li::before{content:"▸ ";color:var(--cyan)}
+@media(max-width:860px){.schema{grid-template-columns:repeat(2,minmax(0,1fr))}.stacks{grid-template-columns:1fr}}
+@media(max-width:480px){.schema{grid-template-columns:1fr}}
 
-        /* Chapter 1: Hero Hook */
-        #hero {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            padding-top: 40px;
-        }
-        .hero-title-wrap h1 {
-            font-size: clamp(3rem, 7vw, 6rem);
-            line-height: 0.95;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-        .hero-tagline {
-            font-size: clamp(1.2rem, 2vw, 1.75rem);
-            color: var(--ink-dim);
-            max-width: 600px;
-            line-height: 1.4;
-            margin-bottom: 30px;
-        }
-        .hero-meta-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            font-family: 'IBM Plex Mono', monospace;
-            max-width: 500px;
-            border-top: 1px dashed var(--surface-accent);
-            padding-top: 20px;
-        }
-        .hero-photo-container {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            aspect-ratio: 4/5;
-        }
-        .hero-photo-container figure {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .hero-photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
-        }
-        .fallback-pattern {
-            position: absolute;
-            inset: 0;
-            border: 2px dashed rgba(90, 182, 232, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--surface-color);
-        }
-        .fallback-pattern::after {
-            content: "SYSTEM_DIAGRAM_ACTIVE";
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--accent-color);
-            opacity: 0.4;
-        }
-        body.no-photo .hero-photo-container figure { display: none; }
-        body.no-photo .fallback-pattern { display: flex; }
-        body:not(.no-photo) .fallback-pattern { display: none; }
+/* ================= CH04 — SET PIECE: MEASURED IMPACT ================= */
+.ch-impact{background:var(--panel-deep)}
+.impact-stage{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:5rem clamp(1.25rem,5vw,4rem);position:relative;overflow:hidden;
+}
+.impact-eyebrow{justify-content:center}
+.dim-wrap{width:min(1000px,94vw);margin:2.5rem auto 0;position:relative}
+.dim-svg{width:100%;height:auto;display:block;overflow:visible}
+.dim-svg .draw{stroke:var(--cyan);stroke-width:1.5;fill:none}
+.dim-svg .arrow{fill:var(--cyan)}
+.dim-svg .tick{stroke:var(--hairline);stroke-width:1}
+.impact-figure{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.35em;
+  font-family:var(--font-display);font-weight:800;letter-spacing:-.03em;line-height:1;
+  font-size:clamp(3.4rem,13vw,11rem);color:var(--ink);
+}
+.impact-figure .cur{font-size:.28em;font-family:var(--font-mono);font-weight:500;letter-spacing:.2em;color:var(--cyan);align-self:center}
+.impact-figure .big{clip-path:inset(0 0 0 0)}  /* JS animates from inset(0 100% 0 0) */
+.impact-caption{margin-top:2.2rem;max-width:60ch;line-height:2}
+.impact-caption b{color:var(--cyan);font-weight:500}
+/* stats band — counters (toggle once) */
+.stats-band{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);background:var(--panel-deep)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1200px;margin:0 auto}
+.stat{padding:2.4rem 1.5rem;border-left:1px solid var(--hairline);text-align:left}
+.stat:first-child{border-left:none}
+.stat .val{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1;color:var(--ink)}
+.stat .val .suffix{color:var(--cyan)}
+.stat .cap{margin-top:.6rem;display:block}
+@media(max-width:860px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-left:none}}
 
-        /* Chapter 2: Origin Summary */
-        .origin-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-        .origin-text {
-            font-size: 1.15rem;
-            line-height: 1.6;
-            color: var(--ink-dim);
-            max-width: 65ch;
-        }
-        .origin-text strong {
-            color: var(--ink-color);
-            font-weight: 500;
-        }
-        .competency-tags {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        .comp-tag {
-            background: var(--surface-color);
-            border: 1px solid var(--surface-accent);
-            padding: 15px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .comp-tag span {
-            color: var(--accent-color);
-            font-size: 0.75rem;
-            margin-bottom: 5px;
-        }
+/* ================= CH05 — JOURNEY CORRIDOR ================= */
+.ch-journey{padding-top:clamp(5rem,12vh,8rem);overflow:hidden}
+.journey-head{margin-bottom:3rem}
+.journey-head h2{font-size:var(--step-h2);text-transform:uppercase;margin-top:1rem}
+/* DEFAULT (JS-off / mobile / reduced-motion): vertical stack — always readable */
+.corridor{position:relative}
+.track{display:flex;flex-direction:column;gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem) 5rem}
+.sheet{
+  background:var(--panel);border:1px solid var(--hairline);
+  padding:1.8rem 1.7rem 2rem;position:relative;flex:none;
+}
+.sheet .tb{
+  display:flex;justify-content:space-between;gap:1rem;
+  font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-dim);border-bottom:1px solid var(--hairline);padding-bottom:.8rem;margin-bottom:1.2rem;
+}
+.sheet h3{font-size:var(--step-h3);letter-spacing:-.01em}
+.sheet .co{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin:.5rem 0 1.1rem}
+.sheet ul{list-style:none;display:grid;gap:.55rem}
+.sheet li{font-size:.92rem;color:var(--ink);padding-left:1.1rem;position:relative;line-height:1.5}
+.sheet li::before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:1px;background:var(--cyan)}
+.sheet .env{margin-top:1.2rem;display:block;line-height:1.9;letter-spacing:.08em}
+.sheet.current{border-color:var(--cyan)}
+.sheet.current .tb{color:var(--cyan)}
+/* HORIZONTAL corridor state — added by JS only when pinned scene is built */
+.corridor.ht-active .track{
+  flex-direction:row;align-items:stretch;gap:2rem;max-width:none;
+  padding:0 8vw 4rem;width:max-content;
+}
+.corridor.ht-active .sheet{width:min(560px,72vw)}
+.corridor.ht-active .viewport{height:100svh;display:flex;align-items:center;overflow:hidden}
+.corridor .viewport{overflow:visible}
 
-        /* Chapter 3: Technical Schematic */
-        .schematic-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-        .schematic-card {
-            border: 1px solid rgba(90, 182, 232, 0.2);
-            background: rgba(13, 47, 84, 0.4);
-            padding: 30px;
-            position: relative;
-        }
-        .schematic-card h3 {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--surface-accent);
-            padding-bottom: 10px;
-        }
-        .schematic-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .schematic-list li {
-            background: var(--surface-accent);
-            padding: 6px 12px;
-            font-size: 0.85rem;
-            font-family: 'IBM Plex Mono', monospace;
-        }
+/* ================= CH06 — CREDENTIALS LEDGER ================= */
+.ch-credentials{padding:clamp(5rem,12vh,9rem) 0;background:linear-gradient(180deg,transparent,rgba(13,44,78,.5) 20%,rgba(13,44,78,.5) 80%,transparent)}
+.ch-credentials h2{font-size:var(--step-h2);text-transform:uppercase;margin:1rem 0 3rem}
+.ledger{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+.cred{background:var(--navy);padding:1.6rem 1.5rem}
+.cred h3{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:1.1rem}
+.cred ul{list-style:none;display:grid;gap:.7rem}
+.cred li{font-size:.92rem;line-height:1.5}
+.cred li em{display:block;font-style:normal;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-top:.15rem}
+@media(max-width:860px){.ledger{grid-template-columns:1fr}}
 
-        /* Chapter 4: Pinned Set Piece - The Quantified Metrics Blueprint */
-        #impact-setpiece {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-        .blueprint-canvas {
-            position: absolute;
-            width: 80%;
-            height: 70%;
-            border: 1px dashed rgba(90, 182, 232, 0.3);
-            background: rgba(13, 47, 84, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-        .blueprint-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        .blueprint-svg line {
-            stroke: var(--accent-color);
-            stroke-width: 1.5;
-            stroke-dasharray: 8 4;
-        }
-        .metric-hero-display {
-            text-align: center;
-            z-index: 2;
-        }
-        .metric-big-num {
-            font-size: clamp(4rem, 15vw, 11rem);
-            font-weight: 700;
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-variant-numeric: tabular-nums;
-            color: transparent;
-            -webkit-text-stroke: 2px var(--accent-color);
-            line-height: 1;
-        }
-        .metric-big-num.filled {
-            color: var(--accent-color);
-            text-shadow: 0 0 30px var(--accent-glow);
-        }
-        .metric-descriptor {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.2rem;
-            color: var(--ink-color);
-            margin-top: 15px;
-            letter-spacing: 0.05em;
-        }
+/* ================= CH07 — SIGN-OFF ================= */
+.ch-cta{padding:clamp(7rem,18vh,12rem) 0 clamp(4rem,8vh,6rem);text-align:center}
+.ch-cta .eyebrow{justify-content:center}
+.ch-cta h2{font-size:clamp(1.8rem,5vw,3.6rem);text-transform:uppercase;max-width:22ch;margin:1.2rem auto 0}
+.ch-cta h2 .accent{color:var(--cyan)}
+.cta-roles{margin-top:1.4rem;line-height:2}
+.cta-actions{margin-top:3rem;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.cta-actions a{
+  min-height:44px;display:inline-flex;align-items:center;gap:.7rem;
+  border:1px solid var(--hairline);padding:.85rem 1.5rem;text-decoration:none;
+  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  transition:border-color .25s,color .25s,background .25s;
+}
+.cta-actions a:hover{border-color:var(--cyan);color:var(--cyan)}
+.cta-actions a.primary{background:var(--cyan);color:var(--navy);border-color:var(--cyan)}
+.cta-actions a.primary:hover{background:transparent;color:var(--cyan)}
+.foot{margin-top:5rem;border-top:1px solid var(--hairline);padding-top:1.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem}
 
-        /* Chapter 5: Horizontal Timeline Panel */
-        #timeline-container {
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: row;
-            width: 300vw; /* 3 horizontal panels */
-            padding: 0;
-            border-bottom: none;
-        }
-        .timeline-panel {
-            width: 100vw;
-            height: 100vh;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 10%;
-            background: var(--surface-color);
-            border-right: 1px dashed rgba(90, 182, 232, 0.2);
-        }
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: 0.4fr 1.6fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .time-period {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 15px;
-        }
-        .role-details h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .company-name {
-            font-family: 'IBM Plex Mono', monospace;
-            color: var(--ink-dim);
-            margin-bottom: 20px;
-        }
-        .bullet-list {
-            list-style: none;
-        }
-        .bullet-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            color: var(--ink-dim);
-        }
-        .bullet-list li::before {
-            content: "↳";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        /* Chapter 6: Vision & Terminal Closing */
-        .terminal-wrap {
-            background: var(--surface-color);
-            border: 1px solid var(--surface-accent);
-            border-top: 25px solid var(--surface-accent);
-            padding: 30px;
-            font-family: 'IBM Plex Mono', monospace;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .terminal-wrap::before {
-            content: "● ● ●";
-            position: absolute;
-            top: -20px;
-            left: 15px;
-            color: var(--bg-color);
-            font-size: 0.75rem;
-        }
-        .terminal-row {
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        .terminal-row span.cmd { color: var(--accent-color); }
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-            justify-content: center;
-        }
-        .cta-btn {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            font-family: 'IBM Plex Mono', monospace;
-            padding: 15px 30px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        .cta-btn:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* Mobile Adjustments & Structural Collapse */
-        @media (max-width: 768px) {
-            #hero {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .hero-photo-container {
-                height: 45vh;
-            }
-            .origin-layout, .schematic-grid, .timeline-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            #timeline-container {
-                flex-direction: column;
-                width: 100vw;
-                height: auto;
-            }
-            .timeline-panel {
-                width: 100vw;
-                height: auto;
-                min-height: 100vh;
-                border-right: none;
-                border-bottom: 1px dashed rgba(90, 182, 232, 0.2);
-            }
-            .nav-rail {
-                display: none;
-            }
-        }
-
-        /* Printing Degradation */
-        @media print {
-            body {
-                background: white;
-                color: black;
-                background-image: none;
-            }
-            .nav-rail, .blueprint-overlay, .blueprint-svg { display: none; }
-            section { min-height: auto; height: auto !important; width: 100vw !important; transform: none !important; display: block !important; page-break-inside: avoid; }
-            #timeline-container { flex-direction: column; width: 100vw !important; height: auto !important; transform: none !important; }
-            .timeline-panel { width: 100vw !important; height: auto !important; }
-            .metric-big-num { color: black !important; -webkit-text-stroke: 0; }
-        }
-    </style>
+/* ================= REDUCED MOTION / PRINT ================= */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .grid-bg,.sheet-rail,.topbar,.scroll-cue,.title-block{display:none!important}
+  .ch-impact,.stats-band,.ch-schematic,.ch-credentials,.sheet{background:#fff;border-color:#ccc;color:#111}
+  .mono,.eyebrow,.stat .cap,.sheet .tb,.sheet .co{color:#555}
+  a{color:#111;text-decoration:underline}
+  .impact-figure{position:static;font-size:3rem;color:#111}
+  .dim-svg{display:none}
+}
+</style>
 </head>
 <body>
+<div class="grid-bg" aria-hidden="true"></div>
 
-    <svg class="blueprint-overlay">
-        <filter id="grain">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.05 0" />
-            <feComposite operator="in" in2="SourceGraphic" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain)" />
+<!-- progress device: drawing-sheet rail -->
+<div class="sheet-rail" aria-hidden="true">
+  <span class="label">CAREER DOSSIER · REV A</span>
+  <div class="track"><div class="fill" id="railFill"></div></div>
+  <span class="sheet-no num" id="sheetNo">SHT 01/07</span>
+</div>
+
+<!-- identity strip: secondary avatar instance (circular OK at avatar scale, monogram fallback) -->
+<header class="topbar">
+  <a class="brandmark" href="#ch01">
+    <span class="avatar" id="avatarBox">PV</span>
+    <span class="who">Parag Vidhate · Program Manager</span>
+  </a>
+  <a class="top-cta" href="mailto:parag.vidhate@gmail.com">Contact</a>
+</header>
+
+<main>
+
+<!-- ============ CH01 · HERO HOOK ============ -->
+<section class="ch ch-hero" id="ch01" aria-label="Introduction">
+  <!-- giant REAL numeral (18 years) sits BEHIND the cutout figure: the page's single layering trick -->
+  <div class="hero-num num" id="heroNum" aria-hidden="true">18<small>YEARS</small></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow hero-kicker">SHT 01 · Candidate record · Drafted to scale</p>
+      <h1 class="hero-name" id="heroName"><span class="line">Parag</span><span class="line">Vidhate</span></h1>
+      <p class="hero-role" id="heroRole">Senior Program &amp; Project Manager <span class="sep">·</span> Agile Coach <span class="sep">·</span> Business Analyst</p>
+      <p class="mono hero-meta">18 years · Fortune 500 delivery · APAC / Europe / India</p>
+      <a class="scroll-cue" href="#ch02"><span class="tick" aria-hidden="true"></span>Scroll to review</a>
+    </div>
+    <!-- transparent cutout zone — grid continues behind the silhouette; space reserved via aspect-ratio -->
+    <figure class="hero-figure" id="heroFigure">
+      <img id="heroPhoto" alt="Parag Vidhate — full portrait cutout" decoding="async" />
+    </figure>
+  </div>
+  <div class="title-block num" aria-hidden="true">
+    <span>Title</span><span>Career record — P. Vidhate</span>
+    <span>Sheet</span><span>01 of 07 · Rev A</span>
+    <span>Scale</span><span>18 years / 1 page</span>
+  </div>
+</section>
+
+<!-- shared-element seam: hairline drawn across the CH01→CH02 boundary -->
+<div class="seam-line" id="seamLine" aria-hidden="true"><span class="seam-node"></span></div>
+
+<!-- ============ CH02 · ORIGIN ============ -->
+<section class="ch ch-origin" id="ch02" aria-label="Profile">
+  <div class="wrap origin-grid">
+    <div>
+      <p class="eyebrow">SHT 02 · The brief</p>
+      <h2 id="originHead">Eighteen years, six domains, one discipline</h2>
+    </div>
+    <div class="origin-plate" id="originPlate">
+      <p>Parag Vidhate is an IT leader with 18 years of experience spanning program management, agile coaching and business analysis — across eCommerce, Investment Banking, Financial Trading, AI, Infrastructure and IoT.</p>
+      <p>He has delivered 15+ concurrent projects globally, managing multi-million dollar budgets and cross-functional teams of 20+, driving digital transformation for Fortune 500 clients across APAC, Europe and India.</p>
+      <span class="mono">Certified Scrum Master · AWS Practitioner · Agile Coach</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH03 · CAPABILITY SCHEMATIC ============ -->
+<section class="ch ch-schematic" id="ch03" aria-label="Capabilities">
+  <div class="wrap">
+    <p class="eyebrow">SHT 03 · Capability schematic</p>
+    <h2>Annotated to the last competency</h2>
+    <!-- SVG leader lines draw in on entry, annotating the module grid below -->
+    <svg class="leader-svg" id="leaderSvg" viewBox="0 0 1200 90" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+      <path class="lead draw" d="M600 6 V34" stroke="#5AB6E8" stroke-width="1.5" fill="none"/>
+      <path class="lead draw" d="M600 34 H200 V78" stroke="#5AB6E8" stroke-width="1.5" fill="none"/>
+      <path class="lead draw" d="M600 34 V78" stroke="#5AB6E8" stroke-width="1.5" fill="none"/>
+      <path class="lead draw" d="M600 34 H1000 V78" stroke="#5AB6E8" stroke-width="1.5" fill="none"/>
+      <circle class="node" cx="200" cy="82" r="3" fill="#5AB6E8"/>
+      <circle class="node" cx="600" cy="82" r="3" fill="#5AB6E8"/>
+      <circle class="node" cx="1000" cy="82" r="3" fill="#5AB6E8"/>
     </svg>
-
-    <div class="nav-rail" aria-hidden="true">
-        <div class="nav-dot active" data-target="#hero"></div>
-        <div class="nav-dot" data-target="#origin"></div>
-        <div class="nav-dot" data-target="#expertise"></div>
-        <div class="nav-dot" data-target="#impact-setpiece"></div>
-        <div class="nav-dot" data-target="#timeline-container"></div>
-        <div class="nav-dot" data-target="#vision"></div>
+    <div class="schema" id="schema">
+      <div class="mod"><span class="idx num">C-01</span><h3>Program &amp; Project Management</h3></div>
+      <div class="mod"><span class="idx num">C-02</span><h3>Agile Coaching &amp; Scrum</h3></div>
+      <div class="mod"><span class="idx num">C-03</span><h3>Business Analysis</h3></div>
+      <div class="mod"><span class="idx num">C-04</span><h3>Stakeholder Management</h3></div>
+      <div class="mod"><span class="idx num">C-05</span><h3>Change Management</h3></div>
+      <div class="mod"><span class="idx num">C-06</span><h3>IT Infrastructure Delivery</h3></div>
+      <div class="mod"><span class="idx num">C-07</span><h3>Budget &amp; Capacity Planning</h3></div>
+      <div class="mod"><span class="idx num">C-08</span><h3>Risk &amp; Compliance</h3></div>
+      <div class="mod"><span class="idx num">C-09</span><h3>Product Delivery</h3></div>
     </div>
-
-    <!-- CHAPTER 01: HERO HOOK -->
-    <section id="hero">
-        <div class="hero-title-wrap">
-            <div class="mono-label">SYSTEM_INIT // ARCHITECT_IDENTITY</div>
-            <h1>PARAG VIDHATE</h1>
-            <p class="hero-tagline">Senior Program & Project Manager | Agile Coach | Business Analyst</p>
-            <div class="hero-meta-grid">
-                <div>[CORE_TENURE] <br><span style="color: var(--accent-color);">18 Years IT Experience</span></div>
-                <div>[DEPLOYMENT] <br><span style="color: var(--accent-color);">15+ Global Projects</span></div>
-            </div>
-        </div>
-        <div class="hero-photo-container">
-            <div class="fallback-pattern"></div>
-            <figure id="hero-figure">
-                <img id="profile-img" src="" alt="Parag Vidhate Signature Profile Silhouette">
-            </figure>
-        </div>
-    </section>
-
-    <!-- CHAPTER 02: ORIGIN -->
-    <section id="origin">
-        <div class="mono-label">SECTION_02 // SYSTEM_OVERVIEW</div>
-        <h2 class="chapter-title">The Delivery Blueprint</h2>
-        <div class="origin-layout">
-            <div class="origin-text">
-                <p>Dynamic IT leader with <strong>18 years of cross-functional experience</strong> spanning program management, agile coaching, and deep business analysis. Proven operational delivery velocity running multi-million dollar architectural budgets and coordinating cross-functional infrastructure units of <strong>20+ engineering assets globally</strong>.</p>
-                <p style="margin-top: 20px;">Driving high-integrity technical transformation maps across Fortune 500 footprints within complex matrices: Investment Banking, Global Trading Architectures, eCommerce, and Enterprise AI platforms.</p>
-            </div>
-            <div class="competency-tags">
-                <div class="comp-tag"><span>01 / PMO</span>Program & Project Management</div>
-                <div class="comp-tag"><span>02 / AGILE</span>Agile Coaching & Scrum</div>
-                <div class="comp-tag"><span>03 / DATA</span>Business Analysis & Power BI</div>
-                <div class="comp-tag"><span>04 / SEC</span>IT Infrastructure & Risk</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CHAPTER 03: EXPERTISE SCHEMATIC -->
-    <section id="expertise">
-        <div class="mono-label">SECTION_03 // CORE_STACK_CONFIG</div>
-        <h2 class="chapter-title">Engineered Competence Matrix</h2>
-        <div class="schematic-grid">
-            <div class="schematic-card">
-                <h3>Cloud & Infrastructure</h3>
-                <ul class="schematic-list">
-                    <li>AWS</li><li>Azure</li><li>GCP</li><li>Kubernetes</li><li>Docker</li><li>Terraform</li><li>SD WAN</li><li>Crowdstrike</li>
-                </ul>
-            </div>
-            <div class="schematic-card">
-                <h3>Agile & Orchestration</h3>
-                <ul class="schematic-list">
-                    <li>JIRA</li><li>Confluence</li><li>Azure DevOps</li><li>SAFe</li><li>Scrum</li><li>ServiceNow</li>
-                </ul>
-            </div>
-            <div class="schematic-card">
-                <h3>Data Pipeline & Analytics</h3>
-                <ul class="schematic-list">
-                    <li>Power BI</li><li>Databricks</li><li>Tableau</li><li>MongoDB</li><li>PostgreSQL</li><li>Angular</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- CHAPTER 04: MANDATORY SIGNATURE SET PIECE (THE SYSTEM MEASUREMENT) -->
-    <section id="impact-setpiece">
-        <div class="blueprint-canvas">
-            <svg class="blueprint-svg">
-                <!-- Dimension Lines -->
-                <line x1="10%" y1="20%" x2="90%" y2="20%" />
-                <line x1="10%" y1="80%" x2="90%" y2="80%" />
-                <line x1="20%" y1="10%" x2="20%" y2="90%" />
-            </svg>
-            <div class="mono-label" style="position: absolute; top: 30px; left: 40px;">CRITICAL_METRIC_MEASUREMENT // GLOBAL_INFRASTRUCTURE</div>
-            <div class="metric-hero-display">
-                <div class="metric-big-num" id="count-target">15000</div>
-                <div class="metric-descriptor">ACTIVE ENTERPRISE IT ASSETS AUDITED & DEPLOYED</div>
-            </div>
-            <div class="mono-label" style="position: absolute; bottom: 30px; right: 40px;">TOLERANCE: ZERO_PRODUCTION_OUTAGES</div>
-        </div>
-    </section>
-
-    <!-- CHAPTER 05: HORIZONTAL TIMELINE -->
-    <div style="position: relative;">
-        <section id="timeline-container">
-            <!-- PANEL 1 -->
-            <div class="timeline-panel">
-                <div class="mono-label">CHRONICLE_01 // RUNTIME_ACTIVE</div>
-                <div class="timeline-grid">
-                    <div class="time-period">2025 - PRESENT</div>
-                    <div class="role-details">
-                        <h3>Sr. Project Manager - IT Infrastructure</h3>
-                        <div class="company-name">Exela Technologies (XBP Global)</div>
-                        <ul class="bullet-list">
-                            <li>Saved USD 800K through infrastructural cloud performance optimizations.</li>
-                            <li>Orchestrated deployment of core enterprise agents across 15K+ IT global units.</li>
-                            <li>Pioneered transition maps introducing Agile structural frameworks into core infrastructure architectures.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- PANEL 2 -->
-            <div class="timeline-panel">
-                <div class="mono-label">CHRONICLE_02 // SYSTEM_BUILD</div>
-                <div class="timeline-grid">
-                    <div class="time-period">2024 - 2025</div>
-                    <div class="role-details">
-                        <h3>Project Manager & Business Analyst</h3>
-                        <div class="company-name">Birlasoft</div>
-                        <ul class="bullet-list">
-                            <li>Delivered Continental Traceability Matrix Dashboard POC natively on AWS stack.</li>
-                            <li>Constructed highly responsive Digital Marketing Analytics dashboards for French enterprise matrices.</li>
-                            <li>Stabilized high-throughput transactional API pipelines utilizing Azure APIM and Terraform layers.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- PANEL 3 -->
-            <div class="timeline-panel">
-                <div class="mono-label">CHRONICLE_03 // LEGACY_ESTABLISHMENT</div>
-                <div class="timeline-grid">
-                    <div class="time-period">2008 - 2018</div>
-                    <div class="role-details">
-                        <h3>Project Manager APAC - Trading & AI UI</h3>
-                        <div class="company-name">Bloomberg LP (via First Futures / RTS Realtime)</div>
-                        <ul class="bullet-list">
-                            <li>Coordinated 120+ global stock exchange API integration cycles seamlessly without a single active production disruption.</li>
-                            <li>Pioneered execution vectors for complex MiFID II framework adaptation and systematic global data center cross-migrations.</li>
-                            <li>Spearheaded quantitative automation modules across core trading architectures and localized APAC agile engineering nodes.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="stacks" id="stacks">
+      <div class="stack">
+        <h3>Cloud &amp; Infrastructure</h3>
+        <ul class="chips"><li>AWS</li><li>Azure</li><li>GCP</li><li>Kubernetes</li><li>Docker</li><li>Terraform</li><li>SD WAN</li><li>Crowdstrike</li></ul>
+      </div>
+      <div class="stack">
+        <h3>Agile &amp; Project Tools</h3>
+        <ul class="chips"><li>JIRA</li><li>Confluence</li><li>Azure DevOps</li><li>Trello</li><li>MS Project</li><li>ServiceNow</li><li>SAFe</li><li>Scrum</li></ul>
+      </div>
+      <div class="stack">
+        <h3>Data &amp; AI</h3>
+        <ul class="chips"><li>Power BI</li><li>Databricks</li><li>Tableau</li><li>ChatGPT</li><li>MongoDB</li><li>PostgreSQL</li><li>Angular</li><li>React</li></ul>
+      </div>
     </div>
+    <div class="industries">
+      <span class="mono">Industries</span>
+      <ul>
+        <li>Investment Banking</li><li>eCommerce &amp; eGaming</li><li>IT Infrastructure</li><li>Travel &amp; Loyalty</li><li>AI &amp; Data Analytics</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- CHAPTER 06: VISION & CLOSING CTA -->
-    <section id="vision">
-        <div class="mono-label">SYSTEM_TERMINAL // DISPATCH_PROMPT</div>
-        <div class="terminal-wrap">
-            <div class="terminal-row"><span class="cmd">admin@vidhate_portfolio:~$</span> exec init_handshake</div>
-            <div class="terminal-row">An impact-driven delivery leader transforming highly complex programs into precise business value metrics across global teams.</div>
-            <div class="terminal-row"><span class="cmd">status:</span> Available for global engagement paths as Program Manager or Agile Consultant.</div>
-        </div>
-        <div class="cta-buttons">
-            <a href="mailto:parag.vidhate@gmail.com" class="cta-btn">EXECUTE_MAIL_INIT</a>
-            <a href="https://linkedin.com/in/parag-vidhate-26479390" target="_blank" rel="noopener" class="cta-btn">CONNECT_LINKEDIN</a>
-        </div>
-    </section>
+<!-- ============ CH04 · ★ SET PIECE — MEASURED IMPACT ============ -->
+<section class="ch ch-impact" id="ch04" aria-label="Key impact">
+  <div class="impact-stage" id="impactStage">
+    <p class="eyebrow impact-eyebrow">SHT 04 · Measured impact · Dimension in USD</p>
+    <div class="dim-wrap">
+      <!-- the engineering drawing: extension lines → dimension line → arrowheads → measured numeral -->
+      <svg class="dim-svg" id="dimSvg" viewBox="0 0 1000 320" aria-hidden="true">
+        <line class="tick" x1="60"  y1="40" x2="60"  y2="60"/>
+        <line class="tick" x1="940" y1="40" x2="940" y2="60"/>
+        <line class="draw ext" id="extL" x1="60"  y1="40" x2="60"  y2="290"/>
+        <line class="draw ext" id="extR" x1="940" y1="40" x2="940" y2="290"/>
+        <line class="draw dim" id="dimLine" x1="72" y1="290" x2="928" y2="290"/>
+        <polygon class="arrow" id="arrL" points="60,290 76,284 76,296"/>
+        <polygon class="arrow" id="arrR" points="940,290 924,284 924,296"/>
+      </svg>
+      <div class="impact-figure num" aria-label="USD 800K saved">
+        <span class="cur">USD</span><span class="big" id="bigFigure">800K</span>
+      </div>
+    </div>
+    <p class="impact-caption mono" id="impactCaption">Saved in 2025 through <b>infrastructure cost optimisation &amp; transitions</b><br/>Sr. Project Manager — IT Infrastructure · Exela Technologies (XBP Global)</p>
+  </div>
+</section>
 
-    <!-- CORE ANIMATION spine CONFIGURATION -->
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
+<!-- stats band: counters tick once to REAL values (final values in markup for JS-off) -->
+<section class="stats-band" id="statsBand" aria-label="Career statistics">
+  <div class="stats-grid">
+    <div class="stat"><span class="val num"><span class="count" data-target="18">18</span></span><span class="cap mono">Years in IT · 15 leading programmes</span></div>
+    <div class="stat"><span class="val num"><span class="count" data-target="120">120</span></span><span class="cap mono">Exchange integrations · zero production outages</span></div>
+    <div class="stat"><span class="val num"><span class="count" data-target="15000" data-format="comma">15,000</span><span class="suffix">+</span></span><span class="cap mono">IT assets deployed with compliance audits</span></div>
+    <div class="stat"><span class="val num"><span class="count" data-target="15">15</span><span class="suffix">+</span></span><span class="cap mono">Concurrent projects delivered globally</span></div>
+  </div>
+</section>
 
-        // --- PROGRESS/CHAPTER NAV LOGIC ---
-        const dots = document.querySelectorAll('.nav-dot');
-        dots.forEach(dot => {
-            dot.addEventListener('click', (e) => {
-                const target = e.target.getAttribute('data-target');
-                gsap.to(window, { duration: 1, scrollTo: target });
-            });
+<!-- ============ CH05 · JOURNEY CORRIDOR ============ -->
+<section class="ch ch-journey" id="ch05" aria-label="Career timeline">
+  <div class="wrap journey-head">
+    <p class="eyebrow">SHT 05 · The journey · 2005 → present</p>
+    <h2>Six sheets, twenty-one years of drawings</h2>
+  </div>
+  <div class="corridor" id="corridor">
+    <div class="viewport" id="corridorViewport">
+      <div class="track" id="corridorTrack">
+
+        <article class="sheet">
+          <div class="tb num"><span>SHT 05.1</span><span>2005 – 2007</span></div>
+          <h3>Technical Writer</h3>
+          <p class="co">Emerson · Zensar</p>
+          <ul>
+            <li>Authored product documentation and manuals at Emerson.</li>
+            <li>Delivered IT documentation programmes at Zensar.</li>
+          </ul>
+          <span class="mono env">Where precision on paper began</span>
+        </article>
+
+        <article class="sheet">
+          <div class="tb num"><span>SHT 05.2</span><span>Jul 2008 – Sep 2018</span></div>
+          <h3>Project Manager APAC — Trading &amp; AI UI</h3>
+          <p class="co">Bloomberg LP · via First Futures / RTS Realtime</p>
+          <ul>
+            <li>Managed 120+ exchange API integrations worldwide, procurement to production — without a single production outage.</li>
+            <li>Pioneered Agile in the India team; led 3 scrum teams across India and Hong Kong.</li>
+            <li>Delivered MiFID II, Brexit, data centre migration and algorithmic trading platform programmes.</li>
+            <li>Led disaster recovery, trading UI frontends and quantitative AI/ML trading rollouts; JIRA &amp; Confluence administrator.</li>
+          </ul>
+          <span class="mono env">C++ · .NET · DirectX · Linux · Data Center · Algo Trading · MiFID II</span>
+        </article>
+
+        <article class="sheet">
+          <div class="tb num"><span>SHT 05.3</span><span>Jan 2019 – Nov 2021</span></div>
+          <h3>Program &amp; Project Manager | Business Analyst</h3>
+          <p class="co">Exaltare · Fulcrum Digital · Spadeworx</p>
+          <ul>
+            <li>Delivered a Magento B2B platform with PDF reports, SAP integration and Arabic localisation for a Gulf client.</li>
+            <li>Awarded one-time delivery recognition for a Magento enterprise upgrade with Fulcrum Digital.</li>
+            <li>Delivered eGaming &amp; OTT platforms and banking API projects.</li>
+          </ul>
+          <span class="mono env">React · Angular · AWS · Azure · Magento · SAP · .NET · DevOps</span>
+        </article>
+
+        <article class="sheet">
+          <div class="tb num"><span>SHT 05.4</span><span>Nov 2021 – Mar 2024</span></div>
+          <h3>Product Delivery Manager &amp; Business Analyst</h3>
+          <p class="co">Mobikode · JP Morgan Chase</p>
+          <ul>
+            <li>Managed IoT, eGaming, eCommerce, OTT, Banking and eDating portfolios concurrently.</li>
+            <li>Transformed client requirements into business stories, QA test cases and documented deliverables.</li>
+            <li>Nurtured teams in Scrum, Kanban and SAFe; led 3 Java API project teams for a banking client.</li>
+          </ul>
+          <span class="mono env">Scrum · Kanban · SAFe · Java APIs</span>
+        </article>
+
+        <article class="sheet">
+          <div class="tb num"><span>SHT 05.5</span><span>May 2024 – Apr 2025</span></div>
+          <h3>Project Manager &amp; Business Analyst</h3>
+          <p class="co">Birlasoft</p>
+          <ul>
+            <li>Delivered Continental Traceability Matrix Dashboard POC on AWS, Angular, Node.js and MongoDB.</li>
+            <li>Built a Digital Marketing Analytics Dashboard for a French client — Azure, Power BI, Databricks — adopted across 6 social media channels.</li>
+            <li>Stabilised multiple Magento eCommerce clients (furniture, vehicles, signs) for Hummingbird Pvt. Ltd.</li>
+            <li>Managed API integration via Azure API Management and Terraform for data pipeline governance.</li>
+          </ul>
+          <span class="mono env">Digital Marketing · IoT · Analytics</span>
+        </article>
+
+        <article class="sheet current">
+          <div class="tb num"><span>SHT 05.6 · Current</span><span>Apr 2025 – Present</span></div>
+          <h3>Sr. Project Manager — IT Infrastructure</h3>
+          <p class="co">Exela Technologies · XBP Global</p>
+          <ul>
+            <li>Saved USD 800K in 2025 via infrastructure cost optimisation and transitions.</li>
+            <li>Deployed agents (Crowdstrike, Secpod, Bigfix, F5) across 15K+ IT assets with compliance audits.</li>
+            <li>Pioneered agile delivery in infrastructure teams, driving 15+ successful project completions.</li>
+            <li>Led SD WAN implementation and decommissioning of legacy network infrastructure.</li>
+          </ul>
+          <span class="mono env">Cybersecurity · Cloud · SD WAN · PCI-DSS · HIPAA</span>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH06 · CREDENTIALS LEDGER ============ -->
+<section class="ch ch-credentials" id="ch06" aria-label="Credentials">
+  <div class="wrap">
+    <p class="eyebrow">SHT 06 · Credentials ledger</p>
+    <h2>Stamped, certified, on record</h2>
+    <div class="ledger" id="ledger">
+      <div class="cred">
+        <h3>Education</h3>
+        <ul>
+          <li>MBA — Human Resources<em>University of Pune · 2005</em></li>
+          <li>MTech — Information Technology<em>AAIDU (Distance) · 2005</em></li>
+          <li>BE — Computer Engineering<em>University of Pune · 2003</em></li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h3>Certifications</h3>
+        <ul>
+          <li>CSM® — Scrum Alliance</li>
+          <li>ICP-ACC — ICAgile</li>
+          <li>AWS Cloud Practitioner</li>
+          <li>Azure Fundamentals</li>
+          <li>Google Cloud Fundamentals</li>
+          <li>Google Project Management</li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h3>Patents &amp; Publications</h3>
+        <ul>
+          <li>Provisional patent — independent R&amp;D<em>2015</em></li>
+          <li>White paper: Bluetooth gateway prototype<em>Wipro · 2001</em></li>
+          <li>Technical reviewer, seed-funding book<em>2014</em></li>
+          <li>Incubator researcher, 1M/1M global programme<em>2011</em></li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h3>Recognition</h3>
+        <ul>
+          <li>One-time delivery recognition — Magento enterprise upgrade<em>Fulcrum Digital</em></li>
+          <li>APGI 5.0 panelist<em>Pune chapter · 2019</em></li>
+          <li>Bloomberg Philanthropy Lead</li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h3>Volunteering</h3>
+        <ul>
+          <li>Teach for India Lead</li>
+          <li>EV &amp; Energy Research</li>
+          <li>Waste Management Advocacy</li>
+          <li>Sports Team Manager</li>
+        </ul>
+      </div>
+      <div class="cred">
+        <h3>Languages</h3>
+        <ul>
+          <li>English<em>Fluent</em></li>
+          <li>Marathi<em>Native</em></li>
+          <li>Hindi<em>Fluent</em></li>
+          <li>German<em>Basic</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH07 · SIGN-OFF ============ -->
+<section class="ch ch-cta" id="ch07" aria-label="Contact">
+  <div class="wrap">
+    <p class="eyebrow">SHT 07 · Sign-off</p>
+    <h2 id="ctaHead">Eighteen years of <span class="accent">measured delivery.</span> Open to immediate engagement.</h2>
+    <p class="mono cta-roles">Program Manager · Agile Coach · Senior Business Analyst</p>
+    <div class="cta-actions">
+      <a class="primary" href="mailto:parag.vidhate@gmail.com">Email Parag</a>
+      <a href="tel:+919860026470">+91 98600 26470</a>
+      <a href="https://linkedin.com/in/parag-vidhate-26479390" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="foot mono num">
+      <span>Parag Vidhate · Career record · Rev A</span>
+      <span>Sheet 07 of 07 · End of drawing set</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* Progressive enhancement: every fact is readable with JS off.
+   All hidden/initial states are set here, never in CSS. */
+(function(){
+  "use strict";
+  if(!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- utilities ---------- */
+  // vanilla char splitter (SplitText is paid) — wraps each char for stagger reveals
+  function splitChars(el){
+    const walk = node=>{
+      [...node.childNodes].forEach(n=>{
+        if(n.nodeType===3){
+          const frag=document.createDocumentFragment();
+          [...n.textContent].forEach(ch=>{
+            const s=document.createElement('span');
+            s.style.display='inline-block';
+            s.textContent=ch===' ' ? '\u00A0' : ch;
+            s.className='c';
+            frag.appendChild(s);
+          });
+          node.replaceChild(frag,n);
+        } else if(n.nodeType===1){ walk(n); }
+      });
+    };
+    walk(el);
+    return el.querySelectorAll('.c');
+  }
+  const fmt = (v,comma)=> comma ? Math.round(v).toLocaleString('en-US') : String(Math.round(v));
+
+  /* ---------- profile image: runtime probe, PNG only (alpha cutout) ---------- */
+  function loadProfileImage(onSuccess,onFail){
+    const candidates=['profile-cutout.png','profile.png']; let i=0;
+    (function tryNext(){
+      if(i>=candidates.length) return onFail();
+      const img=new Image();
+      img.onload=()=>onSuccess(candidates[i],img);
+      img.onerror=()=>{i++;tryNext();};
+      img.src=candidates[i];
+    })();
+  }
+  loadProfileImage(
+    (src)=>{
+      document.body.classList.add('has-photo');
+      const hero=document.getElementById('heroPhoto');
+      hero.src=src;
+      const av=document.getElementById('avatarBox');
+      const aImg=new Image(); aImg.alt='Parag Vidhate'; aImg.src=src;
+      aImg.onload=()=>{av.textContent='';av.appendChild(aImg);}; // monogram stays if this instance fails
+      ScrollTrigger.refresh(); // CRITICAL: recalc all trigger math after the figure resolves
+    },
+    ()=>{
+      document.body.classList.add('no-photo'); // genuine re-layout: typographic drafted hero
+      ScrollTrigger.refresh();
+    }
+  );
+
+  /* ---------- responsive + motion contexts ---------- */
+  const mm=gsap.matchMedia();
+
+  /* ============ MOTION-OK CONTEXT ============ */
+  mm.add({
+    motionOK:"(prefers-reduced-motion: no-preference)",
+    desktop:"(min-width: 861px)",
+    mobile:"(max-width: 860px)"
+  },(ctx)=>{
+    const {motionOK,desktop}=ctx.conditions;
+    if(!motionOK) return; // reduced-motion: static page, counters keep markup values, corridor stays stacked
+
+    const px = desktop?1:0.5; // parallax ratios halved on mobile (storyboard: MOBILE ADAPTATIONS)
+
+    /* ---- progress rail: fills across the whole document ---- */
+    const railFill=document.getElementById('railFill');
+    ScrollTrigger.create({ // SCENE: global — drives the sheet-rail fill
+      trigger:document.body,start:"top top",end:"bottom bottom",
+      onUpdate:self=>gsap.set(railFill,desktop?{scaleY:self.progress}:{scaleX:self.progress})
+    });
+    // sheet numbering follows the chapter currently in view
+    const sheetNo=document.getElementById('sheetNo');
+    document.querySelectorAll('main > section[id]').forEach((sec,i,all)=>{
+      const n=String(Math.min(i+1,7)).padStart(2,'0');
+      ScrollTrigger.create({ // SCENE: global — updates SHT xx/07 label per chapter
+        trigger:sec,start:"top 55%",end:"bottom 55%",
+        onToggle:s=>{ if(s.isActive) sheetNo.textContent=`SHT ${n}/07`; }
+      });
+    });
+
+    /* ---- CH01 HERO: char reveal + 3-plane parallax (toggle once + scrub) ---- */
+    const nameChars=[];
+    document.querySelectorAll('#heroName .line').forEach(l=>nameChars.push(...splitChars(l)));
+    const heroIntro=gsap.timeline({defaults:{ease:"expo.out"}});
+    heroIntro
+      .from(nameChars,{yPercent:110,duration:0.9,stagger:0.03},0.15) // kinetic text: 0.03s/char
+      .from("#heroRole",{autoAlpha:0,y:24,duration:0.8},0.55)
+      .from(".hero-kicker, .hero-meta, .scroll-cue",{autoAlpha:0,y:16,duration:0.7,stagger:0.08},0.7)
+      .from("#heroNum",{autoAlpha:0,duration:1.1,ease:"power3.out"},0.4)
+      .from("#heroFigure",{autoAlpha:0,y:40,duration:1.0},0.5)
+      .from(".title-block",{autoAlpha:0,duration:0.8},1.0);
+    // parallax planes: grid 0.85x / numeral 0.92x / figure 1.08x of scroll (scrubbed — viewer drives depth)
+    gsap.to("#heroNum",{yPercent:-14*px,ease:"none",
+      scrollTrigger:{trigger:"#ch01",start:"top top",end:"bottom top",scrub:0.8}}); // SCENE CH01: numeral plane
+    gsap.to("#heroFigure",{yPercent:9*px,ease:"none",
+      scrollTrigger:{trigger:"#ch01",start:"top top",end:"bottom top",scrub:0.8}});  // SCENE CH01: figure plane
+    gsap.to(".grid-bg",{backgroundPosition:"0px 40px",ease:"none",
+      scrollTrigger:{trigger:"#ch01",start:"top top",end:"bottom top",scrub:1}});    // SCENE CH01: grid plane (slowest)
+
+    /* ---- SEAM CH01→CH02: shared hairline draws across the boundary (scrubbed) ---- */
+    gsap.fromTo("#seamLine",{scaleX:0},{scaleX:1,ease:"none",
+      scrollTrigger:{trigger:"#seamLine",start:"top 95%",end:"top 45%",scrub:0.6}}); // SCENE seam: hand-off element
+
+    /* ---- CH02 ORIGIN: clip-path wipe on the plate (toggle once) ---- */
+    gsap.from("#originHead",{autoAlpha:0,y:30,duration:0.9,ease:"expo.out",
+      scrollTrigger:{trigger:"#ch02",start:"top 70%",once:true}}); // SCENE CH02: heading arrival
+    gsap.fromTo("#originPlate",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:1.2,ease:"power3.out",
+      scrollTrigger:{trigger:"#originPlate",start:"top 75%",once:true}}); // SCENE CH02: plate wipes in like a drawing revision
+
+    /* ---- CH03 SCHEMATIC: leader lines draw in, modules snap to grid (toggle once) ---- */
+    document.querySelectorAll('#leaderSvg .lead').forEach(p=>{
+      const len=p.getTotalLength();
+      gsap.set(p,{strokeDasharray:len,strokeDashoffset:len});
+      gsap.to(p,{strokeDashoffset:0,duration:1.0,ease:"power2.inOut",
+        scrollTrigger:{trigger:"#leaderSvg",start:"top 80%",once:true}}); // SCENE CH03: SVG leader-line draw-in
+    });
+    gsap.from("#leaderSvg .node",{scale:0,transformOrigin:"center",duration:0.4,stagger:0.1,ease:"power3.out",
+      scrollTrigger:{trigger:"#leaderSvg",start:"top 80%",once:true}});
+    gsap.from("#schema .mod",{autoAlpha:0,y:26,duration:0.7,ease:"expo.out",stagger:{each:0.06,grid:"auto",from:"start"},
+      scrollTrigger:{trigger:"#schema",start:"top 78%",once:true}}); // SCENE CH03: modules snap to grid
+    gsap.from("#stacks .chips li",{autoAlpha:0,y:12,duration:0.5,ease:"power3.out",stagger:0.02,
+      scrollTrigger:{trigger:"#stacks",start:"top 82%",once:true}});
+
+    /* ---- CH04 ★SET PIECE: pinned engineering drawing (scrub — the crescendo) ---- */
+    const extL=document.getElementById('extL'),extR=document.getElementById('extR'),dim=document.getElementById('dimLine');
+    [extL,extR,dim].forEach(l=>{
+      const len=l.getTotalLength();
+      gsap.set(l,{strokeDasharray:len,strokeDashoffset:len});
+    });
+    gsap.set(["#arrL","#arrR"],{scale:0,transformOrigin:"center"});
+    gsap.set("#bigFigure",{clipPath:"inset(0 100% 0 0)"});
+    gsap.set(".impact-figure .cur, #impactCaption",{autoAlpha:0});
+    const pinLen=desktop?"+=250%":"+=150%"; // storyboard: 250vh desktop, 150vh mobile — never scroll-jail
+    const setPiece=gsap.timeline({
+      scrollTrigger:{ // SCENE CH04 ★: THE set piece — USD 800K measured onto the page
+        trigger:"#impactStage",start:"top top",end:pinLen,pin:true,scrub:0.8,anticipatePin:1
+      }
+    });
+    setPiece
+      .to([extL,extR],{strokeDashoffset:0,duration:1.0,ease:"none"},0)          // extension lines rise
+      .to(dim,{strokeDashoffset:0,duration:1.2,ease:"none"},0.7)                // dimension line draws across
+      .to(["#arrL","#arrR"],{scale:1,duration:0.25,ease:"none"},1.8)            // arrowheads land
+      .to(".impact-figure .cur",{autoAlpha:1,duration:0.3},1.9)
+      .to("#bigFigure",{clipPath:"inset(0 0% 0 0)",duration:1.4,ease:"none"},2.0) // the numeral is measured in
+      .to("#impactCaption",{autoAlpha:1,y:0,duration:0.6},3.2)                   // annotation stamps
+      .to({},{duration:0.6},3.8);                                                // settle beat before release
+
+    /* ---- stats band: counters tick ONCE to real values, tabular numerals ---- */
+    document.querySelectorAll('#statsBand .count').forEach(el=>{
+      const target=parseFloat(el.dataset.target), comma=el.dataset.format==='comma';
+      const proxy={v:0};
+      ScrollTrigger.create({ // SCENE stats: counters (toggle once — content arriving)
+        trigger:el,start:"top 85%",once:true,
+        onEnter:()=>gsap.to(proxy,{v:target,duration:1.5,ease:"power2.out",
+          onUpdate:()=>{el.textContent=fmt(proxy.v,comma);}})
+      });
+    });
+
+    /* ---- CH05 JOURNEY: horizontal drafted-sheet corridor (desktop scrub; stacked fallback below 861px) ---- */
+    if(desktop){
+      const corridor=document.getElementById('corridor');
+      const track=document.getElementById('corridorTrack');
+      corridor.classList.add('ht-active'); // horizontal layout is opt-in: JS-off/mobile stay stacked
+      requestAnimationFrame(()=>{
+        const dist=track.scrollWidth-window.innerWidth;
+        gsap.to(track,{x:-dist,ease:"none",
+          scrollTrigger:{ // SCENE CH05: pinned horizontal corridor — walk past six career sheets
+            trigger:corridor,start:"top top",end:()=>"+="+dist,pin:true,scrub:1,invalidateOnRefresh:true
+          }
         });
+        ScrollTrigger.refresh();
+      });
+    } else {
+      gsap.from("#corridorTrack .sheet",{autoAlpha:0,y:30,duration:0.7,ease:"expo.out",stagger:0.1,
+        scrollTrigger:{trigger:"#corridorTrack",start:"top 80%",once:true}}); // SCENE CH05 mobile: stacked arrival
+    }
 
-        function updateNav(activeIndex) {
-            dots.forEach((dot, idx) => {
-                if(idx === activeIndex) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-        }
+    /* ---- CH06 CREDENTIALS: snap-to-grid stagger (toggle once) ---- */
+    gsap.from("#ledger .cred",{autoAlpha:0,y:24,duration:0.7,ease:"expo.out",stagger:0.08,
+      scrollTrigger:{trigger:"#ledger",start:"top 80%",once:true}}); // SCENE CH06: ledger cards land
 
-        // Track standard sections for navigation dot updates
-        document.querySelectorAll('section, #timeline-container').forEach((sec, i) => {
-            ScrollTrigger.create({
-                trigger: sec,
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => updateNav(i),
-                onEnterBack: () => updateNav(i)
-            });
-        });
+    /* ---- CH07 SIGN-OFF: accent moment (toggle once) ---- */
+    gsap.from("#ch07 .eyebrow, #ctaHead, .cta-roles, .cta-actions, .foot",{
+      autoAlpha:0,y:26,duration:0.8,ease:"expo.out",stagger:0.1,
+      scrollTrigger:{trigger:"#ch07",start:"top 72%",once:true}}); // SCENE CH07: closing card
 
-        // --- RUNTIME ACCOUNTABILITY PROFILE IMAGE CONTROLLER ---
-        function loadProfileImage(onSuccess, onFail) {
-            const candidates = ['profile-cutout.png', 'profile.png'];
-            let i = 0;
-            (function tryNext() {
-                if (i >= candidates.length) return onFail();
-                const img = new Image();
-                img.onload = () => onSuccess(candidates[i], img);
-                img.onerror = () => { i++; tryNext(); };
-                img.src = candidates[i];
-            })();
-        }
+    return ()=>{ document.getElementById('corridor').classList.remove('ht-active'); };
+  });
 
-        loadProfileImage(
-            (src) => {
-                document.getElementById('profile-img').src = src;
-                document.body.classList.remove('no-photo');
-                ScrollTrigger.refresh();
-            },
-            () => {
-                document.body.classList.add('no-photo');
-                ScrollTrigger.refresh();
-            }
-        );
-
-        // --- ARCHITECTURE MOTION SUITE (GSAP MATCHMEDIA FOR REDUCED MOTION SAFEGUARDS) ---
-        let mm = gsap.matchMedia();
-
-        mm.add("(prefers-reduced-motion: no-preference)", () => {
-            // Chapter 1: Hero Entrances
-            gsap.from("#hero h1", { opacity: 0, x: -50, duration: 1, ease: "power3.out" });
-            gsap.from(".hero-tagline", { opacity: 0, x: -30, duration: 1, delay: 0.2, ease: "power3.out" });
-            gsap.from(".hero-photo-container", { opacity: 0, y: 50, duration: 1.2, delay: 0.4, ease: "power3.out" });
-
-            // Chapter 2 & 3: Micro reveals via ScrollTrigger Toggles
-            gsap.from(".comp-tag", {
-                scrollTrigger: { trigger: "#origin", start: "top 70%" },
-                opacity: 0, y: 30, stagger: 0.1, duration: 0.8, ease: "power2.out"
-            });
-            gsap.from(".schematic-card", {
-                scrollTrigger: { trigger: "#expertise", start: "top 70%" },
-                opacity: 0, scale: 0.95, stagger: 0.1, duration: 0.8, ease: "power2.out"
-            });
-
-            // Chapter 4: signature SET PIECE - Pinned Dimensional Blueprint Counter
-            let countTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#impact-setpiece",
-                    start: "top top",
-                    end: "+=150%",
-                    pin: true,
-                    scrub: 1,
-                    invalidateOnRefresh: true
-                }
-            });
-            
-            countTl.fromTo("#count-target", 
-                { textContent: 0 }, 
-                { textContent: 15000, duration: 2, snap: { textContent: 1 }, ease: "linear" }
-            );
-            countTl.to("#count-target", { classList: "metric-big-num filled", duration: 0.5 });
-
-            // Chapter 5: Horizontal Scrolling Timeline Component
-            if (window.innerWidth > 768) {
-                let panels = document.querySelectorAll(".timeline-panel");
-                gsap.to(panels, {
-                    xPercent: -100 * (panels.length - 1),
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "#timeline-container",
-                        pin: true,
-                        scrub: 1,
-                        start: "top top",
-                        end: () => "+=" + document.querySelector("#timeline-container").offsetWidth
-                    }
-                });
-            }
-        });
-
-        window.addEventListener("resize", () => {
-            ScrollTrigger.refresh();
-        });
-        document.fonts.ready.then(() => {
-            ScrollTrigger.refresh();
-        });
-    </script>
+  /* ---------- refresh discipline: fonts + resize (image handled in probe) ---------- */
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>ScrollTrigger.refresh()); }
+})();
+</script>
 </body>
 </html>
