@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Career Prism — Scroll Test</title>
+  <meta name="theme-color" content="#07090d">
+  <style>
+    :root{
+      --bg:#07090d;
+      --bg2:#0b1018;
+      --text:#f5f8fc;
+      --muted:#aab6c7;
+      --line:rgba(255,255,255,.12);
+      --accent:#68d4ff;
+      --accent2:#7a82ff;
+      --p:0;
+      --stage-h:500vh;
+      --proof-1:0;
+      --proof-2:0;
+      --proof-3:0;
+      --proof-4:0;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+    body{overflow-x:hidden}
+    button{font:inherit}
+    .scroll-track{position:relative;height:var(--stage-h)}
+    .sticky-stage{
+      position:sticky;
+      top:0;
+      height:100svh;
+      overflow:hidden;
+      isolation:isolate;
+      background:
+        radial-gradient(circle at 70% 30%,rgba(74,145,210,.18),transparent 36rem),
+        radial-gradient(circle at 35% 70%,rgba(80,76,185,.14),transparent 32rem),
+        linear-gradient(135deg,#07090d,#0b111b 58%,#07090d);
+    }
+    .sticky-stage::before{
+      content:"";
+      position:absolute; inset:-20%;
+      background:
+        conic-gradient(from 180deg at 62% 46%,transparent 0 33%,rgba(104,212,255,.16) 39%,transparent 48% 100%),
+        conic-gradient(from 20deg at 46% 58%,transparent 0 38%,rgba(122,130,255,.12) 44%,transparent 55% 100%);
+      filter:blur(60px);
+      transform:rotate(calc(-8deg + var(--p)*18deg)) scale(calc(.95 + var(--p)*.18));
+      opacity:calc(.55 + var(--p)*.25);
+      pointer-events:none;
+    }
+
+    .scene-wrap{
+      position:absolute;
+      inset:0;
+    }
+    canvas{
+      display:block;
+      width:100%;
+      height:100%;
+      touch-action:pan-y;
+    }
+
+    .fallback{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      pointer-events:none;
+      opacity:0;
+      transition:opacity .35s ease;
+    }
+    .fallback img{
+      width:min(78vw,860px);
+      max-height:80vh;
+      object-fit:contain;
+      filter:drop-shadow(0 30px 70px rgba(0,0,0,.5));
+    }
+    body.fallback-mode .fallback{opacity:1}
+    body.fallback-mode canvas{opacity:0}
+
+    .hud{
+      position:absolute;
+      inset:0;
+      z-index:5;
+      pointer-events:none;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(18rem,34rem);
+      align-items:center;
+      padding:clamp(1rem,4vw,4rem);
+      gap:2rem;
+    }
+    .intro{
+      max-width:36rem;
+      align-self:center;
+      transform:translateY(calc(var(--p)*-5rem));
+      opacity:calc(1 - max(0,var(--p) - .28)*2.6);
+    }
+    .eyebrow{
+      margin:0 0 .8rem;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.75rem;
+      font-weight:800;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(3rem,8vw,7rem);
+      line-height:.88;
+      letter-spacing:-.06em;
+    }
+    .sub{
+      margin:1rem 0 0;
+      max-width:30rem;
+      color:var(--muted);
+      font-size:clamp(1rem,1.8vw,1.2rem);
+      line-height:1.5;
+    }
+
+    .proofs{
+      justify-self:end;
+      width:min(100%,31rem);
+      display:grid;
+      gap:.7rem;
+    }
+    .proof{
+      min-height:5.1rem;
+      padding:1rem 1.05rem;
+      border:1px solid var(--line);
+      border-radius:1rem;
+      background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+      box-shadow:0 18px 50px rgba(0,0,0,.25), inset 0 1px rgba(255,255,255,.05);
+      backdrop-filter:blur(16px);
+      opacity:var(--on);
+      transform:
+        translate3d(calc((1 - var(--on))*3rem),calc((1 - var(--on))*1.2rem),0)
+        scale(calc(.94 + var(--on)*.06));
+      transition:border-color .2s ease,background .2s ease;
+    }
+    .proof strong{display:block;font-size:1.18rem;letter-spacing:-.02em}
+    .proof span{display:block;margin-top:.15rem;color:var(--muted);font-size:.82rem}
+    .proof:nth-child(1){--on:var(--proof-1)}
+    .proof:nth-child(2){--on:var(--proof-2)}
+    .proof:nth-child(3){--on:var(--proof-3)}
+    .proof:nth-child(4){--on:var(--proof-4)}
+
+    .stage-label{
+      position:absolute;
+      z-index:6;
+      left:50%;
+      bottom:1.2rem;
+      transform:translateX(-50%);
+      padding:.55rem .85rem;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(8,12,18,.56);
+      backdrop-filter:blur(14px);
+      color:#d7e2ef;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      white-space:nowrap;
+      pointer-events:none;
+    }
+
+    .progress{
+      position:absolute;
+      z-index:8;
+      left:0; right:0; bottom:0;
+      height:3px;
+      background:rgba(255,255,255,.05);
+    }
+    .progress i{
+      display:block;
+      width:calc(var(--p)*100%);
+      height:100%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      box-shadow:0 0 20px rgba(104,212,255,.7);
+    }
+
+    .loading{
+      position:absolute;
+      z-index:10;
+      inset:0;
+      display:grid;
+      place-items:center;
+      background:#07090d;
+      transition:opacity .45s ease,visibility .45s ease;
+    }
+    .loading.done{opacity:0;visibility:hidden}
+    .loader{
+      width:2.5rem;height:2.5rem;border-radius:50%;
+      border:2px solid rgba(255,255,255,.12);
+      border-top-color:var(--accent);
+      animation:spin .9s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    @media(max-width:820px){
+      :root{--stage-h:390vh}
+      .hud{
+        grid-template-columns:1fr;
+        align-items:end;
+        padding:1rem 1rem 4.2rem;
+      }
+      .intro{
+        align-self:start;
+        margin-top:5.5rem;
+        max-width:21rem;
+      }
+      h1{font-size:clamp(2.7rem,14vw,4.6rem)}
+      .sub{font-size:.95rem}
+      .proofs{
+        width:100%;
+        grid-template-columns:1fr 1fr;
+        gap:.55rem;
+      }
+      .proof{
+        min-height:4.4rem;
+        padding:.78rem .8rem;
+        backdrop-filter:blur(12px);
+      }
+      .proof strong{font-size:.96rem}
+      .proof span{font-size:.72rem}
+      .fallback img{width:115vw;max-height:62vh}
+    }
+
+    @media(max-width:480px){
+      .intro{margin-top:4.5rem}
+      .proofs{grid-template-columns:1fr 1fr}
+      .stage-label{bottom:.55rem;font-size:.62rem}
+    }
+
+    @media(max-height:700px){
+      :root{--stage-h:340vh}
+      .intro{margin-top:4.25rem}
+      .proof{min-height:3.9rem}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      :root{--stage-h:auto}
+      .scroll-track{height:auto}
+      .sticky-stage{position:relative;min-height:100svh;height:auto;padding-bottom:2rem}
+      .hud{position:relative;min-height:100svh}
+      .intro{transform:none;opacity:1}
+      .proof{opacity:1;transform:none}
+      .progress,.stage-label{display:none}
+      body{background:var(--bg)}
+    }
+
+    .no-js .loading{display:none}
+    .no-js .fallback{opacity:1}
+    .no-js canvas{display:none}
+  </style>
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <main class="scroll-track" id="track">
+    <section class="sticky-stage" aria-label="Career Prism scroll demonstration">
+      <div class="scene-wrap" id="sceneWrap">
+        <canvas id="scene" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="fallback" aria-hidden="true">
+        <img src="career-prism-poster.webp" alt="">
+      </div>
+
+      <div class="hud">
+        <div class="intro">
+          <p class="eyebrow">Universal PWD Motion Test</p>
+          <h1>The Career Prism</h1>
+          <p class="sub">Scroll to move through identity, reveal, separation, structured work, and reassembly.</p>
+        </div>
+
+        <div class="proofs" aria-label="Dummy proof points">
+          <div class="proof"><strong>10+ Years</strong><span>Career depth</span></div>
+          <div class="proof"><strong>Global Scale</strong><span>Cross-market scope</span></div>
+          <div class="proof"><strong>Product Impact</strong><span>Signature outcomes</span></div>
+          <div class="proof"><strong>Leadership</strong><span>Strategic influence</span></div>
+        </div>
+      </div>
+
+      <div class="stage-label" id="stageLabel">Stage 1 · Identity</div>
+      <div class="progress" aria-hidden="true"><i></i></div>
+      <div class="loading" id="loading"><div class="loader" aria-label="Loading 3D scene"></div></div>
+    </section>
+  </main>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const lowPower = navigator.deviceMemory && navigator.deviceMemory <= 2;
+    const canvas = document.getElementById('scene');
+    const track = document.getElementById('track');
+    const loading = document.getElementById('loading');
+    const stageLabel = document.getElementById('stageLabel');
+
+    let loadCompleted = false;
+    const fallbackTimer = setTimeout(() => {
+      if (!loadCompleted) {
+        console.warn('3D scene timed out; switching to poster fallback.');
+        document.body.classList.add('fallback-mode');
+        loading.classList.add('done');
+      }
+    }, 8000);
+
+    if (reduced || lowPower || !window.WebGLRenderingContext) {
+      loadCompleted = true;
+      clearTimeout(fallbackTimer);
+      document.body.classList.add('fallback-mode');
+      loading.classList.add('done');
+    } else {
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+      renderer.setSize(innerWidth, innerHeight, false);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.05;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, .1, 100);
+      camera.position.set(0, 0.15, 7.4);
+
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      scene.environment = pmrem.fromScene(new RoomEnvironment(), .04).texture;
+
+      const key = new THREE.DirectionalLight(0xd7f3ff, 4.0);
+      key.position.set(4, 5, 6);
+      scene.add(key);
+
+      const rim = new THREE.DirectionalLight(0x6578ff, 3.1);
+      rim.position.set(-5, 2, -4);
+      scene.add(rim);
+
+      const fill = new THREE.PointLight(0x68d4ff, 28, 18, 2);
+      fill.position.set(1.5, -1.2, 3.2);
+      scene.add(fill);
+
+      let mixer, clip, root, ready = false;
+      const clock = new THREE.Clock();
+
+      const loader = new GLTFLoader();
+      loader.load(
+        'career-prism.glb',
+        gltf => {
+          root = gltf.scene;
+          root.rotation.set(-0.08, 0.1, 0);
+          root.scale.setScalar(1.15);
+          scene.add(root);
+
+          if (gltf.animations.length) {
+            clip = gltf.animations[0];
+            mixer = new THREE.AnimationMixer(root);
+            const action = mixer.clipAction(clip);
+            action.play();
+            action.paused = true;
+          }
+
+          // Light material refinement
+          root.traverse(obj => {
+            if (!obj.isMesh || !obj.material) return;
+            obj.frustumCulled = false;
+            const mat = obj.material;
+            if (mat.transparent) {
+              mat.depthWrite = false;
+              mat.side = THREE.DoubleSide;
+            }
+            if (obj.name === 'Inner_Light') {
+              mat.emissive = new THREE.Color(0xbceeff);
+              mat.emissiveIntensity = 2.5;
+            }
+          });
+
+          ready = true;
+          loadCompleted = true;
+          clearTimeout(fallbackTimer);
+          loading.classList.add('done');
+          requestUpdate();
+        },
+        undefined,
+        err => {
+          console.error('GLB load failed:', err);
+          loadCompleted = true;
+          clearTimeout(fallbackTimer);
+          document.body.classList.add('fallback-mode');
+          loading.classList.add('done');
+        }
+      );
+
+      let ticking = false;
+      let currentP = 0;
+
+      function clamp(v,a=0,b=1){return Math.max(a,Math.min(b,v))}
+      function smoothstep(a,b,x){
+        const t=clamp((x-a)/(b-a));
+        return t*t*(3-2*t);
+      }
+
+      function update() {
+        ticking = false;
+        const rect = track.getBoundingClientRect();
+        const available = Math.max(1, rect.height - innerHeight);
+        const p = clamp(-rect.top / available);
+        currentP = p;
+
+        document.documentElement.style.setProperty('--p', p.toFixed(4));
+
+        const proofs = [
+          smoothstep(.15,.30,p),
+          smoothstep(.31,.46,p),
+          smoothstep(.47,.62,p),
+          smoothstep(.63,.78,p)
+        ];
+        proofs.forEach((v,i)=>document.documentElement.style.setProperty(`--proof-${i+1}`, v.toFixed(3)));
+
+        const stages = [
+          [0,.20,'Stage 1 · Identity'],
+          [.20,.40,'Stage 2 · Reveal'],
+          [.40,.62,'Stage 3 · Separation'],
+          [.62,.82,'Stage 4 · Structured Work'],
+          [.82,1.01,'Stage 5 · Reassembly']
+        ];
+        const current = stages.find(s => p >= s[0] && p < s[1]) || stages.at(-1);
+        stageLabel.textContent = current[2];
+
+        if (ready && mixer && clip) {
+          mixer.setTime(p * clip.duration);
+        }
+
+        if (root) {
+          // Camera-like choreography on top of the embedded clip
+          root.position.x = THREE.MathUtils.lerp(.9, -.15, smoothstep(.05,.55,p));
+          root.position.y = THREE.MathUtils.lerp(.05, .12, p);
+          const scale = innerWidth < 820
+            ? THREE.MathUtils.lerp(.92, .78, smoothstep(.78,1,p))
+            : THREE.MathUtils.lerp(1.15, .88, smoothstep(.78,1,p));
+          root.scale.setScalar(scale);
+        }
+
+        render();
+      }
+
+      function render() {
+        renderer.render(scene, camera);
+      }
+
+      function requestUpdate() {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }
+
+      addEventListener('scroll', requestUpdate, {passive:true});
+      addEventListener('resize', () => {
+        const w=innerWidth,h=innerHeight;
+        camera.aspect=w/h;
+        camera.updateProjectionMatrix();
+        camera.position.z = w < 820 ? 8.5 : 7.4;
+        renderer.setPixelRatio(Math.min(devicePixelRatio, w < 820 ? 1.35 : 1.75));
+        renderer.setSize(w,h,false);
+        requestUpdate();
+      }, {passive:true});
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) requestUpdate();
+      });
+
+      requestUpdate();
+    }
+  </script>
+
+  <script>
+    window.addEventListener('error', function (event) {
+      const msg = String(event.message || '');
+      if (msg.includes('module') || msg.includes('import') || msg.includes('three')) {
+        document.body.classList.add('fallback-mode');
+        const loading = document.getElementById('loading');
+        if (loading) loading.classList.add('done');
+      }
+    });
+    window.addEventListener('unhandledrejection', function () {
+      document.body.classList.add('fallback-mode');
+      const loading = document.getElementById('loading');
+      if (loading) loading.classList.add('done');
+    });
+  </script>
+
+</body>
+</html>
