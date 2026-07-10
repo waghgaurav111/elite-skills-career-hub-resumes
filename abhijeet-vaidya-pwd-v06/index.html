@@ -247,12 +247,12 @@ Profile image: conditional — verify both states render correctly before delive
     .career-step::before { content: ""; display: inline-block; width: 18px; height: 1px; margin-right: 12px; vertical-align: middle; background: currentColor; transition: width .25s ease; }
     .career-step.active { color: var(--signal); transform: translateX(4px); }
     .career-step.active::before { width: 34px; }
-    .career-viewport { position: relative; min-height: 500px; }
-    .career-panel { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,1.1fr); gap: clamp(30px,6vw,80px); align-items: center; opacity: 0; visibility: hidden; }
-    .career-panel.active { opacity: 1; visibility: visible; }
+    .career-viewport { position: relative; min-height: 500px; isolation: isolate; }
+    .career-panel { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: minmax(0,.9fr) minmax(340px,1.1fr); gap: clamp(30px,6vw,80px); align-items: center; opacity: 0; visibility: hidden; pointer-events: none; }
+    .career-panel.active { z-index: 2; opacity: 1; visibility: visible; pointer-events: auto; }
     .career-date { color: var(--copper-light); font: 600 11px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; }
     .career-company { margin: 18px 0 8px; color: var(--paper-dim); font: 500 clamp(18px, 2vw, 26px)/1.2 var(--display); }
-    .career-role { margin: 0; font: 600 clamp(38px, 5.4vw, 78px)/.98 var(--display); letter-spacing: -.055em; }
+    .career-role { margin: 0; max-width: 100%; font: 600 clamp(36px, 4.35vw, 68px)/.98 var(--display); letter-spacing: -.055em; text-wrap: balance; }
     .career-evidence { padding: clamp(26px,4vw,50px); border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(150deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); }
     .career-evidence p { margin: 0 0 28px; color: var(--paper-dim); font-size: clamp(16px,1.4vw,20px); line-height: 1.6; }
     .evidence-list { display: grid; gap: 14px; }
@@ -723,14 +723,30 @@ Profile image: conditional — verify both states render correctly before delive
       const careerSteps = gsap.utils.toArray('.career-step');
       let activeCareer = 0;
       const setCareer = (index, immediate = false) => {
+        index = Math.max(0, Math.min(careerPanels.length - 1, index));
         if (index === activeCareer && !immediate) return;
-        const old = careerPanels[activeCareer];
-        const next = careerPanels[index];
+
+        // A scrubbed ScrollTrigger can cross several chapters in a single frame.
+        // Kill any unfinished crossfades and hard-hide every inactive panel first;
+        // otherwise interrupted tweens can leave multiple absolute panels visible.
+        gsap.killTweensOf(careerPanels);
         careerSteps.forEach((step, i) => step.classList.toggle('active', i === index));
-        if (immediate) {
-          careerPanels.forEach((panel, i) => gsap.set(panel, { autoAlpha: i === index ? 1 : 0 }));
-        } else {
-          gsap.timeline().to(old, { autoAlpha: 0, y: -18, duration: .28, ease: 'power2.in' }).fromTo(next, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .55, ease: 'power3.out' });
+        careerPanels.forEach((panel, i) => {
+          const isActive = i === index;
+          panel.classList.toggle('active', isActive);
+          gsap.set(panel, {
+            autoAlpha: isActive && immediate ? 1 : 0,
+            y: 0,
+            zIndex: isActive ? 2 : 1,
+            pointerEvents: isActive ? 'auto' : 'none'
+          });
+        });
+
+        if (!immediate) {
+          gsap.fromTo(careerPanels[index],
+            { autoAlpha: 0, y: 24 },
+            { autoAlpha: 1, y: 0, duration: .48, ease: 'power3.out', overwrite: true }
+          );
         }
         activeCareer = index;
       };
@@ -739,7 +755,7 @@ Profile image: conditional — verify both states render correctly before delive
       if (!isMobile()) {
         ScrollTrigger.create({
           trigger: '#careerStage', start: 'top top', end: () => `+=${innerHeight * (careerPanels.length - .2)}`, pin: true, scrub: .35,
-          onUpdate: (self) => setCareer(Math.min(careerPanels.length - 1, Math.floor(self.progress * careerPanels.length)))
+          onUpdate: (self) => setCareer(Math.round(self.progress * (careerPanels.length - 1)))
         });
         careerSteps.forEach((step, index) => step.addEventListener('click', () => {
           const st = ScrollTrigger.getAll().find(t => t.trigger === document.getElementById('careerStage'));
