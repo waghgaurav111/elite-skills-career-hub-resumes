@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Interactive India automobile registration intelligence dashboard built from user-provided state-wise VAHAN vehicle-class data.">
+<title>India Auto Market Intelligence</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script defer src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script defer src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script defer src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script>
+<script defer src="https://code.highcharts.com/mapdata/countries/in/in-all.js"></script>
+
+<style>
+:root{
+  --bg:#07101d;
+  --bg-2:#0b1422;
+  --panel:rgba(14,25,42,.78);
+  --panel-strong:rgba(11,20,34,.94);
+  --panel-soft:rgba(255,255,255,.045);
+  --line:rgba(148,181,215,.16);
+  --line-strong:rgba(92,221,255,.34);
+  --text:#f4f8ff;
+  --muted:#8fa3bb;
+  --muted-2:#64758b;
+  --accent:#35d9ff;
+  --accent-2:#7c6cff;
+  --good:#34d399;
+  --bad:#fb7185;
+  --warn:#fbbf24;
+  --shadow:0 22px 70px rgba(0,0,0,.32);
+  --radius:22px;
+  --radius-sm:14px;
+  --blur:18px;
+  --map-low:#c5eff8;
+  --map-mid1:#67cadf;
+  --map-mid2:#1e91b2;
+  --map-high:#07536c;
+  --focus:#f8fafc;
+}
+html[data-theme="light"]{
+  --bg:#eef4fb;
+  --bg-2:#f8fbff;
+  --panel:rgba(255,255,255,.82);
+  --panel-strong:rgba(255,255,255,.96);
+  --panel-soft:rgba(15,23,42,.045);
+  --line:rgba(15,23,42,.12);
+  --line-strong:rgba(3,105,161,.26);
+  --text:#0d1726;
+  --muted:#53657b;
+  --muted-2:#718096;
+  --accent:#0088b8;
+  --accent-2:#5b4ae8;
+  --shadow:0 22px 65px rgba(24,39,75,.13);
+  --map-low:#d8f4fb;
+  --map-mid1:#7ed6e9;
+  --map-mid2:#2597b7;
+  --map-high:#07536c;
+  --focus:#07101d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(53,217,255,.12), transparent 28rem),
+    radial-gradient(circle at 82% 12%, rgba(124,108,255,.11), transparent 28rem),
+    linear-gradient(145deg,var(--bg),var(--bg-2));
+  color:var(--text);
+  font:14px/1.45 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+}
+button,select,input{font:inherit}
+button,select,input[type="number"]{
+  color:var(--text);
+  background:rgba(255,255,255,.055);
+  border:1px solid var(--line);
+  border-radius:12px;
+  outline:none;
+}
+button:focus-visible,select:focus-visible,input:focus-visible,.state-tile:focus-visible{
+  box-shadow:0 0 0 3px rgba(53,217,255,.22);
+  border-color:var(--accent);
+}
+button{cursor:pointer}
+button:disabled,select:disabled{cursor:not-allowed;opacity:.52}
+select{
+  width:100%;padding:11px 36px 11px 12px;appearance:none;
+  background-image:
+    linear-gradient(45deg,transparent 50%,var(--muted) 50%),
+    linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 52%,calc(100% - 11px) 52%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+}
+option{background:var(--panel-strong);color:var(--text)}
+.app{max-width:1800px;margin:0 auto;padding:18px}
+.topbar{
+  display:flex;align-items:center;gap:16px;justify-content:space-between;
+  padding:16px 18px;border:1px solid var(--line);border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  backdrop-filter:blur(var(--blur));box-shadow:var(--shadow);position:relative;z-index:20;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:0}
+.logo{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:0 0 auto;
+  background:linear-gradient(135deg,rgba(53,217,255,.18),rgba(124,108,255,.22));
+  border:1px solid rgba(53,217,255,.32);box-shadow:0 0 30px rgba(53,217,255,.14);
+}
+.logo svg{width:25px;height:25px}
+.brand h1{
+  font:700 clamp(18px,2vw,28px)/1.08 "DM Sans",sans-serif;margin:0;letter-spacing:-.035em;
+}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.header-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+.status-chip,.source-chip{
+  display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
+  border-radius:999px;padding:8px 11px;background:var(--panel-soft);color:var(--muted);font-size:12px;
+}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 12px var(--good)}
+.icon-btn,.primary-btn,.ghost-btn{
+  min-height:38px;padding:8px 12px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:.2s ease;
+}
+.icon-btn{width:40px;padding:0}
+.icon-btn:hover,.ghost-btn:hover{transform:translateY(-1px);border-color:var(--line-strong);background:rgba(53,217,255,.08)}
+.primary-btn{
+  border-color:rgba(53,217,255,.38);
+  background:linear-gradient(135deg,rgba(53,217,255,.2),rgba(124,108,255,.18));
+}
+.primary-btn:hover{transform:translateY(-1px);box-shadow:0 10px 25px rgba(53,217,255,.12)}
+.mobile-filter-btn{display:none}
+
+.data-integrity{
+  margin:12px 0 0;padding:10px 14px;border:1px solid rgba(251,191,36,.2);
+  background:rgba(251,191,36,.07);border-radius:14px;color:var(--muted);font-size:12px;
+  display:flex;align-items:center;gap:9px;
+}
+.data-integrity strong{color:var(--text)}
+
+.dashboard{
+  display:grid;grid-template-columns:minmax(230px,280px) minmax(480px,1fr) minmax(300px,390px);
+  gap:14px;margin-top:14px;align-items:start;
+}
+.panel{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(145deg,var(--panel),rgba(255,255,255,.025));
+  backdrop-filter:blur(var(--blur));box-shadow:var(--shadow);
+}
+.filters-panel{padding:16px;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto}
+.map-panel{min-height:760px;overflow:hidden;position:relative}
+.insights-panel{padding:14px;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto}
+.mobile-detail-head{display:none;align-items:center;justify-content:space-between;margin-bottom:10px}
+.panel-title{
+  font:700 15px/1.2 "DM Sans",sans-serif;margin:0;letter-spacing:-.02em;
+}
+.panel-kicker{margin:4px 0 0;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.filter-group{margin-top:15px}
+.filter-label{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:7px;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.filter-label .tag{font-size:9px;padding:3px 6px;border-radius:6px;background:rgba(251,191,36,.1);color:var(--warn);letter-spacing:.05em}
+.segmented{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:7px;
+}
+.segmented button{
+  padding:9px 6px;font-size:11px;color:var(--muted);transition:.2s ease;min-height:39px;
+}
+.segmented button.active{
+  color:var(--text);border-color:rgba(53,217,255,.42);
+  background:linear-gradient(135deg,rgba(53,217,255,.16),rgba(124,108,255,.12));
+  box-shadow:inset 0 0 0 1px rgba(53,217,255,.05);
+}
+.disabled-note{
+  margin-top:7px;font-size:10px;color:var(--muted-2);line-height:1.35;
+}
+.custom-ranges{
+  display:none;margin-top:10px;padding:11px;border-radius:13px;border:1px dashed var(--line-strong);background:var(--panel-soft);
+}
+.custom-ranges.visible{display:block}
+.range-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.range-row label{font-size:9px;color:var(--muted)}
+.range-row input{width:100%;padding:8px;margin-top:4px}
+.filter-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.toggle-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line);
+}
+.switch{position:relative;width:45px;height:25px;flex:0 0 auto}
+.switch input{position:absolute;opacity:0}
+.slider{
+  position:absolute;inset:0;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid var(--line);transition:.2s;
+}
+.slider:after{
+  content:"";position:absolute;width:17px;height:17px;left:3px;top:3px;border-radius:50%;background:var(--muted);transition:.2s;
+}
+.switch input:checked + .slider{background:rgba(53,217,255,.18);border-color:rgba(53,217,255,.38)}
+.switch input:checked + .slider:after{transform:translateX(20px);background:var(--accent);box-shadow:0 0 14px rgba(53,217,255,.5)}
+
+.map-head{
+  padding:17px 19px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+}
+.map-head h2{font:700 clamp(18px,2vw,25px)/1.1 "DM Sans",sans-serif;margin:0;letter-spacing:-.035em}
+.map-subtitle{color:var(--muted);font-size:12px;margin-top:5px}
+.metric-badge{
+  border:1px solid rgba(53,217,255,.28);border-radius:999px;padding:7px 10px;color:var(--accent);
+  background:rgba(53,217,255,.075);font-size:11px;white-space:nowrap;
+}
+.map-stage{height:575px;margin:4px 8px 0;position:relative}
+#indiaMap{width:100%;height:100%}
+#fallbackMap{
+  display:none;height:100%;padding:22px;align-content:center;
+}
+.fallback-grid{display:grid;grid-template-columns:repeat(6,minmax(54px,1fr));gap:8px}
+.state-tile{
+  min-height:58px;border:1px solid rgba(255,255,255,.25);border-radius:11px;padding:6px;
+  color:#06111d;font-weight:800;font-size:11px;display:flex;flex-direction:column;justify-content:space-between;
+  transition:.2s ease;text-align:left;
+}
+.state-tile:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.state-tile small{font-size:8px;opacity:.72}
+.fallback-note{text-align:center;color:var(--muted);font-size:11px;margin-bottom:12px}
+.map-loading{
+  position:absolute;inset:0;display:grid;place-items:center;z-index:8;
+  background:linear-gradient(120deg,rgba(255,255,255,.025),rgba(255,255,255,.07),rgba(255,255,255,.025));
+  background-size:220% 100%;animation:shimmer 1.4s infinite;
+}
+.loader-inner{text-align:center;color:var(--muted)}
+.spinner{
+  width:42px;height:42px;border-radius:50%;border:3px solid rgba(255,255,255,.1);border-top-color:var(--accent);
+  animation:spin 1s linear infinite;margin:0 auto 12px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shimmer{to{background-position:-220% 0}}
+.legend-wrap{
+  padding:2px 20px 13px;min-height:68px;
+}
+.legend-title{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.legend-gradient{height:9px;border-radius:999px;border:1px solid var(--line);overflow:hidden}
+.legend-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:5px}
+.category-legend{display:flex;flex-wrap:wrap;gap:7px}
+.legend-item{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:var(--muted)}
+.legend-swatch{width:9px;height:9px;border-radius:3px}
+.ut-strip{
+  border-top:1px solid var(--line);padding:12px 16px 15px;
+}
+.ut-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ut-head span:first-child{font-weight:700;font-size:11px}
+.ut-head span:last-child{font-size:9px;color:var(--muted)}
+.ut-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.ut-tile{
+  min-width:0;padding:7px 4px;border-radius:9px;border:1px solid var(--line);background:var(--panel-soft);
+  color:var(--text);font-size:9px;text-align:center;transition:.2s ease;
+}
+.ut-tile:hover,.ut-tile.active{border-color:var(--accent);transform:translateY(-1px)}
+.ut-tile .ut-value{display:block;color:var(--muted);font-size:8px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.unmapped-wrap{display:none;margin-top:8px}
+.unmapped-wrap.visible{display:block}
+.unmapped-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kpi{
+  padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--panel-soft);min-height:90px;
+}
+.kpi-label{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.kpi-value{font:700 20px/1.1 "DM Sans",sans-serif;margin-top:7px;letter-spacing:-.03em}
+.kpi-meta{font-size:10px;color:var(--muted);margin-top:5px}
+.kpi-meta.good{color:var(--good)} .kpi-meta.bad{color:var(--bad)}
+.section-card{
+  margin-top:10px;padding:13px;border:1px solid var(--line);border-radius:17px;background:var(--panel-soft);
+}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.section-head h3{font:700 13px/1.2 "DM Sans",sans-serif;margin:0}
+.section-head span{font-size:9px;color:var(--muted)}
+.state-hero{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.state-hero h3{font:700 18px/1.15 "DM Sans",sans-serif;margin:0}
+.state-hero p{margin:4px 0 0;color:var(--muted);font-size:10px}
+.rank-pill{padding:6px 8px;border-radius:999px;background:rgba(53,217,255,.09);color:var(--accent);font-size:10px;border:1px solid rgba(53,217,255,.22)}
+.detail-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:11px}
+.detail-metric{padding:8px;border-radius:10px;background:rgba(255,255,255,.04);min-width:0}
+.detail-metric b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.detail-metric span{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.chart-grid{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:center}
+.donut{
+  width:110px;height:110px;border-radius:50%;position:relative;display:grid;place-items:center;
+  background:conic-gradient(var(--accent) 0 25%,var(--accent-2) 25% 50%,var(--good) 50% 75%,var(--warn) 75%);
+}
+.donut:after{content:"";width:68px;height:68px;border-radius:50%;background:var(--panel-strong);border:1px solid var(--line)}
+.donut-center{position:absolute;z-index:2;text-align:center;pointer-events:none}
+.donut-center b{display:block;font-size:14px}
+.donut-center span{display:block;font-size:8px;color:var(--muted)}
+.mix-legend{display:grid;gap:6px}
+.mix-row{display:grid;grid-template-columns:8px minmax(0,1fr) auto;gap:6px;align-items:center;font-size:9px}
+.mix-row i{width:8px;height:8px;border-radius:3px}
+.mix-row span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.mix-row b{font-size:9px}
+.spark-wrap{height:92px}
+.spark-wrap svg{width:100%;height:100%;overflow:visible}
+.spark-axis{stroke:var(--line);stroke-width:1}
+.spark-line{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(53,217,255,.35))}
+.spark-area{fill:url(#sparkGrad)}
+.spark-dot{fill:var(--accent);stroke:var(--panel-strong);stroke-width:3}
+.spark-label{font-size:8px;fill:var(--muted)}
+.bar-list{display:grid;gap:8px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.bar-copy{min-width:0}
+.bar-copy .bar-label{display:flex;justify-content:space-between;gap:6px;font-size:9px;margin-bottom:4px}
+.bar-copy .bar-label span:first-child{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-track{height:6px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.bar-value{font-size:9px;color:var(--muted)}
+.rank-list{display:grid;gap:7px}
+.rank-item{
+  display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:8px;align-items:center;
+  padding:7px 8px;border-radius:11px;transition:.2s ease;animation:rankIn .35s both;
+}
+.rank-item:hover{background:rgba(255,255,255,.045)}
+.rank-item.active{background:rgba(53,217,255,.07);outline:1px solid rgba(53,217,255,.2)}
+.rank-num{font:700 10px "DM Sans",sans-serif;color:var(--muted)}
+.rank-state{min-width:0}
+.rank-name{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:4px}
+.rank-track{height:4px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.rank-fill{height:100%;background:linear-gradient(90deg,var(--accent-2),var(--accent));border-radius:999px}
+.rank-val{font-size:9px;color:var(--muted)}
+@keyframes rankIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.compare-card{display:none}
+.compare-card.visible{display:block}
+.compare-empty{color:var(--muted);font-size:10px;padding:9px;border:1px dashed var(--line);border-radius:12px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.compare-state{padding:9px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.compare-state h4{font:700 11px "DM Sans",sans-serif;margin:0 0 7px}
+.compare-stat{display:flex;justify-content:space-between;gap:8px;padding:4px 0;font-size:9px;border-bottom:1px solid rgba(255,255,255,.04)}
+.compare-stat:last-child{border:0}
+.compare-stat span{color:var(--muted)}
+
+.tooltip-card{min-width:210px}
+.tt-title{font:700 14px "DM Sans",sans-serif;margin-bottom:7px}
+.tt-grid{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:10px}
+.tt-grid span:nth-child(odd){color:#9db0c6}
+.tt-grid b{text-align:right;color:#f7fbff}
+html[data-theme="light"] .tt-grid b{color:#07101d}
+.tt-note{margin-top:7px;padding-top:6px;border-top:1px solid rgba(255,255,255,.12);font-size:9px;color:#9db0c6}
+
+.footer{
+  margin-top:14px;padding:12px 16px;border:1px solid var(--line);border-radius:15px;
+  color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.footer a{color:var(--accent);text-decoration:none}
+
+.mobile-sheet-backdrop{display:none}
+body.sheet-open{overflow:hidden}
+
+@media (max-width:1250px){
+  .dashboard{grid-template-columns:240px minmax(430px,1fr) 330px}
+  .ut-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:1023px){
+  .dashboard{grid-template-columns:minmax(230px,280px) minmax(0,1fr)}
+  .insights-panel{grid-column:2;position:relative;top:auto;max-height:none}
+  .filters-panel{grid-row:1 / span 2}
+  .map-panel{min-height:700px}
+}
+@media (max-width:767px){
+  .app{padding:10px}
+  .topbar{padding:12px;border-radius:17px}
+  .brand p,.status-chip{display:none}
+  .header-actions{gap:6px}
+  .mobile-filter-btn{display:inline-flex}
+  .source-chip{display:none}
+  .data-integrity{font-size:10px}
+  .dashboard{display:block;margin-top:10px}
+  .filters-panel{
+    position:fixed;z-index:100;left:8px;right:8px;bottom:8px;top:auto;max-height:84vh;
+    transform:translateY(calc(100% + 20px));transition:transform .32s cubic-bezier(.2,.8,.2,1);
+    border-radius:24px;overflow:auto;
+  }
+  body.filters-open .filters-panel{transform:translateY(0)}
+  .mobile-sheet-backdrop{
+    display:block;position:fixed;inset:0;background:rgba(0,0,0,.48);backdrop-filter:blur(4px);
+    z-index:90;opacity:0;pointer-events:none;transition:.2s;
+  }
+  body.filters-open .mobile-sheet-backdrop{opacity:1;pointer-events:auto}
+  .map-panel{min-height:690px}
+  .map-stage{height:500px;margin:0}
+  .map-head{padding:15px 14px 0}
+  .metric-badge{display:none}
+  .ut-grid{grid-template-columns:repeat(4,1fr)}
+  .insights-panel{
+    position:fixed;z-index:100;left:8px;right:8px;bottom:8px;top:auto;margin:0;
+    max-height:86vh;overflow:auto;border-radius:24px;
+    transform:translateY(calc(100% + 24px));transition:transform .32s cubic-bezier(.2,.8,.2,1);
+  }
+  body.detail-open .insights-panel{transform:translateY(0)}
+  body.detail-open .mobile-sheet-backdrop{opacity:1;pointer-events:auto}
+  .mobile-detail-head{display:flex;position:sticky;top:-14px;z-index:5;padding:11px 0 8px;background:linear-gradient(var(--panel-strong) 75%,transparent)}
+  .fallback-grid{grid-template-columns:repeat(4,1fr)}
+  .footer{margin-top:10px}
+}
+@media (max-width:420px){
+  .header-actions .ghost-btn{display:none}
+  .brand h1{font-size:17px}
+  .logo{width:38px;height:38px}
+  .map-stage{height:450px}
+  .chart-grid{grid-template-columns:105px 1fr}
+  .donut{width:100px;height:100px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="mobile-sheet-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
+
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 16.8V9.7l4-2.4 4 2.4 4-2.4 4 2.4v7.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8" cy="16.8" r="1.8" fill="currentColor"/>
+          <circle cx="16" cy="16.8" r="1.8" fill="currentColor"/>
+          <path d="M10 16.8h4M5.2 10.4h13.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>India Auto Market Intelligence</h1>
+        <p>State-wise vehicle registrations · VAHAN vehicle-class analytics</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="status-chip"><span class="status-dot"></span>36 jurisdictions loaded</span>
+      <span class="source-chip">Latest period · Jun 2026</span>
+      <button class="ghost-btn mobile-filter-btn" id="mobileFilterBtn" aria-label="Open filters">☰ Filters</button>
+      <button class="ghost-btn" id="downloadCsvBtn" aria-label="Download filtered data as CSV">⇩ CSV</button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
+    </div>
+  </header>
+
+  <div class="data-integrity">
+    <span aria-hidden="true">◈</span>
+    <span><strong>Source-faithful mode:</strong> the uploaded files contain state × vehicle class × period data. Brand, fuel and body-style controls are shown but locked; no synthetic market values have been invented.</span>
+  </div>
+
+  <main class="dashboard">
+    <aside class="panel filters-panel" id="filtersPanel" aria-label="Dashboard filters">
+      <div>
+        <h2 class="panel-title">Analysis controls</h2>
+        <p class="panel-kicker">Slice · compare · recolour</p>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="metricSelect">Metric</label>
+        <select id="metricSelect" aria-label="Select metric">
+          <option value="units">Registrations</option>
+          <option value="share">Market Share</option>
+          <option value="mom">MoM Growth</option>
+          <option value="yoy">YoY Growth</option>
+          <option value="leader">Category Leader</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="periodSelect">Time period</label>
+        <select id="periodSelect" aria-label="Select time period">
+          <option value="2026-06">June 2026</option>
+          <option value="2026-05">May 2026</option>
+          <option value="2025-06">June 2025</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="categorySelect">Vehicle segment <span class="tag">VAHAN class</span></label>
+        <select id="categorySelect" aria-label="Select broad vehicle category">
+          <option value="All">All vehicle classes</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="classSelect">Vehicle class</label>
+        <select id="classSelect" aria-label="Select vehicle class">
+          <option value="All">All classes in segment</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="brandSelect">Brand <span class="tag">Not in source</span></label>
+        <select id="brandSelect" disabled aria-label="Brand filter unavailable">
+          <option>All Brands — maker-wise file required</option>
+        </select>
+        <div class="disabled-note">Add maker-wise state data to activate brand filtering and brand-leader colouring.</div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="fuelSelect">Fuel type <span class="tag">Not in source</span></label>
+        <select id="fuelSelect" disabled aria-label="Fuel filter unavailable">
+          <option>All Fuels — fuel-wise file required</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label" for="bodySelect">Body style <span class="tag">Not in source</span></label>
+        <select id="bodySelect" disabled aria-label="Body style filter unavailable">
+          <option>All | Hatchback | Sedan | SUV | MUV</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-label">Colour mode</div>
+        <div class="segmented" id="colorModeButtons" role="group" aria-label="Select colour mode">
+          <button type="button" data-mode="heat" class="active">Heat map</button>
+          <button type="button" data-mode="growth">Growth</button>
+          <button type="button" data-mode="leader">Leader</button>
+          <button type="button" data-mode="custom">Custom</button>
+        </div>
+        <div class="custom-ranges" id="customRanges">
+          <div class="filter-label">Three thresholds</div>
+          <div class="range-row">
+            <label>Low<input id="range1" type="number" step="0.1" value="1"></label>
+            <label>Mid<input id="range2" type="number" step="0.1" value="3"></label>
+            <label>High<input id="range3" type="number" step="0.1" value="7"></label>
+          </div>
+          <button class="ghost-btn" id="applyRangesBtn" style="width:100%;margin-top:8px">Apply ranges</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div class="toggle-row">
+          <div>
+            <div style="font-weight:700;font-size:11px">Compare mode</div>
+            <div class="disabled-note">Select two states on the map</div>
+          </div>
+          <label class="switch">
+            <input id="compareToggle" type="checkbox" aria-label="Enable compare mode">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button class="ghost-btn" id="resetBtn">↺ Reset</button>
+        <button class="primary-btn" id="closeFiltersBtn">Apply view</button>
+      </div>
+    </aside>
+
+    <section class="panel map-panel" aria-label="Interactive India choropleth map">
+      <div class="map-head">
+        <div>
+          <h2 id="mapTitle">India registrations by state</h2>
+          <div class="map-subtitle" id="mapSubtitle">All vehicle classes · June 2026</div>
+        </div>
+        <div class="metric-badge" id="metricBadge">Registrations</div>
+      </div>
+
+      <div class="map-stage">
+        <div class="map-loading" id="mapLoading" role="status" aria-live="polite">
+          <div class="loader-inner"><div class="spinner"></div>Initialising India map…</div>
+        </div>
+        <div id="indiaMap" aria-label="Interactive map of Indian states and union territories"></div>
+        <div id="fallbackMap" aria-label="Interactive fallback jurisdiction grid">
+          <div class="fallback-note">Geographic map CDN unavailable. Showing a fully interactive jurisdiction grid.</div>
+          <div class="fallback-grid" id="fallbackGrid"></div>
+        </div>
+      </div>
+
+      <div class="legend-wrap" id="legendWrap" aria-label="Map legend"></div>
+
+      <div class="ut-strip">
+        <div class="ut-head"><span>Union territory insets</span><span>Click to inspect</span></div>
+        <div class="ut-grid" id="utGrid"></div>
+        <div class="unmapped-wrap" id="unmappedWrap">
+          <div class="ut-head"><span>Boundary fallback</span><span>Jurisdictions not separately drawn by map source</span></div>
+          <div class="unmapped-chips" id="unmappedChips"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel insights-panel" id="insightsPanel" aria-label="Market insights and state details">
+      <div class="mobile-detail-head"><strong>State analytics</strong><button class="icon-btn" id="closeDetailBtn" aria-label="Close state analytics">×</button></div>
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <section class="section-card" id="detailCard">
+        <div class="state-hero">
+          <div><h3 id="detailState">Uttar Pradesh</h3><p id="detailContext">All vehicle classes · Jun 2026</p></div>
+          <span class="rank-pill" id="detailRank">#1 nationally</span>
+        </div>
+        <div class="detail-metrics" id="detailMetrics"></div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head"><h3>Vehicle segment mix</h3><span>Selected state</span></div>
+        <div class="chart-grid">
+          <div class="donut" id="mixDonut"><div class="donut-center"><b id="donutValue">0</b><span>registrations</span></div></div>
+          <div class="mix-legend" id="mixLegend"></div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head"><h3>Registration trend</h3><span>3 uploaded periods</span></div>
+        <div class="spark-wrap" id="sparkWrap"></div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head"><h3>Leading vehicle classes</h3><span>Top 5</span></div>
+        <div class="bar-list" id="classBars"></div>
+      </section>
+
+      <section class="section-card compare-card" id="compareCard">
+        <div class="section-head"><h3>State comparison</h3><span id="compareHint">Select two states</span></div>
+        <div id="compareContent" class="compare-empty">Enable compare mode, then select two states.</div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head"><h3>Top 10 states</h3><span id="rankMetricLabel">Registrations</span></div>
+        <div class="rank-list" id="rankList"></div>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <span>Data is for analytical purposes only. Source: user-provided VAHAN state-wise vehicle-class reports for Jun 2025, May 2026 and Jun 2026.</span>
+    <span>Map boundary layer: <a href="https://code.highcharts.com/mapdata/" target="_blank" rel="noopener">Highcharts Map Collection</a>. Brand/fuel/body-style dimensions require separate source files.</span>
+  </footer>
+</div>
+
+<script>
+const DB = {"periodLabels":{"2025-06":"Jun 2025","2026-05":"May 2026","2026-06":"Jun 2026"},"states":["ANDAMAN & NICOBAR ISLAND","ANDHRA PRADESH","ARUNACHAL PRADESH","ASSAM","BIHAR","CHANDIGARH","CHHATTISGARH","DELHI","GOA","GUJARAT","HARYANA","HIMACHAL PRADESH","JAMMU AND KASHMIR","JHARKHAND","KARNATAKA","KERALA","LADAKH","LAKSHADWEEP","MADHYA PRADESH","MAHARASHTRA","MANIPUR","MEGHALAYA","MIZORAM","NAGALAND","ODISHA","PUDUCHERRY","PUNJAB","RAJASTHAN","SIKKIM","TAMIL NADU","TELANGANA","TRIPURA","UT OF DNH AND DD","UTTARAKHAND","UTTAR PRADESH","WEST BENGAL"],"displayNames":{"ANDAMAN & NICOBAR ISLAND":"Andaman & Nicobar Islands","ANDHRA PRADESH":"Andhra Pradesh","ARUNACHAL PRADESH":"Arunachal Pradesh","ASSAM":"Assam","BIHAR":"Bihar","CHANDIGARH":"Chandigarh","CHHATTISGARH":"Chhattisgarh","DELHI":"Delhi","GOA":"Goa","GUJARAT":"Gujarat","HARYANA":"Haryana","HIMACHAL PRADESH":"Himachal Pradesh","JAMMU AND KASHMIR":"Jammu & Kashmir","JHARKHAND":"Jharkhand","KARNATAKA":"Karnataka","KERALA":"Kerala","LADAKH":"Ladakh","LAKSHADWEEP":"Lakshadweep","MADHYA PRADESH":"Madhya Pradesh","MAHARASHTRA":"Maharashtra","MANIPUR":"Manipur","MEGHALAYA":"Meghalaya","MIZORAM":"Mizoram","NAGALAND":"Nagaland","ODISHA":"Odisha","PUDUCHERRY":"Puducherry","PUNJAB":"Punjab","RAJASTHAN":"Rajasthan","SIKKIM":"Sikkim","TAMIL NADU":"Tamil Nadu","TELANGANA":"Telangana","TRIPURA":"Tripura","UT OF DNH AND DD":"Dadra & Nagar Haveli and Daman & Diu","UTTARAKHAND":"Uttarakhand","UTTAR PRADESH":"Uttar Pradesh","WEST BENGAL":"West Bengal"},"abbr":{"ANDAMAN & NICOBAR ISLAND":"AN","ANDHRA PRADESH":"AP","ARUNACHAL PRADESH":"AR","ASSAM":"AS","BIHAR":"BR","CHANDIGARH":"CH","CHHATTISGARH":"CG","DELHI":"DL","GOA":"GA","GUJARAT":"GJ","HARYANA":"HR","HIMACHAL PRADESH":"HP","JAMMU AND KASHMIR":"JK","JHARKHAND":"JH","KARNATAKA":"KA","KERALA":"KL","LADAKH":"LA","LAKSHADWEEP":"LD","MADHYA PRADESH":"MP","MAHARASHTRA":"MH","MANIPUR":"MN","MEGHALAYA":"ML","MIZORAM":"MZ","NAGALAND":"NL","ODISHA":"OD","PUDUCHERRY":"PY","PUNJAB":"PB","RAJASTHAN":"RJ","SIKKIM":"SK","TAMIL NADU":"TN","TELANGANA":"TS","TRIPURA":"TR","UT OF DNH AND DD":"DNHDD","UTTARAKHAND":"UK","UTTAR PRADESH":"UP","WEST BENGAL":"WB"},"vehicleClasses":["M-Cycle/Scooter","M-Cycle/Scooter-With Side Car","Moped","Motorised Cycle (CC > 25cc)","Adapted Vehicle","Three Wheeler (Personal)","Motor Car","Fork Lift","Vehicle Fitted With Rig","Vehicle Fitted With Generator","Vehicle Fitted With Compressor","Crane Mounted Vehicle","Agricultural Tractor","Power Tiller","Private Service Vehicle (Individual Use)","Camper Van / Trailer (Private Use)","Tow Truck","Breakdown Van","Recovery Vehicle","Tower Wagon","Tree Trimming Vehicle","Construction Equipment Vehicle","Omni Bus (Private Use)","Road Roller","Excavator (NT)","Bulldozer","Harvester","Trailer (Agricultural)","Earth Moving Equipment","Trailer For Personal Use","Quadricycle (Private)","Armoured/Specialised Vehicle","Motor Caravan","Motor Cycle/Scooter-SideCar(T)","Motor Cycle/Scooter-With Trailer","Motor Cycle/Scooter-Used For Hire","e-Rickshaw with Cart (G)","e-Rickshaw(P)","Luxury Cab","Three Wheeler (Passenger)","Three Wheeler (Goods)","Goods Carrier","Power Tiller (Commercial)","Tractor (Commercial)","Mobile Clinic","X-Ray Van","Library Van","Mobile Workshop","Mobile Canteen","Private Service Vehicle","Maxi Cab","Motor Cab","Puller Tractor","Bus","School Bus","Educational Institution Bus","Ambulance","Animal Ambulance","Camper Van / Trailer","Cash Van","Fire Tenders","Snorked Ladders","Auxiliary Trailer","Fire Fighting Vehicle","Articulated Vehicle","Hearses","Omni Bus","Dumper","Excavator (Commercial)","Trailer (Commercial)","Tractor-Trolley(Commercial)","Semi-Trailer (Commercial)","Construction Equipment Vehicle (Commercial)","Quadricycle (Commercial)","Modular Hydraulic Trailer","Vintage Motor Vehicle"],"categories":{"Two-Wheeler":["M-Cycle/Scooter","M-Cycle/Scooter-With Side Car","Moped","Motorised Cycle (CC > 25cc)","Motor Cycle/Scooter-SideCar(T)","Motor Cycle/Scooter-With Trailer","Motor Cycle/Scooter-Used For Hire"],"Three-Wheeler":["Three Wheeler (Personal)","e-Rickshaw with Cart (G)","e-Rickshaw(P)","Three Wheeler (Passenger)","Three Wheeler (Goods)","Quadricycle (Private)","Quadricycle (Commercial)"],"Private Passenger":["Motor Car","Adapted Vehicle","Private Service Vehicle (Individual Use)","Camper Van / Trailer (Private Use)","Omni Bus (Private Use)","Trailer For Personal Use","Motor Caravan","Vintage Motor Vehicle"],"Commercial & Goods":["Tow Truck","Breakdown Van","Recovery Vehicle","Luxury Cab","Goods Carrier","Private Service Vehicle","Maxi Cab","Motor Cab","Puller Tractor","Cash Van","Articulated Vehicle","Dumper","Trailer (Commercial)","Tractor-Trolley(Commercial)","Semi-Trailer (Commercial)","Modular Hydraulic Trailer","Camper Van / Trailer"],"Buses & Institutional":["Mobile Clinic","X-Ray Van","Library Van","Mobile Workshop","Mobile Canteen","Bus","School Bus","Educational Institution Bus","Ambulance","Animal Ambulance","Fire Tenders","Snorked Ladders","Fire Fighting Vehicle","Hearses","Omni Bus"],"Agriculture":["Agricultural Tractor","Power Tiller","Harvester","Trailer (Agricultural)","Power Tiller (Commercial)","Tractor (Commercial)"],"Construction & Special":["Fork Lift","Vehicle Fitted With Rig","Vehicle Fitted With Generator","Vehicle Fitted With Compressor","Crane Mounted Vehicle","Tower Wagon","Tree Trimming Vehicle","Construction Equipment Vehicle","Road Roller","Excavator (NT)","Bulldozer","Earth Moving Equipment","Armoured/Specialised Vehicle","Auxiliary Trailer","Excavator (Commercial)","Construction Equipment Vehicle (Commercial)"],"Other":[]},"data":{"2025-06":{"ANDAMAN & NICOBAR ISLAND":[493,0,4,1,0,0,219,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,4,0,20,0,0,0,0,0,0,0,0,2,21,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0],"ANDHRA PRADESH":[48778,11,780,1757,19,0,5770,2,0,0,0,10,1999,0,1,0,0,0,0,0,0,219,43,4,0,0,7,32,0,0,0,0,0,0,0,89,15,5,0,2916,565,1818,0,424,0,0,0,0,0,9,83,351,0,86,0,889,60,0,0,0,1,0,0,3,27,0,6,0,0,70,0,0,0,0,0,0],"ARUNACHAL PRADESH":[1407,0,0,0,0,0,1511,0,0,0,0,1,3,0,8,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,0,166,0,112,0,0,0,0,0,0,7,18,0,103,0,1,1,0,0,0,0,0,0,0,0,0,4,42,1,2,7,0,76,0,0,0],"ASSAM":[28331,2,214,0,0,0,4940,0,0,0,0,7,18,0,18,3,0,0,2,0,0,42,0,3,11,0,0,2,2,0,0,0,0,0,0,5,296,4464,0,2656,61,1010,0,796,0,0,0,0,0,0,64,139,0,75,0,1,12,0,0,2,1,0,0,0,5,0,0,29,0,12,0,0,1,0,0,0],"BIHAR":[93535,127,1824,20,2,0,6378,0,0,0,0,0,2283,0,0,0,0,0,0,0,0,203,3,0,2,0,21,6,3,0,0,0,0,0,0,0,210,5480,0,3238,431,1671,0,1580,0,0,0,0,0,0,105,271,0,190,0,0,21,0,0,0,0,0,0,0,23,0,55,0,0,523,0,0,0,0,0,0],"CHANDIGARH":[1756,0,1,0,13,0,1798,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,59,78,0,21,12,49,0,0,0,0,0,0,0,0,1,15,0,63,0,18,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"CHHATTISGARH":[38849,0,405,0,4,0,4450,2,0,0,0,38,4274,0,0,0,0,0,0,0,0,182,179,0,79,0,29,809,6,0,0,0,1,0,0,0,221,464,1,526,85,1407,0,136,0,0,0,0,0,4,75,131,0,93,0,110,25,0,0,0,0,0,0,1,55,0,0,5,0,16,1,0,0,0,0,0],"DELHI":[37878,1,20,0,18,0,13575,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,499,3232,0,560,699,1359,0,0,2,0,0,0,0,0,12,234,0,262,0,6,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0],"GOA":[3430,0,1,0,4,0,1398,0,0,3,0,1,2,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,2,0,71,0,0,0,6,5,168,0,0,0,0,0,0,0,0,14,105,0,51,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"GUJARAT":[93876,9,5860,866,54,0,23750,121,4,0,1,80,1303,0,13,2,0,0,1,0,0,1038,1,11,14,0,7,93,7,0,0,2,0,0,0,1,304,4,0,5216,1256,4681,0,505,2,0,0,0,0,0,125,1340,0,312,0,52,40,4,0,5,16,0,0,7,5,4,9,74,0,17,0,0,0,0,0,0],"HARYANA":[43585,7,77,3,11,0,21434,8,0,0,0,138,4491,0,0,49,0,0,4,0,0,236,0,4,1,0,107,0,51,0,0,0,0,0,0,63,316,931,0,897,424,4108,0,0,0,0,1,0,0,0,61,2972,0,476,0,426,52,1,0,0,1,0,0,2,46,2,4,0,0,39,0,0,0,0,0,0],"HIMACHAL PRADESH":[6290,2,22,2,1,0,3526,2,2,0,1,4,202,0,0,1,0,0,1,0,0,59,0,0,3,0,0,0,3,0,0,0,0,0,0,136,7,1,0,53,4,1041,0,0,0,0,0,0,0,4,84,696,0,70,0,38,8,0,0,0,2,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0],"JAMMU AND KASHMIR":[4920,0,3971,40,30,0,3551,0,0,0,0,0,317,0,0,0,0,0,0,0,0,66,0,0,0,0,0,0,0,0,0,2,0,0,0,0,2,39,1,584,268,472,0,0,1,0,0,0,0,3,68,106,0,83,0,38,7,0,0,0,0,0,0,0,0,0,10,1,0,0,0,0,0,0,0,0],"JHARKHAND":[35457,5,567,6181,1,0,4497,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,0,0,0,0,0,3,0,0,0,0,0,0,0,36,1069,0,1065,308,1081,0,1838,0,0,0,0,0,0,58,221,0,90,0,0,3,0,0,0,2,0,0,0,4,0,21,0,8,0,41,0,215,0,0,0],"KARNATAKA":[96947,28,2727,223,344,12,20582,2,6,7,0,19,4852,0,34,0,2,0,0,0,0,318,7,0,0,0,20,1021,15,0,0,0,0,0,0,818,21,2,0,5173,810,4501,0,255,1,0,0,0,0,190,202,2451,0,1151,0,390,68,0,0,10,0,0,0,0,85,1,0,0,0,122,0,0,0,3,0,0],"KERALA":[42489,0,0,31,42,25,17736,0,0,0,0,5,78,0,109,1,0,0,1,0,0,52,1,1,7,0,0,0,3,0,0,0,0,0,0,24,31,0,0,2092,223,1802,0,1,0,0,0,0,4,19,61,818,0,283,0,526,32,0,0,0,0,0,0,0,19,2,0,0,0,0,0,0,0,0,0,0],"LADAKH":[24,0,23,0,0,0,218,0,0,0,0,0,2,0,0,29,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,49,0,0,0,0,0,183,0,0,0,0,0,0,0,0,13,16,0,18,0,0,2,0,1,0,0,0,0,0,0,0,0,5,0,0,0,0,9,0,0,0],"LAKSHADWEEP":[90,0,0,0,0,0,4,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MADHYA PRADESH":[77695,0,369,0,2,2,10673,1,2,0,0,35,10054,0,0,0,0,0,1,0,0,318,43,5,2,0,113,37,14,0,0,0,0,1,0,7,209,1738,2,1755,560,1652,0,37,0,0,0,0,0,16,57,570,0,131,49,357,28,0,0,0,0,0,0,2,93,0,5,72,0,1,4,0,0,0,0,0],"MAHARASHTRA":[150378,3,1471,21,128,0,33443,55,3,1,0,369,7391,0,3,10,10,0,1,0,0,796,27,6,330,0,75,867,15,0,0,0,0,0,0,0,312,267,0,5332,1071,9835,0,3,5,0,1,2,0,1,0,4099,0,1739,0,0,89,1,5,0,1,1,143,4,217,2,1,52,0,20,0,22,0,0,0,0],"MANIPUR":[2342,0,1,0,0,0,569,0,0,0,0,0,12,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,95,0,36,0,0,0,0,0,0,0,0,0,2,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],"MEGHALAYA":[1873,0,0,0,0,0,895,0,0,0,0,0,1,0,0,1,0,0,1,0,0,36,0,0,4,0,0,0,1,0,0,0,0,0,0,0,0,0,0,95,15,161,0,0,0,0,0,0,0,0,17,161,0,9,0,2,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MIZORAM":[1820,0,0,0,0,0,319,0,0,0,0,0,1,0,0,0,0,0,0,0,0,13,0,0,2,0,0,0,0,0,0,0,0,0,0,22,0,0,3,3,0,113,0,0,0,0,0,0,0,0,0,29,0,4,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0,0],"NAGALAND":[469,0,0,0,0,0,580,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,0,0,0,0,0,0,0,0,0,60,0,0,0,36,0,424,0,0,0,0,0,0,0,0,0,10,1,28,0,0,3,0,0,0,0,0,0,0,291,0,0,9,0,0,0,0,0,0,0,0],"ODISHA":[51946,3,1151,314,3,1,5894,1,1,0,0,15,2867,0,1,0,0,0,7,0,0,576,63,0,20,0,5,0,3,0,0,0,0,0,0,19,53,232,0,1154,457,1800,0,131,0,0,0,1,0,10,128,554,0,99,0,58,23,0,0,0,0,0,0,0,250,1,72,1,0,134,27,0,0,0,0,0],"PUDUCHERRY":[4604,0,13,6,0,1,989,0,0,0,0,1,4,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,45,0,0,31,1,162,0,0,2,0,0,0,0,0,5,26,0,10,0,17,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0],"PUNJAB":[33953,54,0,1,1,0,11932,1,0,0,0,61,3157,0,0,0,0,0,0,0,0,139,0,0,1,0,169,0,17,0,0,0,0,0,0,6,191,965,0,298,119,1573,0,0,0,0,0,0,0,0,45,844,0,276,0,7,83,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0],"RAJASTHAN":[69575,29,531,536,113,0,15842,11,5,0,3,82,12025,0,0,0,0,1,3,0,0,417,1,0,3,0,74,0,150,0,0,0,0,0,0,63,447,935,0,1485,427,3343,0,0,3,0,0,0,0,4,61,954,0,157,0,213,100,8,0,13,0,0,0,1,715,1,24,334,0,0,179,0,0,0,0,0],"SIKKIM":[226,0,0,243,0,0,247,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,7,0,0,15,0,0,0,0,0,0,0,0,4,59,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"TAMIL NADU":[126669,9,3694,1936,320,49,20245,3,3,0,3,12,1898,0,3,0,0,0,2,0,0,443,8,1,5,0,47,0,82,0,0,0,0,0,0,0,412,0,0,3583,559,4676,0,3,0,0,0,0,0,282,181,2007,0,514,5,1034,63,0,0,0,1,0,0,0,182,0,47,0,0,0,1,0,0,0,0,0],"TELANGANA":[54884,0,0,0,23,0,10906,5,3,1,4,24,2396,0,0,0,0,0,1,0,0,176,97,2,0,0,76,524,0,0,0,0,0,0,0,153,3,0,0,2984,528,2072,0,758,2,0,0,0,0,34,87,1352,0,275,0,1145,38,0,0,7,0,0,0,0,16,0,4,0,0,561,0,0,0,0,0,0],"TRIPURA":[2644,0,0,19,0,0,367,0,0,0,0,2,0,0,0,0,0,0,0,0,0,29,0,0,2,0,0,0,10,0,0,0,0,0,0,0,0,66,0,1135,16,194,0,2,0,0,0,0,0,0,1,74,0,30,0,0,16,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],"UT OF DNH AND DD":[695,0,129,0,0,3,382,8,0,0,0,1,4,0,1,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,4,144,0,1,0,0,0,0,0,0,2,22,0,99,0,0,5,0,1,0,0,0,0,0,7,0,4,0,0,3,0,0,0,0,0,0],"UTTARAKHAND":[14379,2,32,2,0,0,4043,0,1,0,0,0,241,0,0,1,0,0,0,0,0,146,0,0,1,0,0,0,0,0,0,0,0,0,0,236,61,364,0,321,31,513,0,39,0,0,0,0,0,0,62,525,0,75,0,11,17,0,0,0,0,0,0,2,2,0,0,0,0,7,0,0,0,0,0,0],"UTTAR PRADESH":[209782,45,4147,37,34,1,30625,3,0,0,0,26,10782,0,0,0,1,0,0,0,0,98,3,0,3,0,263,0,31,0,0,0,0,0,0,22,3028,13397,0,6964,883,4540,0,47,1,0,0,4,0,0,177,2433,0,516,0,279,190,0,17,0,10,0,0,0,31,7,15,0,3,0,0,0,647,0,0,0],"WEST BENGAL":[83582,10,235,3,0,0,7770,1,0,5,0,50,2088,0,0,0,0,2,2,4,0,152,160,0,25,0,0,0,56,0,0,0,0,0,0,16,63,1591,27,1479,176,2063,0,28,0,0,0,0,0,19,54,953,0,190,0,3,271,0,6,13,0,0,0,0,147,1,50,11,0,8,0,0,0,0,0,0]},"2026-05":{"ANDAMAN & NICOBAR ISLAND":[618,1,3,0,0,0,174,0,0,0,0,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,22,2,13,0,0,0,0,0,0,0,0,2,25,0,4,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0],"ANDHRA PRADESH":[59919,5,741,1948,85,0,8358,0,1,0,0,18,2643,0,0,0,0,0,0,0,0,281,26,14,1,0,19,245,2,0,0,0,0,0,0,77,47,5,0,3484,823,2736,0,774,1,0,0,0,0,8,123,695,0,111,0,306,31,0,0,0,1,0,0,0,23,0,17,0,0,412,0,0,0,0,0,0],"ARUNACHAL PRADESH":[1478,0,0,0,0,0,1719,0,0,0,0,0,4,0,4,0,0,0,0,0,0,6,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,167,0,76,0,0,0,0,0,0,10,16,0,93,0,1,0,0,0,0,0,0,0,0,0,0,1,60,1,0,17,0,42,0,0,0],"ASSAM":[35012,3,226,0,0,0,7036,0,0,2,0,3,22,0,21,1,0,0,0,0,0,36,0,0,19,0,0,2,0,0,0,0,0,0,0,1,495,4536,0,5228,112,1256,0,881,0,0,0,1,0,0,90,162,0,130,0,0,24,0,0,0,0,0,0,14,3,0,1,49,0,7,0,0,0,0,0,0],"BIHAR":[116889,239,1325,125,1,0,8395,0,0,0,0,0,2365,0,0,0,0,0,0,0,0,143,0,0,0,0,59,6,1,0,0,0,0,0,0,0,342,4059,0,5467,832,2108,0,1426,0,0,0,0,0,0,222,403,0,349,0,0,24,0,0,0,0,0,0,0,75,0,71,0,0,593,0,0,0,0,0,0],"CHANDIGARH":[2265,0,0,0,22,0,1570,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,62,33,0,37,27,62,0,0,0,0,0,0,0,0,4,17,0,46,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0],"CHHATTISGARH":[36943,1,366,1,1,0,5558,1,1,0,0,25,2798,0,0,0,0,0,0,0,0,55,151,3,62,0,20,682,0,0,0,1,0,0,0,0,233,287,0,771,164,1687,0,107,0,0,0,0,0,10,58,149,0,60,0,19,107,0,0,0,7,0,0,0,304,0,0,4,1,12,0,0,5,0,0,0],"DELHI":[47106,6,13,0,17,0,17936,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,149,445,0,340,1094,1627,0,0,0,0,0,0,0,0,56,724,0,164,0,4,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],"GOA":[4138,2,0,0,1,0,1794,0,0,0,0,0,2,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,2,0,29,0,0,0,9,3,167,0,0,0,0,0,0,0,0,24,129,0,25,0,0,6,0,0,0,5,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0],"GUJARAT":[101470,12,6609,977,50,0,29865,44,1,0,0,90,1465,0,6,4,1,0,1,1,0,653,5,1,2,0,8,128,2,0,0,11,0,0,0,0,56,8,0,5845,1607,5891,0,721,2,0,0,0,0,0,174,1949,0,577,0,20,39,8,0,0,21,0,0,9,8,6,1,6,0,63,0,0,0,0,0,0],"HARYANA":[48948,26,164,3,2,0,24944,8,0,0,0,72,4865,1,0,38,0,0,3,0,0,191,1,2,0,0,134,0,8,0,0,0,0,0,0,6,345,707,0,901,461,5022,0,0,2,0,0,0,0,0,111,3264,0,311,0,640,29,1,0,27,4,0,0,2,61,0,1,0,0,18,0,0,1,0,0,0],"HIMACHAL PRADESH":[6560,3,27,4,1,0,4506,0,0,0,1,0,171,0,0,1,0,0,4,0,0,60,0,0,1,0,0,0,0,0,0,0,0,0,0,165,2,0,0,5,5,973,0,0,0,0,0,0,0,4,77,621,0,71,0,23,8,0,0,0,1,0,0,0,0,0,57,0,0,0,0,0,0,0,0,0],"JAMMU AND KASHMIR":[6590,0,4032,38,30,0,6102,0,1,0,0,2,422,0,0,0,0,0,0,0,0,55,0,0,0,0,0,0,0,0,0,5,0,0,0,0,43,16,0,965,377,831,0,0,0,0,0,0,0,8,72,193,0,43,0,81,6,0,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0],"JHARKHAND":[41437,2,676,6412,0,0,6599,0,0,0,0,2,0,0,0,0,0,0,0,0,0,3,12,0,0,0,0,0,0,0,0,0,0,0,0,0,40,1046,1,1547,374,1369,0,1556,3,0,0,0,0,0,140,206,0,106,0,0,5,0,0,0,0,0,0,0,57,0,41,0,0,0,40,0,67,0,0,0],"KARNATAKA":[117540,42,3212,216,470,10,25068,0,0,3,1,13,6255,0,59,1,0,0,0,0,0,179,16,0,1,0,11,1109,11,0,0,0,0,0,0,1660,31,18,0,5894,742,5624,0,62,1,0,1,0,0,90,184,3398,0,1156,0,285,59,0,0,21,1,0,0,0,87,0,1,0,0,20,0,0,0,0,0,0],"KERALA":[55927,5,0,13,6,42,21916,4,0,0,0,0,52,0,70,1,0,4,6,0,0,40,0,2,9,0,0,0,4,0,0,0,0,0,0,52,1,3,0,3365,286,2481,0,0,1,0,0,0,2,10,97,1368,0,341,0,416,39,0,0,6,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0],"LADAKH":[31,0,27,47,0,0,370,0,0,0,0,0,11,0,0,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52,0,0,0,0,0,58,0,0,0,0,0,0,0,0,6,15,0,2,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0],"LAKSHADWEEP":[122,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MADHYA PRADESH":[101876,0,376,0,4,11,13638,1,0,0,0,11,10042,0,0,0,0,0,1,0,0,177,54,0,1,0,175,25,11,0,0,0,0,0,0,60,214,932,1,2550,852,2093,0,137,1,0,0,0,0,11,53,778,0,175,18,96,33,0,2,4,0,0,0,0,143,0,1,195,0,0,7,0,1,0,0,0],"MAHARASHTRA":[181098,6,1743,96,133,0,42658,21,6,3,1,174,5971,0,10,2,7,41,2,0,0,275,18,0,101,0,90,779,1,0,0,1,0,0,0,123,45,37,0,2743,1334,10002,0,5,1,0,0,0,0,0,1,3933,0,775,120,2,111,0,1,13,9,0,82,4,240,2,0,44,0,14,0,9,0,0,0,0],"MANIPUR":[3255,1,0,0,0,0,645,0,0,0,0,0,9,0,0,1,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,28,0,127,1,57,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0],"MEGHALAYA":[2423,0,0,0,0,2,1039,0,0,0,0,0,1,0,0,0,0,0,0,0,0,19,0,0,4,0,0,0,0,0,0,0,0,0,0,6,0,0,0,130,2,170,0,2,0,0,0,0,0,0,7,184,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MIZORAM":[2239,1,0,0,0,0,452,0,0,0,0,0,1,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,33,0,0,4,14,1,213,0,0,0,0,0,0,0,0,0,40,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0],"NAGALAND":[664,0,0,0,0,0,773,0,0,0,0,0,0,0,0,0,0,0,0,0,0,44,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,41,3,457,0,0,0,0,0,0,0,0,0,0,3,0,0,0,1,0,0,0,0,0,0,0,322,0,0,31,0,0,0,0,0,0,0,0],"ODISHA":[63538,0,1649,668,1,0,7344,1,0,0,0,22,2937,0,1,0,0,0,4,0,0,353,25,0,12,0,3,0,1,0,0,0,0,0,0,26,82,258,0,1772,712,2286,0,55,0,0,0,1,0,6,110,616,0,89,0,30,30,0,0,4,0,0,0,2,267,0,82,0,0,188,28,0,0,0,0,0],"PUDUCHERRY":[4958,1,25,0,1,0,1308,0,0,0,0,0,2,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,80,2,0,0,41,9,47,0,0,1,0,0,0,0,1,11,54,0,17,0,3,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0],"PUNJAB":[43530,39,1,0,0,0,14462,2,0,0,0,18,4164,0,0,0,0,0,0,0,0,92,0,0,3,0,141,0,27,0,0,0,0,0,0,0,194,848,0,398,123,1546,0,0,0,0,0,0,0,0,84,1064,0,346,0,0,17,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0],"RAJASTHAN":[94416,35,646,723,29,1,20812,7,2,0,2,78,14088,0,0,1,0,0,7,0,0,243,1,0,1,0,84,0,170,0,0,0,0,0,0,104,422,666,0,2771,841,4442,0,0,0,0,0,0,0,4,129,1447,0,115,0,239,99,4,0,6,0,0,0,0,714,0,24,335,0,4,241,0,0,0,0,1],"SIKKIM":[278,0,0,336,0,0,333,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,10,0,0,37,0,0,33,0,0,0,0,0,0,0,0,7,62,0,5,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"TAMIL NADU":[137072,9,3818,1461,63,33,25089,1,4,0,4,6,2140,0,1,1,0,0,0,0,0,287,57,1,0,0,70,0,69,0,0,0,0,0,0,0,95,4,0,3748,475,5366,0,0,1,0,0,0,0,173,435,2714,0,341,0,465,85,0,0,2,0,0,0,1,199,0,99,0,0,2,0,0,0,0,0,0],"TELANGANA":[61549,133,375,3493,2,1,21855,3,2,0,2,7,2172,0,0,0,0,0,0,0,0,165,33,4,0,0,157,751,0,0,0,0,0,0,0,83,0,0,0,2915,568,2169,0,735,0,0,0,0,0,2,56,1779,0,165,0,342,49,0,2,0,2,0,0,0,38,0,51,0,0,522,0,0,0,0,0,0],"TRIPURA":[2627,1,0,29,0,0,610,0,0,0,0,0,1,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,40,0,740,22,189,0,1,0,0,0,0,0,0,1,39,0,3,0,0,4,0,0,0,0,0,0,22,0,0,1,0,2,0,0,0,0,0,0,0],"UT OF DNH AND DD":[797,1,161,16,0,2,543,0,0,0,0,1,1,0,1,2,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,237,0,3,0,0,0,0,0,1,1,31,0,91,0,2,0,0,2,0,0,0,0,0,6,0,4,0,0,2,0,0,0,0,0,0],"UTTARAKHAND":[16767,5,22,0,3,0,5396,1,0,0,0,0,317,0,0,0,0,0,0,0,0,49,0,0,0,0,1,0,0,0,0,0,0,0,0,571,68,250,0,594,79,601,0,56,0,0,0,0,0,0,57,751,0,107,0,20,20,1,0,0,0,0,0,0,1,0,0,0,0,10,0,0,0,0,0,0],"UTTAR PRADESH":[313021,23,4907,20,31,1,41900,3,0,0,0,6,13439,0,0,0,0,0,0,0,0,54,0,0,0,0,477,0,2,0,0,0,0,0,0,7,4095,10608,0,9886,1756,5757,0,1,7,0,0,0,0,0,323,2488,0,539,1,677,79,0,6,15,2,0,0,0,39,1,32,5,0,1,0,0,371,0,0,0],"WEST BENGAL":[95267,18,178,71,0,0,9061,1,3,1,0,14,1704,0,0,0,0,1,0,0,0,50,170,0,7,0,0,0,18,0,0,0,0,0,0,0,425,4973,36,1219,363,2392,0,28,2,0,0,0,0,36,50,1309,0,190,0,3,70,0,3,4,0,0,0,0,379,2,43,34,0,6,0,0,0,0,0,0]},"2026-06":{"ANDAMAN & NICOBAR ISLAND":[731,0,5,0,0,0,222,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,32,1,19,0,0,0,0,0,0,0,0,2,34,0,1,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],"ANDHRA PRADESH":[68964,11,802,1682,146,2,9268,2,0,0,0,23,3187,0,0,0,0,0,0,0,0,386,54,6,0,0,12,240,0,0,0,0,0,0,0,68,71,13,1,4735,939,3051,0,843,0,0,0,0,0,11,206,1556,0,111,0,1041,32,0,0,0,24,0,0,20,44,0,179,0,0,327,0,0,0,0,0,0],"ARUNACHAL PRADESH":[1637,0,0,0,0,0,1808,0,0,0,0,3,4,0,4,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,8,0,186,0,76,0,0,0,0,0,0,12,27,0,66,0,2,1,0,0,0,0,0,0,0,0,0,0,49,2,6,14,0,41,0,0,0],"ASSAM":[32277,1,278,0,0,0,6532,0,0,0,1,5,28,0,12,1,0,0,1,0,0,34,0,0,13,0,0,4,0,0,0,0,0,0,0,2,532,4157,0,4730,108,1397,0,1011,0,0,0,0,0,0,85,119,0,95,0,0,43,0,0,0,1,0,0,0,0,0,3,39,0,8,0,0,0,0,0,0],"BIHAR":[102639,221,1338,39,0,0,7980,0,0,0,0,0,3140,0,0,0,0,0,0,0,0,98,1,0,0,0,15,3,1,0,0,0,0,0,0,0,308,4328,0,6291,781,1924,0,2005,0,0,0,0,0,0,116,468,0,225,0,0,24,0,0,0,0,0,0,0,31,0,48,0,0,445,0,0,0,0,0,0],"CHANDIGARH":[2198,0,0,0,24,0,2124,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,49,38,0,40,39,101,0,0,0,0,0,0,0,0,6,29,0,102,0,14,12,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"CHHATTISGARH":[40372,0,390,0,2,0,4329,0,0,0,0,29,4466,0,0,0,0,0,0,0,0,46,139,1,65,0,35,669,0,0,0,0,1,0,0,0,242,347,0,972,193,1531,0,160,0,0,0,0,0,8,88,156,0,77,0,38,75,0,0,2,0,0,0,1,198,0,1,1,0,18,0,0,0,0,0,0],"DELHI":[46671,9,16,0,15,0,17931,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,189,215,0,509,1231,1657,0,0,0,0,0,0,0,0,43,822,0,349,0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1],"GOA":[4564,0,1,0,2,1,1710,0,0,0,0,2,4,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,4,0,68,0,0,0,4,1,209,0,1,0,0,0,0,0,0,28,160,0,30,0,0,12,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"GUJARAT":[107469,10,7579,1150,62,2,32535,49,0,0,0,105,8975,0,14,0,0,0,3,1,0,602,4,0,0,0,7,360,0,0,0,1,0,0,0,0,63,9,0,6099,1707,6189,0,603,11,0,0,0,0,0,180,2274,0,611,0,39,46,2,0,0,11,0,0,4,1,6,3,1,0,13,0,0,0,0,0,0],"HARYANA":[46953,5,142,2,1,0,22981,10,0,0,0,64,5221,0,0,31,0,0,4,0,0,240,1,0,0,0,109,0,8,0,0,0,0,0,0,72,326,768,0,1118,555,4763,0,0,1,0,0,0,0,0,87,3528,0,301,0,484,47,1,0,36,2,0,0,0,87,0,1,0,0,42,0,0,0,0,0,0],"HIMACHAL PRADESH":[6189,1,32,1,0,0,4178,0,0,0,0,3,152,0,0,5,0,0,2,0,0,36,0,0,0,0,0,0,0,0,0,0,0,0,0,63,1,0,0,2,7,939,0,0,0,0,0,0,0,2,51,523,0,44,0,15,4,0,0,0,0,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0],"JAMMU AND KASHMIR":[8291,0,4256,42,19,0,6188,0,0,0,0,1,337,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,74,0,0,0,0,9,16,0,1048,384,805,0,1,0,0,0,0,0,12,84,231,0,164,0,37,22,0,0,0,2,0,0,0,0,0,41,0,0,0,0,0,0,0,0,0],"JHARKHAND":[38250,1,582,5748,0,0,5959,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,1,0,0,0,0,0,0,0,38,1153,0,1633,332,1428,0,2286,0,0,0,0,0,0,127,265,0,149,0,0,3,0,1,2,0,0,0,0,39,0,30,0,1,0,14,0,91,0,0,0],"KARNATAKA":[125508,113,3386,226,320,15,26236,2,0,1,1,17,6528,0,68,0,0,0,0,0,0,217,10,0,0,0,15,1131,12,0,0,1,0,0,0,2133,44,2,0,6535,767,6186,0,83,2,0,0,0,0,87,351,3690,0,1624,0,405,77,0,0,10,3,0,0,0,131,0,0,0,0,36,0,0,1,0,0,0],"KERALA":[59704,4,2,3,2,47,20735,1,0,0,0,0,101,0,46,1,0,0,3,0,0,47,0,2,10,0,0,0,3,0,0,0,0,0,0,54,42,2,0,3662,293,2517,0,0,1,0,0,0,1,13,118,1634,0,348,0,693,54,0,0,0,1,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0],"LADAKH":[42,0,24,33,0,0,420,0,0,0,0,1,27,0,0,34,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,0,0,0,0,0,56,0,0,0,0,0,0,0,0,4,8,0,18,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0],"LAKSHADWEEP":[57,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MADHYA PRADESH":[91363,0,375,0,1,9,13277,1,2,0,0,12,11286,0,0,1,0,0,0,0,0,188,54,0,0,0,81,33,12,0,0,0,0,0,0,2,205,884,0,3107,917,2161,0,118,0,0,0,0,0,14,102,840,0,150,32,226,46,0,5,0,0,0,0,2,124,0,3,174,0,5,5,0,0,0,0,0],"MAHARASHTRA":[186178,3,1812,79,131,2,42705,26,2,1,1,173,6732,0,13,2,13,0,1,1,0,259,32,1,115,0,83,674,4,0,0,0,0,0,0,35,101,30,0,2851,1542,10571,0,9,8,0,1,0,0,2,0,4970,0,1638,278,1,110,0,4,5,5,0,187,6,255,1,0,64,0,18,0,74,0,0,0,2],"MANIPUR":[2504,0,0,0,0,0,376,0,0,0,0,0,9,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21,0,86,0,69,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MEGHALAYA":[2608,0,0,0,0,1,1028,0,0,0,0,0,2,0,0,0,0,0,0,0,0,55,0,0,4,0,0,0,0,0,0,0,0,0,0,5,0,0,0,105,1,205,0,1,0,0,0,0,0,0,3,198,0,21,0,9,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"MIZORAM":[2402,0,0,0,0,0,365,0,0,0,0,0,1,0,0,0,0,0,0,0,0,6,0,0,1,0,0,0,1,0,0,0,0,0,0,39,0,0,1,15,0,218,0,0,0,0,0,0,0,0,0,44,0,2,0,0,8,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],"NAGALAND":[692,0,0,0,0,0,758,0,0,0,0,0,1,0,0,0,0,0,1,0,0,45,0,0,0,0,0,0,0,0,0,0,0,0,0,15,0,0,0,58,7,510,0,0,0,0,0,0,0,0,1,0,2,1,0,0,12,0,0,0,0,0,0,0,347,0,0,22,0,0,0,0,0,0,0,0],"ODISHA":[62819,2,1460,339,1,0,7599,0,1,1,0,12,2935,0,2,0,0,0,5,0,0,288,37,0,18,0,4,0,5,0,0,21,0,0,0,56,94,316,0,1625,589,2116,0,17,1,0,0,0,0,4,176,577,0,93,0,36,7,0,0,6,4,1,0,0,178,0,106,1,0,148,18,0,0,0,0,0],"PUDUCHERRY":[6203,2,22,1,4,0,1495,0,0,0,0,0,4,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,63,2,0,0,46,13,43,0,1,0,0,0,0,0,4,8,53,0,8,0,26,1,0,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0],"PUNJAB":[44957,37,2,1,0,0,15212,1,0,0,0,19,5099,0,0,0,0,0,0,0,0,68,0,0,0,0,147,0,26,0,0,0,0,0,0,2,309,894,0,558,188,1863,0,0,0,0,0,0,0,0,56,870,0,286,0,0,36,0,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],"RAJASTHAN":[84098,34,503,553,46,0,20230,3,4,2,6,77,15422,0,0,0,0,0,10,0,0,274,0,0,0,0,146,0,178,0,0,0,0,0,0,80,313,676,0,2999,773,4494,0,0,0,0,0,0,0,2,109,1326,0,211,0,278,92,3,0,5,1,0,0,3,515,0,50,296,0,11,172,0,0,0,0,0],"SIKKIM":[402,0,0,223,0,0,327,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,26,0,0,37,0,0,0,0,0,0,0,0,11,55,0,5,0,0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"TAMIL NADU":[178819,19,4605,2186,82,46,30138,0,3,1,4,6,2902,0,2,1,0,0,0,0,0,342,5,0,0,0,80,0,98,0,0,0,0,0,0,0,122,1,0,4670,751,6706,0,2,1,0,0,0,0,159,492,3091,0,425,0,1264,76,0,0,6,0,0,0,16,159,0,88,0,0,0,0,0,0,0,0,0],"TELANGANA":[50853,161,447,3712,3,0,15476,4,0,0,0,0,35,0,0,0,0,0,0,0,0,107,44,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"TRIPURA":[2828,0,0,24,0,0,519,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,64,0,871,37,214,0,3,0,0,0,0,0,0,1,39,0,4,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"UT OF DNH AND DD":[955,0,243,18,0,0,589,2,0,0,0,0,1,0,0,3,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,206,0,5,0,0,0,0,0,2,4,43,0,115,0,0,2,0,2,0,0,0,0,0,5,0,7,0,0,7,0,0,0,0,0,0],"UTTARAKHAND":[15661,2,12,0,2,0,4795,1,0,0,0,0,421,0,0,2,0,0,0,0,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0,441,57,289,0,626,89,567,0,35,0,0,0,0,0,0,35,687,0,100,0,14,11,0,0,0,1,0,0,1,3,1,0,0,0,8,0,0,0,0,0,0],"UTTAR PRADESH":[248381,14,4542,28,52,0,38280,6,0,0,0,12,12645,0,0,0,0,0,0,0,0,37,1,0,0,0,313,0,1,0,0,14,0,0,0,20,3623,11031,0,10347,1754,5712,0,4,0,0,0,0,0,0,240,2648,0,516,0,422,63,0,18,17,3,0,0,1,18,3,38,0,0,0,0,5,329,0,0,0],"WEST BENGAL":[101005,7,206,70,0,0,9622,2,0,6,0,9,2796,0,0,1,0,0,1,0,0,71,172,1,12,0,1,0,22,0,0,0,0,0,0,22,558,6879,35,1701,243,2754,0,36,3,0,0,0,0,26,64,1514,0,255,0,9,262,0,8,5,0,0,0,26,332,0,57,16,0,62,0,0,0,0,0,0]}},"unionTerritories":["ANDAMAN & NICOBAR ISLAND","CHANDIGARH","DELHI","JAMMU AND KASHMIR","LADAKH","LAKSHADWEEP","PUDUCHERRY","UT OF DNH AND DD"]};
+
+const COLORS = {
+  category: {
+    "Two-Wheeler":"#35d9ff",
+    "Three-Wheeler":"#7c6cff",
+    "Private Passenger":"#34d399",
+    "Commercial & Goods":"#f59e0b",
+    "Buses & Institutional":"#fb7185",
+    "Agriculture":"#84cc16",
+    "Construction & Special":"#a78bfa",
+    "Other":"#94a3b8"
+  },
+  growthNeg:["#7f1d1d","#b91c1c","#fb7185"],
+  growthPos:["#6ee7b7","#10b981","#065f46"],
+  neutral:"#d1d5db",
+  custom:["#f0f0f0","#c6dbef","#4292c6","#08306b"]
+};
+
+const state = {
+  period:"2026-06",
+  metric:"units",
+  category:"All",
+  vehicleClass:"All",
+  colorMode:"heat",
+  selected:"UTTAR PRADESH",
+  compareMode:false,
+  compareStates:[],
+  customBreaks:[1,3,7],
+  mappedStates:new Set(),
+  mapReady:false
+};
+
+const PERIOD_ORDER = ["2025-06","2026-05","2026-06"];
+const PERIOD_SHORT = {"2025-06":"Jun '25","2026-05":"May '26","2026-06":"Jun '26"};
+const categoryIndex = {};
+Object.entries(DB.categories).forEach(([category, classes])=>{
+  categoryIndex[category]=classes.map(c=>DB.vehicleClasses.indexOf(c)).filter(i=>i>=0);
+});
+const allIndexes=DB.vehicleClasses.map((_,i)=>i);
+
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat("en-IN");
+const fmtCompact = new Intl.NumberFormat("en-IN",{notation:"compact",maximumFractionDigits:1});
+
+function sumIndexes(arr,indexes){let t=0;for(const i of indexes)t+=Number(arr[i]||0);return t;}
+function getIndexes(){
+  if(state.vehicleClass!=="All"){
+    const idx=DB.vehicleClasses.indexOf(state.vehicleClass);
+    return idx>=0?[idx]:[];
+  }
+  return state.category==="All"?allIndexes:(categoryIndex[state.category]||[]);
+}
+function getUnits(sourceState,period=state.period){
+  const row=DB.data[period]?.[sourceState]||[];
+  return sumIndexes(row,getIndexes());
+}
+function getNationalTotal(period=state.period){
+  return DB.states.reduce((t,s)=>t+getUnits(s,period),0);
+}
+function pctChange(a,b){return b?((a-b)/b)*100:null;}
+function getMoM(s){return pctChange(getUnits(s,"2026-06"),getUnits(s,"2026-05"));}
+function getYoY(s){return pctChange(getUnits(s,"2026-06"),getUnits(s,"2025-06"));}
+function getShare(s,period=state.period){
+  const total=getNationalTotal(period);return total?getUnits(s,period)/total*100:0;
+}
+function getCategoryValues(s,period=state.period){
+  const row=DB.data[period][s];
+  return Object.fromEntries(Object.entries(categoryIndex).map(([c,idxs])=>[c,sumIndexes(row,idxs)]));
+}
+function getLeader(s,period=state.period){
+  const vals=getCategoryValues(s,period);
+  return Object.entries(vals).sort((a,b)=>b[1]-a[1])[0]||["Other",0];
+}
+function metricValue(s){
+  if(state.metric==="share") return getShare(s);
+  if(state.metric==="mom") return getMoM(s);
+  if(state.metric==="yoy") return getYoY(s);
+  if(state.metric==="leader") return getLeader(s)[0];
+  return getUnits(s);
+}
+function metricLabel(){
+  return {units:"Registrations",share:"Market Share",mom:"MoM Growth",yoy:"YoY Growth",leader:"Category Leader"}[state.metric];
+}
+function selectedScopeLabel(){
+  if(state.vehicleClass!=="All")return state.vehicleClass;
+  if(state.category!=="All")return state.category;
+  return "All vehicle classes";
+}
+function numberForMetric(value,compact=false){
+  if(value===null||value===undefined||Number.isNaN(value))return "N/A";
+  if(state.metric==="share"||state.metric==="mom"||state.metric==="yoy")return `${value>=0&&state.metric!=="share"?"+":""}${value.toFixed(1)}%`;
+  if(state.metric==="leader")return String(value);
+  return compact?fmtCompact.format(value):fmt.format(Math.round(value));
+}
+function growthClass(v){return v===null||!Number.isFinite(v)?"":v>=0?"good":"bad";}
+function formatGrowth(v){
+  return v===null||v===undefined||!Number.isFinite(v)?"N/A":`${v>=0?"+":""}${v.toFixed(1)}%`;
+}
+function defaultBreaksForMetric(){
+  if(state.metric==="share")return [1,3,7];
+  if(state.metric==="mom"||state.metric==="yoy")return [-5,0,10];
+  return [5000,25000,75000];
+}
+function normalized(s){
+  return String(s||"").toLowerCase()
+    .replace(/&/g,"and").replace(/union territory of/g,"").replace(/nct of/g,"")
+    .replace(/islands?/g,"island").replace(/[^a-z]/g,"");
+}
+const aliasToSource={};
+DB.states.forEach(s=>{
+  aliasToSource[normalized(s)]=s;
+  aliasToSource[normalized(DB.displayNames[s])]=s;
+});
+Object.assign(aliasToSource,{
+  "orissa":"ODISHA",
+  "uttaranchal":"UTTARAKHAND",
+  "andamanandnicobarisland":"ANDAMAN & NICOBAR ISLAND",
+  "andamanandnicobar":"ANDAMAN & NICOBAR ISLAND",
+  "jammuandkashmir":"JAMMU AND KASHMIR",
+  "dadraandnagarhavelianddamananddiu":"UT OF DNH AND DD",
+  "dadraandnagarhaveli":"UT OF DNH AND DD",
+  "damananddiu":"UT OF DNH AND DD",
+  "nationalcapitalterritoryofdelhi":"DELHI"
+});
+const hcAliases={
+  "in-py":"PUDUCHERRY","in-ld":"LAKSHADWEEP","in-wb":"WEST BENGAL","in-or":"ODISHA","in-br":"BIHAR",
+  "in-sk":"SIKKIM","in-ct":"CHHATTISGARH","in-tn":"TAMIL NADU","in-mp":"MADHYA PRADESH","in-ga":"GOA",
+  "in-nl":"NAGALAND","in-mn":"MANIPUR","in-ar":"ARUNACHAL PRADESH","in-mz":"MIZORAM","in-tr":"TRIPURA",
+  "in-dl":"DELHI","in-hr":"HARYANA","in-ch":"CHANDIGARH","in-hp":"HIMACHAL PRADESH","in-jk":"JAMMU AND KASHMIR",
+  "in-kl":"KERALA","in-ka":"KARNATAKA","in-dn":"UT OF DNH AND DD","in-dd":"UT OF DNH AND DD",
+  "in-mh":"MAHARASHTRA","in-as":"ASSAM","in-ap":"ANDHRA PRADESH","in-ml":"MEGHALAYA","in-pb":"PUNJAB",
+  "in-rj":"RAJASTHAN","in-up":"UTTAR PRADESH","in-ut":"UTTARAKHAND","in-jh":"JHARKHAND",
+  "in-tg":"TELANGANA","in-ts":"TELANGANA","in-la":"LADAKH"
+};
+function resolveSourceState(name,key){
+  return aliasToSource[normalized(name)]||hcAliases[key]||null;
+}
+function quantile(sorted,q){
+  if(!sorted.length)return 0;
+  const pos=(sorted.length-1)*q,base=Math.floor(pos),rest=pos-base;
+  return sorted[base+1]!==undefined?sorted[base]+rest*(sorted[base+1]-sorted[base]):sorted[base];
+}
+function getValuesNumeric(metricOverride=null){
+  const old=state.metric;if(metricOverride)state.metric=metricOverride;
+  const vals=DB.states.map(metricValue).filter(v=>typeof v==="number"&&Number.isFinite(v));
+  if(metricOverride)state.metric=old;
+  return vals;
+}
+function heatColor(v,values){
+  const positive=values.filter(x=>x>=0).sort((a,b)=>a-b);
+  const q1=quantile(positive,.25),q2=quantile(positive,.5),q3=quantile(positive,.75);
+  if(v<=q1)return getCss("--map-low");
+  if(v<=q2)return getCss("--map-mid1");
+  if(v<=q3)return getCss("--map-mid2");
+  return getCss("--map-high");
+}
+function growthColor(v){
+  if(v===null||!Number.isFinite(v))return "#334155";
+  if(v<-15)return "#7f1d1d";
+  if(v<-5)return "#b91c1c";
+  if(v<0)return "#fb7185";
+  if(v<2)return "#d1d5db";
+  if(v<10)return "#6ee7b7";
+  if(v<25)return "#10b981";
+  return "#065f46";
+}
+function customColor(v){
+  const [a,b,c]=state.customBreaks;
+  if(v<a)return COLORS.custom[0];
+  if(v<b)return COLORS.custom[1];
+  if(v<c)return COLORS.custom[2];
+  return COLORS.custom[3];
+}
+function colorForState(s){
+  if(state.colorMode==="leader"||state.metric==="leader")return COLORS.category[getLeader(s)[0]]||COLORS.category.Other;
+  if(state.colorMode==="growth"){
+    const v=state.metric==="yoy"?getYoY(s):getMoM(s);
+    return growthColor(v);
+  }
+  const v=metricValue(s);
+  if(state.colorMode==="custom")return customColor(typeof v==="number"?v:0);
+  const values=getValuesNumeric();
+  const val=metricValue(s);
+  return heatColor(typeof val==="number"&&Number.isFinite(val)?val:0,values);
+}
+function getCss(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim();}
+
+let mapChart=null;
+let mapFeatureRecords=[];
+
+function initMap(){
+  try{
+    if(!window.Highcharts)throw new Error("Highcharts unavailable");
+    const mapData=Highcharts.maps["countries/in/custom/in-all-disputed"]||Highcharts.maps["countries/in/in-all"];
+    if(!mapData)throw new Error("India map data unavailable");
+
+    const features=Highcharts.geojson(mapData);
+    state.mappedStates.clear();
+    mapFeatureRecords=features.map(f=>{
+      const p=f.properties||{};
+      const key=p["hc-key"]||p.hc_key||f["hc-key"];
+      const source=resolveSourceState(p.name||f.name,key);
+      if(source)state.mappedStates.add(source);
+      return {key,name:p.name||f.name||"",source};
+    });
+
+    const seriesData=mapFeatureRecords.map(rec=>({
+      "hc-key":rec.key,
+      name:rec.name,
+      value:rec.source?0:null,
+      color:rec.source?colorForState(rec.source):"#1f2937",
+      custom:{sourceState:rec.source}
+    }));
+
+    Highcharts.setOptions({
+      lang:{thousandsSep:",",decimalPoint:"."},
+      accessibility:{keyboardNavigation:{enabled:true}}
+    });
+
+    mapChart=Highcharts.mapChart("indiaMap",{
+      chart:{
+        map:mapData,backgroundColor:"transparent",spacing:[8,4,8,4],
+        animation:{duration:500},
+        events:{load(){state.mapReady=true;hideLoading();applySelectionStyles();}}
+      },
+      title:{text:null},
+      credits:{enabled:true,text:"Map © Highsoft",href:"https://code.highcharts.com/mapdata/",style:{color:getCss("--muted"),fontSize:"8px"}},
+      mapNavigation:{
+        enabled:true,enableMouseWheelZoom:false,
+        buttonOptions:{align:"left",verticalAlign:"bottom",theme:{fill:"rgba(10,20,35,.72)",stroke:"rgba(148,181,215,.22)",style:{color:"#dcecff"},r:8}}
+      },
+      exporting:{enabled:false},
+      legend:{enabled:false},
+      colorAxis:{visible:false},
+      tooltip:{
+        useHTML:true,backgroundColor:getCss("--panel-strong"),borderColor:getCss("--line-strong"),borderRadius:14,
+        shadow:true,padding:12,style:{color:getCss("--text")},
+        formatter:function(){
+          const s=this.point.custom?.sourceState;
+          if(!s)return `<div class="tooltip-card"><div class="tt-title">${this.point.name}</div><div class="tt-note">No matching source row.</div></div>`;
+          const units=getUnits(s),share=getShare(s),rank=getRanking("units").findIndex(x=>x.state===s)+1;
+          const mom=getMoM(s),yoy=getYoY(s),leader=getLeader(s)[0];
+          return `<div class="tooltip-card">
+            <div class="tt-title">${DB.displayNames[s]}</div>
+            <div class="tt-grid">
+              <span>Registrations</span><b>${fmt.format(units)}</b>
+              <span>Market share</span><b>${share.toFixed(2)}%</b>
+              <span>National rank</span><b>#${rank}</b>
+              <span>MoM growth</span><b>${mom===null?"N/A":`${mom>=0?"+":""}${mom.toFixed(1)}%`}</b>
+              <span>YoY growth</span><b>${yoy===null?"N/A":`${yoy>=0?"+":""}${yoy.toFixed(1)}%`}</b>
+              <span>Category leader</span><b>${leader}</b>
+            </div>
+            <div class="tt-note">Click to open state analytics</div>
+          </div>`;
+        }
+      },
+      plotOptions:{
+        map:{
+          allAreas:true,nullColor:"#1f2937",borderColor:"rgba(235,247,255,.78)",borderWidth:1,
+          animation:{duration:500},
+          states:{hover:{brightness:.16,borderColor:"#ffffff",borderWidth:2},select:{color:null}},
+          point:{events:{click:function(){const s=this.custom?.sourceState;if(s)selectState(s);}}}
+        }
+      },
+      series:[{
+        name:"Registrations",data:seriesData,joinBy:"hc-key",
+        dataLabels:{
+          enabled:true,allowOverlap:false,
+          formatter:function(){
+            const s=this.point.custom?.sourceState;if(!s)return "";
+            const r=getRanking("units").findIndex(x=>x.state===s)+1;
+            return r<=10?DB.abbr[s]:"";
+          },
+          style:{fontSize:"8px",fontWeight:"700",textOutline:"2px rgba(7,16,29,.7)",color:"#f8fbff"}
+        }
+      }]
+    });
+    renderBoundaryFallback();
+  }catch(err){
+    console.warn(err);
+    showFallbackMap();
+  }
+}
+function hideLoading(){
+  const el=$("mapLoading");if(el){el.style.opacity="0";setTimeout(()=>el.remove(),250);}
+}
+function showFallbackMap(){
+  $("indiaMap").style.display="none";
+  $("fallbackMap").style.display="block";
+  hideLoading();
+  renderFallbackGrid();
+}
+function renderFallbackGrid(){
+  const container=$("fallbackGrid");
+  container.innerHTML=DB.states.map(s=>`<button class="state-tile" data-state="${s}" style="background:${colorForState(s)}" aria-label="Open ${DB.displayNames[s]}">
+      <span>${DB.abbr[s]}</span><small>${numberForMetric(metricValue(s),true)}</small>
+    </button>`).join("");
+  container.querySelectorAll(".state-tile").forEach(btn=>btn.addEventListener("click",()=>selectState(btn.dataset.state)));
+}
+function updateMap(){
+  if(mapChart&&state.mapReady){
+    const data=mapFeatureRecords.map(rec=>({
+      "hc-key":rec.key,name:rec.name,
+      value:rec.source?(typeof metricValue(rec.source)==="number"?metricValue(rec.source):1):null,
+      color:rec.source?colorForState(rec.source):"#1f2937",
+      custom:{sourceState:rec.source}
+    }));
+    mapChart.series[0].update({name:metricLabel()},false);
+    mapChart.series[0].setData(data,false,{duration:520});
+    mapChart.redraw({duration:520});
+    applySelectionStyles();
+  }else if($("fallbackMap").style.display==="block"){
+    renderFallbackGrid();
+  }
+}
+function applySelectionStyles(){
+  if(!mapChart)return;
+  const selected=new Map();
+  if(state.compareMode){
+    state.compareStates.forEach((s,i)=>selected.set(s,i===0?"#35d9ff":"#fbbf24"));
+  }else selected.set(state.selected,"#ffffff");
+  mapChart.series[0].points.forEach(p=>{
+    const s=p.custom?.sourceState;
+    const stroke=selected.get(s);
+    p.update({borderColor:stroke||"rgba(235,247,255,.78)",borderWidth:stroke?3:1},false);
+    if(p.graphic){
+      p.graphic.css({filter:stroke?`drop-shadow(0 0 7px ${stroke})`:"none"});
+    }
+  });
+  mapChart.redraw(false);
+}
+
+function getRanking(metric=state.metric){
+  return DB.states.map(s=>({state:s,value:
+    metric==="units"?getUnits(s):
+    metric==="share"?getShare(s):
+    metric==="mom"?getMoM(s):
+    metric==="yoy"?getYoY(s):
+    getUnits(s)
+  })).sort((a,b)=>(b.value??-Infinity)-(a.value??-Infinity));
+}
+function selectState(s){
+  if(state.compareMode){
+    const idx=state.compareStates.indexOf(s);
+    if(idx>=0)state.compareStates.splice(idx,1);
+    else{
+      if(state.compareStates.length>=2)state.compareStates.shift();
+      state.compareStates.push(s);
+    }
+    if(state.compareStates.length)state.selected=state.compareStates[state.compareStates.length-1];
+  }else{
+    state.selected=s;state.compareStates=[];
+  }
+  updateAll(false);
+  if(window.innerWidth<768){
+    document.body.classList.remove("filters-open");
+    document.body.classList.add("detail-open");
+  }
+}
+function renderKpis(){
+  const total=getNationalTotal();
+  const totalMom=pctChange(getNationalTotal("2026-06"),getNationalTotal("2026-05"));
+  const totalYoy=pctChange(getNationalTotal("2026-06"),getNationalTotal("2025-06"));
+  const rank=getRanking(state.metric==="leader"?"units":state.metric);
+  const top=rank[0];
+  let leader;
+  if(state.vehicleClass!=="All")leader=[state.vehicleClass,total];
+  else if(state.category!=="All")leader=[state.category,total];
+  else{
+    const allCatTotals=Object.fromEntries(Object.keys(DB.categories).map(c=>[c,DB.states.reduce((t,s)=>t+getCategoryValues(s)[c],0)]));
+    leader=Object.entries(allCatTotals).sort((a,b)=>b[1]-a[1])[0];
+  }
+
+  const growthToShow=state.metric==="yoy"?totalYoy:totalMom;
+  $("kpiGrid").innerHTML=`
+    <div class="kpi"><div class="kpi-label">Filtered registrations</div><div class="kpi-value">${fmtCompact.format(total)}</div><div class="kpi-meta">${fmt.format(total)} units</div></div>
+    <div class="kpi"><div class="kpi-label">${state.metric==="yoy"?"YoY":"MoM"} market movement</div><div class="kpi-value">${formatGrowth(growthToShow)}</div><div class="kpi-meta ${growthClass(growthToShow)}">Jun 2026 comparison</div></div>
+    <div class="kpi"><div class="kpi-label">Top state</div><div class="kpi-value" style="font-size:15px">${DB.displayNames[top.state]}</div><div class="kpi-meta">${numberForMetric(top.value,true)}</div></div>
+    <div class="kpi"><div class="kpi-label">${state.category==="All"&&state.vehicleClass==="All"?"Leading segment":"Active scope"}</div><div class="kpi-value" style="font-size:15px">${leader[0]}</div><div class="kpi-meta">${((leader[1]/Math.max(total,1))*100).toFixed(1)}% of filtered market</div></div>`;
+}
+function renderDetail(){
+  const s=state.selected;
+  const units=getUnits(s),share=getShare(s),mom=getMoM(s),yoy=getYoY(s);
+  const rank=getRanking("units").findIndex(x=>x.state===s)+1;
+  const avg=getNationalTotal()/DB.states.length;
+  const delta=avg?((units-avg)/avg)*100:0;
+  const leader=getLeader(s)[0];
+  $("detailState").textContent=DB.displayNames[s];
+  $("detailContext").textContent=`${selectedScopeLabel()} · ${DB.periodLabels[state.period]}`;
+  $("detailRank").textContent=`#${rank} nationally`;
+  $("detailMetrics").innerHTML=`
+    <div class="detail-metric"><b>${fmtCompact.format(units)}</b><span>Registrations</span></div>
+    <div class="detail-metric"><b>${share.toFixed(2)}%</b><span>National share</span></div>
+    <div class="detail-metric"><b class="${growthClass(mom)}">${formatGrowth(mom)}</b><span>MoM</span></div>
+    <div class="detail-metric"><b class="${growthClass(yoy)}">${formatGrowth(yoy)}</b><span>YoY</span></div>
+    <div class="detail-metric"><b>${leader}</b><span>Top segment</span></div>
+    <div class="detail-metric"><b class="${growthClass(delta)}">${delta>=0?"+":""}${delta.toFixed(0)}%</b><span>Vs state avg.</span></div>`;
+}
+function renderMix(){
+  const s=state.selected,vals=getCategoryValues(s);
+  const sorted=Object.entries(vals).sort((a,b)=>b[1]-a[1]);
+  const total=sorted.reduce((t,x)=>t+x[1],0)||1;
+  const top=sorted.slice(0,5);
+  let cursor=0,stops=[];
+  top.forEach(([name,val])=>{
+    const start=cursor;cursor+=val/total*100;
+    stops.push(`${COLORS.category[name]} ${start}% ${cursor}%`);
+  });
+  if(cursor<100)stops.push(`#334155 ${cursor}% 100%`);
+  $("mixDonut").style.background=`conic-gradient(${stops.join(",")})`;
+  $("donutValue").textContent=fmtCompact.format(total);
+  $("mixLegend").innerHTML=top.map(([name,val])=>`
+    <div class="mix-row"><i style="background:${COLORS.category[name]}"></i><span>${name}</span><b>${(val/total*100).toFixed(1)}%</b></div>`).join("");
+}
+function renderSpark(){
+  const s=state.selected;
+  const values=PERIOD_ORDER.map(p=>getUnits(s,p));
+  const W=290,H=80,pad=12;
+  const min=Math.min(...values),max=Math.max(...values);
+  const span=Math.max(max-min,1);
+  const pts=values.map((v,i)=>({
+    x:pad+i*((W-pad*2)/(values.length-1)),
+    y:H-pad-((v-min)/span)*(H-pad*2),
+    v
+  }));
+  const line=pts.map((p,i)=>`${i?"L":"M"}${p.x},${p.y}`).join(" ");
+  const area=`${line} L${pts.at(-1).x},${H-pad} L${pts[0].x},${H-pad} Z`;
+  $("sparkWrap").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Three period registration trend">
+    <defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${getCss("--accent")}" stop-opacity=".30"/><stop offset="100%" stop-color="${getCss("--accent")}" stop-opacity="0"/></linearGradient></defs>
+    <line class="spark-axis" x1="${pad}" y1="${H-pad}" x2="${W-pad}" y2="${H-pad}"/>
+    <path class="spark-area" d="${area}"/><path class="spark-line" d="${line}"/>
+    ${pts.map((p,i)=>`<circle class="spark-dot" cx="${p.x}" cy="${p.y}" r="4"/><text class="spark-label" text-anchor="${i===0?"start":i===pts.length-1?"end":"middle"}" x="${p.x}" y="${H-1}">${PERIOD_SHORT[PERIOD_ORDER[i]]}</text><text class="spark-label" text-anchor="middle" x="${p.x}" y="${Math.max(8,p.y-8)}">${fmtCompact.format(p.v)}</text>`).join("")}
+  </svg>`;
+}
+function renderClassBars(){
+  const s=state.selected,row=DB.data[state.period][s];
+  const allowed=new Set(getIndexes());
+  const entries=DB.vehicleClasses.map((c,i)=>[c,row[i],i]).filter(x=>allowed.has(x[2])).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const max=entries[0]?.[1]||1;
+  $("classBars").innerHTML=entries.map(([name,val])=>`
+    <div class="bar-row"><div class="bar-copy"><div class="bar-label"><span title="${name}">${name}</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${val/max*100}%"></div></div></div><div class="bar-value">${fmtCompact.format(val)}</div></div>`).join("")||`<div class="compare-empty">No registrations in this slice.</div>`;
+}
+function renderRanking(){
+  const ranking=getRanking(state.metric==="leader"?"units":state.metric).slice(0,10);
+  const max=Math.max(...ranking.map(x=>Math.abs(x.value||0)),1);
+  $("rankMetricLabel").textContent=metricLabel();
+  $("rankList").innerHTML=ranking.map((x,i)=>`
+    <button class="rank-item ${x.state===state.selected?"active":""}" data-state="${x.state}" style="animation-delay:${i*25}ms">
+      <span class="rank-num">${String(i+1).padStart(2,"0")}</span>
+      <span class="rank-state"><span class="rank-name">${DB.displayNames[x.state]}</span><span class="rank-track"><span class="rank-fill" style="display:block;width:${Math.abs(x.value||0)/max*100}%"></span></span></span>
+      <span class="rank-val">${numberForMetric(x.value,true)}</span>
+    </button>`).join("");
+  $("rankList").querySelectorAll(".rank-item").forEach(el=>el.addEventListener("click",()=>selectState(el.dataset.state)));
+}
+function renderCompare(){
+  $("compareCard").classList.toggle("visible",state.compareMode);
+  if(!state.compareMode)return;
+  $("compareHint").textContent=`${state.compareStates.length}/2 selected`;
+  if(state.compareStates.length<2){
+    $("compareContent").className="compare-empty";
+    $("compareContent").textContent=state.compareStates.length===0?"Select the first state on the map.":"Select one more state.";
+    return;
+  }
+  $("compareContent").className="compare-grid";
+  $("compareContent").innerHTML=state.compareStates.map(s=>{
+    const rank=getRanking("units").findIndex(x=>x.state===s)+1;
+    return `<div class="compare-state"><h4>${DB.displayNames[s]}</h4>
+      <div class="compare-stat"><span>Registrations</span><b>${fmtCompact.format(getUnits(s))}</b></div>
+      <div class="compare-stat"><span>Share</span><b>${getShare(s).toFixed(2)}%</b></div>
+      <div class="compare-stat"><span>Rank</span><b>#${rank}</b></div>
+      <div class="compare-stat"><span>MoM</span><b class="${growthClass(getMoM(s))}">${formatGrowth(getMoM(s))}</b></div>
+      <div class="compare-stat"><span>YoY</span><b class="${growthClass(getYoY(s))}">${formatGrowth(getYoY(s))}</b></div>
+      <div class="compare-stat"><span>Leader</span><b>${getLeader(s)[0]}</b></div>
+    </div>`;
+  }).join("");
+}
+function renderLegend(){
+  const wrap=$("legendWrap");
+  if(state.colorMode==="leader"||state.metric==="leader"){
+    wrap.innerHTML=`<div class="legend-title"><span>Category leader</span><span>${DB.periodLabels[state.period]}</span></div>
+      <div class="category-legend">${Object.entries(COLORS.category).map(([n,c])=>`<span class="legend-item"><i class="legend-swatch" style="background:${c}"></i>${n}</span>`).join("")}</div>`;
+    return;
+  }
+  if(state.colorMode==="growth"){
+    wrap.innerHTML=`<div class="legend-title"><span>${state.metric==="yoy"?"YoY":"MoM"} growth</span><span>Decline → growth</span></div>
+      <div class="legend-gradient" style="background:linear-gradient(90deg,#7f1d1d,#fb7185,#d1d5db,#6ee7b7,#065f46)"></div>
+      <div class="legend-labels"><span>≤ -15%</span><span>0%</span><span>≥ +25%</span></div>`;
+    return;
+  }
+  if(state.colorMode==="custom"){
+    const [a,b,c]=state.customBreaks;
+    wrap.innerHTML=`<div class="legend-title"><span>Custom ranges · ${metricLabel()}</span><span>Editable in filters</span></div>
+      <div class="category-legend">
+        <span class="legend-item"><i class="legend-swatch" style="background:${COLORS.custom[0]}"></i>&lt; ${a}</span>
+        <span class="legend-item"><i class="legend-swatch" style="background:${COLORS.custom[1]}"></i>${a}–${b}</span>
+        <span class="legend-item"><i class="legend-swatch" style="background:${COLORS.custom[2]}"></i>${b}–${c}</span>
+        <span class="legend-item"><i class="legend-swatch" style="background:${COLORS.custom[3]}"></i>≥ ${c}</span>
+      </div>`;
+    return;
+  }
+  const vals=getValuesNumeric().sort((a,b)=>a-b);
+  const q1=quantile(vals,.25),q2=quantile(vals,.5),q3=quantile(vals,.75);
+  wrap.innerHTML=`<div class="legend-title"><span>Quantile heat map · ${metricLabel()}</span><span>Darker = higher</span></div>
+    <div class="legend-gradient" style="background:linear-gradient(90deg,var(--map-low),var(--map-mid1),var(--map-mid2),var(--map-high))"></div>
+    <div class="legend-labels"><span>${numberForLegend(vals[0])}</span><span>Q1 ${numberForLegend(q1)}</span><span>Median ${numberForLegend(q2)}</span><span>Q3 ${numberForLegend(q3)}</span><span>${numberForLegend(vals.at(-1))}</span></div>`;
+}
+function numberForLegend(v){
+  if(state.metric==="share"||state.metric==="mom"||state.metric==="yoy")return `${Number(v||0).toFixed(1)}%`;
+  return fmtCompact.format(Math.round(v||0));
+}
+function renderUtGrid(){
+  $("utGrid").innerHTML=DB.unionTerritories.map(s=>`<button class="ut-tile ${s===state.selected?"active":""}" data-state="${s}" style="box-shadow:inset 0 3px 0 ${colorForState(s)}">
+    ${DB.abbr[s]}<span class="ut-value">${numberForMetric(metricValue(s),true)}</span></button>`).join("");
+  $("utGrid").querySelectorAll(".ut-tile").forEach(el=>el.addEventListener("click",()=>selectState(el.dataset.state)));
+}
+function renderBoundaryFallback(){
+  if(!state.mapReady)return;
+  const missing=DB.states.filter(s=>!state.mappedStates.has(s));
+  $("unmappedWrap").classList.toggle("visible",missing.length>0);
+  $("unmappedChips").innerHTML=missing.map(s=>`<button class="ut-tile" data-state="${s}" style="box-shadow:inset 0 3px 0 ${colorForState(s)}">${DB.displayNames[s]} · ${numberForMetric(metricValue(s),true)}</button>`).join("");
+  $("unmappedChips").querySelectorAll("button").forEach(el=>el.addEventListener("click",()=>selectState(el.dataset.state)));
+}
+function updateHeader(){
+  const suffix=state.metric==="mom"?"Jun 2026 vs May 2026":state.metric==="yoy"?"Jun 2026 vs Jun 2025":DB.periodLabels[state.period];
+  $("mapTitle").textContent=`India ${metricLabel().toLowerCase()} by state`;
+  $("mapSubtitle").textContent=`${selectedScopeLabel()} · ${suffix}`;
+  $("metricBadge").textContent=metricLabel();
+}
+function updateAll(updateMapFlag=true){
+  updateHeader();
+  if(updateMapFlag)updateMap();
+  renderKpis();renderDetail();renderMix();renderSpark();renderClassBars();renderRanking();renderCompare();renderLegend();renderUtGrid();renderBoundaryFallback();applySelectionStyles();
+}
+function populateCategoryOptions(){
+  $("categorySelect").innerHTML=`<option value="All">All vehicle classes</option>`+
+    Object.keys(DB.categories).map(c=>`<option value="${c}">${c}</option>`).join("");
+  populateClassOptions();
+}
+function populateClassOptions(){
+  const classes=state.category==="All"?DB.vehicleClasses:DB.categories[state.category];
+  $("classSelect").innerHTML=`<option value="All">All classes in segment</option>`+
+    classes.map(c=>`<option value="${c}">${c}</option>`).join("");
+  if(!classes.includes(state.vehicleClass))state.vehicleClass="All";
+  $("classSelect").value=state.vehicleClass;
+}
+function setColorMode(mode){
+  state.colorMode=mode;
+  if(mode==="custom"){
+    state.customBreaks=defaultBreaksForMetric();
+    ["range1","range2","range3"].forEach((id,i)=>$(id).value=state.customBreaks[i]);
+  }
+  document.querySelectorAll("#colorModeButtons button").forEach(b=>b.classList.toggle("active",b.dataset.mode===mode));
+  $("customRanges").classList.toggle("visible",mode==="custom");
+  updateAll();
+}
+function resetDashboard(){
+  Object.assign(state,{period:"2026-06",metric:"units",category:"All",vehicleClass:"All",colorMode:"heat",selected:"UTTAR PRADESH",compareMode:false,compareStates:[],customBreaks:[1,3,7]});
+  $("metricSelect").value=state.metric;$("periodSelect").value=state.period;$("categorySelect").value=state.category;
+  $("compareToggle").checked=false;populateClassOptions();
+  ["range1","range2","range3"].forEach((id,i)=>$(id).value=state.customBreaks[i]);
+  setColorMode("heat");
+}
+function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;}
+function downloadCsv(){
+  const rows=[["State","Period","Scope","Registrations","Market Share %","MoM Growth %","YoY Growth %","National Rank","Leading Category"]];
+  getRanking("units").forEach((x,i)=>{
+    const s=x.state;rows.push([DB.displayNames[s],DB.periodLabels[state.period],selectedScopeLabel(),getUnits(s),getShare(s).toFixed(4),getMoM(s)?.toFixed(4),getYoY(s)?.toFixed(4),i+1,getLeader(s)[0]]);
+  });
+  const blob=new Blob(["\ufeff"+rows.map(r=>r.map(csvEscape).join(",")).join("\n")],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download=`india_auto_state_dashboard_${state.period}_${state.category.replace(/\W+/g,"_").toLowerCase()}.csv`;
+  a.click();URL.revokeObjectURL(a.href);
+}
+function bindEvents(){
+  $("metricSelect").addEventListener("change",e=>{
+    state.metric=e.target.value;
+    if(state.metric==="mom"||state.metric==="yoy")setColorMode("growth");
+    else if(state.metric==="leader")setColorMode("leader");
+    else updateAll();
+  });
+  $("periodSelect").addEventListener("change",e=>{state.period=e.target.value;updateAll();});
+  $("categorySelect").addEventListener("change",e=>{state.category=e.target.value;state.vehicleClass="All";populateClassOptions();updateAll();});
+  $("classSelect").addEventListener("change",e=>{state.vehicleClass=e.target.value;updateAll();});
+  document.querySelectorAll("#colorModeButtons button").forEach(b=>b.addEventListener("click",()=>setColorMode(b.dataset.mode)));
+  $("applyRangesBtn").addEventListener("click",()=>{
+    const vals=["range1","range2","range3"].map(id=>Number($(id).value));
+    if(vals.every(Number.isFinite)&&vals[0]<vals[1]&&vals[1]<vals[2]){state.customBreaks=vals;updateAll();}
+    else alert("Enter three increasing threshold values.");
+  });
+  $("compareToggle").addEventListener("change",e=>{
+    state.compareMode=e.target.checked;state.compareStates=[];
+    if(state.compareMode)state.compareStates=[state.selected];
+    updateAll(false);
+  });
+  $("resetBtn").addEventListener("click",resetDashboard);
+  $("closeFiltersBtn").addEventListener("click",()=>document.body.classList.remove("filters-open"));
+  $("mobileFilterBtn").addEventListener("click",()=>document.body.classList.add("filters-open"));
+  $("mobileBackdrop").addEventListener("click",()=>{document.body.classList.remove("filters-open");document.body.classList.remove("detail-open");});
+  $("closeDetailBtn").addEventListener("click",()=>document.body.classList.remove("detail-open"));
+  $("themeBtn").addEventListener("click",()=>{
+    const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
+    document.documentElement.dataset.theme=next;localStorage.setItem("india-auto-theme",next);
+    updateAll();
+    if(mapChart)mapChart.update({tooltip:{backgroundColor:getCss("--panel-strong"),borderColor:getCss("--line-strong"),style:{color:getCss("--text")}},credits:{style:{color:getCss("--muted")}}});
+  });
+  $("downloadCsvBtn").addEventListener("click",downloadCsv);
+  window.addEventListener("keydown",e=>{if(e.key==="Escape"){document.body.classList.remove("filters-open");document.body.classList.remove("detail-open");}});
+}
+function boot(){
+  const saved=localStorage.getItem("india-auto-theme");
+  if(saved)document.documentElement.dataset.theme=saved;
+  populateCategoryOptions();bindEvents();updateAll(false);
+  let attempts=0;
+  const timer=setInterval(()=>{
+    attempts++;
+    if(window.Highcharts&&(Highcharts.maps["countries/in/custom/in-all-disputed"]||Highcharts.maps["countries/in/in-all"])){
+      clearInterval(timer);initMap();updateAll();
+    }else if(attempts>40){
+      clearInterval(timer);showFallbackMap();updateAll();
+    }
+  },100);
+}
+document.addEventListener("DOMContentLoaded",boot);
+</script>
+</body>
+</html>
