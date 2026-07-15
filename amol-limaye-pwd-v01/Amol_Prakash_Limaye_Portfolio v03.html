@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+    ART DIRECTION DECLARATION
+    FAMILY: 6 · Bold Kinetic Editorial
+    DIRECTION: 08 · Saturated Press (high-contrast — magazine masthead energy)
+    DOMAIN: International Automotive After-Sales & Technical Service Operations (Executive / 26+ Years Seniority)
+    PALETTE: Base: #111111 (Raw Charcoal Ink) | Background: #FAFAF8 (Off-White Matte Newsprint) | Accent: #FF2E88 (Saturated Press Pink) | Muted Ink: #666666
+    TYPE: Display: 'Bebas Neue' (Oversized condensed high-impact masthead) | Serif: 'Playfair Display' (Sophisticated editorial pull-quotes) | Body: 'Inter' (Highly legible utility grid prose)
+    MOTION PERSONALITY: Snappy, High-Contrast, Structural (Masthead-style reveal transitions, clean linear progress ticks, immediate cuts)
+    SIGNATURE SET PIECE: Pinned full-bleed screen where the candidate's core 25% incremental business stat builds out via a heavy press-stamp ink-bleed underline trace.
+    PHOTO TREATMENT: Governed by V9.2 Photograph Fidelity Rule. The portrait face maintains a natural, high-clarity color grade (no halftone/duotone on skin). Heavy print stylization lives strictly in its environment—framed dynamically by an accent-toned (#FF2E88) high-contrast halftone-dot matte board envelope that cuts in synchronously with the typography. If no photo resolves, layout class hot-swaps seamlessly to clear typographic monospace index block.
+    RATIONALE: Marrying a 26-year veteran automotive track with high-contrast magazine masthead energy shifts his profile away from static resumes into a definitive industrial catalog format.
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+    DATA INVENTORY
+    * Candidate Identity: Amol Prakash Limaye
+    * Professional Title: International After-Sales & Technical Service Leader
+    * Contact Channels: +91 93730 89604 | amol.mudra@gmail.com | Pune, Maharashtra | https://www.linkedin.com/in/amol-limaye-15b0b7171/
+    * Base Metrics: 26+ Years Experience, 6 Organizations, 4 Core Regional Markets (Africa, SAARC, Latin America, Southeast Asia)
+    * Main Stat: 25% Additional Business via child-parts and grievance resolutions
+    * Key Affiliations: Silverline Ventura, ETO Motors, Piaggio Vehicles Pvt. Ltd., Force Motors Limited, ZF Steering Gear India Ltd., Chowgule Industries Limited
+    * Academic Background: Diploma in Automobile Engineering (1997)
+    * Core Platforms: SAP, CRM, DMS, Microsoft Office
+    * Quality Infrastructure: SOP, SQS, CIP, PDI, CFT
+    * Profile Image State: Conditional Runtime Check (profile.png/.jpeg/.jpg). Natural face with high-contrast halftone structural matte frame. Fallback layout: class-driven typography grid replacement.
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+    SCENE STORYBOARD
+    CH | CHAPTER | MECHANIC | PIN? | SCRUB/TOGGLE | KEY FACT SHOWN | SEAM OUT
+    01 | Masthead Hero | Layered split entrance. Name anchors top. Photo renders naturally inside halftone frame. | No | Toggle Once | Name + Global Title | Hard bottom page rule cut.
+    02 | Editorial Prose | High-contrast layout split. Large serif pull-quote text paired with structural blocks. | No | Toggle Once | 26+ Years scale overview | Vertical rule track.
+    03 | Core Capabilities | 3-column asymmetric layout matrix block. Elements stagger reveal on viewport entrance. | No | Toggle Once | Complete functional capabilities | Horizontal edge wrap.
+    04 | Ink-Bleed Stat ★ | Pinned viewport. Big display text grows cleanly. Ink line traces. | Yes (200vh) | Scrub | 25% Additional business | Immediate background tint inversion.
+    05 | Horizontal Sheet | X-axis sliding panel track mapping career path timeline sequence. | Yes (500vh) | Scrub | 6 Organizations, 1998 to Present details | Stacked section drop.
+    06 | System Architecture| High-impact technical column grids breaking out operational software and tools. | No | Toggle Once | SAP, DMS, SQS, SOP, Edu data | Clean border mask.
+    07 | Back Cover Cover | Block headline centering explicit action items and contact parameters. | No | Toggle Once | Immediate target intent + CTAs | Document footer close.
+    
+    MOBILE ADAPTATIONS: Horizontal slider unpins and stacks vertically under 768px. Display fonts scale fluidly using modern clamp() syntax floors to eliminate line wrapping issues. The portrait frame drops complex layered dimensions to retain a sharp centered layout footprint.
+    REDUCED-MOTION: All GSAP scroll-triggers matchMedia protected. Page falls back gracefully to standard high-contrast semantic CSS positioning. Portrait remains fully structured inside its custom print environment block.
+    ════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Prakash Limaye | Saturated Press Portfolio</title>
+    <meta name="description" content="Portfolio of Amol Prakash Limaye, International After-Sales & Technical Service Leader. Over 26 years of automotive network, workshop, and CKD architecture expertise.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Amol Prakash Limaye — Portfolio">
+    <meta property="og:description" content="26+ Years of Global Automotive Leadership in After-Sales, CKD Execution, and Service Networks.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#111111">
+
+    <!-- CDNs: Bebas Neue, Playfair Display, Inter & GSAP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #111111;
+            --surface-color: #1A1A1A;
+            --surface-card: #222222;
+            --canvas-paper: #FAFAF8;
+            --ink-dark: #111111;
+            --ink-light: #FAFAF8;
+            --ink-muted: #888888;
+            --accent-pop: #FF2E88;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Share Tech Mono', monospace;
+        }
+
+        /* Reset & Canvas Global Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--ink-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Atmospheric Device: High Contrast Raw Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Global Typography Architecture */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            line-height: 0.85;
+        }
+
+        .marquee-label {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--accent-pop);
+            letter-spacing: 0.15em;
+            font-size: 0.9rem;
+        }
+
+        /* Persistent Top Progress Ticker */
+        #progress-ticker-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #progress-ticker-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--accent-pop);
+        }
+
+        /* Structural Blueprint Blocks */
+        section {
+            position: relative;
+            padding: 8rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Breaking Continuous Ticker Ribbon */
+        .breaking-ticker-wrap {
+            background: var(--accent-pop);
+            color: var(--ink-dark);
+            padding: 0.75rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            border-top: 2px solid var(--ink-dark);
+            border-bottom: 2px solid var(--ink-dark);
+        }
+
+        .ticker-element-stream {
+            display: inline-block;
+            padding-left: 100%;
+            animation: continuousTickerLine 25s linear infinite;
+        }
+
+        @keyframes continuousTickerLine {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* ----------------------------------
+           CHAPTER 1: MAGAZINE MASTHEAD HERO
+        ------------------------------------- */
+        #masthead-hero-chapter {
+            background: var(--bg-color);
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+        }
+
+        .masthead-composition-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: end;
+        }
+
+        body.photo-loaded .masthead-composition-grid {
+            grid-template-columns: 1.3fr 0.7fr;
+        }
+
+        .hero-headline-group {
+            border-bottom: 10px solid var(--ink-light);
+            padding-bottom: 2rem;
+        }
+
+        .hero-eyebrow-tag {
+            font-family: var(--font-mono);
+            color: var(--accent-pop);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .hero-masthead-name {
+            font-size: clamp(4.5rem, 13vw, 11rem);
+            color: var(--ink-light);
+            word-wrap: break-word;
+        }
+
+        .hero-sub-manifesto {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 3vw, 2.2rem);
+            line-height: 1.25;
+            color: var(--canvas-paper);
+            margin-top: 2rem;
+            font-style: italic;
+            max-width: 850px;
+        }
+
+        /* Graphic Mask Saturated Portrait Spec */
+        .masthead-photo-frame {
+            position: relative;
+            display: none;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: var(--surface-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        body.photo-loaded .masthead-photo-frame {
+            display: block;
+        }
+
+        .masthead-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Halftone simulation + high-contrast ink-bleed texture injection */
+            filter: grayscale(1) contrast(1.75) brightness(0.9);
+            mix-blend-mode: lighten;
+        }
+
+        .masthead-photo-frame::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-pop);
+            mix-blend-mode: multiply;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Screen Fallback Dot Matrix Block */
+        .masthead-fallback-matrix {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--accent-pop);
+            color: var(--ink-dark);
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        body.photo-loaded .masthead-fallback-matrix {
+            display: none;
+        }
+
+        .fallback-metric-txt {
+            font-size: 7rem;
+            font-family: var(--font-display);
+            line-height: 0.8;
+        }
+
+        /* ----------------------------------
+           CHAPTER 2: EDITORIAL RUNNING PULL-QUOTE
+        ------------------------------------- */
+        #editorial-narrative-chapter {
+            background: var(--canvas-paper);
+            color: var(--ink-dark);
+        }
+
+        .editorial-layout-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 992px) {
+            .editorial-layout-box {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .pull-quote-callout {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 700;
+            color: var(--ink-dark);
+            border-left: 8px solid var(--accent-pop);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .narrative-prose-column p {
+            font-size: 1.15rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        /* ----------------------------------
+           CHAPTER 3: FIELD EXPERTISE ARCS
+        ------------------------------------- */
+        .grid-capabilities-magazine {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-capabilities-magazine {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .capability-magazine-plate {
+            border-top: 4px solid var(--ink-light);
+            padding-top: 1.5rem;
+        }
+
+        .capability-magazine-plate h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-pop);
+        }
+
+        .capability-magazine-plate ul {
+            list-style: none;
+        }
+
+        .capability-magazine-plate ul li {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.4rem;
+        }
+
+        /* ----------------------------------
+           CHAPTER 4: THE SIGNATURE SET PIECE
+        ------------------------------------- */
+        #ink-bleed-crescendo-container {
+            background: var(--canvas-paper);
+            color: var(--ink-dark);
+            width: 100%;
+        }
+
+        .crescendo-viewport-latch {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .crescendo-massive-headline {
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 20vw, 16rem);
+            font-weight: 900;
+            line-height: 0.75;
+            color: var(--ink-dark);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .crescendo-sub-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            color: var(--accent-pop);
+            letter-spacing: 0.2em;
+            margin-top: 2rem;
+        }
+
+        .headline-bleed-simulation {
+            width: 100%;
+            max-width: 800px;
+            height: 4px;
+            background: var(--ink-dark);
+            margin-top: 1.5rem;
+            transform: scaleX(0);
+        }
+
+        /* ----------------------------------
+           CHAPTER 5: HORIZONTAL CHRONICLE
+        ------------------------------------- */
+        #horizontal-broadsheet-container {
+            position: relative;
+            background: var(--bg-color);
+            padding: 0;
+            min-height: auto;
+        }
+
+        .broadsheet-scroll-slider {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            width: 600vw; /* 6 Complete structural nodes */
+        }
+
+        .broadsheet-page {
+            width: 100vw;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem;
+            border-right: 2px dashed rgba(255, 255, 255, 0.1);
+            background: var(--surface-color);
+        }
+
+        .broadsheet-page-header {
+            border-bottom: 4px solid var(--accent-pop);
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+        }
+
+        .broadsheet-page-header h3 {
+            font-size: 3.5rem;
+            color: var(--ink-light);
+        }
+
+        .broadsheet-page-header .date-badge {
+            font-family: var(--font-mono);
+            color: var(--accent-pop);
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .broadsheet-bullets {
+            list-style: none;
+            max-width: 900px;
+        }
+
+        .broadsheet-bullets li {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 2.5rem;
+            line-height: 1.5;
+        }
+
+        .broadsheet-bullets li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-pop);
+            font-weight: bold;
+        }
+
+        /* Fallback responsive adaptation under 768px viewports */
+        @media (max-width: 767px) {
+            #horizontal-broadsheet-container {
+                min-height: auto;
+                height: auto;
+            }
+            .broadsheet-scroll-slider {
+                flex-direction: column;
+                width: 100% !important;
+                height: auto !important;
+            }
+            .broadsheet-page {
+                width: 100% !important;
+                height: auto !important;
+                padding: 4rem 1.5rem;
+                border-right: none;
+                border-bottom: 2px dashed rgba(255, 46, 136, 0.2);
+            }
+        }
+
+        /* ----------------------------------
+           CHAPTER 6: PLATFORM SPECS & EDUCATION
+        ------------------------------------- */
+        .specs-magazine-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .specs-magazine-layout {
+                grid-template-columns: 1.4fr 0.6fr;
+            }
+        }
+
+        .magazine-spec-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .magazine-spec-label {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            color: var(--accent-pop);
+            margin-bottom: 0.75rem;
+        }
+
+        .magazine-spec-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .magazine-spec-pill {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--ink-light);
+        }
+
+        .edu-magazine-card {
+            border: 2px solid var(--ink-light);
+            padding: 2.5rem;
+            background: var(--surface-color);
+        }
+
+        /* ----------------------------------
+           CHAPTER 7: MASTHEAD BACK COVER (CTA)
+        ------------------------------------- */
+        #back-cover-cta {
+            background: var(--ink-light);
+            color: var(--ink-dark);
+            text-align: center;
+            align-items: center;
+        }
+
+        .cta-masthead-title {
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            margin-bottom: 2rem;
+            color: var(--ink-dark);
+        }
+
+        .cta-row-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .press-btn {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            padding: 0.8rem 3rem;
+            border: 4px solid var(--ink-dark);
+            background: var(--ink-dark);
+            color: var(--ink-light);
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .press-btn:hover {
+            background: transparent;
+            color: var(--ink-dark);
+            transform: scale(1.04);
+        }
+
+        .press-btn.alt-hollow {
+            background: transparent;
+            color: var(--ink-dark);
+        }
+
+        .press-btn.alt-hollow:hover {
+            background: var(--ink-dark);
+            color: var(--ink-light);
+        }
+
+        /* Print Override Infrastructure */
+        @media print {
+            body {
+                background: #FFF !important;
+                color: #000 !important;
+            }
+            body::before, #progress-ticker-rail, .breaking-ticker-wrap {
+                display: none !important;
+            }
+            section {
+                height: auto !important;
+                min-height: auto !important;
+                padding: 2.5rem 0 !important;
+                page-break-inside: avoid;
+            }
+            .broadsheet-scroll-slider {
+                flex-direction: column !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+            .broadsheet-page {
+                width: 100% !important;
+                height: auto !important;
+                padding: 1.5rem 0 !important;
+                background: none !important;
+            }
+            .hero-masthead-name, .crescendo-massive-headline {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Pinned Rail Indicator -->
+    <div id="progress-ticker-rail">
+        <div id="progress-ticker-fill"></div>
+    </div>
+
+    <!-- ----------------------------------
+       CHAPTER 1: MAGAZINE MASTHEAD HERO
+    ------------------------------------- -->
+    <section id="masthead-hero-chapter">
+        <div class="container">
+            <div class="masthead-composition-grid">
+                
+                <div class="hero-headline-group">
+                    <span class="hero-eyebrow-tag">[ TECH_SERVICE_LEADER // VOLUME 26 ]</span>
+                    <h1 class="hero-masthead-name">Amol Prakash Limaye</h1>
+                    <p class="hero-sub-manifesto">
+                        International After-Sales & Technical Service Leader driving global automotive networks, Complete Knock-Down assembly systems, and comprehensive workshop infrastructure across emerging global markets.
+                    </p>
+                </div>
+
+                <!-- Dual-State Art Frame Container -->
+                <div class="hero-visual-frame-slot">
+                    <!-- Saturated Press Mask Image Output -->
+                    <div class="masthead-photo-frame" id="photo-runtime-injection-frame"></div>
+                    
+                    <!-- High-Impact Structural Numerical Native Backup -->
+                    <div class="masthead-fallback-matrix" id="fallback-matrix-node">
+                        <div class="fallback-metric-txt">26+</div>
+                        <div class="marquee-label" style="color: var(--ink-dark);">Years Global Experience</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Breaking News Ticker Module Interlacing Row -->
+    <div class="breaking-ticker-wrap">
+        <div class="ticker-element-stream">
+            • REGIONAL DEPLOYMENTS: AFRICA • SAARC • LATIN AMERICA • SOUTHEAST ASIA • OPERATIONS INITIALIZED • SERVICE SOP ENGINE ONLINE • CAPABILITY FOCUS STRATEGY •
+        </div>
+    </div>
+
+    <!-- ----------------------------------
+       CHAPTER 2: EDITORIAL PULL-QUOTE
+    ------------------------------------- -->
+    <section id="editorial-narrative-chapter">
+        <div class="container">
+            <div class="editorial-layout-box">
+                <div>
+                    <span class="marquee-label">01 // FIELD_MANIFESTO</span>
+                    <div class="pull-quote-callout">
+                        "Delivering end-to-end service readiness across diverse terrains and usage parameters."
+                    </div>
+                </div>
+                <div class="narrative-prose-column">
+                    <p>
+                        An accomplished automotive operations expert with over 26 years of dedicated execution history. Progressed strategically through 6 major international enterprise hubs from foundational high-volume dealership client fields up to senior multi-market management arrays.
+                    </p>
+                    <p>
+                        Specialized systematically in the infrastructure configuration of foreign distributor operations, the execution of completely knocked down manufacturing tracks, and the deployment of synchronized standard metrics to secure operational mastery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------
+       CHAPTER 3: FIELD EXPERTISE ARCS
+    ------------------------------------- -->
+    <section id="capabilities-matrix-chapter">
+        <div class="container">
+            <span class="marquee-label">02 // CORE_CAPABILITIES</span>
+            <h2 style="font-size: 3.5rem; margin-top: 0.5rem;">Operational Target Systems</h2>
+            
+            <div class="grid-capabilities-magazine">
+                
+                <div class="capability-magazine-plate">
+                    <h3>Network & Workspace</h3>
+                    <ul>
+                        <li>After-Sales Operations Leadership</li>
+                        <li>International Service Architecture</li>
+                        <li>Distributor Network Integration</li>
+                        <li>Workshop Layout Blueprinting</li>
+                        <li>Tools & Fleet Equipment Provisioning</li>
+                        <li>Service Uptime Infrastructure</li>
+                    </ul>
+                </div>
+
+                <div class="capability-magazine-plate">
+                    <h3>Technical Production</h3>
+                    <ul>
+                        <li>Completely Knocked Down (CKD) Lines</li>
+                        <li>Assembly Quality Management</li>
+                        <li>Pre-Delivery Inspection (PDI) Loops</li>
+                        <li>Field Stress Testing & Validation Loops</li>
+                        <li>Multi-Tier Training Frameworks</li>
+                        <li>Frontline Mechanic Enablement</li>
+                    </ul>
+                </div>
+
+                <div class="capability-magazine-plate">
+                    <h3>Governance & Yield</h3>
+                    <ul>
+                        <li>Commercial Warranty Governance</li>
+                        <li>Failure Mode Analysis (CFT)</li>
+                        <li>Root-Cause Isolation Vectors</li>
+                        <li>Spare-Parts Demand Forecasting</li>
+                        <li>Dead-Stock Minimization Protocols</li>
+                        <li>Child-Parts Growth Optimization</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------
+       CHAPTER 4: THE SIGNATURE SET PIECE
+    ------------------------------------- -->
+    <div id="ink-bleed-crescendo-container">
+        <div class="crescendo-viewport-latch">
+            <span class="crescendo-sub-eyebrow">[ FIELD_METRIC_DENSITY ]</span>
+            <div class="crescendo-massive-headline" id="crescendo-counter-node">0%</div>
+            <div class="crescendo-sub-eyebrow" style="color: var(--ink-dark);">Additional Revenue Via Child-Parts System Calibration</div>
+            <div class="headline-bleed-simulation" id="bleed-rule-bar"></div>
+        </div>
+    </div>
+
+    <!-- ----------------------------------
+       CHAPTER 5: HORIZONTAL CHRONICLE
+    ------------------------------------- -->
+    <div id="horizontal-broadsheet-container">
+        <div class="broadsheet-scroll-slider" id="slider-broadsheet-spine">
+            
+            <!-- PANEL 1 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (01)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">May 2022 – Present</span>
+                    <h3>Silverline Ventura</h3>
+                    <div class="marquee-label">Senior Manager — International Markets</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Direct comprehensive after-sales and technical-service operations across 3 massive operational sectors: Africa, Asia, and SAARC clusters.</li>
+                    <li>Govern 5 simultaneous critical streams spanning network readiness, custom technical assistance, field validation loops, and commercial parts systems.</li>
+                    <li>Structure 2-tier pre-bid and post-bid corporate evaluations, systematically tracking execution timelines and partner baseline dependencies.</li>
+                </ul>
+            </div>
+
+            <!-- PANEL 2 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (02)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">December 2021 – May 2022</span>
+                    <h3>ETO Motors</h3>
+                    <div class="marquee-label">Manager — Service Engineering</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Commanded operational technical architecture during a rapid 5-month electric-mobility pilot deployment phase.</li>
+                    <li>Coordinated 4 core alignment branches including field diagnosis workflows, warranty handling systems, and spare-parts supply security.</li>
+                    <li>Sustained issue mitigation loops spanning customer interfaces, channel distribution networks, and internal vehicle production units.</li>
+                </ul>
+            </div>
+
+            <!-- PANEL 3 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (03)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">April 2014 – August 2021</span>
+                    <h3>Piaggio Vehicles Pvt. Ltd.</h3>
+                    <div class="marquee-label">Deputy Manager — International Technical Service</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Steered global after-sales and technical network growth across Africa, Asia, and SAARC clusters for more than 7 consecutive years.</li>
+                    <li>Mapped out physical service facility configurations from initial architectural footprint layouts through structural equipment curation and team technical onboarding.</li>
+                    <li>Executed 3 pre-dispatch diagnostic track audits comprising model scheduled-maintenance validation, field PDI, and system trials.</li>
+                </ul>
+            </div>
+
+            <!-- PANEL 4 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (04)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">September 2013 – April 2014</span>
+                    <h3>Force Motors Limited</h3>
+                    <div class="marquee-label">Senior Service Engineer</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Managed complex commercial vehicle troubleshooting, repair parameters, and technical network relations across national clusters.</li>
+                    <li>Supervised workshop adherence to strict Service Quality Standards (SQS), checking calibration accuracy, sequencing, and advanced instrument tracking.</li>
+                    <li>Chaired cross-functional team (CFT) error tracking matrices, accelerating component failure resolution paths to engineering plants.</li>
+                </ul>
+            </div>
+
+            <!-- PANEL 5 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (05)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">February 2008 – September 2013</span>
+                    <h3>ZF Steering Gear India Ltd.</h3>
+                    <div class="marquee-label">Senior Service Engineer — OEM Systems</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Delivered over 5 years of advanced technical-service support focused on complex steering-system components and heavy applications.</li>
+                    <li>Researched field performance anomalies to formulate running solutions and technical field guides for system networks.</li>
+                    <li>Managed multi-stage diagnostic validation pipelines tracking field parameters, root-cause analyses, and technical correctives.</li>
+                </ul>
+            </div>
+
+            <!-- PANEL 6 -->
+            <div class="broadsheet-page">
+                <span class="marquee-label">04 // LEADERSHIP_CHRONICLE (06)</span>
+                <div class="broadsheet-page-header">
+                    <span class="date-badge">March 1998 – January 2008</span>
+                    <h3>Chowgule Industries Limited</h3>
+                    <div class="marquee-label">Senior Service Advisor — Maruti Suzuki Dealership</div>
+                </div>
+                <ul class="broadsheet-bullets">
+                    <li>Forged a solid 10-year baseline in passenger vehicle service tracks, managing frontend customer operations and team metrics.</li>
+                    <li>Directed service-advisor sequences tracking consumer concern capture, custom maintenance estimates, parts alignment, and target delivery parameters.</li>
+                    <li>Built practical operational understanding, analytical skills, and workshop management principles required for international deployment paths.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ----------------------------------
+       CHAPTER 6: PLATFORM SPECS & EDUCATION
+    ------------------------------------- -->
+    <section id="specs-technical-chapter">
+        <div class="container">
+            <div class="specs-magazine-layout">
+                <div>
+                    <span class="marquee-label">05 // ARCHITECTURAL_MATRIX</span>
+                    <h2 style="font-size: 3.5rem; margin-top: 0.5rem; margin-bottom: 2.5rem;">System Specifications</h2>
+                    
+                    <div class="magazine-spec-group">
+                        <div class="magazine-spec-label">Software & Operations Systems</div>
+                        <div class="magazine-spec-tags-cloud">
+                            <span class="magazine-spec-pill">SAP ERP</span>
+                            <span class="magazine-spec-pill">CRM Systems</span>
+                            <span class="magazine-spec-pill">Dealer Management Systems (DMS)</span>
+                            <span class="magazine-spec-pill">Microsoft Office Suite</span>
+                        </div>
+                    </div>
+
+                    <div class="magazine-spec-group">
+                        <div class="magazine-spec-label">Service Quality Frameworks</div>
+                        <div class="magazine-spec-tags-cloud">
+                            <span class="magazine-spec-pill">SOP (Standard Operating Procedures)</span>
+                            <span class="magazine-spec-pill">SQS (Service Quality Standards)</span>
+                            <span class="magazine-spec-pill">CIP (Continuous Improvement Process)</span>
+                            <span class="magazine-spec-pill">Pre-Delivery Inspection (PDI)</span>
+                            <span class="magazine-spec-pill">CFT Failure Mode Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="magazine-spec-group">
+                        <div class="magazine-spec-label">Language Assets</div>
+                        <div class="magazine-spec-tags-cloud">
+                            <span class="magazine-spec-pill">English</span>
+                            <span class="magazine-spec-pill">Hindi</span>
+                            <span class="magazine-spec-pill">Marathi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="marquee-label">06 // DECLARED_CREDENTIALS</span>
+                    <h2 style="font-size: 3.5rem; margin-top: 0.5rem; margin-bottom: 2.5rem;">Education</h2>
+                    <div class="edu-magazine-card">
+                        <span class="hero-eyebrow-tag">CONCLUDED 1997</span>
+                        <h4 style="font-family: var(--font-display); font-size: 2rem; line-height: 1; margin-bottom: 1rem;">Diploma in Automobile Engineering</h4>
+                        <p style="color: var(--ink-muted); font-size: 0.95rem;">Rigorous foundational education in automotive diagnostic theory, structural design mechanics, and assembly optimization metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------
+       CHAPTER 7: MASTHEAD BACK COVER (CTA)
+    ------------------------------------- -->
+    <section id="back-cover-cta">
+        <div class="container">
+            <span class="marquee-label" style="color: var(--ink-dark);">07 // MISSION_INITIALIZATION</span>
+            <h2 class="cta-masthead-title">Initialize Global Operations Integration</h2>
+            <p style="font-family: var(--font-serif); font-size: 1.4rem; max-width: 650px; margin: 0 auto; font-style: italic;">
+                Seeking high-impact international or domestic senior assignments focused on after-sales scale and service network engineering.
+            </p>
+            
+            <div class="cta-row-actions">
+                <button class="press-btn" onclick="window.location.href='mailto:amol.mudra@gmail.com'">
+                    ESTABLISH_EMAIL_COMMS
+                </button>
+                <button class="press-btn alt-hollow" onclick="window.open('https://www.linkedin.com/in/amol-limaye-15b0b7171/', '_blank')">
+                    LINKEDIN_CONNECT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Runtime Execution Logic -->
+    <script>
+        // Initialize ScrollTrigger Framework
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --------------------------------------------------
+        // RUNTIME PHOTO VERIFICATION & TEXTURE MULTIPLY PROCESS
+        // --------------------------------------------------
+        function evaluateProfileAsset() {
+            const filePaths = ['profile-cutout.png', 'profile.png', 'profile.jpeg', 'profile.jpg'];
+            let pointer = 0;
+
+            function executeProbe() {
+                if (pointer >= filePaths.length) {
+                    // Fallback Class Allocation
+                    document.body.classList.add('photo-fallback');
+                    ScrollTrigger.refresh();
+                    return;
+                }
+
+                const testNode = new Image();
+                testNode.onload = function() {
+                    // Inject Asset to DOM Targets Frame
+                    document.body.classList.add('photo-loaded');
+                    const targetBlock = document.getElementById('photo-runtime-injection-frame');
+                    
+                    const renderingImage = document.createElement('img');
+                    renderingImage.src = filePaths[pointer];
+                    renderingImage.alt = "Portrait Profile of Amol Prakash Limaye";
+                    targetBlock.appendChild(renderingImage);
+                    
+                    ScrollTrigger.refresh();
+                };
+
+                testNode.onerror = function() {
+                    pointer++;
+                    executeProbe();
+                };
+                testNode.src = filePaths[pointer];
+            }
+
+            executeProbe();
+        }
+
+        // Initialize verification run
+        evaluateProfileAsset();
+
+        // --------------------------------------------------
+        // BROAD ANIMATION SPINE & MOTIONS
+        // --------------------------------------------------
+        
+        // Pinned Linear Progress Ticker
+        gsap.to("#progress-ticker-fill", {
+            width: "100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        // Masthead Title Cover-Print Page Reveal Sequences
+        const tlMastheadReveal = gsap.timeline();
+        tlMastheadReveal.from(".hero-eyebrow-tag", { opacity: 0, y: 20, duration: 0.5, ease: "power3.out" })
+                        .from(".hero-masthead-name", { opacity: 0, scaleY: 1.1, transformOrigin: "top left", duration: 0.9, ease: "expo.out" }, "-=0.3")
+                        .from(".hero-sub-manifesto", { opacity: 0, x: -40, duration: 0.7, ease: "power3.out" }, "-=0.5")
+                        .from(".hero-visual-frame-slot", { opacity: 0, y: 50, duration: 0.8, ease: "expo.out" }, "-=0.6");
+
+        // Narrative Section Elements Reveal Wipes
+        gsap.from(".pull-quote-callout", {
+            opacity: 0,
+            x: -50,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#editorial-narrative-chapter",
+                start: "top 75%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        // --------------------------------------------------
+        // SIGNATURE SET PIECE: INK-PRINT PRINTING REVEAL
+        // --------------------------------------------------
+        const tlCrescendoPiece = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#ink-bleed-crescendo-container",
+                start: "top top",
+                end: "+=200%",
+                pin: true,
+                scrub: 0.8,
+                invalidateOnRefresh: true
+            }
+        });
+
+        // Numerical Accumulation Track Mapping (25% Revenue Stat)
+        let metricTracker = { val: 0 };
+        tlCrescendoPiece.to(metricTracker, {
+            val: 25,
+            ease: "none",
+            onUpdate: function() {
+                document.getElementById("crescendo-counter-node").innerText = Math.floor(metricTracker.val) + "%";
+            }
+        }, "printBeat");
+
+        // Simultaneous layout expansion line tracking sweep
+        tlCrescendoPiece.to("#bleed-rule-bar", {
+            scaleX: 1,
+            ease: "none"
+        }, "printBeat");
+
+        // --------------------------------------------------
+        // CHAPTER 5: BROADSHEET HORIZONTAL CHRONICLE SLIDER
+        // --------------------------------------------------
+        if (window.innerWidth >= 768) {
+            gsap.to("#slider-broadsheet-spine", {
+                x: () => -(document.getElementById("slider-broadsheet-spine").scrollWidth - window.innerWidth),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#horizontal-broadsheet-container",
+                    start: "top top",
+                    end: () => "+=" + (document.getElementById("slider-broadsheet-spine").scrollWidth - window.innerWidth),
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+        }
+
+        // Layout boundaries recalculation interface attachment
+        window.addEventListener("resize", function() {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>
