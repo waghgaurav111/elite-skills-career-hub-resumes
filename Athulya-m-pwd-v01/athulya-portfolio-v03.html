@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--
+ART DIRECTION DECLARATION — VARIANT B
+DIRECTION: 02 · Cinema Noir
+DOMAIN: Sales / Business Development — full-cycle B2B & inside sales professional, closing and negotiation as the core craft
+PALETTE: base #0D0D0F / panel #17171B / panel-alt #1B1B20 / gold #D4B36A / gold-deep #B8935A / bone #F2EEE4 / bone-soft #B6B2A6
+TYPE: Playfair Display (display, high-contrast serif — film-title gravity) + Inter (body); letter-spaced small-caps eyebrows throughout
+MOTION PERSONALITY: slow, weighted, deliberate — long scrubbed sequences, gold hairlines that draw in, film-credit pacing, no bounce
+SIGNATURE SET PIECE: the Hero itself is the set piece — a pinned "title sequence." The name emerges from darkness, a gold rule draws beneath it, then the career's one real headline number ($15,000–$20,000 in monthly revenue) fades up like a film closing card, inside the same continuous pinned scene.
+RATIONALE: Sales is a craft of negotiation and closing — high-stakes, deliberate, decisive — which maps naturally onto noir's slow-build, high-contrast, "moment that lands" register, even at an early-career stage; the gravity is borrowed for positioning, not fabricated seniority (no title or scope beyond what the résumé states is implied anywhere on the page).
+
+DATA INVENTORY (identical source facts to Variant A — re-mapped to this variant's six chapters; nothing beyond the résumé appears)
+— Identity: Athulya M · +91-9544951188 · athulyamangalan@gmail.com · linkedin.com/in/athulya → Ch.01 title sequence, Ch.06 contact
+— Positioning (full-cycle sales, consultative selling, US customers, CRM organized, long-term customer success) → Ch.01 tagline, Ch.02 origin
+— $15,000–$20,000 monthly sales revenue, Inside Sales Specialist, Scale Job Services, Nov 2025–Present, full-cycle inside sales → Ch.01 closing card (headline numeral) + Ch.04 Scene I
+— Inbound/outbound US calls, product consultations, full ownership (qualification→onboarding→customer success), new B2B accounts, first influencer collaboration → Ch.04 Scene I
+— Business Development Manager, Infinite Tech Solutions, Apr 2024–Nov 2025 (software sales/BD, revenue growth on new+existing accounts, demos/consultations, full pipeline, long-term B2B relationships) → Ch.04 Scene II
+— Consultancy Project (CAP), WhyNameIt Innovations, Hyderabad, Mar 2024 (emerging trends, strategic recommendations) → Ch.04 Scene III
+— Sales & Marketing Intern, Agile Capital Services Pvt. Ltd., Delhi, May–Jul 2023 (lead gen, client engagement; Pre-Early Bird Certificate) → Ch.04 Scene IV
+— Project Intern (CMAPS), V-RUB Suspensions Pvt. Ltd., Pune, Feb 2023 (marketing ideas, vendor/supplier research) → Ch.04 Scene V
+— Skills — Sales: Business Development, Inside Sales, B2B Sales, Consultative Selling, Inbound & Outbound Consultations, Sales Closing, Lead Generation, Account Management, Negotiation → Ch.03
+— Tools: CRM (Zoho), LinkedIn Sales Navigator, Apollo.io, MS Office → Ch.03
+— Certifications: Marketing Communication (Udemy), Advertising & Sales Promotion (Udemy), Harvard Manage Mentor – Decision Making & Goal Setting, Digital Marketing → Ch.03
+— Education: MBA Marketing, Universal Business School, Mumbai, 2023–2024 → Ch.05
+— Education: B.Com, SAS SNDP Yogam College (MG University), SGPA 7.23/10.0, 2019–2022 → Ch.05
+— Education: Higher Secondary, SN Trusts HSS, Aickarakkonam, Kerala, 96.6%, 2019 → Ch.05
+— Education: CBSE, Oxford Sr. Secondary School, Karavalur, Kerala, CGPA 9.0/10.0, 2016 → Ch.05
+— Beyond the classroom: Head of Digital Marketing Team, Environment Club (2022–2024); SMART Project Champion (2023); Member, Bharat Scouts & Guides (2017–2019) → Ch.05
+
+SCENE STORYBOARD
+CH | CHAPTER              | MECHANIC                                              | PIN?(len)   | SCRUB/TOGGLE | KEY FACT SHOWN                        | SEAM OUT
+01 | Title Sequence ★SET PIECE | name emerges from dark, gold rule draw-in, closing-card counter, 2-layer parallax | yes (230vh) | scrub (this scene is the one the viewer "drives") | name + $15K–$20K monthly revenue | gold hairline draws across full width
+02 | Origin                | single serif pull-quote block, restrained fade      | no          | toggle once   | summary narrative                     | hairline seam draws in at top of next chapter
+03 | The Skill Set         | credit-block list, line-by-line reveal               | no          | toggle once   | sales / tools / certifications        | panel tone shifts, hairline sweep
+04 | The Scenes            | horizontal panel, 5 roles as framed "Scene I–V", gold spine draw-in | yes (~track) | scrub | 5 real roles, chronological          | track locks, hard cut to next panel tone
+05 | Foundation            | two-column reveal (education + additional credits)   | no          | toggle once   | 4 schools, 3 extracurricular lines    | hard cut to darkest panel
+06 | Contact               | dark finale, gold rule draw, link reveal              | no          | toggle once   | contact + closing line                | end
+
+MOBILE ADAPTATIONS: Ch.01 pin shortens to 150vh, the ghost-text parallax layer drops (glow layer only); Ch.04 horizontal track becomes a vertical stack (pin removed), gold spine rotates vertical; the top progress bar remains the only persistent device (act indicator hides <560px to save space).
+REDUCED-MOTION: every chapter renders fully visible and static; Ch.01's counter renders at final value immediately; pins on Ch.01/Ch.04 are disabled via gsap.matchMedia().
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athulya M — Sales &amp; Business Development</title>
+<meta name="description" content="Athulya M — full-cycle sales professional. Consultative selling, US market business development, and a career built on closing.">
+<meta property="og:title" content="Athulya M — Sales & Business Development">
+<meta property="og:description" content="Full-cycle sales professional. Consultative selling, US market business development, and a career built on closing.">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#0D0D0F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D0D0F;
+    --panel:#17171B;
+    --panel-alt:#1B1B20;
+    --gold:#D4B36A;
+    --gold-deep:#B8935A;
+    --bone:#F2EEE4;
+    --bone-soft:#B6B2A6;
+    --rule:rgba(212,179,106,0.25);
+    --rule-soft:rgba(242,238,228,0.09);
+    --font-display:'Playfair Display', serif;
+    --font-body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--bone); font-family:var(--font-body);
+    font-feature-settings:"tnum" 1,"lnum" 1; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; line-height:1.02; margin:0; color:var(--bone);}
+  p{margin:0; line-height:1.7; font-size:1.02rem; color:var(--bone-soft);}
+  a{color:inherit;}
+  ::selection{background:var(--gold); color:#0D0D0F;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  .grain{position:fixed; inset:0; z-index:999; pointer-events:none; opacity:0.05; mix-blend-mode:overlay;}
+
+  .progress-bar{position:fixed; top:0; left:0; height:2px; width:100%; background:var(--rule-soft); z-index:600;}
+  .progress-bar-fill{height:100%; width:100%; background:var(--gold); transform:scaleX(0); transform-origin:left;}
+  .act-indicator{
+    position:fixed; left:2.4rem; bottom:2.2rem; z-index:600;
+    font-family:var(--font-body); font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; gap:0.6rem;
+  }
+  .act-indicator .roman{font-family:var(--font-display); font-style:italic; font-size:0.95rem; color:var(--bone);}
+  .act-indicator .rule{width:26px; height:1px; background:var(--gold); display:inline-block;}
+  @media (max-width:560px){ .act-indicator{display:none;} }
+
+  .chapter{position:relative; min-height:100vh; width:100%; padding:11vh 7vw; display:flex; flex-direction:column; justify-content:center; overflow:hidden;}
+  .eyebrow-gold{
+    font-family:var(--font-body); font-size:0.72rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:1.3rem; display:flex; align-items:center; gap:0.7rem;
+  }
+  .eyebrow-gold::before{content:""; width:26px; height:1px; background:var(--gold); display:inline-block;}
+  .chapter-seam{position:absolute; top:0; left:0; width:100%; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left;}
+
+  /* ---------- CH01 TITLE SEQUENCE ---------- */
+  .title-sequence{background:var(--bg); justify-content:center;}
+  .ts-layers{position:absolute; inset:0; z-index:0; pointer-events:none;}
+  .layer-back{
+    position:absolute; top:8%; left:-3%; font-family:var(--font-display); font-weight:700; font-style:italic;
+    font-size:clamp(6rem,25vw,20rem); color:var(--rule-soft); line-height:1; white-space:nowrap;
+  }
+  .layer-glow{
+    position:absolute; top:20%; right:6%; width:44vw; height:44vw; max-width:640px; max-height:640px;
+    background:radial-gradient(circle, rgba(212,179,106,0.16), rgba(212,179,106,0) 70%); filter:blur(4px);
+  }
+  .ts-inner{position:relative; z-index:2; max-width:900px;}
+  .ts-eyebrow{opacity:0; transform:translateY(14px);}
+  .ts-name{font-size:clamp(3rem,11.5vw,9rem); overflow:hidden;}
+  .ts-name .char{display:inline-block; opacity:0; transform:translateY(46px);}
+  .ts-rule-wrap{width:min(100%,520px); margin-top:0.6rem;}
+  .ts-rule-wrap svg{width:100%; height:8px; display:block;}
+  .ts-rule-wrap path{stroke:var(--gold); stroke-width:1.5; fill:none;}
+  .ts-rule-wrap .drawn{stroke-dasharray:600; stroke-dashoffset:600;}
+  .ts-tagline{margin-top:1.8rem; max-width:44ch; font-size:1.08rem; opacity:0; transform:translateY(16px);}
+  .ts-card{
+    margin-top:3.2rem; padding-top:2.2rem; border-top:1px solid var(--rule);
+    opacity:0; transform:translateY(24px) scale(0.97); max-width:560px;
+  }
+  .ts-card-eyebrow{font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:0.9rem;}
+  .ts-counter-wrap{display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap;}
+  .ts-counter{font-family:var(--font-display); font-weight:700; font-size:clamp(2.6rem,9vw,5.4rem); color:var(--bone);}
+  .ts-counter .sign{color:var(--gold);}
+  .ts-dash{font-family:var(--font-display); font-style:italic; font-size:clamp(1.6rem,4vw,2.6rem); color:var(--bone-soft);}
+  .ts-card-caption{margin-top:1rem; font-size:0.85rem; opacity:0;}
+
+  /* ---------- CH02 ORIGIN ---------- */
+  .origin{background:var(--panel);}
+  .origin-quote{
+    max-width:52ch; font-family:var(--font-display); font-style:italic; font-weight:500;
+    font-size:clamp(1.5rem,3.4vw,2.3rem); color:var(--bone); line-height:1.45;
+    opacity:0; transform:translateY(22px);
+  }
+  .origin-quote span{color:var(--gold);}
+
+  /* ---------- CH03 THE SKILL SET ---------- */
+  .skillset{background:var(--bg);}
+  .credit-blocks{display:flex; flex-direction:column; gap:2.4rem; max-width:800px;}
+  .credit-block{border-top:1px solid var(--rule-soft); padding-top:1.4rem;}
+  .credit-block h3{font-family:var(--font-body); font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-deep); font-weight:600; margin-bottom:0.9rem;}
+  .credit-line{font-family:var(--font-display); font-size:1.15rem; color:var(--bone); line-height:1.85; opacity:0; transform:translateY(10px);}
+  .credit-line .sep{color:var(--gold); margin:0 0.5rem; font-style:normal;}
+
+  /* ---------- CH04 THE SCENES ---------- */
+  .scenes{background:var(--panel); padding:0;}
+  .scenes-viewport{height:100vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:11vh 0 0;}
+  .scenes-header{padding:0 7vw; margin-bottom:2.2rem;}
+  .scenes-spine-wrap{padding:0 7vw;}
+  .scenes-track{display:flex; gap:2rem; padding:0 7vw; will-change:transform;}
+  .scene-card{
+    flex:0 0 auto; width:min(80vw,400px); background:var(--panel-alt); border:1px solid var(--rule);
+    padding:2.1rem; position:relative;
+  }
+  .scene-card .roman{font-family:var(--font-display); font-style:italic; font-size:0.85rem; color:var(--gold); letter-spacing:0.05em; margin-bottom:1.1rem; display:block;}
+  .scene-card .role-dates{font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:0.5rem;}
+  .scene-card h3{font-size:1.25rem; margin-bottom:0.2rem;}
+  .scene-card .company{font-size:0.88rem; color:var(--bone-soft); margin-bottom:0.9rem; display:block;}
+  .scene-card p{font-size:0.92rem;}
+  .scene-card .tag{
+    display:inline-block; margin-top:0.9rem; font-family:var(--font-body); font-size:0.65rem;
+    letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:0.25rem 0.65rem;
+  }
+  .spine{width:100%; height:1px; display:block;}
+  .spine path{stroke:var(--rule-soft); stroke-width:1;}
+  .spine .drawn{stroke:var(--gold); stroke-dasharray:1000; stroke-dashoffset:1000;}
+  @media (max-width:768px){
+    .scenes-viewport{height:auto; overflow:visible; padding:11vh 0 6vh;}
+    .scenes-track{flex-direction:column; padding:0 7vw; transform:none !important;}
+    .scene-card{width:100%;}
+  }
+
+  /* ---------- CH05 FOUNDATION ---------- */
+  .foundation{background:var(--bg);}
+  .foundation-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:4rem; max-width:1000px;}
+  @media (max-width:768px){ .foundation-grid{grid-template-columns:1fr; gap:2.4rem;} }
+  .edu-item{padding:1.05rem 0; border-bottom:1px solid var(--rule-soft); opacity:0; transform:translateY(14px);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item .deg{font-family:var(--font-display); font-weight:600; font-size:1.05rem;}
+  .edu-item .school{font-size:0.88rem; color:var(--bone-soft); margin-top:0.2rem;}
+  .edu-item .yr{font-size:0.72rem; color:var(--gold); float:right; letter-spacing:0.05em;}
+  h3.col-h{font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-deep); font-weight:600; margin-bottom:1rem; font-family:var(--font-body);}
+  .beyond-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.9rem;}
+  .beyond-list li{opacity:0; transform:translateY(14px); font-size:0.94rem; padding-left:1.1rem; position:relative; color:var(--bone-soft);}
+  .beyond-list li::before{content:""; position:absolute; left:0; top:0.55em; width:5px; height:5px; background:var(--gold);}
+  .beyond-list .yr{display:block; font-size:0.72rem; color:var(--gold-deep); margin-top:0.15rem;}
+
+  /* ---------- CH06 CONTACT ---------- */
+  .contact{background:var(--panel); align-items:flex-start;}
+  .contact h2{font-size:clamp(2.2rem,6.4vw,4.4rem); max-width:15ch; font-style:italic; opacity:0; transform:translateY(20px);}
+  .contact-rule{width:80px; height:1px; background:var(--gold); margin:1.6rem 0 2.2rem; transform:scaleX(0); transform-origin:left;}
+  .contact-links{display:flex; flex-direction:column; gap:1rem; opacity:0; transform:translateY(20px);}
+  .contact-links a{
+    font-family:var(--font-display); font-size:1.1rem; color:var(--bone); text-decoration:none;
+    display:inline-flex; align-items:center; gap:0.7rem; width:fit-content; border-bottom:1px solid transparent;
+    padding-bottom:0.15rem; transition:border-color .25s, color .25s;
+  }
+  .contact-links a:hover{color:var(--gold); border-color:var(--gold);}
+  .contact-dot{width:5px; height:5px; background:var(--gold); flex:0 0 auto;}
+  .contact-foot{margin-top:4.2rem; font-size:0.74rem; color:var(--bone-soft); opacity:0; letter-spacing:0.04em;}
+
+  @media print{
+    .grain,.progress-bar,.act-indicator{display:none !important;}
+    .chapter{min-height:auto; page-break-inside:avoid; padding:1.5rem 0; color:#000 !important; background:#fff !important;}
+    h1,h2,h3,p,.eyebrow-gold{color:#000 !important;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .char,.ts-eyebrow,.ts-tagline,.ts-card,.ts-card-caption,.origin-quote,.credit-line,.edu-item,
+    .beyond-list li,.contact h2,.contact-links,.contact-foot{opacity:1 !important; transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true"><filter id="noise2"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise2)"/></svg>
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
+<div class="act-indicator" aria-hidden="true"><span class="roman" id="actRoman">I</span><span class="rule"></span><span id="actLabel">Title Sequence</span></div>
+
+<main>
+
+  <!-- CH01 TITLE SEQUENCE — SET PIECE -->
+  <section id="ch01" class="chapter title-sequence" data-act="Title Sequence" data-roman="I">
+    <div class="ts-layers" aria-hidden="true">
+      <div class="layer-back layer-parallax" data-speed="0.85">ATHULYA</div>
+      <div class="layer-glow layer-parallax" data-speed="1.15"></div>
+    </div>
+    <div class="ts-inner">
+      <p class="eyebrow-gold ts-eyebrow">Sales · Business Development</p>
+      <h1 class="ts-name split-chars">Athulya M</h1>
+      <div class="ts-rule-wrap">
+        <svg viewBox="0 0 520 8" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 4 H520"></path>
+          <path class="drawn" d="M0 4 H520"></path>
+        </svg>
+      </div>
+      <p class="ts-tagline">Full-cycle sales. Consultative by design. Closes across US and international markets.</p>
+      <div class="ts-card">
+        <p class="ts-card-eyebrow">The number</p>
+        <div class="ts-counter-wrap">
+          <span class="ts-counter"><span class="sign">$</span><span id="cLow">0</span>K</span>
+          <span class="ts-dash">–</span>
+          <span class="ts-counter"><span class="sign">$</span><span id="cHigh">0</span>K</span>
+        </div>
+        <p class="ts-card-caption">In monthly sales revenue · Inside Sales Specialist, Scale Job Services · Nov 2025–Present</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH02 ORIGIN -->
+  <section id="ch02" class="chapter origin" data-act="Origin" data-roman="II">
+    <div class="chapter-seam" aria-hidden="true"></div>
+    <p class="eyebrow-gold">The approach</p>
+    <p class="origin-quote">Sales, treated as a full-cycle discipline — lead generation, client relationships, negotiation, and closing — with <span>CRM records kept organized</span> and an eye always on long-term customer success, including direct consultations with US customers.</p>
+  </section>
+
+  <!-- CH03 THE SKILL SET -->
+  <section id="ch03" class="chapter skillset" data-act="The Skill Set" data-roman="III">
+    <div class="chapter-seam" aria-hidden="true"></div>
+    <p class="eyebrow-gold">The skill set</p>
+    <div class="credit-blocks">
+      <div class="credit-block">
+        <h3>Sales</h3>
+        <p class="credit-line">Business Development<span class="sep">·</span>Inside Sales<span class="sep">·</span>B2B Sales<span class="sep">·</span>Consultative Selling<span class="sep">·</span>Inbound &amp; Outbound Consultations<span class="sep">·</span>Sales Closing<span class="sep">·</span>Lead Generation<span class="sep">·</span>Account Management<span class="sep">·</span>Negotiation</p>
+      </div>
+      <div class="credit-block">
+        <h3>Tools &amp; Platforms</h3>
+        <p class="credit-line">CRM (Zoho)<span class="sep">·</span>LinkedIn Sales Navigator<span class="sep">·</span>Apollo.io<span class="sep">·</span>MS Office</p>
+      </div>
+      <div class="credit-block">
+        <h3>Certifications</h3>
+        <p class="credit-line">Marketing Communication — Udemy<span class="sep">·</span>Advertising &amp; Sales Promotion — Udemy<span class="sep">·</span>Harvard Manage Mentor — Decision Making &amp; Goal Setting<span class="sep">·</span>Digital Marketing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH04 THE SCENES -->
+  <section id="ch04" class="chapter scenes" data-act="The Scenes" data-roman="IV">
+    <div class="scenes-viewport">
+      <div class="scenes-header">
+        <p class="eyebrow-gold" style="margin-bottom:0.4rem;">The scenes</p>
+      </div>
+      <div class="scenes-spine-wrap">
+        <svg class="spine" viewBox="0 0 1000 1" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 0.5 H1000"></path>
+          <path class="drawn" d="M0 0.5 H1000"></path>
+        </svg>
+      </div>
+      <div class="scenes-track">
+        <article class="scene-card">
+          <span class="roman">Scene I</span>
+          <span class="role-dates">Nov 2025 — Present</span>
+          <h3>Inside Sales Specialist</h3>
+          <span class="company">Scale Job Services · International Market</span>
+          <p>Full-cycle inside sales with US customers — inbound and outbound consultations, negotiation, closing, onboarding, and customer success. Built new B2B relationships and helped launch the company's first influencer collaboration.</p>
+          <span class="tag">$15K–$20K monthly revenue</span>
+        </article>
+        <article class="scene-card">
+          <span class="roman">Scene II</span>
+          <span class="role-dates">Apr 2024 — Nov 2025</span>
+          <h3>Business Development Manager</h3>
+          <span class="company">Infinite Tech Solutions</span>
+          <p>Led software sales and business development, driving revenue growth across new and existing accounts. Ran product demos and client consultations, and managed the full pipeline from prospecting to deal closure.</p>
+        </article>
+        <article class="scene-card">
+          <span class="roman">Scene III</span>
+          <span class="role-dates">March 2024</span>
+          <h3>Consultancy Project (CAP)</h3>
+          <span class="company">WhyNameIt Innovations · Hyderabad</span>
+          <p>Explored emerging trends and provided strategic recommendations and innovative techniques to support company growth.</p>
+        </article>
+        <article class="scene-card">
+          <span class="roman">Scene IV</span>
+          <span class="role-dates">May — Jul 2023</span>
+          <h3>Sales &amp; Marketing Intern</h3>
+          <span class="company">Agile Capital Services Pvt. Ltd. · Delhi</span>
+          <p>Supported sales and marketing initiatives, lead generation, and client engagement activities.</p>
+          <span class="tag">Pre-Early Bird Certificate</span>
+        </article>
+        <article class="scene-card">
+          <span class="roman">Scene V</span>
+          <span class="role-dates">February 2023</span>
+          <h3>Project Intern (CMAPS)</h3>
+          <span class="company">V-RUB Suspensions Pvt. Ltd. · Pune</span>
+          <p>Provided marketing ideas for business expansion and conducted market research to identify potential vendors and suppliers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH05 FOUNDATION -->
+  <section id="ch05" class="chapter foundation" data-act="Foundation" data-roman="V">
+    <div class="chapter-seam" aria-hidden="true"></div>
+    <p class="eyebrow-gold">Education &amp; background</p>
+    <div class="foundation-grid">
+      <div>
+        <h3 class="col-h">Education</h3>
+        <div class="edu-item"><span class="yr">2023–2024</span><div class="deg">MBA, Marketing</div><div class="school">Universal Business School, Mumbai</div></div>
+        <div class="edu-item"><span class="yr">2019–2022</span><div class="deg">B.Com — SGPA 7.23/10.0</div><div class="school">SAS SNDP Yogam College, MG University</div></div>
+        <div class="edu-item"><span class="yr">2019</span><div class="deg">Higher Secondary — 96.6%</div><div class="school">SN Trusts HSS, Aickarakkonam, Kerala</div></div>
+        <div class="edu-item"><span class="yr">2016</span><div class="deg">CBSE — CGPA 9.0/10.0</div><div class="school">Oxford Sr. Secondary School, Karavalur, Kerala</div></div>
+      </div>
+      <div>
+        <h3 class="col-h">Additional credits</h3>
+        <ul class="beyond-list">
+          <li>Head of Digital Marketing Team, Environment Club<span class="yr">2022–2024</span></li>
+          <li>SMART Project Champion<span class="yr">2023</span></li>
+          <li>Member, Bharat Scouts &amp; Guides<span class="yr">2017–2019</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH06 CONTACT -->
+  <section id="ch06" class="chapter contact" data-act="Contact" data-roman="VI">
+    <div class="chapter-seam" aria-hidden="true"></div>
+    <p class="eyebrow-gold">Get in touch</p>
+    <h2>Ready to build the pipeline. Let's talk.</h2>
+    <div class="contact-rule"></div>
+    <div class="contact-links">
+      <a href="mailto:athulyamangalan@gmail.com"><span class="contact-dot"></span>athulyamangalan@gmail.com</a>
+      <a href="tel:+919544951188"><span class="contact-dot"></span>+91 95449 51188</a>
+      <a href="https://linkedin.com/in/athulya" target="_blank" rel="noopener"><span class="contact-dot"></span>linkedin.com/in/athulya</a>
+    </div>
+    <p class="contact-foot">Athulya M — Sales &amp; Business Development</p>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+function splitChars(el){
+  const text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.innerHTML='';
+  [...text].forEach(ch=>{
+    const s=document.createElement('span');
+    s.className='char'; s.setAttribute('aria-hidden','true');
+    s.textContent = ch===' ' ? '\u00A0' : ch;
+    el.appendChild(s);
+  });
+}
+document.querySelectorAll('.split-chars').forEach(splitChars);
+
+/* progress bar */
+gsap.to('.progress-bar-fill', {
+  scaleX:1, ease:'none',
+  scrollTrigger:{trigger:document.body, start:'top top', end:'bottom bottom', scrub:0.3}
+});
+
+/* act indicator */
+const chapters = gsap.utils.toArray('.chapter');
+const actLabel = document.getElementById('actLabel');
+const actRoman = document.getElementById('actRoman');
+chapters.forEach(ch=>{
+  ScrollTrigger.create({
+    trigger:ch, start:'top center', end:'bottom center',
+    onToggle:self=>{ if(self.isActive){ actLabel.textContent = ch.dataset.act; actRoman.textContent = ch.dataset.roman; } }
+  });
+});
+
+let mm = gsap.matchMedia();
+
+mm.add('(prefers-reduced-motion: no-preference)', ()=>{
+
+  /* CH01 title sequence — pinned, scrub-driven staging */
+  ScrollTrigger.matchMedia({
+    '(min-width:769px)': function(){
+      const ts = gsap.timeline({scrollTrigger:{
+        trigger:'#ch01', start:'top top', end:'+=230%', pin:true, scrub:1,
+        onUpdate: self=>{
+          const p = self.progress;
+          document.querySelectorAll('#ch01 .layer-parallax').forEach(el=>{
+            const speed = parseFloat(el.dataset.speed||1);
+            gsap.set(el, {yPercent: p*-10*speed, xPercent: p*4*(speed-1)});
+          });
+        }
+      }});
+      const cLow = {v:0}, cHigh = {v:0};
+      ts
+        .to('.ts-eyebrow', {opacity:1, y:0, duration:1})
+        .to('.ts-name .char', {opacity:1, y:0, duration:1.6, stagger:0.045}, '-=0.4')
+        .to('.ts-rule-wrap .drawn', {strokeDashoffset:0, duration:1.2}, '-=0.6')
+        .to('.ts-tagline', {opacity:1, y:0, duration:1}, '-=0.3')
+        .to('.ts-card', {opacity:1, y:0, scale:1, duration:1.2}, '+=0.3')
+        .to(cLow, {v:15, duration:1.2, onUpdate:()=>{document.getElementById('cLow').textContent = Math.round(cLow.v);}}, '-=0.6')
+        .to(cHigh, {v:20, duration:1.4, onUpdate:()=>{document.getElementById('cHigh').textContent = Math.round(cHigh.v);}}, '<')
+        .to('.ts-card-caption', {opacity:1, duration:0.9}, '-=0.5');
+    },
+    '(max-width:768px)': function(){
+      const ts = gsap.timeline({scrollTrigger:{trigger:'#ch01', start:'top top', end:'+=150%', pin:true, scrub:1}});
+      const cLow = {v:0}, cHigh = {v:0};
+      ts
+        .to('.ts-eyebrow', {opacity:1, y:0, duration:1})
+        .to('.ts-name .char', {opacity:1, y:0, duration:1.4, stagger:0.03}, '-=0.4')
+        .to('.ts-rule-wrap .drawn', {strokeDashoffset:0, duration:1}, '-=0.5')
+        .to('.ts-tagline', {opacity:1, y:0, duration:0.9}, '-=0.2')
+        .to('.ts-card', {opacity:1, y:0, scale:1, duration:1}, '+=0.2')
+        .to(cLow, {v:15, duration:1, onUpdate:()=>{document.getElementById('cLow').textContent = Math.round(cLow.v);}}, '-=0.5')
+        .to(cHigh, {v:20, duration:1.1, onUpdate:()=>{document.getElementById('cHigh').textContent = Math.round(cHigh.v);}}, '<')
+        .to('.ts-card-caption', {opacity:1, duration:0.7}, '-=0.4');
+    }
+  });
+
+  /* chapter seams — gold hairline draws in at the top of each new chapter, scrubbed */
+  gsap.utils.toArray('.chapter-seam').forEach(seam=>{
+    gsap.timeline({scrollTrigger:{trigger:seam.parentElement, start:'top bottom', end:'top 60%', scrub:0.6}})
+      .fromTo(seam, {scaleX:0, transformOrigin:'left'}, {scaleX:1, ease:'none'});
+  });
+
+  /* CH02 origin */
+  gsap.to('.origin-quote', {
+    opacity:1, y:0, duration:1.1, ease:'power2.out',
+    scrollTrigger:{trigger:'.origin-quote', start:'top 78%', toggleActions:'play none none none'}
+  });
+
+  /* CH03 credit lines */
+  gsap.to('.credit-line', {
+    opacity:1, y:0, duration:0.9, ease:'power2.out', stagger:0.15,
+    scrollTrigger:{trigger:'.credit-blocks', start:'top 80%', toggleActions:'play none none none'}
+  });
+
+  /* CH04 horizontal scenes + gold spine draw */
+  ScrollTrigger.matchMedia({
+    '(min-width:769px)': function(){
+      const track = document.querySelector('.scenes-track');
+      const getDistance = ()=> Math.max(track.scrollWidth - window.innerWidth, 0);
+      gsap.to(track, {
+        x:()=> -getDistance(), ease:'none',
+        scrollTrigger:{
+          trigger:'#ch04', start:'top top', end:()=>'+='+getDistance(),
+          scrub:0.8, pin:true, invalidateOnRefresh:true,
+          onUpdate:self=>{ gsap.set('.spine .drawn', {strokeDashoffset: 1000 - (self.progress*1000)}); }
+        }
+      });
+    }
+  });
+
+  /* CH05 foundation */
+  gsap.to('.edu-item', {
+    opacity:1, y:0, duration:0.7, ease:'power2.out', stagger:0.08,
+    scrollTrigger:{trigger:'.foundation-grid', start:'top 80%', toggleActions:'play none none none'}
+  });
+  gsap.to('.beyond-list li', {
+    opacity:1, y:0, duration:0.7, ease:'power2.out', stagger:0.08,
+    scrollTrigger:{trigger:'.foundation-grid', start:'top 80%', toggleActions:'play none none none'}
+  });
+
+  /* CH06 contact */
+  gsap.timeline({scrollTrigger:{trigger:'#ch06', start:'top 70%', toggleActions:'play none none none'}})
+    .to('.contact h2', {opacity:1, y:0, duration:1, ease:'power2.out'})
+    .to('.contact-rule', {scaleX:1, duration:0.9, ease:'power2.out'}, '-=0.5')
+    .to('.contact-links', {opacity:1, y:0, duration:0.8, ease:'power2.out'}, '-=0.4')
+    .to('.contact-foot', {opacity:1, duration:0.7}, '-=0.3');
+
+  return ()=>{};
+});
+
+mm.add('(prefers-reduced-motion: reduce)', ()=>{
+  gsap.set('.char,.ts-eyebrow,.ts-tagline,.ts-card,.ts-card-caption,.origin-quote,.credit-line,.edu-item,.beyond-list li,.contact h2,.contact-links,.contact-foot',
+    {opacity:1, y:0, scale:1, clearProps:'transform'});
+  gsap.set('.ts-rule-wrap .drawn,.spine .drawn', {strokeDashoffset:0});
+  gsap.set('.chapter-seam,.contact-rule', {scaleX:1});
+  document.getElementById('cLow').textContent = 15;
+  document.getElementById('cHigh').textContent = 20;
+  return ()=>{};
+});
+
+document.fonts.ready.then(()=> ScrollTrigger.refresh());
+window.addEventListener('resize', ()=> ScrollTrigger.refresh());
+</script>
+</body>
+</html>

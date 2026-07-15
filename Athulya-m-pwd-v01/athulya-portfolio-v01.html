@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<!--
+ART DIRECTION DECLARATION
+DIRECTION: 01 · Kinetic Editorial
+DOMAIN: Sales / Business Development — early-career, high-velocity B2B & inside sales professional (2+ yrs, MBA Marketing 2024)
+PALETTE: base #FAFAF8 / surface-alt #F1EEE6 / ink #111114 / accent coral #FF5A45 / accent-deep #D63B28 / rule #E3E0D8
+TYPE: Space Grotesk (display, geometric + confident — reads as modern and direct, matches a candidate who owns "full-cycle" processes) + Inter (body, tabular numerals on for every stat)
+MOTION PERSONALITY: crisp, snappy, precise — expo/power3 entrances, hard chapter cuts, no bounce
+SIGNATURE SET PIECE: the one real, repeatable number in the résumé — $15,000–$20,000 in monthly sales revenue — rendered as a pinned dual counter that counts up once, staged inside a dark crescendo chapter that inverts the page's bright palette for contrast
+RATIONALE: Sales/BD is a growth, generalist, numbers-forward domain — Kinetic Editorial's confident grotesk type and single hot accent let the real revenue figures carry the page instead of invented drama.
+
+DATA INVENTORY (every fact below traces to the uploaded résumé; nothing else appears on the page)
+— Identity: Athulya M · +91-9544951188 · athulyamangalan@gmail.com · linkedin.com/in/athulya → Hero, CTA
+— Summary line (sales professional, BD, consultative selling, US customers, full-cycle, CRM organized, long-term customer success) → Ch.02 Origin
+— Process stages from summary (lead generation → client relationship management → negotiation → closing) → Ch.01 kinetic word-build
+— Role: Inside Sales Specialist, Scale Job Services (International Market), Nov 2025–Present → Ch.04 set piece + Ch.05 timeline
+  · $15,000–$20,000 monthly sales revenue, full-cycle inside sales → Ch.04 set piece (headline numeral)
+  · Inbound/outbound calls with US customers, product consultations → Ch.05 card
+  · Owned full cycle: qualification, consultation, negotiation, closing, payment, onboarding, customer success → Ch.05 card
+  · New B2B business with US-based clients → Ch.05 card
+  · Contributed to company's first influencer collaboration → Ch.04 set piece support line
+— Role: Business Development Manager, Infinite Tech Solutions, Apr 2024–Nov 2025 → Ch.05 timeline
+  · Led software sales/BD, drove revenue growth on new + existing accounts → Ch.05 card
+  · Product demos, client consultations → Ch.05 card
+  · Managed full pipeline: prospecting, proposals, negotiation, closing → Ch.05 card
+  · Built long-term B2B relationships, expanded existing accounts → Ch.05 card
+— Role: Consultancy Project (CAP), WhyNameIt Innovations, Hyderabad, Mar 2024 → Ch.05 timeline (emerging trends, strategic recommendations for growth)
+— Role: Sales & Marketing Intern, Agile Capital Services Pvt. Ltd., Delhi, May–Jul 2023 → Ch.05 timeline (lead gen, client engagement; Pre-Early Bird Certificate)
+— Role: Project Intern (CMAPS), V-RUB Suspensions Pvt. Ltd., Pune, Feb 2023 → Ch.05 timeline (marketing ideas, vendor/supplier market research)
+— Education: MBA Marketing, Universal Business School, Mumbai, 2023–2024 → Ch.06
+— Education: B.Com, SAS SNDP Yogam College (MG University), SGPA 7.23/10.0, 2019–2022 → Ch.06
+— Education: Higher Secondary, SN Trusts HSS, Aickarakkonam, Kerala, 96.6%, 2019 → Ch.06
+— Education: CBSE, Oxford Sr. Secondary School, Karavalur, Kerala, CGPA 9.0/10.0, 2016 → Ch.06
+— Skills — Sales: Business Development, Inside Sales, B2B Sales, Consultative Selling, Inbound & Outbound Consultations, Sales Closing, Lead Generation, Account Management, Negotiation → Ch.03
+— Tools: CRM (Zoho), LinkedIn Sales Navigator, Apollo.io, MS Office → Ch.03
+— Certifications: Marketing Communication (Udemy), Advertising & Sales Promotion (Udemy), Harvard Manage Mentor – Decision Making & Goal Setting, Digital Marketing → Ch.03
+— Beyond the classroom: Head of Digital Marketing Team, Environment Club (2022–2024); SMART Project Champion (2023); Member, Bharat Scouts & Guides (2017–2019) → Ch.06
+
+SCENE STORYBOARD
+CH | CHAPTER            | MECHANIC                                             | PIN?(len)   | SCRUB/TOGGLE      | KEY FACT SHOWN                          | SEAM OUT
+01 | Hero hook           | layered parallax (3 planes) + word-by-word build     | no          | toggle once (load)| name + process-stage positioning        | coral rule sweeps full-width on exit
+02 | Origin               | masked text block, hairline wipe                     | no          | toggle once        | summary narrative                       | surface-alt panel slides up under next chapter
+03 | Expertise            | kinetic tag field, staggered chip pop-in             | no          | toggle once        | sales skills / tools / certifications   | coral bar scrubs full-bleed into dark
+04 | Impact ★SET PIECE   | dark inversion, dual counter, staged label build     | yes (220vh) | scrub (labels) + toggle-once (counters) | $15K–$20K monthly revenue | scaleX wipe back to bright surface
+05 | Journey              | horizontal panel, 5 role cards, SVG spine draw-in    | yes (~track)| scrub              | 5 real roles, chronological             | track locks, hairline hands off to grid
+06 | Foundation            | two-column reveal (education + beyond-classroom)     | no          | toggle once        | 4 schools, 3 extracurricular lines      | hard cut to inverted footer
+07 | Vision / CTA         | dark footer, coral accent dot (shared element), links| no          | toggle once        | contact + closing line                  | end
+
+MOBILE ADAPTATIONS: Ch.01 parallax planes reduce to 2 (grid layer dropped); Ch.04 pin shortens to 140vh and dual counters stack vertically; Ch.05 horizontal track becomes a vertical stack (pin removed), SVG spine rotates to a vertical rule; progress dot-rail is replaced by a 2px top progress bar only.
+REDUCED-MOTION: every chapter renders fully visible and static (opacity:1, no transforms); the pin on Ch.04/Ch.05 is disabled via gsap.matchMedia(); counters render at their final value immediately.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athulya M — Sales &amp; Business Development</title>
+<meta name="description" content="Athulya M — full-cycle sales professional. Consultative selling, US market business development, and a career built on closing.">
+<meta property="og:title" content="Athulya M — Sales & Business Development">
+<meta property="og:description" content="Full-cycle sales professional. Consultative selling, US market business development, and a career built on closing.">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8;
+    --surface-alt:#F1EEE6;
+    --ink:#111114;
+    --ink-soft:#5B5B62;
+    --bone:#F2EEE4;
+    --accent:#FF5A45;
+    --accent-deep:#D63B28;
+    --rule:#E3E0D8;
+    --rule-dark:#2A2A30;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --ease-out:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-feature-settings:"tnum" 1, "lnum" 1;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:-0.03em;
+    line-height:0.98;
+    margin:0;
+  }
+  p{margin:0; line-height:1.65; font-size:1.02rem; color:var(--ink-soft);}
+  a{color:inherit;}
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  /* atmosphere */
+  .grain{
+    position:fixed; inset:0; z-index:999; pointer-events:none;
+    opacity:0.035; mix-blend-mode:multiply;
+  }
+
+  /* progress devices */
+  .progress-bar{
+    position:fixed; top:0; left:0; height:3px; width:100%;
+    background:var(--rule); z-index:600;
+  }
+  .progress-bar-fill{
+    height:100%; width:100%; background:var(--accent);
+    transform:scaleX(0); transform-origin:left;
+  }
+  .rail{
+    position:fixed; right:2.2rem; top:50%; transform:translateY(-50%);
+    z-index:600; display:flex; flex-direction:column; gap:1rem;
+  }
+  .rail button{
+    width:8px; height:8px; padding:0; border-radius:50%; border:1.5px solid var(--ink-soft);
+    background:transparent; cursor:pointer; transition:background .25s var(--ease-out), transform .25s var(--ease-out), border-color .25s;
+  }
+  .rail button.active{background:var(--accent); border-color:var(--accent); transform:scale(1.5);}
+  @media (max-width:768px){ .rail{display:none;} }
+
+  /* layout */
+  .chapter{
+    position:relative; min-height:100vh; width:100%;
+    padding:12vh 7vw; display:flex; flex-direction:column; justify-content:center;
+    overflow:hidden;
+  }
+  .eyebrow{
+    font-family:var(--font-display); font-size:0.78rem; font-weight:600;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--accent);
+    margin-bottom:1.4rem; display:flex; align-items:center; gap:0.6rem;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--accent); display:inline-block;}
+  .chapter-num{
+    position:absolute; top:6vh; left:7vw; font-family:var(--font-display);
+    font-size:0.78rem; color:var(--ink-soft); letter-spacing:0.1em;
+  }
+
+  /* ---------- CH01 HERO ---------- */
+  .hero{background:var(--bg);}
+  .hero-planes{position:absolute; inset:0; z-index:0; pointer-events:none;}
+  .layer-back{
+    position:absolute; top:6%; left:-2%; font-family:var(--font-display); font-weight:700;
+    font-size:clamp(6rem,26vw,22rem); color:var(--surface-alt); line-height:1; white-space:nowrap; z-index:0;
+  }
+  .layer-grid{
+    position:absolute; inset:0; z-index:0;
+    background-image:
+      linear-gradient(to right, var(--rule) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+    background-size:64px 64px; opacity:0.4;
+  }
+  .hero-content{position:relative; z-index:2;}
+  .hero-name{
+    font-size:clamp(3.2rem, 12.5vw, 10.5rem); overflow:hidden;
+  }
+  .hero-name .char{display:inline-block; opacity:0; transform:translateY(100%);}
+  .hero-kinetic{
+    margin-top:1.4rem; font-size:clamp(1.6rem, 5.4vw, 3.6rem); font-family:var(--font-display);
+    font-weight:600; letter-spacing:-0.01em; color:var(--ink);
+  }
+  .hero-kinetic .kword{display:inline-block; opacity:0; transform:translateY(24px); margin-right:0.35em;}
+  .hero-kinetic .kword:last-child{color:var(--accent);}
+  .hero-sub{
+    margin-top:2.2rem; max-width:38ch; opacity:0; transform:translateY(16px);
+  }
+  .scroll-cue{
+    position:absolute; bottom:6vh; left:7vw; display:flex; align-items:center; gap:0.6rem;
+    font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-soft); opacity:0; z-index:2;
+  }
+  .scroll-cue svg{width:14px; height:14px;}
+  /* ---------- CH02 ORIGIN ---------- */
+  .origin{background:var(--surface-alt);}
+  .origin-text{max-width:62ch; font-size:clamp(1.2rem,2.4vw,1.55rem); font-family:var(--font-body); font-weight:500; color:var(--ink); line-height:1.55;}
+  .origin-text .reveal-line{display:block; overflow:hidden;}
+  .origin-text .reveal-line span{display:block; opacity:0; transform:translateY(100%);}
+
+  /* ---------- CH03 EXPERTISE ---------- */
+  .expertise{background:var(--bg);}
+  .tag-groups{display:flex; flex-direction:column; gap:2.6rem; margin-top:1rem;}
+  .tag-group h3{font-family:var(--font-display); font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:0.9rem;}
+  .tag-field{display:flex; flex-wrap:wrap; gap:0.6rem;}
+  .chip{
+    font-family:var(--font-body); font-weight:500; font-size:0.92rem;
+    padding:0.55rem 1.05rem; border:1.5px solid var(--rule); border-radius:100px;
+    background:var(--bg); opacity:0; transform:translateY(14px) scale(0.96);
+    transition:border-color .2s, background .2s, color .2s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent-deep); background:#FFF4F1;}
+
+  /* ---------- CH04 IMPACT / SET PIECE ---------- */
+  .impact{background:var(--ink); color:var(--bone); min-height:220vh;}
+  .impact-inner{position:sticky; top:0; height:100vh; display:flex; flex-direction:column; justify-content:center; padding:12vh 7vw;}
+  .impact .eyebrow{color:var(--accent);}
+  .impact .eyebrow::before{background:var(--accent);}
+  .sp-label-1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(1.6rem,4.6vw,3rem);
+    color:var(--bone); opacity:0; transform:translateY(24px); max-width:16ch;
+  }
+  .sp-counter-wrap{opacity:0; transform:scale(0.94); margin-top:1.6rem; display:flex; align-items:baseline; gap:1.2rem; flex-wrap:wrap;}
+  .sp-counter{font-family:var(--font-display); font-weight:700; font-size:clamp(3.4rem,13vw,9rem); color:var(--bone); line-height:1;}
+  .sp-counter .sign{color:var(--accent);}
+  .sp-dash{font-family:var(--font-display); font-size:clamp(2rem,6vw,4rem); color:var(--ink-soft);}
+  .sp-caption{
+    margin-top:1.2rem; font-family:var(--font-display); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft);
+    opacity:0;
+  }
+  .sp-support{
+    margin-top:2.6rem; padding-top:2rem; border-top:1px solid var(--rule-dark); max-width:56ch;
+    opacity:0; transform:translateY(20px);
+  }
+  .sp-support p{color:#B9B7C0;}
+  .sp-support strong{color:var(--bone); font-weight:600;}
+
+  /* ---------- CH05 JOURNEY ---------- */
+  .journey{background:var(--bg); padding:0;}
+  .journey-viewport{height:100vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:12vh 0 0;}
+  .journey-header{padding:0 7vw; margin-bottom:2.4rem;}
+  .journey-spine-wrap{padding:0 7vw;}
+  .journey-track{display:flex; gap:2.4rem; padding:0 7vw; will-change:transform;}
+  .journey-card{
+    flex:0 0 auto; width:min(78vw,420px); background:var(--surface-alt);
+    border:1px solid var(--rule); border-radius:4px; padding:2.2rem; position:relative;
+  }
+  .journey-card .role-dates{font-family:var(--font-display); font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:0.8rem;}
+  .journey-card h3{font-size:1.3rem; margin-bottom:0.25rem;}
+  .journey-card .company{font-size:0.92rem; color:var(--ink-soft); margin-bottom:1rem; display:block;}
+  .journey-card p{font-size:0.94rem;}
+  .journey-card .tag{
+    display:inline-block; margin-top:1rem; font-family:var(--font-display); font-size:0.68rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-deep); border:1px solid var(--accent); border-radius:100px; padding:0.25rem 0.7rem;
+  }
+  .spine{width:100%; height:2px; display:block;}
+  .spine path{stroke:var(--rule); stroke-width:2;}
+  .spine .drawn{stroke:var(--accent); stroke-dasharray:1000; stroke-dashoffset:1000;}
+  @media (max-width:768px){
+    .journey-viewport{height:auto; overflow:visible; padding:12vh 0 6vh;}
+    .journey-track{flex-direction:column; padding:0 7vw; transform:none !important;}
+    .journey-card{width:100%;}
+  }
+
+  /* ---------- CH06 FOUNDATION ---------- */
+  .foundation{background:var(--surface-alt);}
+  .foundation-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:4rem; margin-top:1rem;}
+  @media (max-width:768px){ .foundation-grid{grid-template-columns:1fr; gap:2.4rem;} }
+  .edu-item{padding:1.1rem 0; border-bottom:1px solid var(--rule); opacity:0; transform:translateY(14px);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item .deg{font-family:var(--font-display); font-weight:600; font-size:1.05rem;}
+  .edu-item .school{font-size:0.9rem; color:var(--ink-soft); margin-top:0.2rem;}
+  .edu-item .yr{font-family:var(--font-display); font-size:0.78rem; color:var(--accent-deep); float:right;}
+  h3.col-h{font-family:var(--font-display); font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin-bottom:1rem;}
+  .beyond-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.9rem;}
+  .beyond-list li{opacity:0; transform:translateY(14px); font-size:0.96rem; padding-left:1.1rem; position:relative;}
+  .beyond-list li::before{content:""; position:absolute; left:0; top:0.5em; width:6px; height:6px; border-radius:50%; background:var(--accent);}
+  .beyond-list .yr{display:block; font-family:var(--font-display); font-size:0.74rem; color:var(--ink-soft); margin-top:0.15rem;}
+
+  /* ---------- CH07 CTA ---------- */
+  .cta{background:var(--ink); color:var(--bone); align-items:flex-start;}
+  .cta .eyebrow{color:var(--accent);}
+  .cta .eyebrow::before{background:var(--accent);}
+  .cta h2{font-size:clamp(2.4rem,7vw,5.2rem); max-width:14ch; color:var(--bone);}
+  .cta-line{opacity:0; transform:translateY(20px);}
+  .cta-links{margin-top:2.6rem; display:flex; flex-direction:column; gap:1rem; opacity:0; transform:translateY(20px);}
+  .cta-links a{
+    font-family:var(--font-display); font-size:1.05rem; font-weight:600; color:var(--bone);
+    text-decoration:none; display:inline-flex; align-items:center; gap:0.6rem; width:fit-content;
+    border-bottom:1.5px solid transparent; padding-bottom:0.15rem; transition:border-color .2s, color .2s;
+  }
+  .cta-links a:hover{color:var(--accent); border-color:var(--accent);}
+  .cta-dot{width:9px; height:9px; border-radius:50%; background:var(--accent); flex:0 0 auto;}
+  .cta-foot{margin-top:4.5rem; font-size:0.78rem; color:var(--ink-soft); opacity:0;}
+
+  /* seam wipe */
+  .seam-wipe{
+    position:absolute; top:0; left:0; width:100%; height:100%; background:var(--accent);
+    transform:scaleX(0); transform-origin:left; z-index:5; pointer-events:none;
+  }
+
+  @media print{
+    .grain, .progress-bar, .rail, .seam-wipe{display:none !important;}
+    .chapter{min-height:auto; page-break-inside:avoid; padding:1.5rem 0; color:#000 !important; background:#fff !important;}
+    .impact, .cta{background:#fff !important; color:#000 !important;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .char,.kword,.hero-sub,.scroll-cue,.reveal-line span,.chip,.sp-label-1,.sp-counter-wrap,.sp-caption,.sp-support,
+    .edu-item,.beyond-list li,.cta-line,.cta-links,.cta-foot{
+      opacity:1 !important; transform:none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noise)"/></svg>
+
+<div class="progress-bar" aria-hidden="true"><div class="progress-bar-fill"></div></div>
+
+<nav class="rail" aria-label="Chapter navigation">
+  <button data-target="#ch01" class="active" aria-label="Hero"></button>
+  <button data-target="#ch02" aria-label="Origin"></button>
+  <button data-target="#ch03" aria-label="Expertise"></button>
+  <button data-target="#ch04" aria-label="Impact"></button>
+  <button data-target="#ch05" aria-label="Journey"></button>
+  <button data-target="#ch06" aria-label="Foundation"></button>
+  <button data-target="#ch07" aria-label="Contact"></button>
+</nav>
+
+<main>
+
+  <!-- CH01 HERO -->
+  <section id="ch01" class="chapter hero">
+    <div class="hero-planes" aria-hidden="true">
+      <div class="layer-back layer-parallax" data-speed="0.85">ATHULYA</div>
+      <div class="layer-grid layer-parallax" data-speed="1"></div>
+    </div>
+    <div class="hero-content layer-parallax" data-speed="1.15">
+      <p class="eyebrow">Sales · Business Development</p>
+      <h1 class="hero-name split-chars">Athulya M</h1>
+      <p class="hero-kinetic split-words">Lead. Relationship. Negotiation. Close.</p>
+      <p class="hero-sub">Full-cycle sales professional — consultative selling with direct, end-to-end engagement across US and international markets.</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      Scroll
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M6 14l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- CH02 ORIGIN -->
+  <section id="ch02" class="chapter origin">
+    <span class="chapter-num">02 — Origin</span>
+    <p class="eyebrow">The approach</p>
+    <p class="origin-text">
+      <span class="reveal-line"><span>Sales work, treated as a full-cycle discipline —</span></span>
+      <span class="reveal-line"><span>lead generation, client relationships, negotiation,</span></span>
+      <span class="reveal-line"><span>closing — with CRM records kept organized and</span></span>
+      <span class="reveal-line"><span>an eye always on long-term customer success,</span></span>
+      <span class="reveal-line"><span>including direct consultations with US customers.</span></span>
+    </p>
+  </section>
+
+  <!-- CH03 EXPERTISE -->
+  <section id="ch03" class="chapter expertise">
+    <span class="chapter-num">03 — Expertise</span>
+    <p class="eyebrow">Skills &amp; tools</p>
+    <div class="tag-groups">
+      <div class="tag-group">
+        <h3>Sales</h3>
+        <div class="tag-field">
+          <span class="chip">Business Development</span>
+          <span class="chip">Inside Sales</span>
+          <span class="chip">B2B Sales</span>
+          <span class="chip">Consultative Selling</span>
+          <span class="chip">Inbound &amp; Outbound Consultations</span>
+          <span class="chip">Sales Closing</span>
+          <span class="chip">Lead Generation</span>
+          <span class="chip">Account Management</span>
+          <span class="chip">Negotiation</span>
+        </div>
+      </div>
+      <div class="tag-group">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="tag-field">
+          <span class="chip">CRM (Zoho)</span>
+          <span class="chip">LinkedIn Sales Navigator</span>
+          <span class="chip">Apollo.io</span>
+          <span class="chip">MS Office</span>
+        </div>
+      </div>
+      <div class="tag-group">
+        <h3>Certifications</h3>
+        <div class="tag-field">
+          <span class="chip">Marketing Communication — Udemy</span>
+          <span class="chip">Advertising &amp; Sales Promotion — Udemy</span>
+          <span class="chip">Harvard Manage Mentor — Decision Making &amp; Goal Setting</span>
+          <span class="chip">Digital Marketing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH04 IMPACT — SET PIECE -->
+  <section id="ch04" class="chapter impact">
+    <div class="seam-wipe" aria-hidden="true"></div>
+    <div class="impact-inner">
+      <span class="chapter-num" style="color:#8C8A93;">04 — Impact</span>
+      <p class="eyebrow">The number that repeats</p>
+      <p class="sp-label-1">Every month, without fail —</p>
+      <div class="sp-counter-wrap">
+        <span class="sp-counter"><span class="sign">$</span><span id="counterLow">0</span>K</span>
+        <span class="sp-dash">–</span>
+        <span class="sp-counter"><span class="sign">$</span><span id="counterHigh">0</span>K</span>
+      </div>
+      <p class="sp-caption">In monthly sales revenue · Inside Sales Specialist, Scale Job Services · Nov 2025–Present</p>
+      <div class="sp-support">
+        <p>Generated end-to-end through <strong>full-cycle inside sales</strong> — qualification through closing, payment, and onboarding — with new <strong>B2B accounts built across US-based clients</strong>, and a contribution to the company's <strong>first-ever influencer collaboration</strong> that expanded brand visibility and brought in additional leads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH05 JOURNEY -->
+  <section id="ch05" class="chapter journey">
+    <div class="journey-viewport">
+      <div class="journey-header">
+        <span class="chapter-num" style="position:static; display:block; margin-bottom:0.4rem;">05 — Journey</span>
+        <p class="eyebrow">Career, in order</p>
+      </div>
+      <div class="journey-spine-wrap">
+        <svg class="spine" viewBox="0 0 1000 2" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 1 H1000"></path>
+          <path class="drawn" d="M0 1 H1000"></path>
+        </svg>
+      </div>
+      <div class="journey-track">
+        <article class="journey-card">
+          <span class="role-dates">Nov 2025 — Present</span>
+          <h3>Inside Sales Specialist</h3>
+          <span class="company">Scale Job Services · International Market</span>
+          <p>Full-cycle inside sales with US customers — inbound and outbound consultations, negotiation, closing, onboarding, and customer success. Built new B2B relationships and helped launch the company's first influencer collaboration.</p>
+          <span class="tag">$15K–$20K monthly revenue</span>
+        </article>
+        <article class="journey-card">
+          <span class="role-dates">Apr 2024 — Nov 2025</span>
+          <h3>Business Development Manager</h3>
+          <span class="company">Infinite Tech Solutions</span>
+          <p>Led software sales and business development, driving revenue growth across new and existing accounts. Ran product demos and client consultations, and managed the full pipeline from prospecting to deal closure.</p>
+        </article>
+        <article class="journey-card">
+          <span class="role-dates">March 2024</span>
+          <h3>Consultancy Project (CAP)</h3>
+          <span class="company">WhyNameIt Innovations · Hyderabad</span>
+          <p>Explored emerging trends and provided strategic recommendations and innovative techniques to support company growth.</p>
+        </article>
+        <article class="journey-card">
+          <span class="role-dates">May — Jul 2023</span>
+          <h3>Sales &amp; Marketing Intern</h3>
+          <span class="company">Agile Capital Services Pvt. Ltd. · Delhi</span>
+          <p>Supported sales and marketing initiatives, lead generation, and client engagement activities.</p>
+          <span class="tag">Pre-Early Bird Certificate</span>
+        </article>
+        <article class="journey-card">
+          <span class="role-dates">February 2023</span>
+          <h3>Project Intern (CMAPS)</h3>
+          <span class="company">V-RUB Suspensions Pvt. Ltd. · Pune</span>
+          <p>Provided marketing ideas for business expansion and conducted market research to identify potential vendors and suppliers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH06 FOUNDATION -->
+  <section id="ch06" class="chapter foundation">
+    <span class="chapter-num">06 — Foundation</span>
+    <p class="eyebrow">Education &amp; background</p>
+    <div class="foundation-grid">
+      <div>
+        <h3 class="col-h">Education</h3>
+        <div class="edu-item"><span class="yr">2023–2024</span><div class="deg">MBA, Marketing</div><div class="school">Universal Business School, Mumbai</div></div>
+        <div class="edu-item"><span class="yr">2019–2022</span><div class="deg">B.Com — SGPA 7.23/10.0</div><div class="school">SAS SNDP Yogam College, MG University</div></div>
+        <div class="edu-item"><span class="yr">2019</span><div class="deg">Higher Secondary — 96.6%</div><div class="school">SN Trusts HSS, Aickarakkonam, Kerala</div></div>
+        <div class="edu-item"><span class="yr">2016</span><div class="deg">CBSE — CGPA 9.0/10.0</div><div class="school">Oxford Sr. Secondary School, Karavalur, Kerala</div></div>
+      </div>
+      <div>
+        <h3 class="col-h">Beyond the classroom</h3>
+        <ul class="beyond-list">
+          <li>Head of Digital Marketing Team, Environment Club<span class="yr">2022–2024</span></li>
+          <li>SMART Project Champion<span class="yr">2023</span></li>
+          <li>Member, Bharat Scouts &amp; Guides<span class="yr">2017–2019</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CH07 CTA -->
+  <section id="ch07" class="chapter cta">
+    <span class="chapter-num" style="color:#8C8A93;">07 — Connect</span>
+    <p class="eyebrow">Let's talk</p>
+    <h2 class="cta-line">Ready to build the pipeline. Let's talk.</h2>
+    <div class="cta-links">
+      <a href="mailto:athulyamangalan@gmail.com"><span class="cta-dot"></span>athulyamangalan@gmail.com</a>
+      <a href="tel:+919544951188"><span class="cta-dot"></span>+91 95449 51188</a>
+      <a href="https://linkedin.com/in/athulya" target="_blank" rel="noopener"><span class="cta-dot"></span>linkedin.com/in/athulya</a>
+    </div>
+    <p class="cta-foot">Athulya M — Sales &amp; Business Development</p>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- text splitters (progressive enhancement; plain text remains if JS fails) ---------- */
+function splitChars(el){
+  const text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.innerHTML = '';
+  [...text].forEach(ch=>{
+    const s=document.createElement('span');
+    s.className='char';
+    s.setAttribute('aria-hidden','true');
+    s.textContent = ch===' ' ? '\u00A0' : ch;
+    el.appendChild(s);
+  });
+}
+function splitWords(el){
+  const text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.innerHTML='';
+  const words = text.split(' ');
+  words.forEach((w,i)=>{
+    const s=document.createElement('span');
+    s.className='kword';
+    s.setAttribute('aria-hidden','true');
+    s.textContent=w;
+    el.appendChild(s);
+    if(i<words.length-1) el.appendChild(document.createTextNode(' '));
+  });
+}
+document.querySelectorAll('.split-chars').forEach(splitChars);
+document.querySelectorAll('.split-words').forEach(splitWords);
+
+/* ---------- progress bar (whole-document) ---------- */
+gsap.to('.progress-bar-fill', {
+  scaleX:1, ease:'none',
+  scrollTrigger:{ trigger: document.body, start:'top top', end:'bottom bottom', scrub:0.3 }
+});
+
+/* ---------- chapter rail ---------- */
+const chapters = gsap.utils.toArray('.chapter');
+const railBtns = gsap.utils.toArray('.rail button');
+railBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelector(btn.dataset.target).scrollIntoView({behavior:'smooth'});
+  });
+});
+chapters.forEach((ch, i)=>{
+  ScrollTrigger.create({
+    trigger: ch, start:'top center', end:'bottom center',
+    onToggle: self=>{ if(self.isActive) railBtns.forEach((b,j)=>b.classList.toggle('active', j===i)); }
+  });
+});
+
+/* ---------- reduced motion / full build ---------- */
+let mm = gsap.matchMedia();
+
+mm.add('(prefers-reduced-motion: no-preference)', ()=>{
+
+  /* CH01 hero entrance */
+  const heroTl = gsap.timeline({delay:0.15});
+  heroTl
+    .to('.hero .eyebrow', {opacity:1, duration:0.01}) // ensure base state controlled by JS only after this point
+    .from('.hero .eyebrow', {opacity:0, y:16, duration:0.6, ease:'power3.out'})
+    .to('.hero-name .char', {opacity:1, y:0, duration:0.8, ease:'expo.out', stagger:0.028}, '-=0.3')
+    .to('.hero-kinetic .kword', {opacity:1, y:0, duration:0.65, ease:'power3.out', stagger:0.09}, '-=0.35')
+    .to('.hero-sub', {opacity:1, y:0, duration:0.6, ease:'power3.out'}, '-=0.25')
+    .to('.scroll-cue', {opacity:1, duration:0.5}, '-=0.2');
+
+  /* CH01 parallax planes */
+  ScrollTrigger.create({
+    trigger:'#ch01', start:'top top', end:'bottom top', scrub:0.7,
+    onUpdate: self=>{
+      const p = self.progress;
+      document.querySelectorAll('.layer-parallax').forEach(el=>{
+        const speed = parseFloat(el.dataset.speed || 1);
+        gsap.set(el, {yPercent: p * -14 * speed});
+      });
+    }
+  });
+
+  /* CH01 -> exit coral rule sweep */
+  gsap.fromTo('#ch01', {'--edge':0}, {
+    scrollTrigger:{trigger:'#ch01', start:'bottom bottom', end:'bottom top', scrub:0.5}
+  });
+
+  /* CH02 origin lines */
+  gsap.to('.origin-text .reveal-line span', {
+    opacity:1, y:0, duration:0.8, ease:'expo.out', stagger:0.09,
+    scrollTrigger:{trigger:'.origin-text', start:'top 78%', toggleActions:'play none none none'}
+  });
+
+  /* CH03 chips */
+  gsap.utils.toArray('.tag-group').forEach((group, i)=>{
+    gsap.to(group.querySelectorAll('.chip'), {
+      opacity:1, y:0, scale:1, duration:0.55, ease:'power3.out', stagger:0.035,
+      scrollTrigger:{trigger:group, start:'top 85%', toggleActions:'play none none none'}
+    });
+  });
+
+  /* CH03 -> CH04 seam wipe (scrubbed, shared element) */
+  gsap.timeline({
+    scrollTrigger:{trigger:'#ch04', start:'top bottom', end:'top top', scrub:0.6}
+  })
+  .fromTo('#ch04 .seam-wipe', {scaleX:0, transformOrigin:'left'}, {scaleX:1, ease:'none'})
+  .to('#ch04 .seam-wipe', {scaleX:0, transformOrigin:'right', ease:'none'});
+
+  /* CH04 set piece — pinned scrub staging */
+  ScrollTrigger.matchMedia({
+    '(min-width:769px)': function(){
+      gsap.timeline({
+        scrollTrigger:{trigger:'#ch04', start:'top top', end:'+=220%', pin:true, scrub:1}
+      })
+      .to('.sp-label-1', {opacity:1, y:0, duration:1, ease:'power2.out'})
+      .to('.sp-label-1', {opacity:0.35, duration:0.6}, '+=0.5')
+      .fromTo('.sp-counter-wrap', {opacity:0, scale:0.92}, {opacity:1, scale:1, duration:1, ease:'power2.out'}, '<')
+      .to('.sp-caption', {opacity:1, duration:0.7}, '-=0.4')
+      .to('.sp-support', {opacity:1, y:0, duration:1, ease:'power2.out'}, '+=0.3');
+    },
+    '(max-width:768px)': function(){
+      gsap.timeline({
+        scrollTrigger:{trigger:'#ch04', start:'top top', end:'+=140%', pin:true, scrub:1}
+      })
+      .to('.sp-label-1', {opacity:1, y:0, duration:1})
+      .fromTo('.sp-counter-wrap', {opacity:0, scale:0.92}, {opacity:1, scale:1, duration:1}, '-=0.3')
+      .to('.sp-caption', {opacity:1, duration:0.6})
+      .to('.sp-support', {opacity:1, y:0, duration:1}, '+=0.2');
+    }
+  });
+
+  /* CH04 counters — toggle once, eased count, not tied to scrub direction */
+  ScrollTrigger.create({
+    trigger:'#ch04', start:'top 55%', once:true,
+    onEnter: ()=>{
+      const low = {v:0}, high = {v:0};
+      gsap.to(low, {v:15, duration:1.6, ease:'power2.out', onUpdate:()=>{document.getElementById('counterLow').textContent = Math.round(low.v);}});
+      gsap.to(high, {v:20, duration:1.9, ease:'power2.out', onUpdate:()=>{document.getElementById('counterHigh').textContent = Math.round(high.v);}});
+    }
+  });
+
+  /* CH05 horizontal journey + SVG spine draw */
+  ScrollTrigger.matchMedia({
+    '(min-width:769px)': function(){
+      const track = document.querySelector('.journey-track');
+      const getDistance = ()=> Math.max(track.scrollWidth - window.innerWidth, 0);
+      const st = {
+        trigger:'#ch05', start:'top top', end:()=> '+='+getDistance(),
+        scrub:0.8, pin:true, invalidateOnRefresh:true,
+        onUpdate: self=>{
+          gsap.set('.spine .drawn', {strokeDashoffset: 1000 - (self.progress*1000)});
+        }
+      };
+      gsap.to(track, { x:()=> -getDistance(), ease:'none', scrollTrigger: st });
+    }
+  });
+
+  /* CH06 foundation reveals */
+  gsap.to('.edu-item', {
+    opacity:1, y:0, duration:0.6, ease:'power3.out', stagger:0.08,
+    scrollTrigger:{trigger:'.foundation-grid', start:'top 80%', toggleActions:'play none none none'}
+  });
+  gsap.to('.beyond-list li', {
+    opacity:1, y:0, duration:0.6, ease:'power3.out', stagger:0.08,
+    scrollTrigger:{trigger:'.foundation-grid', start:'top 80%', toggleActions:'play none none none'}
+  });
+
+  /* CH07 CTA */
+  gsap.timeline({scrollTrigger:{trigger:'#ch07', start:'top 70%', toggleActions:'play none none none'}})
+    .to('.cta-line', {opacity:1, y:0, duration:0.8, ease:'expo.out'})
+    .to('.cta-links', {opacity:1, y:0, duration:0.7, ease:'power3.out'}, '-=0.4')
+    .to('.cta-foot', {opacity:1, duration:0.6}, '-=0.3');
+
+  return ()=>{}; // gsap.matchMedia cleanup
+
+});
+
+mm.add('(prefers-reduced-motion: reduce)', ()=>{
+  gsap.set('.char,.kword,.hero-sub,.scroll-cue,.reveal-line span,.chip,.sp-label-1,.sp-counter-wrap,.sp-caption,.sp-support,.edu-item,.beyond-list li,.cta-line,.cta-links,.cta-foot',
+    {opacity:1, y:0, x:0, scale:1, clearProps:'transform'});
+  document.getElementById('counterLow').textContent = 15;
+  document.getElementById('counterHigh').textContent = 20;
+  return ()=>{};
+});
+
+/* ---------- refresh on font load / resize ---------- */
+document.fonts.ready.then(()=> ScrollTrigger.refresh());
+window.addEventListener('resize', ()=> ScrollTrigger.refresh());
+</script>
+</body>
+</html>
