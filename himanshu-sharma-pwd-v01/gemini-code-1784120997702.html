@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Sharma | Advanced Manufacturing & Mechanical Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Himanshu Sharma, Mechanical Engineer & Advanced Manufacturing Specialist. M.Tech in Manufacturing Engineering & MBA in HRM.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-base: #F4F1FA;
+            --surface: #FFFFFF;
+            --ink: #110E1A;
+            --ink-muted: #575266;
+            --accent: #B9A6F5;
+            --accent-light: #EBE5FC;
+            --teal: #8FD8CE;
+            --font-display: 'Geist', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --container-padding: max(2rem, 5vw);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Continuous Ambient Backdrop System */
+        .ambient-glow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                #F4F1FA 0deg,
+                #EBE5FC 90deg,
+                #E2FAFA 180deg,
+                #B9A6F5 270deg,
+                #F4F1FA 360deg
+            );
+            filter: blur(120px);
+            opacity: 0.6;
+            transform-origin: center center;
+        }
+
+        /* Typography & Utility Structures */
+        h1, h2, h3, .display-num {
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
+
+        .caps-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--ink-muted);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Persistent Navigation Progress Tracker */
+        .nav-progress {
+            position: fixed;
+            top: 2rem;
+            left: var(--container-padding);
+            right: var(--container-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .progress-rail {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .progress-step {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        .progress-step.is-active {
+            opacity: 1;
+        }
+
+        /* Structural Chapters Layout */
+        section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 8rem var(--container-padding);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Chapter 01: Hero Scene */
+        #chapter-hero {
+            padding-top: 0;
+            padding-bottom: 0;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .hero-title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-name {
+            font-size: clamp(3rem, 11vw, 12rem);
+            color: var(--ink);
+            width: 100%;
+            word-break: break-word;
+        }
+
+        .hero-sub-line {
+            font-size: clamp(1rem, 2vw, 2rem);
+            font-weight: 400;
+            max-width: 42ch;
+            margin-top: 2rem;
+            line-height: 1.2;
+            color: var(--ink-muted);
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 3rem;
+            left: var(--container-padding);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .scroll-cue-line {
+            width: 40px;
+            height: 1px;
+            background-color: var(--ink);
+            transform-origin: left;
+        }
+
+        /* Chapter 02: About / Origin */
+        #chapter-about {
+            background-color: transparent;
+        }
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+        }
+        @media (min-width: 768px) {
+            .about-layout { grid-template-columns: 1fr 2fr; }
+        }
+        .about-text {
+            font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+            line-height: 1.3;
+            color: var(--ink);
+            font-weight: 400;
+        }
+        .about-text em {
+            font-style: normal;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--ink), var(--ink-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Chapter 03: Expertise System Grid */
+        #chapter-expertise {
+            background: var(--surface);
+            border-top: 1px solid var(--accent-light);
+            border-bottom: 1px solid var(--accent-light);
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .expertise-card {
+            background: var(--bg-base);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 220px;
+        }
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .expertise-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .expertise-card li {
+            font-size: 0.9rem;
+            color: var(--ink-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* Chapter 04: Pinned Metric Crescendo (The Set Piece) */
+        #chapter-impact-pin {
+            height: 250vh; /* Controlled scroll territory */
+            position: relative;
+            background: var(--ink);
+            color: #fff;
+            padding: 0;
+        }
+        .set-piece-sticky-window {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: var(--container-padding);
+        }
+        .set-piece-background-mesh {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(137,216,206,0.15) 0%, rgba(185,166,245,0.05) 50%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+        .set-piece-content-pack {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
+        .set-piece-headline-text {
+            font-size: clamp(1rem, 2.5vw, 2rem);
+            font-weight: 300;
+            color: #A5A1B8;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+        .set-piece-metric-display {
+            font-size: clamp(5rem, 22vw, 24rem);
+            font-family: var(--font-display);
+            font-weight: 900;
+            color: #fff;
+            line-height: 0.8;
+            display: block;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.05em;
+        }
+        .set-piece-metric-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--teal);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            display: block;
+        }
+
+        /* Chapter 05: Track Horizontal Linear Timeline */
+        #chapter-timeline-track {
+            padding: 0;
+            min-height: 100vh;
+            background: var(--surface);
+            overflow: hidden;
+        }
+        .timeline-horizontal-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .timeline-scroll-container {
+            display: flex;
+            padding-left: var(--container-padding);
+            will-change: transform;
+        }
+        .timeline-lead-intro {
+            flex-shrink: 0;
+            width: 350px;
+            margin-right: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .timeline-lead-intro h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-node-card {
+            flex-shrink: 0;
+            width: 450px;
+            margin-right: 5rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .timeline-node-card .node-date {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-node-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-node-card .node-org {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--ink-muted);
+            margin-bottom: 1.5rem;
+        }
+        .timeline-node-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .timeline-node-card li {
+            font-size: 0.95rem;
+            color: var(--ink);
+            line-height: 1.4;
+            position: relative;
+        }
+
+        /* Chapter 06: Deep Dive Publications & Academic Capital */
+        #chapter-intellect {
+            background: var(--bg-base);
+        }
+        .publication-wrap {
+            background: var(--surface);
+            border: 1px solid var(--accent-light);
+            padding: 3rem;
+            border-radius: 12px;
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+        .publication-status {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .publication-wrap h3 {
+            font-size: 2rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .publication-journal {
+            font-family: var(--font-mono);
+            color: var(--ink-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .publication-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--ink-muted);
+        }
+
+        /* Chapter 07: Finale & Structured Call to Action */
+        #chapter-finale {
+            background: var(--ink);
+            color: #fff;
+            min-height: 80vh;
+            justify-content: space-between;
+            padding-bottom: 3rem;
+        }
+        .finale-main {
+            margin-auto: 0;
+            max-width: 800px;
+            margin-top: 4rem;
+        }
+        .finale-headline {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.0;
+            margin-bottom: 3rem;
+        }
+        .action-link-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .action-btn {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .action-btn:hover {
+            color: var(--teal);
+            border-color: var(--teal);
+        }
+        .footer-credit-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #2B263B;
+            padding-top: 2rem;
+            margin-top: 4rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: #6E6880;
+        }
+
+        /* Structural Design Seams */
+        .seam-sweep-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--surface));
+            pointer-events: none;
+        }
+
+        /* Mobile Adaptations and Overrides */
+        @media (max-width: 768px) {
+            :root { --container-padding: 1.5rem; }
+            #chapter-timeline-track { padding: 4rem var(--container-padding); height: auto; }
+            .timeline-horizontal-sticky { position: relative; height: auto; }
+            .timeline-scroll-container { flex-direction: column; padding-left: 0; }
+            .timeline-lead-intro { width: 100%; margin-right: 0; margin-bottom: 3rem; }
+            .timeline-node-card { width: 100%; margin-right: 0; margin-bottom: 3rem; }
+            .publication-wrap { padding: 1.5rem; }
+            .action-link-cluster { flex-direction: column; gap: 1rem; }
+        }
+
+        /* Reduced Motion Fallback Compliance */
+        @media (prefers-reduced-motion: reduce) {
+            .ambient-glow { animation: none !important; transform: none !important; }
+            #chapter-impact-pin { height: auto !important; }
+            .set-piece-sticky-window { position: relative !important; height: auto !important; }
+            #chapter-timeline-track { height: auto !important; }
+            .timeline-horizontal-sticky { position: relative !important; height: auto !important; }
+            .timeline-scroll-container { transform: none !important; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow-container">
+        <div class="ambient-glow" id="js-ambient-lens"></div>
+    </div>
+
+    <nav class="nav-progress">
+        <div class="nav-logo">H.SHARMA</div>
+        <div class="progress-rail">
+            <div class="progress-step is-active" data-target="#chapter-hero">01</div>
+            <div class="progress-step" data-target="#chapter-about">02</div>
+            <div class="progress-step" data-target="#chapter-expertise">03</div>
+            <div class="progress-step" data-target="#chapter-impact-pin">04</div>
+            <div class="progress-step" data-target="#chapter-timeline-track">05</div>
+            <div class="progress-step" data-target="#chapter-intellect">06</div>
+            <div class="progress-step" data-target="#chapter-finale">07</div>
+        </div>
+    </nav>
+
+    <section id="chapter-hero">
+        <div class="hero-title-container">
+            <span class="caps-eyebrow">Advanced Manufacturing & Mechanical Systems</span>
+            <h1 class="hero-name" id="js-hero-name">HIMANSHU<br>SHARMA</h1>
+            <p class="hero-sub-line">Synthesizing M.Tech Manufacturing Engineering systems knowledge with strategic human capital architecture to optimize high-pressure industrial facilities.</p>
+        </div>
+        <div class="scroll-cue">
+            <div class="scroll-cue-line" id="js-scroll-cue-line"></div>
+            <span>SCROLL TO TRAJECTORY</span>
+        </div>
+    </section>
+
+    <section id="chapter-about">
+        <div class="about-layout">
+            <span class="caps-eyebrow">The Thesis</span>
+            <div class="about-text">
+                <p>An Advanced Manufacturing Specialist holding an <em>M.Tech in Manufacturing Engineering</em> alongside an ongoing <em>MBA in Human Resource Management</em>. Rooted in structural engineering principles and quantitative optimization, my focus centers on eliminating process deviations, handling high-pressure operations, and coordinating cross-functional technical teams for enterprise-scale manufacturing execution.</p>
+            </div>
+        </div>
+        <div class="seam-sweep-overlay"></div>
+    </section>
+
+    <section id="chapter-expertise">
+        <span class="caps-eyebrow">Technical Competencies</span>
+        <h2 style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 1rem;">System Capability Matrix</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h3>Advanced Machining</h3>
+                <ul>
+                    <li>Electrical Discharge Machining</li>
+                    <li>Non-Traditional Manufacturing</li>
+                    <li>Superalloy Metallurgy (Inconel 725)</li>
+                    <li>Process Optimization Matrices</li>
+                </ul>
+            </div>
+            <div class="expertise-card">
+                <h3>Engineering Systems</h3>
+                <ul>
+                    <li>AutoCAD Modeling & Design</li>
+                    <li>Engine Health Diagnosis</li>
+                    <li>Powertrain Overhauling</li>
+                    <li>Diagnostics Calibration</li>
+                </ul>
+            </div>
+            <div class="expertise-card">
+                <h3>Operations Management</h3>
+                <ul>
+                    <li>Strategic Resource Planning</li>
+                    <li>Personnel Administration</li>
+                    <li>Fulfillment Optimization</li>
+                    <li>Safety Protocol Integration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="chapter-impact-pin">
+        <div class="set-piece-sticky-window">
+            <div class="set-piece-background-mesh" id="js-metric-mesh"></div>
+            <div class="set-piece-content-pack">
+                <p class="set-piece-headline-text">Maximum engineering efficiency milestone realized through technical translation and structured project documentation optimization frameworks:</p>
+                <span class="set-piece-metric-display" id="js-counter-target">+20%</span>
+                <span class="set-piece-metric-label">Proposal Optimization and Alignment Yield</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="chapter-timeline-track">
+        <div class="timeline-horizontal-sticky">
+            <div class="timeline-scroll-container" id="js-timeline-container">
+                
+                <div class="timeline-lead-intro">
+                    <span class="caps-eyebrow">Chronological Systems Record</span>
+                    <h2>Industrial Foundations</h2>
+                    <p style="color: var(--ink-muted); line-height: 1.5;">Scroll horizontally to traverse verified field optimizations across automotive and industrial production ecosystems.</p>
+                </div>
+
+                <div class="timeline-node-card">
+                    <span class="node-date">Jan 2023 – May 2023</span>
+                    <h3>Trainee | Process Engineering</h3>
+                    <span class="node-org">Bosch — Mullana, Ambala</span>
+                    <ul>
+                        <li>Elevated standard operational module production metrics by 12% over a 5-month lifecycle.</li>
+                        <li>Reduced component assembly deviations by 8% through precision internal combustion engine overhauling.</li>
+                        <li>Accelerated fuel injection systems diagnostics calibration speeds by 15%.</li>
+                        <li>Maintained a continuous 100% safety compliance record across all high-pressure systems protocols.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-node-card">
+                    <span class="node-date">Timeline Unstated</span>
+                    <h3>Trainee | Operations Maintenance</h3>
+                    <span class="node-org">Metro Motor TATA Motor — Jagadhri</span>
+                    <ul>
+                        <li>Enhanced commercial/passenger vehicle servicing turnaround speed by 14%.</li>
+                        <li>Minimized post-service multi-point diagnostic faults by 9% using advanced test toolsets.</li>
+                        <li>Accelerated operational bay workflow capacity parameters by 10%.</li>
+                        <li>Generated an 11% operational savings margin for operators via structured wear-data replacement strategies.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-node-card">
+                    <span class="caps-eyebrow">Academic Frameworks</span>
+                    <h3>Credentials & Academic Capital</h3>
+                    <span class="node-org">Systematic Academic History</span>
+                    <ul style="gap: 1rem;">
+                        <li><strong>M.Tech: Manufacturing Engineering</strong> (2025)<br><small>Superalloy metallurgy focus, non-traditional machining validation matrices.</small></li>
+                        <li><strong>MBA: Human Resource Management</strong> (2025)<br><small>Organizational architecture, talent lifecycle dynamics, cross-functional leadership.</small></li>
+                        <li><strong>B.Tech: Mechanical Engineering</strong><br><small>Completed with Distinction honor matrix.</small></li>
+                        <li><strong>Diploma: Mechanical Engineering</strong></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="chapter-intellect">
+        <span class="caps-eyebrow">Research Assets</span>
+        <h2 style="font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 2rem;">Peer-Reviewed Contributions</h2>
+        
+        <div class="publication-wrap">
+            <span class="publication-status">Accepted for Formal Publication</span>
+            <h3>“Investigating the Effect of Process Parameters on EDM Performance of Inconel 725 Alloy”</h3>
+            <div class="publication-journal">Materials Physics and Mechanics (SPbSPU)</div>
+            <p class="publication-desc">A rigorous academic exploration mapping electrical parameters against tool wear ratios during the Electrical Discharge Machining (EDM) of high-strength Inconel 725 superalloys. Establishes verifiable process matrices maximizing material removal rates while maintaining safe, strict microstructural structural limits.</p>
+        </div>
+    </section>
+
+    <section id="chapter-finale">
+        <div class="finale-main">
+            <span class="caps-eyebrow" style="color: #A5A1B8;">Availability</span>
+            <h2 class="finale-headline">Targeting Entry-to-Mid Roles in Manufacturing Operations, Production Systems, & Quality Leadership.</h2>
+            
+            <div class="action-link-cluster">
+                <a href="mailto:himanshu.sharma.eng@outlook.com" class="action-btn">himanshu.sharma.eng@outlook.com</a>
+                <a href="tel:+15550192834" class="action-btn">(555) 019-2834</a>
+                <a href="https://linkedin.com/in/himanshu-sharma-mechanical" target="_blank" rel="noopener" class="action-btn">LinkedIn Profile</a>
+            </div>
+        </div>
+
+        <div class="footer-credit-line">
+            <span>Himanshu Sharma &copy; 2026</span>
+            <span>Yamunanagar, Haryana, India</span>
+        </div>
+    </section>
+
+    <script>
+        // Register GSAP plugins safely
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Core Ambient Drift Animation Loop
+        gsap.to("#js-ambient-lens", {
+            rotation: 360,
+            duration: 25,
+            repeat: -1,
+            ease: "linear"
+        });
+
+        // Chapter 01: Hero Kinetic Entrances
+        gsap.from("#js-hero-name", {
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        gsap.from("#js-scroll-cue-line", {
+            scaleX: 0,
+            duration: 1.5,
+            ease: "expo.out",
+            delay: 0.8
+        });
+
+        // Set Piece System Configuration (Chapter 04 Pin & Counter Matrix)
+        let setPieceTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#chapter-impact-pin",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1,
+                id: "set-piece-pin"
+            }
+        });
+
+        setPieceTimeline.fromTo("#js-metric-mesh", 
+            { scale: 0.6, opacity: 0.2 }, 
+            { scale: 1.3, opacity: 0.9, duration: 1 }
+        );
+
+        // Standard numeric scale counter orchestration
+        ScrollTrigger.create({
+            trigger: "#chapter-impact-pin",
+            start: "top center",
+            onEnter: () => {
+                let counterObj = { value: 0 };
+                gsap.to(counterObj, {
+                    value: 20,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    onUpdate: () => {
+                        document.getElementById("js-counter-target").innerText = `+${Math.floor(counterObj.value)}%`;
+                    }
+                });
+            },
+            once: true
+        });
+
+        // Horizontal Timeline Structural Translation Engine
+        let container = document.getElementById("js-timeline-container");
+        if (window.innerWidth > 768) {
+            gsap.to(container, {
+                x: () => -(container.scrollWidth - window.innerWidth + window.innerWidth * 0.05),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#chapter-timeline-track",
+                    pin: true,
+                    scrub: 1,
+                    start: "top top",
+                    end: () => "+=" + (container.scrollWidth - window.innerWidth),
+                    invalidateOnRefresh: true
+                }
+            });
+        }
+
+        // Persistent Nav Active State Tracking
+        const steps = document.querySelectorAll(".progress-step");
+        document.querySelectorAll("section").forEach((section, index) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => updateNavActive(index),
+                onEnterBack: () => updateNavActive(index)
+            });
+        });
+
+        function updateNavActive(activeIndex) {
+            steps.forEach((step, idx) => {
+                if (idx === activeIndex) step.classList.add("is-active");
+                else step.classList.remove("is-active");
+            });
+        }
+
+        // Interactive Click Navigation Controls
+        steps.forEach(step => {
+            step.addEventListener("click", (e) => {
+                let targetId = e.target.getAttribute("data-target");
+                let targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    gsap.to(window, {
+                        scrollTo: targetEl.offsetTop,
+                        duration: 1.2,
+                        ease: "power3.out"
+                    });
+                }
+            });
+        });
+
+        // System Refresh Hooks for Variable Dimensions
+        window.addEventListener("resize", () => {
+            ScrollTrigger.refresh();
+        });
+        document.fonts.ready.then(() => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>
