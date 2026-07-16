@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!--
+ART DIRECTION DECLARATION
+FAMILY: 1 · Glass & Luminous
+DIRECTION: 03 · Aurora Field (dark — living gradient mesh)
+DOMAIN: Senior international automotive after-sales, technical service and service-operations leadership
+PALETTE: midnight #0B0A18 / violet #7C5CFF / aqua #33E6E0 / rose #FF5CA8 / pale ink #F2F1FA / muted ink #AAA6BC
+TYPE: Sora for display because its engineered geometry supports a technical leadership narrative; Inter for body copy because it remains clear across dense operational detail
+MOTION PERSONALITY: fluid, luminous, continuous
+SIGNATURE SET PIECE: A pinned 25% impact scene expands from a small luminous seed while the aurora colour stops travel across the canvas and the detected portrait participates as a drifting light layer.
+PHOTO TREATMENT: profile-cutout.png receives a frameless violet–aqua rim glow and soft shoulder backlight; a regular profile image sits inside a crisp rounded 2px pale-ink border with a 100% transparent container background and no edge fade; if neither loads, the hero reflows into a complete type-and-metric composition.
+RATIONALE: Although Amol is a senior automotive service leader, the user explicitly selected Aurora Field; the direction is therefore executed with restrained, senior pacing rather than playful maximalism.
+
+DATA INVENTORY
+Hero: AMOL LIMAYE; International After-Sales & Technical Service Leader; Pune, Maharashtra; 26+ years of automotive experience; 6 organisations; international work across 4 global regions.
+Positioning / About: after-sales operations; international service-network development; technical training; warranty management; CKD assembly; workshop infrastructure; spare-parts planning; field quality; progression from Senior Service Advisor to Senior Manager; 10-year dealership-service foundation; 7+ years with Piaggio Vehicles.
+Current role: Silverline Ventura, Senior Manager, May 2022–Present; 3 regional clusters (Africa, Asia, SAARC); 5 connected workstreams; 2-stage pre-bid/post-bid reviews; 3-stage presales cycle; 4 export-readiness control points; coordination across 6 stakeholder groups; 5 service-control areas.
+ETO Motors: Manager, December 2021–May 2022; 5-month electric-mobility assignment; dealer support, complaint diagnosis, warranty and spare-parts availability; PDI, field validation and warranty feedback.
+Piaggio Vehicles: Deputy Manager, April 2014–August 2021; 7+ years; 3 market clusters; 2 channel types; training for 3 audiences; workshop readiness across 4 elements; technical and commercial warranty; 3 pre-dispatch audit checkpoints; 3 launch-readiness areas; 3 spare-parts controls; 25% additional business from structured child-parts query and grievance resolution.
+Force Motors: Senior Service Engineer, September 2013–April 2014; field-service support, SQS controls, warranty, CFT reviews, testing and trials.
+ZF Steering Gear India: Senior Service Engineer, February 2008–September 2013; 5+ years; diagnosis, warranty analysis, root-cause work, technician guidance, SAP-enabled processes.
+Chowgule Industries: Senior Service Advisor, March 1998–January 2008; 10-year foundation; customer concern capture, repair orders, workshop coordination, delivery explanation, PDI and repair-quality checks.
+Projects / highlights: International Service-Network Development (2014–Present); Distributor Workshop Infrastructure; CKD Assembly Establishment; International Technical Training Programs; Field Quality and Warranty Governance; Spare-Parts Business and Inventory Governance; Export Vehicle PDI, Validation and Presales; Product Launch and Cross-Functional Improvement.
+Education: Diploma in Automobile Engineering, 1997.
+Systems: SAP, CRM, DMS, Microsoft Office.
+Methods: SOP, SQS, CIP, PDI, CFT failure analysis.
+Languages: English, Hindi, Marathi.
+Contact: +91 93730 89604; amol.mudra@gmail.com; LinkedIn https://www.linkedin.com/in/amol-limaye-15b0b7171/.
+Profile image: conditional (3-tier) — profile-cutout.png / profile.png|jpeg|jpg / no-photo; all three states implemented. Resolved treatment is selected at runtime per Family 1 · Aurora Field.
+
+SCENE STORYBOARD
+CH | CHAPTER | MECHANIC | PIN? | SCRUB/TOGGLE | KEY FACT SHOWN | SEAM OUT
+01 | Hero hook | Living aurora parallax, kinetic name split, metric constellation. PHOTO STATE: cutout integrates frameless into mesh; headshot uses crisp transparent rounded border; neither loads triggers full-width typographic re-layout. | no | toggle + scrubbed parallax | name, role, 26+ years, 6 organisations, 4 regions | travelling aurora orb descends
+02 | Operating brief | Split editorial composition with a luminous route line and staggered proof points | no | toggle once | 10-year foundation, 7+ years Piaggio, progression to Senior Manager | route line becomes expertise spine
+03 | Expertise | Constellation of operational domains around an SVG-drawn service-readiness loop | no | scrub line + alternating toggles | service networks, training, warranty, CKD, workshops, parts, field quality, PDI, presales | loop contracts into a small impact seed
+04 | Impact ★ SET PIECE | 25% numeral grows through a 220vh pinned aurora transformation; portrait/glow layer shifts hue if available | yes (220vh) | scrub | documented 25% additional business | numeral wipes into timeline year rail
+05 | Career journey | Horizontal career chapters on desktop; vertical stack on mobile | yes (desktop, content width) | scrub | six organisations and exact dates/titles | final card releases into project grid
+06 | Systems built | Eight outcome-focused project plates with distinct directional reveals | no | toggle once | network, workshop, CKD, training, warranty, parts, validation/presales, launches | quiet colour-field dissolve
+07 | Foundation / CTA | Education, systems, methods, languages and contact actions | no | toggle once | Diploma 1997, SAP/CRM/DMS/MS Office, languages, contact | end
+MOBILE ADAPTATIONS: Hero becomes single column with portrait below name; set-piece pin shortens to 150vh; horizontal journey becomes a vertical timeline; oversized 25% uses clamp() and never overflows; cutout/headshot width is capped at 82vw; glass effects are reduced.
+REDUCED-MOTION: All content is visible in source order; pins, parallax, counters and horizontal transforms are disabled; portrait retains the correct static cutout/headshot/no-photo presentation.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amol Limaye · International After-Sales & Technical Service Leader</title>
+  <meta name="description" content="Scrollytelling portfolio of Amol Limaye, an international automotive after-sales and technical-service leader with 26+ years of experience." />
+  <meta property="og:title" content="Amol Limaye · International After-Sales & Technical Service Leader" />
+  <meta property="og:description" content="26+ years across international after-sales, service networks, technical training, warranty, CKD, parts and field quality." />
+  <meta name="theme-color" content="#0B0A18" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0B0A18;
+      --surface: rgba(22, 20, 46, 0.56);
+      --surface-strong: rgba(27, 24, 57, 0.78);
+      --ink: #F2F1FA;
+      --muted: #AAA6BC;
+      --violet: #7C5CFF;
+      --aqua: #33E6E0;
+      --rose: #FF5CA8;
+      --hairline: rgba(242, 241, 250, 0.18);
+      --mesh-x: 15%;
+      --mesh-y: 18%;
+      --mesh-x2: 84%;
+      --mesh-y2: 28%;
+      --mesh-x3: 50%;
+      --mesh-y3: 80%;
+      --page-pad: clamp(1.2rem, 4vw, 4.5rem);
+      --display: "Sora", system-ui, sans-serif;
+      --body: "Inter", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: var(--body);
+      overflow-x: hidden;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20vmax;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at var(--mesh-x) var(--mesh-y), rgba(124,92,255,.68), transparent 27%),
+        radial-gradient(circle at var(--mesh-x2) var(--mesh-y2), rgba(51,230,224,.48), transparent 25%),
+        radial-gradient(circle at var(--mesh-x3) var(--mesh-y3), rgba(255,92,168,.42), transparent 28%),
+        linear-gradient(135deg, #080713 0%, #0B0A18 40%, #100D24 100%);
+      filter: blur(34px) saturate(120%);
+      transform: translate3d(0,0,0) scale(1.06);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .09;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--aqua); outline-offset: 5px; border-radius: 8px; }
+    section { position: relative; scroll-margin-top: 2rem; }
+    .wrap { width: min(1280px, calc(100% - (var(--page-pad) * 2))); margin-inline: auto; }
+    .chapter { min-height: 100vh; padding: clamp(6rem, 11vw, 10rem) 0; display: grid; align-items: center; }
+    .chapter-no { font: 600 .74rem/1 var(--body); letter-spacing: .22em; text-transform: uppercase; color: var(--aqua); }
+    .eyebrow { font: 600 clamp(.72rem, 1vw, .86rem)/1.2 var(--body); letter-spacing: .18em; text-transform: uppercase; color: #DAD7E8; }
+    .section-title { margin: .65rem 0 1.4rem; font: 700 clamp(2.5rem, 6.8vw, 6.8rem)/.96 var(--display); letter-spacing: -.045em; }
+    .section-title .gradient, .gradient-text {
+      color: transparent;
+      background: linear-gradient(100deg, var(--ink) 0%, var(--aqua) 38%, var(--violet) 66%, var(--rose) 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .lede { color: #D2CEDF; font-size: clamp(1.05rem, 1.5vw, 1.28rem); max-width: 72ch; }
+    .muted { color: var(--muted); }
+
+    .progress-rail {
+      position: fixed;
+      right: clamp(.7rem, 2vw, 1.7rem);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: grid;
+      gap: .72rem;
+      padding: .8rem .55rem;
+      border: 1px solid rgba(242,241,250,.14);
+      border-radius: 999px;
+      background: rgba(11,10,24,.36);
+      backdrop-filter: blur(14px);
+    }
+    .progress-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(242,241,250,.24); transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+    .progress-dot.active { background: var(--aqua); transform: scale(1.55); box-shadow: 0 0 18px rgba(51,230,224,.85); }
+    .page-progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 60; background: rgba(255,255,255,.05); }
+    .page-progress > span { display: block; height: 100%; width: 0%; background: linear-gradient(90deg,var(--violet),var(--aqua),var(--rose)); }
+    #storyOrb { position: fixed; z-index: -1; left: 12vw; top: 20vh; width: clamp(54px, 7vw, 110px); aspect-ratio: 1; border-radius: 50%; pointer-events: none; opacity: .45; background: radial-gradient(circle at 35% 35%, #fff, var(--aqua) 18%, var(--violet) 52%, transparent 70%); filter: blur(7px); mix-blend-mode: screen; }
+
+    /* HERO */
+    .hero { min-height: 100svh; padding: clamp(1.6rem, 4vw, 3.6rem) 0 2rem; display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: clamp(2rem, 6vw, 7rem); align-items: center; min-height: 84svh; }
+    .hero-copy { position: relative; z-index: 3; }
+    .hero-name { margin: .95rem 0 1.1rem; font: 800 clamp(4.5rem, 11.5vw, 11.8rem)/.78 var(--display); letter-spacing: -.078em; text-transform: uppercase; }
+    .hero-name span { display: block; white-space: nowrap; }
+    .hero-name .first { color: var(--ink); }
+    .hero-name .last { color: transparent; -webkit-text-stroke: 1.5px rgba(242,241,250,.92); text-shadow: 0 0 36px rgba(124,92,255,.2); }
+    .hero-positioning { max-width: 690px; font-size: clamp(1rem, 1.6vw, 1.32rem); color: #D5D1E3; margin: 0; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .7rem 1rem; margin-top: 1.55rem; color: var(--muted); font-size: .9rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: .48rem; }
+    .hero-meta span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--aqua); box-shadow: 0 0 12px rgba(51,230,224,.8); }
+
+    .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1px; margin-top: clamp(2rem, 5vw, 4rem); border: 1px solid rgba(242,241,250,.14); border-radius: 18px; overflow: hidden; background: rgba(242,241,250,.12); max-width: 760px; }
+    .hero-stat { padding: 1rem clamp(.75rem, 2vw, 1.3rem); background: rgba(11,10,24,.54); }
+    .hero-stat strong { display: block; font: 700 clamp(1.55rem,3vw,2.7rem)/1 var(--display); font-variant-numeric: tabular-nums; }
+    .hero-stat small { display: block; margin-top: .45rem; color: var(--muted); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    .photo-stage { position: relative; isolation: isolate; min-height: min(70vh, 760px); display: grid; place-items: center; }
+    .photo-stage::before, .photo-stage::after { content: ""; position: absolute; border-radius: 50%; z-index: -2; pointer-events: none; }
+    .photo-stage::before { width: 95%; aspect-ratio: 1; background: radial-gradient(circle, rgba(124,92,255,.48), rgba(51,230,224,.16) 42%, transparent 70%); filter: blur(28px); transform: translate(6%, -2%); }
+    .photo-stage::after { width: 62%; aspect-ratio: 1; background: radial-gradient(circle, rgba(255,92,168,.26), transparent 68%); filter: blur(24px); transform: translate(-26%, 40%); }
+    .photo-frame { width: min(100%, 470px); aspect-ratio: .78; border: 2px solid rgba(242,241,250,.98); border-radius: clamp(14px, 1.5vw, 20px); overflow: hidden; background: transparent; box-shadow: 0 26px 80px rgba(0,0,0,.38), 0 0 42px rgba(124,92,255,.22); position: relative; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 1; filter: contrast(1.04) saturate(.96) brightness(1.02); }
+    .photo-caption { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); width: max-content; max-width: 90%; padding: .55rem .85rem; border: 1px solid rgba(242,241,250,.18); border-radius: 999px; color: #E4E1EF; background: rgba(11,10,24,.68); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(12px); }
+    .cutout-wrap { width: min(100%, 520px); min-height: 580px; display: grid; place-items: end center; position: relative; }
+    .cutout-wrap::before { content:""; position:absolute; width: 82%; aspect-ratio:1; bottom: 4%; border-radius:50%; background: radial-gradient(circle, rgba(51,230,224,.34), rgba(124,92,255,.28) 45%, transparent 70%); filter: blur(25px); }
+    .cutout-wrap img { max-height: 72vh; width: auto; position: relative; z-index: 1; filter: drop-shadow(0 0 12px rgba(51,230,224,.5)) drop-shadow(0 0 34px rgba(124,92,255,.35)); }
+    .photo-placeholder { width: min(100%, 440px); aspect-ratio: .82; display: grid; place-items: center; position: relative; }
+    .photo-placeholder .orbit { position:absolute; inset: 10%; border: 1px solid rgba(242,241,250,.22); border-radius: 50%; }
+    .photo-placeholder .orbit:nth-child(2) { inset: 22%; border-color: rgba(51,230,224,.36); transform: rotate(38deg); }
+    .photo-placeholder .orbit:nth-child(3) { inset: 34%; border-color: rgba(255,92,168,.34); transform: rotate(-28deg); }
+    .photo-placeholder .core { width: 28%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--aqua) 24%, var(--violet) 58%, transparent 72%); filter: blur(1px); box-shadow: 0 0 80px rgba(124,92,255,.48); }
+    .state-cutout .photo-frame, .state-cutout .photo-placeholder { display:none; }
+    .state-headshot .cutout-wrap, .state-headshot .photo-placeholder { display:none; }
+    .state-no-photo .cutout-wrap, .state-no-photo .photo-frame, .state-no-photo .photo-caption { display:none; }
+    .state-no-photo .hero-grid { grid-template-columns: 1fr; }
+    .state-no-photo .photo-stage { position:absolute; inset: 0; z-index: 0; opacity:.48; pointer-events:none; min-height:0; }
+    .state-no-photo .hero-copy { max-width: 1050px; }
+    .state-no-photo .hero-stats { max-width: 920px; }
+    .state-no-photo .photo-placeholder { width: min(45vw, 560px); justify-self: end; margin-right: 5vw; opacity: .75; }
+    .photo-pending .cutout-wrap, .photo-pending .photo-frame { display:none; }
+
+    .scroll-cue { position: absolute; left: var(--page-pad); bottom: 2.1rem; display: flex; align-items:center; gap:.8rem; color: var(--muted); font-size:.75rem; letter-spacing:.15em; text-transform: uppercase; }
+    .scroll-cue::before { content:""; width: 42px; height: 1px; background: linear-gradient(90deg,var(--aqua),transparent); }
+
+    /* BRIEF */
+    .brief-grid { display:grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem,7vw,8rem); align-items:start; }
+    .brief-kicker { position: sticky; top: 18vh; }
+    .brief-copy { display:grid; gap: 1rem; }
+    .brief-copy p { margin:0; color:#D7D3E2; font-size:clamp(1.15rem,2vw,1.75rem); line-height:1.45; }
+    .proof-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+    .proof-card { border:1px solid var(--hairline); border-radius:18px; padding:1.35rem; background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.012)); }
+    .proof-card strong { display:block; font:700 clamp(1.7rem,3vw,3.3rem)/1 var(--display); font-variant-numeric:tabular-nums; }
+    .proof-card span { display:block; margin-top:.6rem; color:var(--muted); }
+
+    /* EXPERTISE */
+    .expertise-layout { display:grid; grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr); gap:clamp(2rem,6vw,7rem); align-items:center; }
+    .service-loop { width:min(100%,460px); aspect-ratio:1; position:relative; display:grid; place-items:center; margin-inline:auto; }
+    .service-loop svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+    .service-loop .loop-core { width:48%; aspect-ratio:1; border-radius:50%; display:grid; place-items:center; text-align:center; padding:1rem; background:radial-gradient(circle at 35% 30%,rgba(51,230,224,.22),rgba(124,92,255,.18) 42%,rgba(11,10,24,.4) 70%); border:1px solid rgba(242,241,250,.22); box-shadow:inset 0 0 42px rgba(124,92,255,.12),0 0 55px rgba(51,230,224,.1); }
+    .service-loop .loop-core strong { font:700 clamp(1.25rem,2.2vw,2rem)/1.05 var(--display); }
+    .expertise-cloud { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem; }
+    .expertise-card { min-height:128px; padding:1.2rem; border:1px solid rgba(242,241,250,.15); border-radius:16px; background:rgba(11,10,24,.42); display:flex; flex-direction:column; justify-content:space-between; transition:transform .25s ease,border-color .25s ease; }
+    .expertise-card:hover { transform:translateY(-5px); border-color:rgba(51,230,224,.6); }
+    .expertise-card b { font:600 1rem/1.2 var(--display); }
+    .expertise-card small { color:var(--muted); margin-top:.7rem; }
+
+    /* IMPACT SET PIECE */
+    .impact { min-height: 100vh; padding:0; }
+    .impact-pin { min-height:100vh; display:grid; place-items:center; overflow:hidden; isolation:isolate; }
+    .impact-halo { position:absolute; width:min(72vw,820px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.18) 0%,rgba(51,230,224,.23) 12%,rgba(124,92,255,.28) 35%,rgba(255,92,168,.17) 52%,transparent 72%); filter:blur(12px); z-index:-2; }
+    .impact-grid { width:min(1180px,calc(100% - (var(--page-pad)*2))); margin:auto; display:grid; grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr); gap:clamp(2rem,5vw,5rem); align-items:center; }
+    .impact-number { font:800 clamp(9rem,29vw,29rem)/.72 var(--display); letter-spacing:-.09em; font-variant-numeric:tabular-nums; color:transparent; -webkit-text-stroke:1.5px rgba(242,241,250,.72); text-shadow:0 0 50px rgba(124,92,255,.28); position:relative; }
+    .impact-number::after { content:"%"; position:absolute; top:4%; right:-.14em; font-size:.26em; color:var(--aqua); -webkit-text-stroke:0; letter-spacing:-.05em; }
+    .impact-copy { max-width:440px; padding:1.5rem; border:1px solid rgba(242,241,250,.2); border-radius:20px; background:rgba(11,10,24,.48); backdrop-filter:blur(16px); }
+    .impact-copy h3 { margin:.4rem 0 .8rem; font:700 clamp(2rem,4vw,4.2rem)/.98 var(--display); letter-spacing:-.04em; }
+    .impact-copy p { margin:0; color:#D5D0E0; }
+    .impact-seed { width:22px; height:22px; border-radius:50%; background:var(--aqua); box-shadow:0 0 35px rgba(51,230,224,.9); margin-bottom:1rem; }
+    .impact-portrait { position:absolute; right:2vw; bottom:-4vh; width:min(28vw,390px); max-height:76vh; object-fit:contain; opacity:0; pointer-events:none; filter:drop-shadow(0 0 26px rgba(124,92,255,.3)); z-index:-1; }
+    .state-headshot .impact-portrait { border:2px solid rgba(242,241,250,.95); border-radius:18px; overflow:hidden; object-fit:cover; height:min(56vh,560px); background:transparent; filter:contrast(1.04) saturate(.96) drop-shadow(0 0 32px rgba(124,92,255,.32)); }
+    .state-no-photo .impact-portrait { display:none; }
+
+    /* JOURNEY */
+    .journey { min-height:100vh; overflow:hidden; }
+    .journey-head { padding:clamp(5rem,9vw,8rem) var(--page-pad) 2rem; max-width:1280px; margin:auto; }
+    .journey-viewport { overflow:hidden; }
+    .journey-track { display:flex; gap:1rem; width:max-content; padding:2rem var(--page-pad) clamp(5rem,8vw,8rem); }
+    .career-card { width:min(78vw,520px); min-height:530px; border:1px solid rgba(242,241,250,.16); border-radius:24px; padding:clamp(1.4rem,3vw,2.2rem); background:linear-gradient(145deg,rgba(28,24,59,.7),rgba(11,10,24,.72)); position:relative; overflow:hidden; }
+    .career-card::after { content:""; position:absolute; width:190px; aspect-ratio:1; border-radius:50%; right:-80px; bottom:-90px; background:radial-gradient(circle,rgba(51,230,224,.22),transparent 68%); }
+    .career-card .year { color:var(--aqua); font:600 .75rem/1 var(--body); letter-spacing:.16em; text-transform:uppercase; }
+    .career-card h3 { margin:1rem 0 .25rem; font:700 clamp(2rem,4vw,3.6rem)/.98 var(--display); letter-spacing:-.04em; }
+    .career-card .role { color:#DAD6E5; font-weight:600; }
+    .career-card ul { margin:2rem 0 0; padding-left:1.1rem; color:var(--muted); display:grid; gap:.8rem; }
+    .career-card li::marker { color:var(--violet); }
+    .career-index { position:absolute; top:1rem; right:1.2rem; font:700 clamp(3rem,6vw,5.5rem)/1 var(--display); color:rgba(242,241,250,.06); }
+
+    /* PROJECTS */
+    .projects-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:1rem; margin-top:3rem; }
+    .project-card { grid-column:span 4; min-height:270px; border:1px solid rgba(242,241,250,.15); border-radius:20px; padding:1.45rem; background:rgba(11,10,24,.46); position:relative; overflow:hidden; }
+    .project-card:nth-child(1), .project-card:nth-child(6) { grid-column:span 6; }
+    .project-card::before { content:""; position:absolute; inset:auto -25% -55% 20%; height:170px; border-radius:50%; background:radial-gradient(circle,rgba(124,92,255,.22),transparent 68%); transition:transform .5s ease; }
+    .project-card:hover::before { transform:translateY(-18px) scale(1.08); }
+    .project-card .folio { color:var(--aqua); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; }
+    .project-card h3 { margin:1rem 0 .7rem; font:650 clamp(1.25rem,2vw,1.85rem)/1.08 var(--display); }
+    .project-card p { color:var(--muted); margin:0; }
+
+    /* FINALE */
+    .finale-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,7vw,8rem); align-items:end; }
+    .foundation-list { display:grid; gap:1rem; }
+    .foundation-row { padding:1rem 0; border-bottom:1px solid rgba(242,241,250,.13); display:grid; grid-template-columns:minmax(120px,.35fr) 1fr; gap:1rem; }
+    .foundation-row b { color:var(--ink); }
+    .foundation-row span { color:var(--muted); }
+    .cta-shell { border:1px solid rgba(242,241,250,.18); border-radius:28px; padding:clamp(1.5rem,4vw,3rem); background:linear-gradient(145deg,rgba(28,24,59,.7),rgba(11,10,24,.75)); position:relative; overflow:hidden; }
+    .cta-shell::before { content:""; position:absolute; width:420px; aspect-ratio:1; border-radius:50%; right:-180px; top:-210px; background:radial-gradient(circle,rgba(51,230,224,.28),rgba(124,92,255,.2) 40%,transparent 70%); }
+    .cta-shell h2 { margin:.7rem 0 1rem; font:700 clamp(2.6rem,6vw,6rem)/.93 var(--display); letter-spacing:-.05em; position:relative; }
+    .contact-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; position:relative; }
+    .contact-btn { min-height:48px; display:inline-flex; align-items:center; justify-content:center; padding:.8rem 1.1rem; border:1px solid rgba(242,241,250,.25); border-radius:999px; color:#F3F1F9; background:rgba(255,255,255,.035); transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+    .contact-btn.primary { background:linear-gradient(100deg,var(--violet),#6846f3); border-color:transparent; }
+    .contact-btn:hover { transform:translateY(-3px); border-color:var(--aqua); background:rgba(51,230,224,.08); }
+    .contact-btn.primary:hover { background:linear-gradient(100deg,#6846f3,var(--violet)); }
+    footer { padding:1.5rem var(--page-pad) 2.5rem; color:rgba(242,241,250,.5); font-size:.75rem; display:flex; justify-content:space-between; gap:1rem; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .brief-grid, .expertise-layout, .impact-grid, .finale-grid { grid-template-columns:1fr; }
+      .hero-grid { padding-top:5rem; }
+      .hero-copy { max-width:100%; }
+      .hero-name { font-size:clamp(4rem,17vw,8.4rem); }
+      .photo-stage { min-height:520px; }
+      .brief-kicker { position:relative; top:auto; }
+      .service-loop { width:min(82vw,430px); }
+      .impact-grid { text-align:center; }
+      .impact-copy { margin-inline:auto; }
+      .impact-portrait { opacity:.13 !important; right:-8vw; width:48vw; }
+      .projects-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .project-card, .project-card:nth-child(1), .project-card:nth-child(6) { grid-column:auto; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --page-pad: 1.15rem; }
+      .progress-rail { display:none; }
+      .chapter { min-height:auto; padding:5.5rem 0; }
+      .hero { min-height:100svh; padding-top:0; }
+      .hero-grid { gap:1.2rem; min-height:100svh; }
+      .hero-name { font-size:clamp(3.9rem,20vw,6.6rem); line-height:.82; }
+      .hero-positioning { font-size:1rem; }
+      .hero-stats { grid-template-columns:repeat(3,1fr); margin-top:1.5rem; }
+      .hero-stat { padding:.85rem .65rem; }
+      .hero-stat strong { font-size:1.45rem; }
+      .hero-stat small { font-size:.58rem; }
+      .photo-stage { min-height:440px; }
+      .photo-frame { width:min(82vw,390px); }
+      .cutout-wrap { width:min(88vw,430px); min-height:430px; }
+      .cutout-wrap img { max-height:52vh; }
+      .state-no-photo .photo-placeholder { width:78vw; margin:0; justify-self:center; opacity:.42; }
+      .scroll-cue { display:none; }
+      .proof-grid, .expertise-cloud, .projects-grid { grid-template-columns:1fr; }
+      .impact-number { font-size:clamp(8rem,48vw,15rem); }
+      .impact-copy { margin-top:-1rem; }
+      .impact-portrait { width:75vw; opacity:.09 !important; }
+      .journey { overflow:visible; }
+      .journey-viewport { overflow:visible; }
+      .journey-track { width:auto; display:grid; padding:1rem var(--page-pad) 5rem; }
+      .career-card { width:auto; min-height:0; }
+      .foundation-row { grid-template-columns:1fr; gap:.35rem; }
+      footer { flex-direction:column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation:none !important; transition:none !important; }
+      #storyOrb { display:none; }
+      .impact-pin { min-height:auto; padding:6rem 0; }
+      .journey-track { transform:none !important; }
+      .impact-portrait { opacity:.13; }
+    }
+
+    @media print {
+      body { background:#fff; color:#111; }
+      body::before, body::after, .progress-rail, .page-progress, #storyOrb, .scroll-cue, .photo-stage, .impact-halo, .impact-portrait { display:none !important; }
+      .hero, .chapter, .impact-pin { min-height:auto; padding:2rem 0; display:block; }
+      .hero-grid, .brief-grid, .expertise-layout, .impact-grid, .finale-grid { display:block; }
+      .hero-name, .section-title, .impact-number { color:#111; -webkit-text-stroke:0; text-shadow:none; }
+      .hero-name .last { color:#111; -webkit-text-stroke:0; }
+      .career-card, .proof-card, .expertise-card, .project-card, .cta-shell, .impact-copy { background:#fff; border:1px solid #bbb; color:#111; break-inside:avoid; }
+      .journey-track { display:block; width:auto; padding:0; }
+      .career-card { width:auto; min-height:0; margin-bottom:1rem; }
+      a { color:#111; }
+    }
+  </style>
+</head>
+<body class="photo-pending">
+  <div class="page-progress" aria-hidden="true"><span id="pageProgress"></span></div>
+  <div id="storyOrb" aria-hidden="true"></div>
+  <nav class="progress-rail" aria-label="Portfolio chapters">
+    <a class="progress-dot active" href="#hero" aria-label="Hero"></a>
+    <a class="progress-dot" href="#brief" aria-label="Overview"></a>
+    <a class="progress-dot" href="#expertise" aria-label="Expertise"></a>
+    <a class="progress-dot" href="#impact" aria-label="Impact"></a>
+    <a class="progress-dot" href="#journey" aria-label="Career journey"></a>
+    <a class="progress-dot" href="#projects" aria-label="Systems built"></a>
+    <a class="progress-dot" href="#connect" aria-label="Connect"></a>
+  </nav>
+
+  <main>
+    <section class="hero" id="hero" data-chapter="0">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">International After-Sales &amp; Technical Service Leader</div>
+          <h1 class="hero-name" aria-label="Amol Limaye">
+            <span class="first split-chars">AMOL</span>
+            <span class="last split-chars">LIMAYE</span>
+          </h1>
+          <p class="hero-positioning">Building service readiness across international automotive markets — from workshop infrastructure and technical training to warranty, CKD, parts and field quality.</p>
+          <div class="hero-meta">
+            <span>Pune, Maharashtra</span>
+            <span>India &amp; international markets</span>
+          </div>
+          <div class="hero-stats" aria-label="Career facts">
+            <div class="hero-stat"><strong><span data-count="26">26</span>+</strong><small>Years in automotive</small></div>
+            <div class="hero-stat"><strong><span data-count="6">6</span></strong><small>Organisations</small></div>
+            <div class="hero-stat"><strong><span data-count="4">4</span></strong><small>Global regions</small></div>
+          </div>
+        </div>
+
+        <div class="photo-stage" aria-live="polite">
+          <div class="cutout-wrap" id="cutoutWrap"></div>
+          <div class="photo-frame" id="photoFrame"></div>
+          <div class="photo-caption" id="photoCaption">Amol Limaye · Technical Service Leadership</div>
+          <div class="photo-placeholder" aria-hidden="true">
+            <span class="orbit"></span><span class="orbit"></span><span class="orbit"></span><span class="core"></span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue">Scroll the service journey</div>
+    </section>
+
+    <section class="chapter" id="brief" data-chapter="1">
+      <div class="wrap brief-grid">
+        <div class="brief-kicker">
+          <span class="chapter-no">01 · Operating brief</span>
+          <h2 class="section-title">Service leadership,<br><span class="gradient">end to end.</span></h2>
+        </div>
+        <div class="brief-copy">
+          <p>Amol Limaye’s career spans the full after-sales chain: customer-facing dealership service, field diagnosis, technical support, warranty governance, international distributor readiness, presales support and cross-functional product improvement.</p>
+          <p>He progressed from Senior Service Advisor to Senior Manager, combining a 10-year dealership foundation with 7+ years at Piaggio Vehicles and current responsibility across Africa, Asia and SAARC.</p>
+          <div class="proof-grid">
+            <article class="proof-card"><strong><span data-count="10">10</span> yrs</strong><span>Dealership-service foundation</span></article>
+            <article class="proof-card"><strong><span data-count="7">7</span>+ yrs</strong><span>With Piaggio Vehicles</span></article>
+            <article class="proof-card"><strong><span data-count="3">3</span></strong><span>Current regional clusters</span></article>
+            <article class="proof-card"><strong><span data-count="5">5</span></strong><span>Connected workstreams led</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="expertise" data-chapter="2">
+      <div class="wrap">
+        <span class="chapter-no">02 · Service-readiness system</span>
+        <h2 class="section-title">The disciplines that make<br><span class="gradient">markets service-ready.</span></h2>
+        <div class="expertise-layout">
+          <div class="service-loop" aria-hidden="true">
+            <svg viewBox="0 0 500 500" role="presentation">
+              <defs>
+                <linearGradient id="loopGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#7C5CFF"/>
+                  <stop offset=".5" stop-color="#33E6E0"/>
+                  <stop offset="1" stop-color="#FF5CA8"/>
+                </linearGradient>
+              </defs>
+              <circle id="servicePath" cx="250" cy="250" r="205" fill="none" stroke="url(#loopGradient)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="250" cy="250" r="167" fill="none" stroke="rgba(242,241,250,.13)" stroke-width="1" stroke-dasharray="4 10"/>
+              <circle cx="250" cy="45" r="7" fill="#33E6E0"/>
+              <circle cx="455" cy="250" r="7" fill="#7C5CFF"/>
+              <circle cx="250" cy="455" r="7" fill="#FF5CA8"/>
+              <circle cx="45" cy="250" r="7" fill="#F2F1FA"/>
+            </svg>
+            <div class="loop-core"><strong>Service<br>Readiness</strong></div>
+          </div>
+          <div class="expertise-cloud">
+            <article class="expertise-card"><b>International Service Networks</b><small>Distributor support · dealer development · market readiness</small></article>
+            <article class="expertise-card"><b>Technical Training</b><small>Dealer technicians · local mechanics · garage owners</small></article>
+            <article class="expertise-card"><b>Workshop Infrastructure</b><small>Layout · tools · equipment · workforce training</small></article>
+            <article class="expertise-card"><b>Warranty &amp; Field Quality</b><small>Failure analysis · corrective action · CFT governance</small></article>
+            <article class="expertise-card"><b>CKD &amp; Product Readiness</b><small>Assembly support · line readiness · audits · trials</small></article>
+            <article class="expertise-card"><b>Parts Governance</b><small>Monthly ordering · dead-stock review · importer support</small></article>
+            <article class="expertise-card"><b>PDI &amp; Validation</b><small>Pre-dispatch checks · vehicle testing · performance validation</small></article>
+            <article class="expertise-card"><b>Presales &amp; RFP Support</b><small>RFP response · demonstrations · technical-commercial proposals</small></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact" id="impact" data-chapter="3">
+      <div class="impact-pin">
+        <div class="impact-halo" id="impactHalo" aria-hidden="true"></div>
+        <img class="impact-portrait" id="impactPortrait" alt="" aria-hidden="true" />
+        <div class="impact-grid">
+          <div class="impact-number" id="impactNumber">25</div>
+          <div class="impact-copy" id="impactCopy">
+            <div class="impact-seed" id="impactSeed" aria-hidden="true"></div>
+            <span class="chapter-no">03 · Signature impact</span>
+            <h3>Technical resolution that created business.</h3>
+            <p>At Piaggio Vehicles, structured resolution of child-parts queries and customer grievances contributed to a documented 25% increase in additional business.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey" id="journey" data-chapter="4">
+      <div class="journey-head">
+        <span class="chapter-no">04 · Career journey</span>
+        <h2 class="section-title">From workshop floor<br><span class="gradient">to international markets.</span></h2>
+        <p class="lede">Six organisations. A continuous expansion of scope — customer service, technical diagnosis, field quality, electric mobility and international after-sales leadership.</p>
+      </div>
+      <div class="journey-viewport">
+        <div class="journey-track" id="journeyTrack">
+          <article class="career-card">
+            <span class="career-index">01</span><div class="year">Mar 1998 — Jan 2008</div>
+            <h3>Chowgule Industries</h3><div class="role">Senior Service Advisor</div>
+            <ul><li>Built a 10-year dealership-service foundation.</li><li>Managed customer concerns, repair orders, workshop coordination and delivery explanation.</li><li>Supported PDI, maintenance awareness and repair-quality checks.</li></ul>
+          </article>
+          <article class="career-card">
+            <span class="career-index">02</span><div class="year">Feb 2008 — Sep 2013</div>
+            <h3>ZF Steering Gear India</h3><div class="role">Senior Service Engineer</div>
+            <ul><li>Delivered 5+ years of steering-system technical support.</li><li>Worked across diagnosis, warranty evaluation, field quality and root-cause analysis.</li><li>Built proficiency in SAP-enabled service documentation.</li></ul>
+          </article>
+          <article class="career-card">
+            <span class="career-index">03</span><div class="year">Sep 2013 — Apr 2014</div>
+            <h3>Force Motors</h3><div class="role">Senior Service Engineer</div>
+            <ul><li>Supported dealer workshops and field locations.</li><li>Monitored SQS diagnosis, repair sequencing and special-equipment use.</li><li>Connected plant, R&amp;D, QA and service inputs through CFT reviews.</li></ul>
+          </article>
+          <article class="career-card">
+            <span class="career-index">04</span><div class="year">Apr 2014 — Aug 2021</div>
+            <h3>Piaggio Vehicles</h3><div class="role">Deputy Manager</div>
+            <ul><li>Led international after-sales across Africa, Asia and SAARC.</li><li>Built distributor workshops across layout, tools, equipment and training.</li><li>Delivered training for technicians, mechanics and garage owners.</li><li>Contributed to 25% additional business through structured parts-query resolution.</li></ul>
+          </article>
+          <article class="career-card">
+            <span class="career-index">05</span><div class="year">Dec 2021 — May 2022</div>
+            <h3>ETO Motors</h3><div class="role">Manager</div>
+            <ul><li>Supported after-sales during a 5-month electric-mobility assignment.</li><li>Coordinated dealer support, diagnosis, warranty and parts availability.</li><li>Used PDI, field validation and warranty feedback to support reliability.</li></ul>
+          </article>
+          <article class="career-card">
+            <span class="career-index">06</span><div class="year">May 2022 — Present</div>
+            <h3>Silverline Ventura</h3><div class="role">Senior Manager</div>
+            <ul><li>Directs operations across Africa, Asia and SAARC.</li><li>Leads five connected workstreams and a three-stage presales cycle.</li><li>Coordinates six stakeholder groups for field resolution and product performance.</li><li>Guides five service-control areas across international requirements.</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="projects" data-chapter="5">
+      <div class="wrap">
+        <span class="chapter-no">05 · Systems built</span>
+        <h2 class="section-title">Eight recurring<br><span class="gradient">service missions.</span></h2>
+        <p class="lede">Career highlights drawn directly from Amol’s work across international service operations, distributor readiness and product support.</p>
+        <div class="projects-grid">
+          <article class="project-card"><span class="folio">01 · 2014–Present</span><h3>International Service-Network Development</h3><p>Aligned service processes, technical support, local capability and distributor requirements across four global regions.</p></article>
+          <article class="project-card"><span class="folio">02 · Workshop readiness</span><h3>Distributor Workshop Infrastructure</h3><p>Designed readiness across layout, tools, equipment and workforce training for new distributors.</p></article>
+          <article class="project-card"><span class="folio">03 · Assembly</span><h3>CKD Line Establishment</h3><p>Supported line readiness through process monitoring, quality audits and training of local assembly teams.</p></article>
+          <article class="project-card"><span class="folio">04 · Capability</span><h3>International Technical Training</h3><p>Delivered structured learning for dealer technicians, local mechanics and garage owners.</p></article>
+          <article class="project-card"><span class="folio">05 · Governance</span><h3>Field Quality &amp; Warranty</h3><p>Connected field failures with root-cause analysis and corrective-action inputs through CFT reviews.</p></article>
+          <article class="project-card"><span class="folio">06 · Business impact</span><h3>Parts &amp; Inventory Governance</h3><p>Combined child-parts query resolution with monthly ordering and dead-stock review.</p></article>
+          <article class="project-card"><span class="folio">07 · Export readiness</span><h3>PDI, Validation &amp; Presales</h3><p>Applied four validation controls and a three-stage presales cycle from RFP response to proposal support.</p></article>
+          <article class="project-card"><span class="folio">08 · Launch support</span><h3>Cross-Functional Product Improvement</h3><p>Connected six stakeholder groups across launch, maintenance, field quality, parts and training needs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="connect" data-chapter="6">
+      <div class="wrap finale-grid">
+        <div>
+          <span class="chapter-no">06 · Foundation</span>
+          <h2 class="section-title">Technical depth.<br><span class="gradient">Operational reach.</span></h2>
+          <div class="foundation-list">
+            <div class="foundation-row"><b>Education</b><span>Diploma in Automobile Engineering · 1997</span></div>
+            <div class="foundation-row"><b>Systems</b><span>SAP · CRM · DMS · Microsoft Office</span></div>
+            <div class="foundation-row"><b>Methods</b><span>SOP · SQS · CIP · PDI · CFT failure analysis</span></div>
+            <div class="foundation-row"><b>Languages</b><span>English · Hindi · Marathi</span></div>
+          </div>
+        </div>
+        <div class="cta-shell">
+          <span class="eyebrow">Senior after-sales &amp; service operations</span>
+          <h2>Let’s build<br><span class="gradient-text">service readiness.</span></h2>
+          <p class="muted">Leadership assignments in India or international markets.</p>
+          <div class="contact-actions">
+            <a class="contact-btn primary" href="mailto:amol.mudra@gmail.com">Email Amol</a>
+            <a class="contact-btn" href="tel:+919373089604">Call</a>
+            <a class="contact-btn" href="https://www.linkedin.com/in/amol-limaye-15b0b7171/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Amol Limaye · International After-Sales &amp; Technical Service Leader</span><span>Pune, Maharashtra</span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    (() => {
+      const body = document.body;
+      const root = document.documentElement;
+      const frame = document.getElementById('photoFrame');
+      const cutoutWrap = document.getElementById('cutoutWrap');
+      const impactPortrait = document.getElementById('impactPortrait');
+      const photoCaption = document.getElementById('photoCaption');
+      let resolvedImage = null;
+
+      function loadProfileImage(onSuccess, onFail) {
+        const candidates = ['profile-cutout.png', 'profile.png', 'profile.jpeg', 'profile.jpg'];
+        let i = 0;
+        (function tryNext() {
+          if (i >= candidates.length) return onFail();
+          const src = candidates[i];
+          const img = new Image();
+          const isCutout = src === 'profile-cutout.png';
+          img.onload = () => onSuccess(src, img, isCutout);
+          img.onerror = () => { i += 1; tryNext(); };
+          img.src = src;
+        })();
+      }
+
+      function resolvePhotoState(src, image, isCutout) {
+        body.classList.remove('photo-pending', 'state-cutout', 'state-headshot', 'state-no-photo');
+        const heroImg = image.cloneNode();
+        heroImg.alt = 'Portrait of Amol Limaye, International After-Sales & Technical Service Leader';
+        heroImg.decoding = 'async';
+        resolvedImage = src;
+
+        if (isCutout) {
+          body.classList.add('state-cutout');
+          cutoutWrap.replaceChildren(heroImg);
+          photoCaption.hidden = true;
+        } else {
+          body.classList.add('state-headshot');
+          frame.replaceChildren(heroImg);
+          photoCaption.hidden = false;
+        }
+
+        impactPortrait.src = src;
+        requestAnimationFrame(() => {
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        });
+      }
+
+      function resolveNoPhoto() {
+        body.classList.remove('photo-pending', 'state-cutout', 'state-headshot');
+        body.classList.add('state-no-photo');
+        photoCaption.hidden = true;
+        requestAnimationFrame(() => {
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        });
+      }
+
+      loadProfileImage(resolvePhotoState, resolveNoPhoto);
+
+      // Progressive enhancement: the page remains complete without GSAP.
+      if (!window.gsap || !window.ScrollTrigger) return;
+      gsap.registerPlugin(ScrollTrigger);
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) return;
+
+      // Vanilla character splitter for the hero name.
+      document.querySelectorAll('.split-chars').forEach(el => {
+        const text = el.textContent;
+        el.setAttribute('aria-label', text);
+        el.textContent = '';
+        [...text].forEach(char => {
+          const span = document.createElement('span');
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          span.setAttribute('aria-hidden', 'true');
+          span.style.display = 'inline-block';
+          el.appendChild(span);
+        });
+      });
+
+      gsap.timeline({ defaults: { ease: 'expo.out' } })
+        .from('.eyebrow', { y: 18, opacity: 0, duration: .75 })
+        .from('.hero-name .first > span', { yPercent: 115, opacity: 0, rotate: 2, stagger: .045, duration: .9 }, '-=.4')
+        .from('.hero-name .last > span', { yPercent: 115, opacity: 0, rotate: -2, stagger: .045, duration: .9 }, '-=.72')
+        .from('.hero-positioning, .hero-meta', { y: 24, opacity: 0, stagger: .12, duration: .8 }, '-=.55')
+        .from('.hero-stat', { y: 18, opacity: 0, stagger: .08, duration: .7 }, '-=.5')
+        .from('.photo-stage', { x: 40, opacity: 0, scale: .96, duration: 1.1 }, '-=1');
+
+      // Scroll-linked living mesh and global progress.
+      ScrollTrigger.create({
+        start: 0,
+        end: 'max',
+        onUpdate: self => {
+          const p = self.progress;
+          root.style.setProperty('--mesh-x', `${15 + p * 48}%`);
+          root.style.setProperty('--mesh-y', `${18 + p * 34}%`);
+          root.style.setProperty('--mesh-x2', `${84 - p * 38}%`);
+          root.style.setProperty('--mesh-y2', `${28 + p * 44}%`);
+          root.style.setProperty('--mesh-x3', `${50 + Math.sin(p * Math.PI * 2) * 20}%`);
+          document.getElementById('pageProgress').style.width = `${p * 100}%`;
+        }
+      });
+
+      // Hero depth: background, name and portrait travel at distinct ratios.
+      gsap.to('.hero-copy', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: .8 } });
+      gsap.to('.photo-stage', { yPercent: 22, rotate: .6, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: .9 } });
+
+      // Operating brief enters in two different directions.
+      gsap.from('.brief-kicker', { x: -60, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '#brief', start: 'top 70%', once: true } });
+      gsap.from('.brief-copy > p', { x: 55, opacity: 0, stagger: .13, duration: .85, ease: 'power3.out', scrollTrigger: { trigger: '#brief', start: 'top 68%', once: true } });
+      gsap.from('.proof-card', { y: 40, opacity: 0, stagger: .09, duration: .75, ease: 'expo.out', scrollTrigger: { trigger: '.proof-grid', start: 'top 82%', once: true } });
+
+      // SVG service loop is drawn by scroll; the surrounding cards toggle in alternating directions.
+      const servicePath = document.getElementById('servicePath');
+      const length = servicePath.getTotalLength();
+      servicePath.style.strokeDasharray = length;
+      servicePath.style.strokeDashoffset = length;
+      gsap.to(servicePath, { strokeDashoffset: 0, ease: 'none', scrollTrigger: { trigger: '#expertise', start: 'top 75%', end: 'center 35%', scrub: .8 } });
+      gsap.from('.expertise-card', { x: i => i % 2 ? 42 : -42, opacity: 0, stagger: .075, duration: .78, ease: 'power3.out', scrollTrigger: { trigger: '.expertise-cloud', start: 'top 76%', once: true } });
+      gsap.to('.service-loop', { yPercent: -10, rotate: 7, ease: 'none', scrollTrigger: { trigger: '#expertise', start: 'top bottom', end: 'bottom top', scrub: .9 } });
+
+      // Signature set piece: the 25% result expands inside the longest pin.
+      const impactTL = gsap.timeline({
+        scrollTrigger: { trigger: '#impact', start: 'top top', end: '+=220%', pin: '.impact-pin', scrub: 1, anticipatePin: 1 }
+      });
+      impactTL
+        .fromTo('#impactSeed', { scale: .45, opacity: .45 }, { scale: 16, opacity: 0, duration: 1.1, ease: 'none' }, 0)
+        .fromTo('#impactNumber', { scale: .55, opacity: .18, yPercent: 16 }, { scale: 1, opacity: 1, yPercent: 0, duration: 1.45, ease: 'none' }, .08)
+        .fromTo('#impactHalo', { scale: .55, rotate: -10 }, { scale: 1.55, rotate: 18, duration: 1.8, ease: 'none' }, 0)
+        .fromTo('#impactCopy', { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'none' }, .55)
+        .fromTo('#impactPortrait', { xPercent: 22, yPercent: 18, opacity: 0, scale: .92 }, { xPercent: 0, yPercent: 0, opacity: () => body.classList.contains('state-no-photo') ? 0 : .2, scale: 1.06, duration: 1.35, ease: 'none' }, .3)
+        .to('#impactNumber', { xPercent: -8, duration: .6, ease: 'none' }, 1.45)
+        .to('#impactCopy', { xPercent: 8, duration: .6, ease: 'none' }, 1.45);
+
+      // Desktop-only horizontal career journey; mobile uses the source-order vertical stack.
+      const mm = gsap.matchMedia();
+      mm.add('(min-width: 768px)', () => {
+        const track = document.getElementById('journeyTrack');
+        const travel = () => Math.max(0, track.scrollWidth - window.innerWidth + 80);
+        const tween = gsap.to(track, {
+          x: () => -travel(),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#journey',
+            start: 'top top',
+            end: () => `+=${Math.max(window.innerHeight * 1.8, travel())}`,
+            pin: true,
+            scrub: .85,
+            invalidateOnRefresh: true,
+            anticipatePin: 1
+          }
+        });
+        return () => tween.kill();
+      });
+
+      // Project plates arrive from four vectors rather than a repeated fade-up.
+      gsap.from('.project-card', {
+        x: i => [55, 0, -55, 70][i % 4],
+        y: i => [0, 55, 0, -35][i % 4],
+        scale: .94,
+        opacity: 0,
+        stagger: .07,
+        duration: .9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.projects-grid', start: 'top 78%', once: true }
+      });
+
+      // Finale resolves upward while its contact actions arrive sequentially.
+      gsap.from('.foundation-row', { x: -45, opacity: 0, stagger: .1, duration: .75, ease: 'power3.out', scrollTrigger: { trigger: '#connect', start: 'top 72%', once: true } });
+      gsap.from('.cta-shell', { clipPath: 'inset(0 0 100% 0 round 28px)', duration: 1.15, ease: 'expo.out', scrollTrigger: { trigger: '.cta-shell', start: 'top 78%', once: true } });
+      gsap.from('.contact-btn', { y: 18, opacity: 0, stagger: .1, duration: .6, ease: 'power3.out', scrollTrigger: { trigger: '.contact-actions', start: 'top 88%', once: true } });
+
+      // Real-number counters run once and keep tabular width stable.
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const target = Number(el.dataset.count);
+        const proxy = { value: 0 };
+        gsap.to(proxy, {
+          value: target,
+          duration: 1.4,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+          onUpdate: () => { el.textContent = Math.round(proxy.value); }
+        });
+      });
+
+      // Shared luminous orb carries the page's light logic across chapter seams.
+      gsap.to('#storyOrb', { x: '64vw', y: '48vh', scale: 1.5, ease: 'none', scrollTrigger: { trigger: '#brief', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+      gsap.to('#storyOrb', { x: '28vw', y: '112vh', scale: .55, ease: 'none', scrollTrigger: { trigger: '#expertise', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+      gsap.to('#storyOrb', { x: '55vw', y: '165vh', scale: 2.4, opacity: .22, ease: 'none', scrollTrigger: { trigger: '#impact', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+
+      // Active progress dot follows the chapter in view.
+      const dots = [...document.querySelectorAll('.progress-dot')];
+      const sections = [...document.querySelectorAll('[data-chapter]')];
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const index = Number(visible.target.dataset.chapter);
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      }, { threshold: [0.25, 0.5, 0.75] });
+      sections.forEach(section => observer.observe(section));
+
+      document.fonts?.ready.then(() => ScrollTrigger.refresh());
+      window.addEventListener('resize', () => ScrollTrigger.refresh(), { passive: true });
+    })();
+  </script>
+</body>
+</html>
