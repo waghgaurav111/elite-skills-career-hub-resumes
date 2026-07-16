@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Limaye | International After-Sales & Technical Service Leader</title>
+    <meta name="description" content="Portfolio of Amol Limaye, International After-Sales & Technical Service Leader with 26+ years of automotive operations experience.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Amol Limaye | International After-Sales & Technical Service Leader">
+    <meta property="og:description" content="26+ years of automotive operations experience across Africa, Asia, SAARC, and Latin America.">
+    <meta property="og:type" content="profile">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#F4F2EC">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --base: #F4F2EC;
+            --surface: #eae7df;
+            --surface-card: #FAF9F6;
+            --ink: #1B2A4A;
+            --ink-muted: #4A5568;
+            --accent: #B08D57;
+            --accent-deep: #8E6D3B;
+            --border-line: rgba(27, 42, 74, 0.08);
+            --max-width: 1100px;
+            --font-display: 'Source Serif 4', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: var(--base);
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        /* Institutional Typography */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--ink-muted);
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /* Formal Restrained Progress Indicator */
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(27, 42, 74, 0.03);
+            z-index: 1000;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        /* Civic Stone Panels */
+        .civic-panel {
+            background: var(--surface-card);
+            border: 1px solid var(--border-line);
+            border-top: 3px solid var(--accent);
+            padding: 3.5rem;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(27, 42, 74, 0.02);
+        }
+
+        /* 3-Tier Image Architecture - Seamless, Borderless, Feathered Container Integration */
+        .hero-layout-root {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 5rem;
+            min-height: 80vh;
+        }
+        
+        .img-container-slot {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            aspect-ratio: 4/5;
+            border-radius: 8px;
+            overflow: hidden;
+            background: transparent !important;
+        }
+
+        body.img-state-cutout .img-container-slot,
+        body.img-state-headshot .img-container-slot {
+            display: flex;
+        }
+
+        .resolved-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            outline: none;
+            filter: grayscale(1) contrast(1.02) brightness(1.02);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%), 
+                        linear-gradient(to right, transparent, black 5%, black 95%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%), 
+                                linear-gradient(to right, transparent, black 5%, black 95%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+            background: transparent !important;
+        }
+
+        body.img-state-cutout .hero-layout-root,
+        body.img-state-headshot .hero-layout-root {
+            grid-template-columns: 1.25fr 0.75fr;
+        }
+
+        /* Formal Chapters */
+        section.chapter {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0;
+        }
+
+        /* Chapter 01: Hero Foundation */
+        #hero {
+            padding-top: 10rem;
+        }
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 500;
+        }
+        .hero-name {
+            font-size: clamp(3.8rem, 8vw, 6.5rem);
+            color: var(--ink);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .hero-tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+            color: var(--ink-muted);
+            max-width: 650px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* Chapter 02: Civic Provenance Map */
+        .origin-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .summary-text {
+            font-size: 1.3rem;
+            color: var(--ink);
+            line-height: 1.75;
+            font-family: var(--font-display);
+        }
+        .summary-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+            padding-left: 2.5rem;
+            border-left: 1px solid var(--border-line);
+        }
+        .metric-block {
+            position: relative;
+        }
+        .metric-number {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            color: var(--ink);
+            line-height: 1;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--ink-muted);
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        /* Chapter 03: Core Matrices */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+        .skill-card h3 {
+            font-size: 1.4rem;
+            color: var(--ink);
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 0.5rem;
+        }
+        .skill-list {
+            list-style: none;
+        }
+        .skill-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.85rem;
+            color: var(--ink-muted);
+            font-size: 0.95rem;
+        }
+        .skill-list li::before {
+            content: '§';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: var(--font-display);
+        }
+
+        /* Chapter 04: Engraved Mission Statement (SIGNATURE SET PIECE) */
+        .engraved-viewport {
+            width: 100%;
+            background: var(--surface);
+            border: 1px solid var(--border-line);
+            padding: 6rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+        .engraved-text {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            color: rgba(27, 42, 74, 0.15);
+            line-height: 1.4;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            letter-spacing: -0.01em;
+        }
+        .engraved-text span {
+            color: var(--ink);
+            transition: color 0.1s ease;
+        }
+        .giant-display-num {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 14vw, 11rem);
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .giant-display-num.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Chapter 05: Logistical Chronology (Horizontal Civic corridor) */
+        .horizontal-scroll-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .horizontal-scroll-wrapper {
+            display: flex;
+            width: 600vw;
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+        }
+        .timeline-card {
+            width: 75vw;
+            max-width: 480px;
+            flex-shrink: 0;
+            margin-right: 5rem;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--surface-card);
+            border-top: 3px solid var(--ink);
+        }
+        .card-header .date-span {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--accent);
+        }
+        .card-header h3 {
+            font-size: 1.7rem;
+            margin: 0.5rem 0 0.25rem;
+            font-weight: 500;
+        }
+        .card-header .company-span {
+            font-size: 0.9rem;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        .card-body {
+            margin-top: 2rem;
+        }
+        .card-body ul {
+            list-style: none;
+        }
+        .card-body li {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--ink-muted);
+            line-height: 1.65;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        .card-body li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Chapter 06: Civic Colophon */
+        .cta-wrapper {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .cta-wrapper h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            padding: 1.1rem 3rem;
+            border-radius: 2px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-primary {
+            background: var(--ink);
+            color: var(--base);
+        }
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--border-line);
+        }
+        .btn-secondary:hover {
+            border-color: var(--ink);
+            background: rgba(27, 42, 74, 0.02);
+        }
+        .footer-meta {
+            margin-top: 5rem;
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            border-top: 1px solid var(--border-line);
+            padding-top: 3rem;
+        }
+
+        .section-title-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 3.5rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        /* Mobile Adaptations */
+        @media (max-width: 768px) {
+            body.img-state-cutout .hero-layout-root,
+            body.img-state-headshot .hero-layout-root {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .img-container-slot {
+                max-width: 260px;
+                order: -1;
+            }
+            .origin-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+            .summary-metrics {
+                padding-left: 0;
+                border-left: none;
+            }
+            .horizontal-scroll-wrapper {
+                flex-direction: column;
+                width: 100% !important;
+                transform: none !important;
+                padding-left: 0;
+            }
+            .timeline-card {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 3.5rem;
+                padding: 2rem;
+            }
+            section.chapter {
+                padding: 5rem 0;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Print Override */
+        @media print {
+            body { background: white; color: black; }
+            .civic-panel, .timeline-card { border: 1px solid black; background: none; box-shadow: none; }
+            .progress-rail { display: none; }
+            section.chapter { min-height: auto; page-break-inside: avoid; padding: 2rem 0; }
+            .horizontal-scroll-wrapper { flex-direction: column; width: 100%; }
+            .timeline-card { width: 100%; height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ART DIRECTION DECLARATION
+    FAMILY: 7 · Institutional / Civic
+    DIRECTION: 10 · Civic Stone (light — institutional gravitas, restrained)
+    DOMAIN: Automotive After-Sales & Operations Leadership (Seniority: 26+ Years)
+    PALETTE: #F4F2EC (Limestone Base), #1B2A4A (Civic Navy Ink), #B08D57 (Muted Brass Accent)
+    TYPE: Source Serif 4 (Classical serif display headers) + Inter (Clean sans body text)
+    MOTION PERSONALITY: Measured, formal, institutional pacing
+    SIGNATURE SET PIECE: Chapter 4 Engraved Mission Sequence, where vertical scroll progress carves out an executive strategy mission statement letter by letter into a stone field structure before surfacing a critical commercial metric.
+    PHOTO TREATMENT: Inserted inside a borderless, 100% true transparent backdrop container optimized via linear alpha transitions to cleanly place the subject into formal limestone fields.
+    RATIONALE: Conveys robust multi-decade management tenure records, wide regional market management, and industrial network compliance structures with balanced authority.
+    -->
+
+    <!-- DATA INVENTORY
+    * Candidate: Amol Limaye
+    * Target: Senior After-Sales & Service Operations Leadership
+    * Core Metrics: 26+ Years Experience[cite: 1], 3 Regional Clusters[cite: 1], 6 Stakeholder Groups[cite: 1], 25% Additional Business Generated[cite: 1].
+    * History Roles: Silverline Ventura (Senior Manager)[cite: 1], ETO Motors (Manager)[cite: 1], Piaggio Vehicles (Deputy Manager)[cite: 1], Force Motors (Senior Service Engineer)[cite: 1], ZF Steering Gear (Senior Service Engineer)[cite: 1], Chowgule Industries (Senior Service Advisor)[cite: 1].
+    * Core Proficiencies: CKD Assembly, Network Development, Warranty Governance, Spare-Parts Planning, SAP, CRM, DMS, SOP/SQS Compliance[cite: 1].
+    * Location: Pune, Maharashtra, India[cite: 1].
+    * Profile image: conditional (3-tier runtime check).
+    -->
+
+    <!-- SCENE STORYBOARD
+    CH | CHAPTER | MECHANIC | PIN? | SCRUB/TOGGLE | KEY FACT SHOWN | SEAM OUT
+    01 | Hero Foundation | Measured text reveals utilizing clean structural tracking delays. | No | Toggle | Name + Strategic Profile | Soft crossfade
+    02 | Provenance Record | Split grid parsing macroscopic multi-market operations scope. | No | Toggle | 26+ Years Automotive Record[cite: 1] | Spatial gap
+    03 | Capability Array | Formal column cells isolating core operational specialties. | No | Toggle | Skill Matrix Infrastructures[cite: 1] | Segment break
+    04 | Engraved Text ★SET PIECE | Pinned text canvas altering transparency values matching individual span arrays. | Yes (250vh) | Scrub | 25% Additional Expansion[cite: 1] | Section wipe
+    05 | Civic Corridor | Horizontal timeline system gliding historical plates across viewports. | Yes (300vh) | Scrub | Full Historical Lifecycle Profile[cite: 1] | Scroll release
+    06 | Colophon Closing | Understated central alignment housing direct interaction channels. | No | Toggle | Secure Communication Interfaces[cite: 1] | Termination
+    -->
+
+    <div class="progress-rail"><div class="progress-bar" id="progressBar"></div></div>
+
+    <!-- CHAPTER 01: HERO FOUNDATION -->
+    <section class="chapter" id="hero">
+        <div class="container">
+            <div class="hero-layout-root">
+                <div class="hero-text-content">
+                    <span class="hero-eyebrow">Executive Strategy Allocation</span>
+                    <h1 class="hero-name">Amol Limaye</h1>
+                    <p class="hero-tagline">International After-Sales & Technical Service Leader orchestrating industrial network governance and operational support channels across global markets[cite: 1].</p>
+                </div>
+                <div class="img-container-slot" id="imageSlot">
+                    <!-- Injected dynamically via script, remaining 100% transparent and container-borderless -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 02: CIVIC PROVENANCE MAP -->
+    <section class="chapter" id="origin">
+        <div class="container">
+            <span class="section-title-eyebrow">I // Provenance Record</span>
+            <div class="origin-grid">
+                <div class="civic-panel">
+                    <p class="summary-text">
+                        A definitive operational record tracing more than 26 years of strategic leadership across national and global automotive segments[cite: 1]. Developing distribution networks, technical training matrix systems, and field quality controls within Africa, Asia, SAARC, and Latin American clusters[cite: 1].
+                    </p>
+                </div>
+                <div class="summary-metrics">
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="26">0</div>
+                        <div class="metric-label">Years Automotive Experience[cite: 1]</div>
+                    </div>
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="3">0</div>
+                        <div class="metric-label">Market Regions Managed[cite: 1]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 03: CORE MATRICES -->
+    <section class="chapter" id="expertise">
+        <div class="container">
+            <span class="section-title-eyebrow">II // System Infrastructure</span>
+            <div class="skills-grid">
+                <div class="civic-panel skill-card">
+                    <h3>After-Sales Architecture[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>International Service-Network Scaling[cite: 1]</li>
+                        <li>Distributor & Dealer Capability Models[cite: 1]</li>
+                        <li>Workshop Layout & Asset Infrastructure[cite: 1]</li>
+                        <li>Go-to-Market Product Launch Readiness[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="civic-panel skill-card">
+                    <h3>Technical Governance[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Complete Knock-Down (CKD) Operations[cite: 1]</li>
+                        <li>Warranty & Field Quality Control Governance[cite: 1]</li>
+                        <li>SOP & SQS Process Adherence Implementations[cite: 1]</li>
+                        <li>Cross-Functional Team Failure Analysis[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="civic-panel skill-card">
+                    <h3>Logistical Channels[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Spare-Parts Distribution Protocols[cite: 1]</li>
+                        <li>Dead-Stock Inventory Governance Plans[cite: 1]</li>
+                        <li>RFP Architecture & Presales Bid Support[cite: 1]</li>
+                        <li>frontline Technical Capacity Upskilling[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 04: ENGRAVED MISSION STATEMENT (SIGNATURE SET PIECE) -->
+    <section class="chapter" id="impact" style="display: block; padding: 10rem 0;">
+        <span class="section-title-eyebrow" style="padding-left: 2.5rem; text-align: center;">III // Corporate Inscription</span>
+        <div class="engraved-viewport" id="engraveStage">
+            <div class="engraved-text" id="engraveText">
+                Connecting plants, importer networks, R&D loops, and corporate quality assurance assets to anchor long-term product performance and customer conversion matrix scales[cite: 1].
+            </div>
+            <div class="giant-display-num" id="crescendoNum">+25% Additional Volume[cite: 1]</div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 05: CIVIC CORRIDOR HORIZONTAL TIMELINE -->
+    <section class="chapter" id="journey">
+        <div class="container" style="max-width: 100%; padding: 0;">
+            <span class="section-title-eyebrow" style="padding-left: 2.5rem;">IV // Chronological Register</span>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll-wrapper" id="scrollWrapper">
+                    
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">May 2022 – Present[cite: 1]</span>
+                            <h3>Senior Manager[cite: 1]</h3>
+                            <span class="company-span">Silverline Ventura[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Directs technical operations for Africa, Asia, and SAARC hubs[cite: 1].</li>
+                                <li>Coordinates 5 integrated capability workstream channels[cite: 1].</li>
+                                <li>Validates plant export compliance across 4 checkpoints[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Dec 2021 – May 2022[cite: 1]</span>
+                            <h3>Manager[cite: 1]</h3>
+                            <span class="company-span">ETO Motors[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Supervised repair frameworks for scaling EV platforms[cite: 1].</li>
+                                <li>Coordinated operations tracking across 4 core areas[cite: 1].</li>
+                                <li>Governed component serviceability via active data loops[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Apr 2014 – Aug 2021[cite: 1]</span>
+                            <h3>Deputy Manager[cite: 1]</h3>
+                            <span class="company-span">Piaggio Vehicles Pvt. Ltd.[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Steered international customer support functions across 3 sectors over 7 years[cite: 1].</li>
+                                <li>Designed comprehensive workshop infrastructure layouts[cite: 1].</li>
+                                <li>Captured 25% additional downstream growth from component tracking[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Sep 2013 – Apr 2014[cite: 1]</span>
+                            <h3>Senior Service Engineer[cite: 1]</h3>
+                            <span class="company-span">Force Motors Limited[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Deployed field technical diagnostics across dealer workshops[cite: 1].</li>
+                                <li>Enforced standard operating rules under strict SQS parameters[cite: 1].</li>
+                                <li>Mitigated repetitive system failure constraints via plant QA links[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Feb 2008 – Sep 2013[cite: 1]</span>
+                            <h3>Senior Service Engineer[cite: 1]</h3>
+                            <span class="company-span">ZF Steering Gear India Ltd.[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Maintained diagnostic tasks for specialized steering applications[cite: 1].</li>
+                                <li>Formulated root-cause diagnostic metrics for engineering teams[cite: 1].</li>
+                                <li>Leveraged SAP environments to execute inventory logistics tasks[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="civic-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Mar 1998 – Jan 2008[cite: 1]</span>
+                            <h3>Senior Service Advisor[cite: 1]</h3>
+                            <span class="company-span">Chowgule Industries Limited[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>10-year bedrock track configuration within high-volume workshops[cite: 1].</li>
+                                <li>Supervised pre-delivery vehicle check configurations and routes[cite: 1].</li>
+                                <li>Optimized diagnostic throughput parameters and delivery cycles[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 06: CIVIC COLOPHON -->
+    <section class="chapter" id="connect">
+        <div class="container">
+            <div class="cta-wrapper civic-panel">
+                <span class="section-title-eyebrow">V // Colophon Engagement</span>
+                <h2>Targeting Senior Global Assignments[cite: 1]</h2>
+                <p>Open for strategic communications regarding director or national operational allocations within global automotive networks[cite: 1].</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:amol.mudra@gmail.com" class="btn btn-primary">Initiate Communication</a>
+                    <a href="https://www.linkedin.com/in/amol-limaye-15b0b7171/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn Archive[cite: 1]</a>
+                </div>
+
+                <div class="footer-meta">
+                    <p>Amol Limaye • +91 93730 89604 • Pune, Maharashtra, India[cite: 1]</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.5; font-style: italic;">Academic Profile: Diploma in Automobile Engineering (1997)[cite: 1]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 3-Tier Dynamic Profile Image Verification Pattern (Borderless + 100% Transparent Container)
+        function loadProfileImage(onSuccess, onFail) {
+            const candidates = ['profile-cutout.png', 'profile.png', 'profile.jpeg', 'profile.jpg'];
+            let i = 0;
+            (function tryNext() {
+                if (i >= candidates.length) return onFail();
+                const img = new Image();
+                const isCutout = candidates[i] === 'profile-cutout.png';
+                img.onload = () => onSuccess(candidates[i], img, isCutout);
+                img.onerror = () => { i++; tryNext(); };
+                img.src = candidates[i];
+            })();
+        }
+
+        const slot = document.getElementById('imageSlot');
+
+        loadProfileImage(
+            (src, imgElement, isCutout) => {
+                const domImg = document.createElement('img');
+                domImg.src = src;
+                domImg.alt = "Amol Limaye Formal Institutional Strategy Portrait";
+                domImg.classList.add('resolved-profile-img');
+                slot.appendChild(domImg);
+
+                if (isCutout) {
+                    document.body.classList.add('img-state-cutout');
+                } else {
+                    document.body.classList.add('img-state-headshot');
+                }
+                
+                ScrollTrigger.refresh();
+            },
+            () => {
+                document.body.classList.add('img-state-no-photo');
+                ScrollTrigger.refresh();
+            }
+        );
+
+        // Symmetrical Top Tracking Progress Indicator
+        gsap.to("#progressBar", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            },
+            width: "100%"
+        });
+
+        // Limestone Formal Numeric Counters
+        document.querySelectorAll('.metric-number').forEach(num => {
+            const target = parseInt(num.getAttribute('data-target'), 10);
+            gsap.to(num, {
+                scrollTrigger: {
+                    trigger: num,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                innerText: target,
+                duration: 1.8,
+                snap: { innerText: 1 },
+                ease: "power2.out"
+            });
+        });
+
+        // Modern Sidebar Progress Node Triggers
+        const dots = document.querySelectorAll('.nav-dot');
+        document.querySelectorAll('section.chapter').forEach((section, index) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 50%",
+                end: "bottom 50%",
+                onToggle: self => {
+                    if (self.isActive) {
+                        dots.forEach(d => d.classList.remove('active'));
+                        if(dots[index]) dots[index].classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // SIGNATURE SET PIECE: Chapter 4 Engraved Mission Letter Progression Sequence Matrix
+        const engraveText = document.getElementById('engraveText');
+        if (engraveText) {
+            const textContent = engraveText.innerText;
+            engraveText.innerHTML = textContent.split('').map(char => `<span>${char}</span>`).join('');
+            
+            const spans = engraveText.querySelectorAll('span');
+            
+            const setPieceTL = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#impact",
+                    start: "top top",
+                    end: "+=200%",
+                    pin: true,
+                    scrub: 0.4,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            setPieceTL.to(spans, {
+                color: "#1B2A4A",
+                stagger: 0.02,
+                ease: "none"
+            }).to("#crescendoNum", {
+                className: "giant-display-num revealed",
+                duration: 0.5
+            });
+        }
+
+        // Horizontal Chronological Ledger Stack Runway Setup
+        if (window.innerWidth > 768) {
+            const wrapper = document.getElementById('scrollWrapper');
+            const totalWidth = wrapper.scrollWidth - window.innerWidth + 64;
+            
+            gsap.to(wrapper, {
+                scrollTrigger: {
+                    trigger: "#journey",
+                    start: "top top",
+                    end: () => `+=${totalWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                },
+                x: -totalWidth,
+                ease: "none"
+            });
+        }
+
+        // Global Parameters Refreshes on Asset Processing Completion
+        document.fonts.ready.then(() => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>

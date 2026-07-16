@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Limaye | International After-Sales & Technical Service Leader</title>
+    <meta name="description" content="Portfolio of Amol Limaye, International After-Sales & Technical Service Leader with 26+ years of automotive operations experience.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Amol Limaye | International After-Sales & Technical Service Leader">
+    <meta property="og:description" content="26+ years of automotive operations experience across Africa, Asia, SAARC, and Latin America.">
+    <meta property="og:type" content="profile">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0D0D0F">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --base: #0D0D0F;
+            --surface: #17171B;
+            --surface-card: rgba(23, 23, 27, 0.7);
+            --ink: #F2EEE4;
+            --ink-muted: #A6A29A;
+            --accent: #D4B36A;
+            --accent-deep: #AA8B4A;
+            --border: rgba(212, 179, 106, 0.2);
+            --max-width: 1200px;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: var(--base);
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        /* Base Typography */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--ink-muted);
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Persistent Structural Elements */
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(242, 238, 228, 0.03);
+            z-index: 1000;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        nav.chapter-nav {
+            position: fixed;
+            right: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(242, 238, 228, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.5);
+            box-shadow: 0 0 10px rgba(212, 179, 106, 0.3);
+        }
+
+        /* Cinematic Background Atmospheric Device */
+        .bg-atmosphere {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .cinema-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(13, 13, 15, 0.8) 80%, #0D0D0F 100%);
+        }
+        .film-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3联%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Editorial Custom Cards */
+        .luxury-panel {
+            background: var(--surface-card);
+            border: 1px solid rgba(242, 238, 228, 0.03);
+            padding: 3rem;
+            position: relative;
+        }
+
+        /* 3-Tier Image Architecture States - Custom 100% Transparent Container with Thin Luxury Accent Border */
+        .hero-layout-root {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 6rem;
+            min-height: 85vh;
+        }
+        
+        .img-container-slot {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            aspect-ratio: 4/5;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            background: transparent !important;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        body.img-state-cutout .img-container-slot,
+        body.img-state-headshot .img-container-slot {
+            display: flex;
+        }
+
+        .resolved-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            filter: grayscale(1) contrast(1.05);
+            background: transparent !important;
+        }
+
+        body.img-state-cutout .hero-layout-root,
+        body.img-state-headshot .hero-layout-root {
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        /* Chapter Architecture */
+        section.chapter {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0;
+        }
+
+        /* Chapter 01: Hero Title Sequence */
+        #hero {
+            padding-top: 10rem;
+        }
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: block;
+            opacity: 0;
+        }
+        .hero-name {
+            font-size: clamp(4rem, 9vw, 7.5rem);
+            line-height: 0.9;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0;
+        }
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+            color: var(--ink-muted);
+            font-style: italic;
+            max-width: 650px;
+            opacity: 0;
+        }
+        .hero-gold-rule {
+            width: 0%;
+            height: 1px;
+            background: var(--accent);
+            margin-top: 2rem;
+        }
+
+        /* Chapter 02: Narrative Origin */
+        .origin-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        .summary-text {
+            font-size: 1.35rem;
+            color: var(--ink);
+            line-height: 1.8;
+            font-family: var(--font-display);
+        }
+        .summary-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+        .metric-block {
+            position: relative;
+        }
+        .metric-number {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--ink-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Chapter 03: Competence Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+        .skill-card h3 {
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(242, 238, 228, 0.05);
+            padding-bottom: 0.75rem;
+        }
+        .skill-list {
+            list-style: none;
+        }
+        .skill-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--ink-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+        .skill-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+
+        /* Chapter 04: Pinned Title Sequence (SIGNATURE SET PIECE) */
+        .crescendo-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+        .giant-display-num {
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 20vw, 16rem);
+            font-weight: 300;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(212, 179, 106, 0.2);
+            line-height: 1;
+            transition: color 1s ease;
+        }
+        .giant-display-num.filled {
+            color: var(--accent);
+            -webkit-text-stroke: none;
+        }
+        .impact-narrative h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .impact-narrative {
+            max-width: 750px;
+            margin: 2rem auto 0;
+            border: none;
+            background: transparent;
+        }
+
+        /* Chapter 05: Chronological Gallery (Horizontal Timeline) */
+        .horizontal-scroll-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .horizontal-scroll-wrapper {
+            display: flex;
+            width: 600vw;
+            padding-left: 3rem;
+        }
+        .timeline-card {
+            width: 75vw;
+            max-width: 480px;
+            flex-shrink: 0;
+            margin-right: 5rem;
+            height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--surface);
+        }
+        .card-header .date-span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            letter-spacing: 0.2em;
+        }
+        .card-header h3 {
+            font-size: 2rem;
+            margin: 0.75rem 0 0.25rem;
+        }
+        .card-header .company-span {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            font-style: italic;
+        }
+        .card-body {
+            margin-top: 2rem;
+        }
+        .card-body ul {
+            list-style: none;
+        }
+        .card-body li {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            color: var(--ink-muted);
+            line-height: 1.6;
+        }
+
+        /* Chapter 06: Editorial Finale */
+        .cta-wrapper {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+            border: 1px solid rgba(212, 179, 106, 0.1);
+        }
+        .cta-wrapper h2 {
+            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+            margin-bottom: 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            padding: 1.25rem 3rem;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--base);
+        }
+        .btn-primary:hover {
+            background: #f4d38a;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid rgba(242, 238, 228, 0.1);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(212, 179, 106, 0.03);
+        }
+        .footer-meta {
+            margin-top: 5rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            color: var(--ink-muted);
+            border-top: 1px solid rgba(242, 238, 228, 0.03);
+            padding-top: 3rem;
+        }
+
+        .section-title-eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--accent);
+            margin-bottom: 3.5rem;
+            display: block;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            body.img-state-cutout .hero-layout-root,
+            body.img-state-headshot .hero-layout-root {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .img-container-slot {
+                max-width: 260px;
+                order: -1;
+            }
+            .origin-grid {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+            .horizontal-scroll-wrapper {
+                flex-direction: column;
+                width: 100% !important;
+                transform: none !important;
+                padding-left: 0;
+            }
+            .timeline-card {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 3.5rem;
+                padding: 2rem;
+            }
+            section.chapter {
+                min-height: auto;
+                padding: 5rem 0;
+            }
+            nav.chapter-nav {
+                display: none;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Print Fallbacks */
+        @media print {
+            body { background: white; color: black; }
+            .luxury-panel { border: none; background: none; }
+            .chapter-nav, .progress-rail, .bg-atmosphere { display: none; }
+            section.chapter { min-height: auto; page-break-inside: avoid; padding: 2rem 0; }
+            .horizontal-scroll-wrapper { flex-direction: column; width: 100%; }
+            .timeline-card { width: 100%; height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ART DIRECTION DECLARATION
+    FAMILY: 2 · Editorial Dark Luxury
+    DIRECTION: 02 · Cinema Noir (dark — film-title luxury)
+    DOMAIN: Automotive After-Sales & Operations Leadership (Seniority: 26+ Years)
+    PALETTE: #0D0D0F (Base Canvas), #17171B (Surface Panel), #D4B36A (Champagne Gold), #F2EEE4 (Bone Text)
+    TYPE: Cormorant Garamond (High-contrast editorial serif) + Inter (Quiet, structural minimal sans body)
+    MOTION PERSONALITY: Glacial, weighted, deliberate, architectural title sweeps
+    SIGNATURE SET PIECE: A pinned title sequence sequence where the 26+ Year Metric animates to structural typographic scale accompanied by a clean drawing line execution.
+    PHOTO TREATMENT: Placed inside a customized container with elegantly rounded corners, built using an ambient thin gold architectural line border with 100% true transparent background tracking.
+    RATIONALE: Conveys deep corporate gravity, industrial scale, and international authority by structuring data around premium film-credit layout dynamics.
+    -->
+
+    <!-- DATA INVENTORY
+    * Candidate: Amol Limaye
+    * Target: Senior After-Sales & Service Operations Leadership
+    * Core Metrics: 26+ Years Experience, 3 Regional Clusters, 6 Stakeholder Groups, 25% Additional Business Generated.
+    * History Roles: Silverline Ventura (Senior Manager), ETO Motors (Manager), Piaggio Vehicles (Deputy Manager), Force Motors (Senior Service Engineer), ZF Steering Gear (Senior Service Engineer), Chowgule Industries (Senior Service Advisor).
+    * Core Proficiencies: CKD Assembly, Network Development, Warranty Governance, Spare-Parts Planning, SAP, CRM, DMS, SOP/SQS Compliance.
+    * Location: Pune, Maharashtra, India.
+    * Profile image: conditional (3-tier runtime check).
+    -->
+
+    <!-- SCENE STORYBOARD
+    CH | CHAPTER | MECHANIC | PIN? | SCRUB/TOGGLE | KEY FACT SHOWN | SEAM OUT
+    01 | Hero Sequence | Pinned cinematic sequence. Eyebrow, Name, Rule line draw. | Yes (100vh) | Toggle | Name + Position | Delayed crossfade
+    02 | Executive Origin | Structural editorial split-grid highlighting career scope. | No | Toggle | 26+ Years Experience | Spatial shift
+    03 | Core Matrix | Multi-column classic layout grids isolating technical vectors. | No | Toggle | Cross-functional Capabilities | Line break
+    04 | Impact Focus ★SET PIECE | Long single-pinned counter scaling up as ambient backdrop fills structure. | Yes (200vh) | Scrub | 25% Business Uplift | Hard color wipe
+    05 | Chronological Gallery | Horizontal linear timeline system mirroring historic gallery spaces. | Yes (300vh) | Scrub | Full Corporate Lifecycle | Section release
+    06 | Finale Protocol | Architectural block layout with high-contrast action directives. | No | Toggle | Direct Contact Interfaces | End
+    -->
+
+    <div class="progress-rail"><div class="progress-bar" id="progressBar"></div></div>
+
+    <nav class="chapter-nav" aria-label="Chapter Navigation">
+        <a href="#hero" class="nav-dot active" aria-label="Hero Hook"></a>
+        <a href="#origin" class="nav-dot" aria-label="Professional Origin"></a>
+        <a href="#expertise" class="nav-dot" aria-label="Core Matrices"></a>
+        <a href="#impact" class="nav-dot" aria-label="Signature Impact"></a>
+        <a href="#journey" class="nav-dot" aria-label="Operational Journey"></a>
+        <a href="#connect" class="nav-dot" aria-label="Connect"></a>
+    </nav>
+
+    <div class="bg-atmosphere">
+        <div class="cinema-vignette"></div>
+        <div class="film-grain"></div>
+    </div>
+
+    <!-- CHAPTER 01: HERO HOOK (PINNED TITLE SEQUENCE BEAT 1) -->
+    <section class="chapter" id="hero">
+        <div class="container">
+            <div class="hero-layout-root">
+                <div class="hero-text-content">
+                    <span class="hero-eyebrow" id="heroEyebrow">Global Operations Strategy</span>
+                    <h1 class="hero-name" id="heroName">Amol Limaye</h1>
+                    <p class="hero-tagline" id="heroTagline">International After-Sales & Technical Service Leader orchestrating automotive ecosystems across emerging global markets[cite: 1].</p>
+                    <div class="hero-gold-rule" id="heroRule"></div>
+                </div>
+                <div class="img-container-slot" id="imageSlot">
+                    <!-- Injected dynamically to maintain border and 100% transparent structural background -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 02: EXECUTIVE NARRATIVE ORIGIN -->
+    <section class="chapter" id="origin">
+        <div class="container">
+            <span class="section-title-eyebrow">I // Executive Foundation</span>
+            <div class="origin-grid">
+                <div class="luxury-panel">
+                    <p class="summary-text">
+                        A distinguished career spanning over 26 years of automotive experience[cite: 1]. Strategically developing international dealer infrastructures, standard operating procedures, and technical capability paths across Africa, Asia, SAARC, and Latin American clusters[cite: 1].
+                    </p>
+                </div>
+                <div class="summary-metrics">
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="26">0</div>
+                        <div class="metric-label">Years Automotive Experience[cite: 1]</div>
+                    </div>
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="3">0</div>
+                        <div class="metric-label">Global Market Regions Managed[cite: 1]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 03: CORE MATRICES -->
+    <section class="chapter" id="expertise">
+        <div class="container">
+            <span class="section-title-eyebrow">II // Operational Architecture</span>
+            <div class="skills-grid">
+                <div class="luxury-panel skill-card">
+                    <h3>After-Sales Leadership[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>International Service-Network Development[cite: 1]</li>
+                        <li>Distributor & Dealer Support Mechanisms[cite: 1]</li>
+                        <li>Workshop Infrastructure Layout Planning[cite: 1]</li>
+                        <li>Go-to-Market Product Launch Readiness[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="luxury-panel skill-card">
+                    <h3>Technical Governance[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Complete Knock-Down (CKD) Line Readiness[cite: 1]</li>
+                        <li>Warranty Control & Field Quality Audits[cite: 1]</li>
+                        <li>SOP & SQS Compliance Implementations[cite: 1]</li>
+                        <li>Cross-Functional Team Failure Analysis[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="luxury-panel skill-card">
+                    <h3>Logistical Ecosystems[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Spare-Parts Distribution & Inventory Control[cite: 1]</li>
+                        <li>Dead-Stock Governance Protocol[cite: 1]</li>
+                        <li>RFP Architecture & Technical Bidding Support[cite: 1]</li>
+                        <li>Technician Capability Training Programs[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 04: SIGNATURE IMPACT (SET PIECE) -->
+    <section class="chapter" id="impact">
+        <div class="container">
+            <span class="section-title-eyebrow">III // Commercial Crescendo</span>
+            <div class="crescendo-wrapper">
+                <div class="giant-display-num" id="crescendoNum">+25%</div>
+                <div class="impact-narrative luxury-panel">
+                    <h2>Value Chain Optimization</h2>
+                    <p>
+                        Generated 25% additional business expansion through precise, structured resolution frameworks targeting child-parts inquiries and systemic customer grievances[cite: 1]. Unifying importers, distribution plants, R&D engineering, and corporate quality assurance assets[cite: 1].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 05: CHRONOLOGICAL GALLERY -->
+    <section class="chapter" id="journey">
+        <div class="container" style="max-width: 100%; padding: 0;">
+            <span class="section-title-eyebrow" style="padding-left: 3rem;">IV // Chronological Tenure</span>
+            <div class="horizontal-scroll-container">
+                <div class="horizontal-scroll-wrapper" id="scrollWrapper">
+                    
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">May 2022 – Present[cite: 1]</span>
+                            <h3>Senior Manager[cite: 1]</h3>
+                            <span class="company-span">Silverline Ventura[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Directs operations across Africa, Asia, and SAARC regional clusters[cite: 1].</li>
+                                <li>Leads 5 unified workstreams covering network readiness and warranty[cite: 1].</li>
+                                <li>Audits vehicle export validation parameters via 4 discrete checkpoints[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Dec 2021 – May 2022[cite: 1]</span>
+                            <h3>Manager[cite: 1]</h3>
+                            <span class="company-span">ETO Motors[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Managed technical service deployments for electric mobility operations[cite: 1].</li>
+                                <li>Coordinated channel support pipelines across 4 core service disciplines[cite: 1].</li>
+                                <li>Governed EV component reliability markers and field warranty feedback loop resolutions[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Apr 2014 – Aug 2021[cite: 1]</span>
+                            <h3>Deputy Manager[cite: 1]</h3>
+                            <span class="company-span">Piaggio Vehicles Pvt. Ltd.[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Steered international customer support functions across 3 market sectors over a 7+ year tenure[cite: 1].</li>
+                                <li>Facilitated frontline capacity upskilling for mechanics, technicians, and local dealers[cite: 1].</li>
+                                <li>Drove parts inventory optimization models and technical warranty data reviews[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Sep 2013 – Apr 2014[cite: 1]</span>
+                            <h3>Senior Service Engineer[cite: 1]</h3>
+                            <span class="company-span">Force Motors Limited[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Deployed field diagnostics across expansive regional dealer networks[cite: 1].</li>
+                                <li>Enforced Service Quality Standard parameters across specialized tooling arrays[cite: 1].</li>
+                                <li>Maintained diagnostic case history across complex heavy component groups[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Feb 2008 – Sep 2013[cite: 1]</span>
+                            <h3>Senior Service Engineer[cite: 1]</h3>
+                            <span class="company-span">ZF Steering Gear India Ltd.[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Provided advanced steering infrastructure customer service matrices[cite: 1].</li>
+                                <li>Formulated structural repair pathways for plant engineering review modules[cite: 1].</li>
+                                <li>Leveraged SAP environments to execute spare-parts fulfillment tasks[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="luxury-panel timeline-card">
+                        <div class="card-header">
+                            <span class="date-span">Mar 1998 – Jan 2008[cite: 1]</span>
+                            <h3>Senior Service Advisor[cite: 1]</h3>
+                            <span class="company-span">Chowgule Industries Limited[cite: 1]</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Constructed a foundational 10-year bedrock sequence in full-scale service operations[cite: 1].</li>
+                                <li>Optimized workshop throughput pacing and customer satisfaction tracking[cite: 1].</li>
+                                <li>Supervised pre-delivery inspections and technical repair tracking frameworks[cite: 1].</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 06: EDITORIAL FINALE -->
+    <section class="chapter" id="connect">
+        <div class="container">
+            <div class="cta-wrapper luxury-panel">
+                <span class="section-title-eyebrow">V // Deployment Protocol</span>
+                <h2>Targeting Next-Phase Operations Assignments[cite: 1]</h2>
+                <p>Open to discussions regarding high-impact international and national director assignments within automotive networks[cite: 1].</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:amol.mudra@gmail.com" class="btn btn-primary">Initiate Contact</a>
+                    <a href="https://www.linkedin.com/in/amol-limaye-15b0b7171/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn Archive[cite: 1]</a>
+                </div>
+
+                <div class="footer-meta">
+                    <p>Amol Limaye • +91 93730 89604 • Pune, Maharashtra, India[cite: 1]</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.4;">Diploma in Automobile Engineering (1997)[cite: 1]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Runtime 3-Tier Image Detection Logic - Formatted for 100% transparent background matching
+        function loadProfileImage(onSuccess, onFail) {
+            const candidates = ['profile-cutout.png', 'profile.png', 'profile.jpeg', 'profile.jpg'];
+            let i = 0;
+            (function tryNext() {
+                if (i >= candidates.length) return onFail();
+                const img = new Image();
+                const isCutout = candidates[i] === 'profile-cutout.png';
+                img.onload = () => onSuccess(candidates[i], img, isCutout);
+                img.onerror = () => { i++; tryNext(); };
+                img.src = candidates[i];
+            })();
+        }
+
+        const slot = document.getElementById('imageSlot');
+
+        loadProfileImage(
+            (src, imgElement, isCutout) => {
+                const domImg = document.createElement('img');
+                domImg.src = src;
+                domImg.alt = "Amol Limaye Professional Headshot Portrait";
+                domImg.classList.add('resolved-profile-img');
+                slot.appendChild(domImg);
+
+                if (isCutout) {
+                    document.body.classList.add('img-state-cutout');
+                } else {
+                    document.body.classList.add('img-state-headshot');
+                }
+                ScrollTrigger.refresh();
+                animateHero();
+            },
+            () => {
+                document.body.classList.add('img-state-no-photo');
+                ScrollTrigger.refresh();
+                animateHero();
+            }
+        );
+
+        // Pinned Hero Opening Sequence Animation
+        function animateHero() {
+            const tl = gsap.timeline();
+            tl.to("#heroEyebrow", { opacity: 1, y: 0, duration: 1, delay: 0.3, ease: "power3.out" })
+              .to("#heroName", { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" }, "-=0.7")
+              .to("#heroTagline", { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.8")
+              .to("#heroRule", { width: "100%", duration: 1.4, ease: "expo.inOut" }, "-=0.7");
+              
+            if (document.querySelector('.img-container-slot')) {
+                tl.from(".img-container-slot", { opacity: 0, scale: 0.98, duration: 1.5, ease: "power2.out" }, "-=1.2");
+            }
+        }
+
+        // Global Scrolling Progress Management Indicator
+        gsap.to("#progressBar", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            },
+            width: "100%"
+        });
+
+        // Numerical Metrics Auto-running Logic Matrix
+        document.querySelectorAll('.metric-number').forEach(num => {
+            const target = parseInt(num.getAttribute('data-target'), 10);
+            gsap.to(num, {
+                scrollTrigger: {
+                    trigger: num,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                innerText: target,
+                duration: 2,
+                snap: { innerText: 1 },
+                ease: "power3.out"
+            });
+        });
+
+        // Chapter Location Indicator Configuration
+        const dots = document.querySelectorAll('.nav-dot');
+        document.querySelectorAll('section.chapter').forEach((section, index) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top 50%",
+                end: "bottom 50%",
+                onToggle: self => {
+                    if (self.isActive) {
+                        dots.forEach(d => d.classList.remove('active'));
+                        if(dots[index]) dots[index].classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // SIGNATURE SET PIECE: Chapter 4 Crescendo Execution Matrix
+        const setPieceTL = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#impact",
+                start: "top top",
+                end: "+=150%",
+                pin: true,
+                scrub: 0.5,
+                invalidateOnRefresh: true
+            }
+        });
+
+        setPieceTL.to("#crescendoNum", {
+            scale: 1.05,
+            onStart: () => document.getElementById('crescendoNum').classList.add('filled'),
+            onReverseComplete: () => document.getElementById('crescendoNum').classList.remove('filled')
+        });
+
+        // Horizontal Chronological Gallery Matrix Mechanics
+        if (window.innerWidth > 768) {
+            const wrapper = document.getElementById('scrollWrapper');
+            const totalWidth = wrapper.scrollWidth - window.innerWidth + 96; // adjusted container alignment padding
+            
+            gsap.to(wrapper, {
+                scrollTrigger: {
+                    trigger: "#journey",
+                    start: "top top",
+                    end: () => `+=${totalWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                },
+                x: -totalWidth,
+                ease: "none"
+            });
+        }
+
+        // Recalculate parameters when assets finish processing
+        document.fonts.ready.then(() => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Limaye | International After-Sales & Technical Service Leader</title>
+    <meta name="description" content="Portfolio of Amol Limaye, International After-Sales & Technical Service Leader with 26+ years of automotive operations experience.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Amol Limaye | International After-Sales & Technical Service Leader">
+    <meta property="og:description" content="26+ years of automotive operations experience across Africa, Asia, SAARC, and Latin America.">
+    <meta property="og:type" content="profile">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#FAF4EC">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --base: #FAF4EC;
+            --surface: #F3EDE4;
+            --surface-card: #FFFFFF;
+            --ink: #3A3027;
+            --ink-muted: #6B5E52;
+            --accent: #C8714F;
+            --accent-secondary: #8A9A7B;
+            --border-line: rgba(58, 48, 39, 0.08);
+            --max-width: 1100px;
+            --font-display: 'Fraunces', serif;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: var(--base);
+            color: var(--ink);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        /* Tactile & Soft Typography */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        p {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--ink-muted);
+            font-weight: 400;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+
+        /* Soft Breathing Progress Indicator */
+        .progress-rail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(200, 113, 79, 0.05);
+            z-index: 1000;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Tactile Organic Cards */
+        .organic-card {
+            background: var(--surface-card);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 12px 40px rgba(58, 48, 39, 0.03);
+            border: 1px solid rgba(58, 48, 39, 0.02);
+            position: relative;
+        }
+
+        /* 3-Tier Image Architecture - Seamless, Borderless, Feathered Container Integration */
+        .hero-layout-root {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 4rem;
+            min-height: 80vh;
+        }
+        
+        .img-container-slot {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+            aspect-ratio: 4/5;
+            border-radius: 40px;
+            overflow: hidden;
+            background: transparent !important;
+        }
+
+        body.img-state-cutout .img-container-slot,
+        body.img-state-headshot .img-container-slot {
+            display: flex;
+        }
+
+        .resolved-profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+            outline: none;
+            filter: contrast(0.98) brightness(1.02);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%), 
+                        linear-gradient(to right, transparent, black 6%, black 94%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%), 
+                                linear-gradient(to right, transparent, black 6%, black 94%, transparent 100%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+            background: transparent !important;
+        }
+
+        body.img-state-cutout .hero-layout-root,
+        body.img-state-headshot .hero-layout-root {
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        /* Breathing chapters */
+        section.chapter {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0;
+        }
+
+        /* Chapter 01: Hero Hook */
+        #hero {
+            padding-top: 10rem;
+        }
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 600;
+        }
+        .hero-name {
+            font-size: clamp(3.8rem, 8vw, 6.5rem);
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--ink-muted);
+            max-width: 600px;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Chapter 02: Tactile Origin */
+        .origin-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .summary-text {
+            font-size: 1.35rem;
+            color: var(--ink);
+            line-height: 1.7;
+            font-family: var(--font-display);
+        }
+        .summary-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .metric-block {
+            border-left: 3px solid var(--accent-secondary);
+            padding-left: 1.5rem;
+        }
+        .metric-number {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--ink-muted);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Chapter 03: Core Matrices */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+        .skill-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+        }
+        .skill-list {
+            list-style: none;
+        }
+        .skill-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.85rem;
+            color: var(--ink-muted);
+            font-size: 1rem;
+        }
+        .skill-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Chapter 04: Impact Plinth */
+        .crescendo-wrapper {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+            width: 100%;
+        }
+        .giant-display-num {
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 16vw, 13rem);
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--accent);
+            line-height: 0.9;
+            position: relative;
+            transition: color 1s ease;
+        }
+        .giant-display-num.filled {
+            color: var(--accent);
+            -webkit-text-stroke: none;
+        }
+        .impact-narrative h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Chapter 05: SVG Branch Timeline (SIGNATURE SET PIECE) */
+        .timeline-section-wrapper {
+            position: relative;
+            width: 100%;
+            padding-left: 4rem;
+        }
+        
+        /* The SVG growth backbone container */
+        .svg-spine-container {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            z-index: 1;
+        }
+        .svg-spine-line {
+            width: 2px;
+            height: 100%;
+            background: rgba(138, 154, 123, 0.2);
+            position: absolute;
+            left: 3px;
+            top: 0;
+        }
+        .svg-spine-growth {
+            width: 2px;
+            height: 0%;
+            background: var(--accent-secondary);
+            position: absolute;
+            left: 3px;
+            top: 0;
+            transition: height 0.1s linear;
+        }
+
+        .vertical-timeline-track {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-node-row {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+        
+        /* Blooming leaf indicator node */
+        .leaf-node-dot {
+            position: absolute;
+            left: -29px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--base);
+            border: 2px solid rgba(138, 154, 123, 0.4);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .timeline-node-row.bloomed .leaf-node-dot {
+            background: var(--accent-secondary);
+            border-color: var(--accent-secondary);
+            box-shadow: 0 0 8px rgba(138, 154, 123, 0.6);
+            transform: scale(1.2);
+        }
+
+        .timeline-organic-plate {
+            width: 100%;
+            max-width: 800px;
+        }
+        .card-header .date-span {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .card-header h3 {
+            font-size: 1.8rem;
+            margin: 0.25rem 0;
+            font-weight: 400;
+        }
+        .card-header .company-span {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            font-weight: 600;
+        }
+        .card-body {
+            margin-top: 1.5rem;
+        }
+        .card-body ul {
+            list-style: none;
+        }
+        .card-body li {
+            font-size: 1rem;
+            margin-bottom: 0.65rem;
+            color: var(--ink-muted);
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        .card-body li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* Chapter 06: Human Connection */
+        .cta-wrapper {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .cta-wrapper h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            font-size: 1rem;
+            text-decoration: none;
+            padding: 1.1rem 3rem;
+            border-radius: 40px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            font-weight: 600;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--base);
+            box-shadow: 0 8px 24px rgba(200, 113, 79, 0.25);
+        }
+        .btn-primary:hover {
+            background: #b5603f;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--border-line);
+        }
+        .btn-secondary:hover {
+            border-color: var(--ink);
+            background: rgba(58, 48, 39, 0.02);
+        }
+        .footer-meta {
+            margin-top: 5rem;
+            font-size: 0.9rem;
+            color: var(--ink-muted);
+            border-top: 1px solid var(--border-line);
+            padding-top: 3rem;
+        }
+
+        .section-title-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-secondary);
+            margin-bottom: 3.5rem;
+            display: block;
+            font-weight: 600;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            body.img-state-cutout .hero-layout-root,
+            body.img-state-headshot .hero-layout-root {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .img-container-slot {
+                max-width: 260px;
+                order: -1;
+            }
+            .origin-grid, .crescendo-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .timeline-section-wrapper {
+                padding-left: 2rem;
+            }
+            .svg-spine-container {
+                left: 0px;
+            }
+            .leaf-node-dot {
+                left: -25px;
+            }
+            section.chapter {
+                padding: 5rem 0;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Print Fallbacks */
+        @media print {
+            body { background: white; color: black; }
+            .organic-card { border: none; background: none; box-shadow: none; }
+            .progress-rail, .svg-spine-container { display: none; }
+            section.chapter { min-height: auto; page-break-inside: avoid; padding: 2rem 0; }
+            .leaf-node-dot { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ART DIRECTION DECLARATION
+    FAMILY: 5 · Organic & Human
+    DIRECTION: 05 · Terra Organic (light — warm, human, tactile)
+    DOMAIN: Automotive After-Sales & Operations Leadership (Seniority: 26+ Years)
+    PALETTE: #FAF4EC (Warm Cream Base), #C8714F (Tactile Terracotta Accent), #8A9A7B (Serene Sage Support), #3A3027 (Deep Charcoal Ink)
+    TYPE: Fraunces (Soft, organic serif display typography) + Nunito (Warm, friendly, highly legible body face)
+    MOTION PERSONALITY: Soft, rounded, breathing, natural structural pacing
+    SIGNATURE SET PIECE: Chapter 5 Blooming SVG Spine Timeline, where scroll behavior directly maps the growth of a sage branch down the career ledger, expanding nodes at precise milestones.
+    PHOTO TREATMENT: Embedded in a borderless, 100% true transparent container utilizing dual soft linear alpha feather paths to smoothly unify the headshot into warm cream tones.
+    RATIONALE: Conveys robust international team alignment, customer service focus, and industrial lifecycle maturity via human-centric structural compositions.
+    -->
+
+    <!-- DATA INVENTORY
+    * Candidate: Amol Limaye
+    * Target: Senior After-Sales & Service Operations Leadership
+    * Core Metrics: 26+ Years Experience[cite: 1], 3 Regional Clusters[cite: 1], 6 Stakeholder Groups[cite: 1], 25% Additional Business Generated[cite: 1].
+    * History Roles: Silverline Ventura (Senior Manager)[cite: 1], ETO Motors (Manager)[cite: 1], Piaggio Vehicles (Deputy Manager)[cite: 1], Force Motors (Senior Service Engineer)[cite: 1], ZF Steering Gear (Senior Service Engineer)[cite: 1], Chowgule Industries (Senior Service Advisor)[cite: 1].
+    * Core Proficiencies: CKD Assembly, Network Development, Warranty Governance, Spare-Parts Planning, SAP, CRM, DMS, SOP/SQS Compliance[cite: 1].
+    * Location: Pune, Maharashtra, India[cite: 1].
+    * Profile image: conditional (3-tier runtime check).
+    -->
+
+    <!-- SCENE STORYBOARD
+    CH | CHAPTER | MECHANIC | PIN? | SCRUB/TOGGLE | KEY FACT SHOWN | SEAM OUT
+    01 | Human Entrance | Soft text reveals using calm, breathing spatial layout delays. | No | Toggle | Name + Core Target Focus | Soft edge bleed
+    02 | Tactile Provenance | Asymmetrical split highlighting multi-decade scale parameters. | No | Toggle | 26+ Years Automotive Footprint[cite: 1] | Visual transition
+    03 | Capability Array | Curated structural cards presenting strategic capability branches. | No | Toggle | Operational Core Competencies[cite: 1] | Segment break
+    04 | Impact Focus | Bold plinth alignment transitioning wireframes into warm terracotta fills. | No | Toggle | 25% Additional Business Generation[cite: 1] | Section wipe
+    05 | Blooming Spine ★SET PIECE | Pinned SVG vertical tracking line blooming active node circles upon interaction. | Yes (250vh) | Scrub | Chronological Operational Track[cite: 1] | Scroll release
+    06 | Interaction Colophon | Symmetrical center element layout housing clear conversion actions. | No | Toggle | Direct Contact Telemetry[cite: 1] | Termination
+    -->
+
+    <div class="progress-rail"><div class="progress-bar" id="progressBar"></div></div>
+
+    <!-- CHAPTER 01: HERO HOOK -->
+    <section class="chapter" id="hero">
+        <div class="container">
+            <div class="hero-layout-root">
+                <div class="hero-text-content">
+                    <span class="hero-eyebrow">Strategic Network Operations</span>
+                    <h1 class="hero-name">Amol Limaye</h1>
+                    <p class="hero-tagline">International After-Sales & Technical Service Leader orchestrating high-performance service networks and logistics operations across global market ecosystems[cite: 1].</p>
+                </div>
+                <div class="img-container-slot" id="imageSlot">
+                    <!-- Dynamic runtime placement ensures borderless, 100% transparent environment rendering -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 02: TACTILE PROVENANCE ORIGIN -->
+    <section class="chapter" id="origin">
+        <div class="container">
+            <span class="section-title-eyebrow">01 // The Foundation</span>
+            <div class="origin-grid">
+                <div class="organic-card">
+                    <p class="summary-text">
+                        A modern professional lifecycle built upon more than 26 years of deep automotive stewardship[cite: 1]. Designing agile service networks, robust plant infrastructures, and international technical alignment strategies across Africa, Asia, SAARC, and Latin American clusters[cite: 1].
+                    </p>
+                </div>
+                <div class="summary-metrics">
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="26">0</div>
+                        <div class="metric-label">Years Field Stewardship[cite: 1]</div>
+                    </div>
+                    <div class="metric-block">
+                        <div class="metric-number" data-target="3">0</div>
+                        <div class="metric-label">Global Market Clusters[cite: 1]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 03: CORE MATRICES -->
+    <section class="chapter" id="expertise">
+        <div class="container">
+            <span class="section-title-eyebrow">02 // Capability Clusters</span>
+            <div class="skills-grid">
+                <div class="organic-card skill-card">
+                    <h3>After-Sales Architecture[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>International Service-Network Scaling[cite: 1]</li>
+                        <li>Distributor & Dealer Optimization Maps[cite: 1]</li>
+                        <li>Workshop Layout & Equipment Alignment[cite: 1]</li>
+                        <li>Go-to-Market Product Launch Frameworks[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="organic-card skill-card">
+                    <h3>Technical Containment[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Complete Knock-Down (CKD) Readiness[cite: 1]</li>
+                        <li>Warranty & Field Quality Control Governance[cite: 1]</li>
+                        <li>SOP & SQS Operational Adherence[cite: 1]</li>
+                        <li>Cross-Functional Failure Engineering[cite: 1]</li>
+                    </ul>
+                </div>
+                <div class="organic-card skill-card">
+                    <h3>Logistical Ecosystems[cite: 1]</h3>
+                    <ul class="skill-list">
+                        <li>Spare-Parts Distribution Protocols[cite: 1]</li>
+                        <li>Dead-Stock Inventory Containment[cite: 1]</li>
+                        <li>RFP Architecture & Presales Alignment[cite: 1]</li>
+                        <li> frontline TechnicalUpskilling Arrays[cite: 1]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 04: PLINTH IMPACT CRESCENDO -->
+    <section class="chapter" id="impact">
+        <div class="container">
+            <span class="section-title-eyebrow">03 // Value Optimization</span>
+            <div class="crescendo-wrapper">
+                <div class="giant-display-num" id="crescendoNum">+25%</div>
+                <div class="impact-narrative organic-card">
+                    <h2>Commercial Network Optimization</h2>
+                    <p>
+                        Generated a documented 25% increase in additional business volume by optimizing child-parts technical workflows and streamlining structural dealer grievance resolutions[cite: 1]. Seamlessly uniting manufacturing plants, R&D loops, and international field entities[cite: 1].
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 05: BLOOMING SVG TIMELINE SPINE (SIGNATURE SET PIECE) -->
+    <section class="chapter" id="journey">
+        <div class="container">
+            <span class="section-title-eyebrow">04 // Operational Timeline</span>
+            
+            <div class="timeline-section-wrapper">
+                <!-- SVG growth tracker infrastructure line element -->
+                <div class="svg-spine-container">
+                    <div class="svg-spine-line"></div>
+                    <div class="svg-spine-growth" id="spineGrowth"></div>
+                </div>
+
+                <div class="vertical-timeline-track">
+                    
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">May 2022 – Present[cite: 1]</span>
+                                <h3>Senior Manager[cite: 1]</h3>
+                                <span class="company-span">Silverline Ventura[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Directs technical operations for Africa, Asia, and SAARC hubs[cite: 1].</li>
+                                    <li>Leads 5 connected capacity service readiness workstreams[cite: 1].</li>
+                                    <li>Validates plant export compliance across 4 strict checkpoints[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">Dec 2021 – May 2022[cite: 1]</span>
+                                <h3>Manager[cite: 1]</h3>
+                                <span class="company-span">ETO Motors[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Supervised field repair frameworks for scaling EV platforms[cite: 1].</li>
+                                    <li>Coordinated critical channels across 4 core service disciplines[cite: 1].</li>
+                                    <li>Governed EV serviceability through PDI and validation loops[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">Apr 2014 – Aug 2021[cite: 1]</span>
+                                <h3>Deputy Manager[cite: 1]</h3>
+                                <span class="company-span">Piaggio Vehicles Pvt. Ltd.[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Steered international networks across 3 macro sectors over a 7+ year tenure[cite: 1].</li>
+                                    <li>Designed extensive workshop setups for new global distributors[cite: 1].</li>
+                                    <li>Captured 25% additional downstream growth from component query tracking[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">Sep 2013 – Apr 2014[cite: 1]</span>
+                                <h3>Senior Service Engineer[cite: 1]</h3>
+                                <span class="company-span">Force Motors Limited[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Maintained technical diagnostics across regional dealer spaces[cite: 1].</li>
+                                    <li>Enforced standard operating rules under strict SQS parameters[cite: 1].</li>
+                                    <li>Mitigated systemic component failure loops via plant QA links[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">Feb 2008 – Sep 2013[cite: 1]</span>
+                                <h3>Senior Service Engineer[cite: 1]</h3>
+                                <span class="company-span">ZF Steering Gear India Ltd.[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Provided field support models for specialized steering infrastructure[cite: 1].</li>
+                                    <li>Formulated root-cause diagnostic matrices for engineering teams[cite: 1].</li>
+                                    <li>Leveraged SAP environments to execute inventory logistics tasks[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node-row">
+                        <div class="leaf-node-dot"></div>
+                        <div class="organic-card timeline-organic-plate">
+                            <div class="card-header">
+                                <span class="date-span">Mar 1998 – Jan 2008[cite: 1]</span>
+                                <h3>Senior Service Advisor[cite: 1]</h3>
+                                <span class="company-span">Chowgule Industries Limited[cite: 1]</span>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Constructed a foundational 10-year bedrock track in high-volume workshops[cite: 1].</li>
+                                    <li>Supervised pre-delivery vehicle check configurations and routes[cite: 1].</li>
+                                    <li>Optimized throughput pacing to consistently scale local retention metrics[cite: 1].</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTER 06: HUMAN CONNECTION -->
+    <section class="chapter" id="connect">
+        <div class="container">
+            <div class="cta-wrapper organic-card">
+                <span class="section-title-eyebrow">05 // Let's Build</span>
+                <h2>Targeting Senior Global Assignments[cite: 1]</h2>
+                <p>Open to discussions regarding high-impact director or national management appointments within global automotive frameworks[cite: 1].</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:amol.mudra@gmail.com" class="btn btn-primary">Initiate Conversation</a>
+                    <a href="https://www.linkedin.com/in/amol-limaye-15b0b7171/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn Profile[cite: 1]</a>
+                </div>
+
+                <div class="footer-meta">
+                    <p>Amol Limaye • +91 93730 89604 • Pune, India[cite: 1]</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.6; font-style: italic;">Diploma in Automobile Engineering, 1997[cite: 1]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 3-Tier Runtime Image Detection Layer (Borderless, 100% Transparent Container)
+        function loadProfileImage(onSuccess, onFail) {
+            const candidates = ['profile-cutout.png', 'profile.png', 'profile.jpeg', 'profile.jpg'];
+            let i = 0;
+            (function tryNext() {
+                if (i >= candidates.length) return onFail();
+                const img = new Image();
+                const isCutout = candidates[i] === 'profile-cutout.png';
+                img.onload = () => onSuccess(candidates[i], img, isCutout);
+                img.onerror = () => { i++; tryNext(); };
+                img.src = candidates[i];
+            })();
+        }
+
+        const slot = document.getElementById('imageSlot');
+
+        loadProfileImage(
+            (src, imgElement, isCutout) => {
+                const domImg = document.createElement('img');
+                domImg.src = src;
+                domImg.alt = "Amol Limaye Professional Tactile Portfolio Portrait";
+                domImg.classList.add('resolved-profile-img');
+                slot.appendChild(domImg);
+
+                if (isCutout) {
+                    document.body.classList.add('img-state-cutout');
+                } else {
+                    document.body.classList.add('img-state-headshot');
+                }
+                ScrollTrigger.refresh();
+            },
+            () => {
+                document.body.classList.add('img-state-no-photo');
+                ScrollTrigger.refresh();
+            }
+        );
+
+        // Soft Top Progress Scroller Indicator
+        gsap.to("#progressBar", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            },
+            width: "100%"
+        });
+
+        // Natural Numeric Counter Tweens
+        document.querySelectorAll('.metric-number').forEach(num => {
+            const target = parseInt(num.getAttribute('data-target'), 10);
+            gsap.to(num, {
+                scrollTrigger: {
+                    trigger: num,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                },
+                innerText: target,
+                duration: 1.8,
+                snap: { innerText: 1 },
+                ease: "power2.out"
+            });
+        });
+
+        // Plinth Fill Triggers
+        ScrollTrigger.create({
+            trigger: "#impact",
+            start: "top 60%",
+            onEnter: () => document.getElementById('crescendoNum').classList.add('filled'),
+            onLeaveBack: () => document.getElementById('crescendoNum').classList.remove('filled')
+        });
+
+        // SIGNATURE SET PIECE: Vertical SVG Branch Growth & Node Blooming Matrix
+        const spineGrowth = document.getElementById('spineGrowth');
+        const rows = document.querySelectorAll('.timeline-node-row');
+
+        ScrollTrigger.create({
+            trigger: "#journey",
+            start: "top 40%",
+            end: "bottom 60%",
+            scrub: 0.3,
+            onUpdate: self => {
+                // Map the overall scroll progress to the height percentage of the growth branch
+                spineGrowth.style.height = `${self.progress * 100}%`;
+            }
+        });
+
+        rows.forEach(row => {
+            ScrollTrigger.create({
+                trigger: row,
+                start: "top 65%",
+                onEnter: () => row.classList.add('bloomed'),
+                onLeaveBack: () => row.classList.remove('bloomed')
+            });
+        });
+
+        // Global Parameters Adjustment on Resource Processing Finalization
+        document.fonts.ready.then(() => {
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>
